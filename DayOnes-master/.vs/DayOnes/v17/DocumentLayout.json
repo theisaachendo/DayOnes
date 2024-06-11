@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Mac\\Home\\Documents\\DayOnes-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|c:\\mac\\home\\documents\\dayones-master\\views\\hostpages\\hpostdetailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|solutionrelative:views\\hostpages\\hpostdetailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|c:\\mac\\home\\documents\\dayones-master\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|solutionrelative:views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|c:\\mac\\home\\documents\\dayones-master\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7C6411B-FB61-426C-A250-B39CD0A260BC}|DayOnes.csproj|solutionrelative:views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginPage.xaml",
+              "ToolTip": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\LoginPage.xaml",
+              "RelativeToolTip": "Views\\LoginPage.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-01T21:04:36.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\LoginPage.xaml.cs",
+              "RelativeToolTip": "Views\\LoginPage.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T21:04:31.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HPostDetailsPage.xaml",
+              "DocumentMoniker": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\HostPages\\HPostDetailsPage.xaml",
+              "RelativeDocumentMoniker": "Views\\HostPages\\HPostDetailsPage.xaml",
+              "ToolTip": "C:\\Mac\\Home\\Documents\\DayOnes-master\\Views\\HostPages\\HPostDetailsPage.xaml",
+              "RelativeToolTip": "Views\\HostPages\\HPostDetailsPage.xaml",
+              "ViewState": "AQIAAAAAAABAAAAAAIAZwAoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-01T21:04:15.399Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

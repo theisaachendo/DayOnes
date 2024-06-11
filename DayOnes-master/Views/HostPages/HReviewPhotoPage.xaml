@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HReviewPhotoPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+
+        <!--<Frame Grid.Row="0"
+               BackgroundColor="{StaticResource DefaultBlack}"
+               HorizontalOptions="End"
+               Padding="0"
+               BorderColor="{StaticResource DefaultBlack}"
+               >-->
+            <!--Button-->
+            <components:GradientImageButton
+               HorizontalOptions="EndAndExpand"
+           Grid.Row="0"
+                ImageSource="back.png"
+                Width="60" 
+                Height="50" 
+                Margin="5"
+                Name="btnBack" 
+                OnClick="btnBack_Click"
+           
+           />
+        <!--</Frame>-->
+            
+        <components:FanTitleBar
+             Grid.Row="1"
+            Title="Choose Action"
+        />
+
+        <Image 
+            Grid.Row="2"
+            x:Name="imgUploaded"
+            WidthRequest="390"
+            HeightRequest="379"
+            VerticalOptions="Start"
+            />
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <Image
+                Source="cancelselfie.png"
+                Grid.Column="0"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgCancel_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+
+            <!--Column 1-->
+            <Image
+                Source="chossig.png"
+                Grid.Column="1"
+                WidthRequest="60"
+                VerticalOptions="Center"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgSig_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!--Column 3-->
+            <Image
+                Source="saveupload.png"
+                Grid.Column="2"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgUpload_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HPOSTURSentMsgsPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Row 1-->
+        <components:HostSmallHdr
+            Grid.Row="0"
+            />
+        
+        <!--Row 2-->
+        <Frame CornerRadius="0"
+            Grid.Row="1"
+            BorderColor="Transparent"
+            Margin="-5,0,-5,0"
+            >
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#3A27BC" Offset="0.0" />
+                    <GradientStop Color="{StaticResource DefaultBlack}" Offset="0.4" />
+                    <GradientStop Color="#3DC1F9" Offset="0.8" />
+                </LinearGradientBrush>
+            </Frame.Background>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Row 1-->
+                <Label 
+                    Grid.Column="0"
+                    Text="All Groups (5.9k)"
+                    Margin="0,0,0,15"
+                    TextColor="{StaticResource DefaultWhite}"
+                    FontFamily="SFProText"
+                    VerticalOptions="Center"
+                    />
+
+                <!--Row 2-->
+                <Label
+                    Grid.Column="1"
+                   Text="Posts" 
+                   FontFamily="SFProText"
+                    TextColor="{StaticResource DefaultWhite}"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                    VerticalOptions="Center"
+                   
+                    />
+
+                <!--Row 3-->
+                <components:GradientButton
+                    Grid.Column="2"
+                    Text="Msg All Fans"
+                    Width="100"
+                    FontSize="10"
+                OnClick="btnFans_Click"
+                    
+                    />
+            </Grid>
+        </Frame>
+        
+        <!--Row 3-->
+        <!--<components:HostPostContainer
+            Grid.Row="2"
+     GroupName="aaa"
+     ImageSource="singer.png"
+     PostContent="ss"
+     LikeCount="3"
+     CommentCount="2"
+     
+     />-->
+        <ScrollView
+            Grid.Row="2"
+            WidthRequest="388"
+            HeightRequest="524"
+            >
+
+            <CollectionView 
+                x:Name="listHostPosts">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <components:HostPostContainer
+                            GroupName="{Binding GroupName}"
+                            ImageSource="{Binding ImageSource}"
+                            PostContent="{Binding PostContent}"
+                            LikeCount="{Binding LikeCount}"
+                            CommentCount="{Binding CommentCount}"
+                            BtnTapped="btnMsgGrp_Click"
+                            >
+
+                            <components:HostPostContainer.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="HostPost_Tapped" />
+                            </components:HostPostContainer.GestureRecognizers>
+                        </components:HostPostContainer>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+                <!--<CollectionView.GestureRecognizers>
+
+                    <TapGestureRecognizer Tapped="btnDM_Click"/>
+                </CollectionView.GestureRecognizers>-->
+            </CollectionView>
+        </ScrollView>
+        
+        <!--Row 4-->
+        <components:HostTabBar
+           Grid.Row="3"  HorizontalOptions="CenterAndExpand"
+            VerticalOptions="End"
+           />
+        
+    </Grid>
+</ContentPage>

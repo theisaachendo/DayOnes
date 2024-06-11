@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HNewALLPostPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <Grid Grid.Row="0" 
+              VerticalOptions="Center"
+              HorizontalOptions="CenterAndExpand" 
+              Margin="5"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Ellipse Image -->
+            <toolkit:AvatarView
+                      CornerRadius="75">
+                <Frame 
+                    Grid.Column="0"
+                    CornerRadius="25"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Padding="0"
+                    HasShadow="False"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center">
+                    <Image
+                    Source="im2.png"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start" />
+                </Frame>
+            </toolkit:AvatarView>
+
+            <!--Profile text-->
+            <Label 
+                Grid.Column="1"
+                
+                Text="Artist"
+                FontSize="12"
+                FontAttributes="Bold"
+                Margin="10,20"
+                TextColor="White"
+                />
+
+            <components:GrpNameTag
+                Grid.Column="2"
+                Title="DATE.Same group"
+                />
+
+            <!--Button-->
+            <components:GradientImageButton
+    Grid.Column="3"
+    Margin="10"
+                ImageSource="back.png"
+     Width="60" 
+     Height="50" 
+     Name="btnBack" 
+     OnClick="btnBack_Click"
+    
+    />
+        </Grid>
+
+        <!--Row 2-->
+        <components:FanTitleBar
+            Grid.Row="1"
+            Title="Post Details"
+                />
+
+        <!--Row 3-->
+        <Label
+            Grid.Row="2"
+            Text="19 April"
+            TextColor="{StaticResource DefaultWhite}"
+            BackgroundColor="{StaticResource DefaultBlack}"
+            HorizontalOptions="Center"
+                />
+
+
+        <!-- Row 3 -->
+        <!-- Bottom Bar -->
+        <Grid Grid.Row="4" VerticalOptions="End">
+            <Frame BackgroundColor="{StaticResource DefaultCyan}" BorderColor="Transparent" Padding="0" Margin="0"
+               WidthRequest="390" HeightRequest="44" HorizontalOptions="Center" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <!-- Attachment Icon -->
+                    <Image Source="attachment.png"
+                               WidthRequest="24" HeightRequest="24" />
+
+                    <!-- Input Box -->
+                    <!--<Frame BackgroundColor="{StaticResource DefaultWhite}" BorderColor="{StaticResource DefaultWhite}" CornerRadius="16.5" 
+                       WidthRequest="282" HeightRequest="40">-->
+                    <Frame 
+                        BackgroundColor="{StaticResource DefaultWhite}"
+                        WidthRequest="282" HeightRequest="40"
+                        CornerRadius="16.5" 
+                        Padding="0,0,0,0"
+                               >
+
+                        <Grid 
+                                         VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="17"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Entry
+                                x:Name="txtMessage"
+                                    Grid.Column="0"
+                                    Text="Message" FontFamily="SFProText" FontSize="17" TextColor="{StaticResource DefaultBlack}"
+                               FontAttributes="None"
+                                    />
+
+                            <!-- Stickers Icon -->
+                            <Image 
+                                    Grid.Column="1"
+                                    HorizontalOptions="End" Source="stickers.png"
+                                       WidthRequest="20" HeightRequest="16" />
+
+                        </Grid>
+                    </Frame>
+
+                    <!-- Record Icon -->
+
+                    <!-- Microphone Icon -->
+                    <Image Source="send.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="sendButton_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!-- Text Counter -->
+
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+    </Grid>
+</ContentPage>

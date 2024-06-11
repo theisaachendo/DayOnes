@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.LoginPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+              Background="{StaticResource DefaultBlack}"
+             >
+    <VerticalStackLayout 
+        Margin="10,0"
+        Spacing="40"
+        HorizontalOptions="FillAndExpand" >
+        <Image  WidthRequest="57" HeightRequest="80" Source="d1logo3.png">
+
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="imgLogo_Tapped"></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <StackLayout>
+        <!-- Username -->
+        <Frame
+            Margin="15"
+            Padding="0,0,0,0"
+            BackgroundColor="Transparent"
+            BorderColor="{StaticResource DefaultPurple}"
+            HeightRequest="52"
+            CornerRadius="20"
+        >
+            <Frame.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#4B0981" Offset="0" />
+                    <GradientStop Color="Transparent" Offset="1.0" />
+                </RadialGradientBrush>
+            </Frame.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                    <Frame HeightRequest="20"
+                        Padding="0"
+                        Margin="0,-19"
+                        WidthRequest="150"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        BorderColor="Red"
+                        BackgroundColor="White"
+                    >
+                    <Label
+                        Text="Username"
+                        BackgroundColor="Transparent"
+                        FontSize="18"
+                        TextColor="Red"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center"
+                    />
+                    </Frame>
+                        <Entry
+                            Margin="18,0,0,0"
+                            Grid.Row="1"
+                            FontFamily="SFProText"
+                            x:Name="txtEmail"
+                            Placeholder="Username"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                        />
+            </Grid>
+        </Frame>
+
+        <!--Password-->
+        <Frame
+            Margin="15"
+            Padding="0,0,0,0"
+            BackgroundColor="Transparent"
+            BorderColor="{StaticResource DefaultPurple}"
+            ZIndex="0"
+            HeightRequest="52"
+            CornerRadius="20">
+            <Frame.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#4B0981" Offset="0" />
+                    <GradientStop Color="Transparent" Offset="1" />
+                </RadialGradientBrush>
+            </Frame.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                    <Frame HeightRequest="20"
+                           Padding="0"
+                           Margin="0,-19"
+                           WidthRequest="150"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start"
+                           BorderColor="Red"
+                           BackgroundColor="White"
+                           >
+                        <Label
+                            Text="Password"
+                            BackgroundColor="Transparent"
+                            FontFamily="SFProText"
+                            FontSize="18"
+                            TextColor="Red"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Start"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                    </Frame>
+                    <Entry
+                        Grid.Row="1"
+                        x:Name="txtPassword"
+                        Margin="19,0,0,0"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        BackgroundColor="Transparent"
+                        FontFamily="SFProText"
+                        TextColor="White"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                    />
+            </Grid>
+        </Frame>
+
+        </StackLayout>
+
+        <StackLayout>
+            <!-- LOGIN BUTTON -->
+            <components:GradientButton
+                Text="Login"
+                FontSize="30"
+                Width="200" 
+                Height="60" 
+                Name="btnLogin" 
+                OnClick="btnLog_Click" 
+                Margin="10"
+                Padding="50"
+            />
+            <Label
+                Text="New Account Registration"
+                FontSize="30"
+                FontFamily="SFProText"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center">
+            </Label>
+            <!-- SIGNUP BUTTON -->             
+            <components:GradientButton 
+                Text="SignUp"
+                FontSize="30"
+                Width="200" 
+                Height="60" 
+                Name="btnSignup" 
+                OnClick="btnSignup_Click"
+                Margin="10"
+                Padding="10"
+            />
+
+        </StackLayout>
+        
+    </VerticalStackLayout>
+  
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.CommentLabel">
+
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Column 1-->
+        <Image
+        Grid.Column="0"
+        Source="vectorcomment.png"
+        HorizontalOptions="End"
+        VerticalOptions="Center"
+        
+        />
+
+        <!--Column 2-->
+        <Label
+        Grid.Column="1"
+        FontFamily="SFProText"
+        TextColor="{StaticResource DefaultDarkGrey}"
+        x:Name="lblCount"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Margin="4"
+        />
+    </Grid>
+</ContentView>

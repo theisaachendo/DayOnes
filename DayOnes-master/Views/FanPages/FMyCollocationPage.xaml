@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.FMyCollocationPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             Background="{StaticResource DefaultBlack}"
+             >
+
+    <Grid RowSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+        <!-- Fan Head -->
+        <components:FanSmallHdr
+         Grid.Row="0"
+            Margin="0,0,0,0"
+            />
+        
+        <components:FanTitleBar
+             Grid.Row="1"
+                Title="My Collections"
+                />
+
+
+
+
+
+            <CollectionView x:Name="imageViewer" Grid.Row="2" Margin="20">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                         Span="3" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                        <Image Grid.Column="0"
+Source="{Binding Source}"
+Aspect="AspectFill"
+                               HeightRequest="125"
+>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="OnImageTapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    <components:FanTabBar
+        Grid.Row="3"
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

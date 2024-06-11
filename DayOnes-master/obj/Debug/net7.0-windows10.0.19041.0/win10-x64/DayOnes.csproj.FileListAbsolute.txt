@@ -1,0 +1,1219 @@
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.exe
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.deps.json
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.runtimeconfig.json
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.Core.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Debug.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Options.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.Interop.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.InteractiveExperiences.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WinUI.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppLifecycle.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.Resources.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Power.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Projection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.GLControl.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Gtk.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WindowsForms.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WPF.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Licensing.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Buttons.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Core.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Speech.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\en-US\Syncfusion.Maui.Buttons.resources.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\libSkiaSharp.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.CSharp.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.Core.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Registry.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.AppContext.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Buffers.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Concurrent.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Immutable.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.NonGeneric.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Specialized.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Annotations.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.DataAnnotations.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.EventBasedAsync.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.TypeConverter.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Configuration.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Console.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Core.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.Common.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.DataSetExtensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Contracts.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Debug.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.DiagnosticSource.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.FileVersionInfo.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Process.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.StackTrace.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tools.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TraceSource.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tracing.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Dynamic.Runtime.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Asn1.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Tar.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Calendars.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Extensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Brotli.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.FileSystem.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.ZipFile.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.AccessControl.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.DriveInfo.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Watcher.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.IsolatedStorage.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.MemoryMappedFiles.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.AccessControl.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.UnmanagedMemoryStream.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Expressions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Parallel.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Queryable.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Memory.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.Json.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.HttpListener.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Mail.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NameResolution.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NetworkInformation.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Ping.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Quic.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Requests.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Security.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.ServicePoint.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Sockets.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebClient.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebHeaderCollection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebProxy.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.Client.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.Vectors.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ObjectModel.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.CoreLib.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.DataContractSerialization.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Uri.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.Linq.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.DispatchProxy.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.ILGeneration.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.Lightweight.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Extensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Metadata.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.TypeExtensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Reader.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.ResourceManager.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Writer.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Extensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Handles.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.JavaScript.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Intrinsics.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Loader.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Numerics.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Formatters.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Json.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Xml.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.AccessControl.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Claims.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Algorithms.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Cng.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Csp.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Encoding.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.OpenSsl.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Primitives.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.X509Certificates.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.Windows.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.SecureString.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceModel.Web.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceProcess.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.CodePages.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.Extensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encodings.Web.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Json.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.RegularExpressions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Channels.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Overlapped.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Dataflow.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Extensions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Parallel.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Thread.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.ThreadPool.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Timer.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.Local.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ValueTuple.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.HttpUtility.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Windows.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Linq.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.ReaderWriter.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Serialization.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XDocument.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.XDocument.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlDocument.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlSerializer.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WindowsBase.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorlib.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\netstandard.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Compatibility.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Xaml.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Essentials.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Native.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clretwrc.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrgc.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrjit.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\coreclr.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\createdump.exe
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1624.6629.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.SDK.NET.dll
+C:\Users\CZ\Downloads\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WinRT.Runtime.dll
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.AssemblyReference.cache
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.inputs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.inputs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauimanifest.stamp
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.i.cs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.cs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlTypeInfo.g.cs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xaml
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.stamp
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.stamp
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Brands-Regular-400.otf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Regular-400.otf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Solid-900.otf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\SF-Pro-Text-Regular.otf
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist1.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist2.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\attachment.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back2.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\camera.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cancelselfie.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chevswitchdown.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chossig.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\d1logo3.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dmic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dropdown.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fileattachment.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heart.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvector.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvectorfilled.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im1.scale-100.PNG
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.jfif
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im3.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.jfif
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im5.scale-100.jpg
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\microphone.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\minus.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\msgsic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mystuffic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\notificationic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pics.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pin.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\plus.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pmic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\post.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\postic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ppin.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\psend.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstart.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstartpage.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\saveupload.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sdmic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selectedrb.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selfie.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\send.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\setting.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\shomeic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig1.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig2.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig3.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\singer.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smsgsic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smystuffic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\snotificationic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spostic.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ssetting.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stickers.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorcomment.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.stamp
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfoInputs.cache
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfo.cs
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.CoreCompileInputs.cache
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlC.stamp
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.Up2Date
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\refint\DayOnes.dll
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.genruntimeconfig.cache
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ref\DayOnes.dll
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\CZ\Downloads\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.exe
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.deps.json
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.runtimeconfig.json
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.Core.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Debug.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Options.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.Interop.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.InteractiveExperiences.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WinUI.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppLifecycle.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.Resources.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Power.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Projection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.GLControl.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.Common.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Gtk.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WindowsForms.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WPF.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Licensing.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Buttons.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Core.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Speech.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\en-US\Syncfusion.Maui.Buttons.resources.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\libSkiaSharp.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.CSharp.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.Core.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Registry.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.AppContext.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Buffers.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Concurrent.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Immutable.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.NonGeneric.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Specialized.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Annotations.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.DataAnnotations.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.EventBasedAsync.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.TypeConverter.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Configuration.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Console.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Core.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.Common.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.DataSetExtensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Contracts.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Debug.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.DiagnosticSource.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.FileVersionInfo.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Process.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.StackTrace.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TextWriterTraceListener.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tools.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TraceSource.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tracing.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Dynamic.Runtime.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Asn1.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Tar.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Calendars.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Extensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Brotli.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.FileSystem.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.ZipFile.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.AccessControl.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.DriveInfo.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Watcher.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.IsolatedStorage.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.MemoryMappedFiles.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.AccessControl.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.UnmanagedMemoryStream.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Expressions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Parallel.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Queryable.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Memory.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.Json.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.HttpListener.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Mail.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NameResolution.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NetworkInformation.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Ping.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Quic.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Requests.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Security.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.ServicePoint.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Sockets.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebClient.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebHeaderCollection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebProxy.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.Client.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.Vectors.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ObjectModel.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.CoreLib.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.DataContractSerialization.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Uri.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.Linq.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.DispatchProxy.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.ILGeneration.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.Lightweight.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Extensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Metadata.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.TypeExtensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Reader.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.ResourceManager.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Writer.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.VisualC.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Extensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Handles.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.JavaScript.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Intrinsics.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Loader.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Numerics.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Formatters.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Json.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Xml.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.AccessControl.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Claims.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Algorithms.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Cng.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Csp.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Encoding.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.OpenSsl.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Primitives.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.X509Certificates.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.Windows.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.SecureString.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceModel.Web.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceProcess.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.CodePages.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.Extensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encodings.Web.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Json.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.RegularExpressions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Channels.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Overlapped.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Dataflow.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Extensions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Parallel.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Thread.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.ThreadPool.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Timer.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.Local.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ValueTuple.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.HttpUtility.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Windows.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Linq.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.ReaderWriter.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Serialization.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XDocument.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.XDocument.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlDocument.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlSerializer.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WindowsBase.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorlib.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\netstandard.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Compatibility.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Xaml.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Essentials.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Native.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clretwrc.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrgc.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrjit.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\coreclr.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\createdump.exe
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.1924.21523.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.SDK.NET.dll
+C:\Mac\Home\Documents\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WinRT.Runtime.dll
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.AssemblyReference.cache
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.inputs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.inputs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauimanifest.stamp
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.i.cs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.cs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlTypeInfo.g.cs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xaml
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.stamp
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.stamp
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Brands-Regular-400.otf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Regular-400.otf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Solid-900.otf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\SF-Pro-Text-Regular.otf
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist1.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist2.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\attachment.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back2.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\camera.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cancelselfie.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chevswitchdown.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chossig.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\d1logo3.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dmic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dropdown.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fileattachment.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heart.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvector.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvectorfilled.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im1.scale-100.PNG
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.jfif
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im3.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.jfif
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im5.scale-100.jpg
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\microphone.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\minus.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\msgsic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mystuffic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\notificationic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pics.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pin.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\plus.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pmic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\post.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\postic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ppin.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\psend.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstart.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstartpage.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\saveupload.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sdmic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selectedrb.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selfie.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\send.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\setting.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\shomeic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig1.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig2.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig3.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\singer.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smsgsic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smystuffic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\snotificationic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spostic.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ssetting.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stickers.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorcomment.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.stamp
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfoInputs.cache
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfo.cs
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.CoreCompileInputs.cache
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlC.stamp
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.Up2Date
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\refint\DayOnes.dll
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.genruntimeconfig.cache
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ref\DayOnes.dll
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Mac\Home\Documents\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.AssemblyReference.cache
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.inputs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.inputs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauimanifest.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.i.cs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.cs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlTypeInfo.g.cs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xaml
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.exe
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.deps.json
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.runtimeconfig.json
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.Core.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Debug.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Options.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.Interop.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.SystemEvents.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.InteractiveExperiences.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WinUI.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppLifecycle.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.Resources.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Power.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Projection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\OpenTK.GLControl.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.Gtk.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WindowsForms.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\SkiaSharp.Views.WPF.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Licensing.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Buttons.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Syncfusion.Maui.Core.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Common.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Speech.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\websocket-sharp-core.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\en-US\Syncfusion.Maui.Buttons.resources.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\libSkiaSharp.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.CSharp.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.Core.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.VisualBasic.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Win32.Registry.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.AppContext.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Buffers.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Concurrent.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Immutable.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.NonGeneric.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.Specialized.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Collections.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Annotations.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.DataAnnotations.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.EventBasedAsync.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.TypeConverter.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ComponentModel.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Configuration.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Console.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Core.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.Common.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.DataSetExtensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Data.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Contracts.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Debug.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Process.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.StackTrace.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tools.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.TraceSource.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Diagnostics.Tracing.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Drawing.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Dynamic.Runtime.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Asn1.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Formats.Tar.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Calendars.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.Extensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Globalization.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Brotli.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.FileSystem.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.ZipFile.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.AccessControl.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.Watcher.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.FileSystem.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.IsolatedStorage.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.MemoryMappedFiles.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.AccessControl.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipes.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.UnmanagedMemoryStream.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Expressions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Parallel.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.Queryable.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Linq.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Memory.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.Json.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Http.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.HttpListener.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Mail.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NameResolution.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.NetworkInformation.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Ping.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Quic.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Requests.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Security.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.ServicePoint.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.Sockets.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebClient.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebHeaderCollection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebProxy.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.Client.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.WebSockets.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Net.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.Vectors.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Numerics.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ObjectModel.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.CoreLib.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.DataContractSerialization.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Uri.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.Linq.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Private.Xml.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.DispatchProxy.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.ILGeneration.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.Lightweight.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Emit.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Extensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Metadata.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.TypeExtensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Reflection.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Reader.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.ResourceManager.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Resources.Writer.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Extensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Handles.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.JavaScript.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.InteropServices.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Intrinsics.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Loader.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Numerics.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Formatters.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Json.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.Xml.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.Serialization.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Runtime.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.AccessControl.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Claims.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Algorithms.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Cng.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Csp.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Encoding.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.OpenSsl.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.Primitives.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Cryptography.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.Windows.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.Principal.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.SecureString.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Security.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceModel.Web.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ServiceProcess.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.CodePages.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.Extensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encoding.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Encodings.Web.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.Json.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Text.RegularExpressions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Channels.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Overlapped.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Dataflow.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Extensions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.Parallel.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Tasks.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Thread.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.ThreadPool.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.Timer.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Threading.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.Local.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Transactions.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.ValueTuple.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.HttpUtility.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Web.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Windows.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Linq.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.ReaderWriter.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.Serialization.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XDocument.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.XDocument.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XPath.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlDocument.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.XmlSerializer.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Xml.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WindowsBase.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorlib.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\netstandard.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Compatibility.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.Xaml.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Essentials.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Compression.Native.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clretwrc.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrgc.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\clrjit.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\coreclr.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\createdump.exe
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostfxr.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\hostpolicy.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordaccore_amd64_amd64_7.0.2024.26716.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscordbi.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\mscorrc.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\msquic.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.SDK.NET.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\WinRT.Runtime.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauisplash.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauifont.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Brands-Regular-400.otf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Regular-400.otf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Solid-900.otf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\SF-Pro-Text-Regular.otf
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist1.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist2.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\attachment.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back2.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\camera.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cancelselfie.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chevswitchdown.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chossig.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\d1logo3.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dmic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dropdown.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fileattachment.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heart.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvector.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvectorfilled.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im1.scale-100.PNG
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.jfif
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im3.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.jfif
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im5.scale-100.jpg
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\microphone.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\minus.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\msgsic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mystuffic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\notificationic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pics.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pin.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\plus.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pmic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\post.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\postic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ppin.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\psend.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstart.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstartpage.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\saveupload.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sdmic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selectedrb.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selfie.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\send.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\setting.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\shomeic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig1.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig2.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig3.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\singer.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smsgsic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smystuffic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\snotificationic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spostic.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ssetting.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stickers.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorcomment.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\mauiimage.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfoInputs.cache
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.AssemblyInfo.cs
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.CoreCompileInputs.cache
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\XamlC.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.csproj.Up2Date
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\refint\DayOnes.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.pdb
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.genruntimeconfig.cache
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ref\DayOnes.dll
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\priconfig.xml.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\unfiltered.layout.resfiles.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\filtered.layout.resfiles.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\excluded.layout.resfiles.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.resfiles.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\pri.resfiles.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt

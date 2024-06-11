@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="DayOnes.Views.FDirectMsgsBubblesPage"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+            >
+
+    <!--The main grid to contain all the page components. Divided into 
+    1 - Fixed top components
+    2 - Scrollable message bubble contrainer
+    3 - Bottom Send message bar-->
+    
+        <Grid HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            
+            <!--Row 1-->
+            <!--Grid to contain all the fixed top components-->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <!--Row 1-->
+            <Grid Grid.Row="0" 
+              VerticalOptions="Center"
+              HorizontalOptions="CenterAndExpand" 
+              Margin="5"
+              >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Ellipse Image -->
+                <toolkit:AvatarView
+                      CornerRadius="75">
+                <Frame 
+                    Grid.Column="0"
+                    CornerRadius="25"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Padding="0"
+                    HasShadow="False"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center">
+                    <Image
+                    Source="im2.png"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start" />
+                    </Frame>
+                </toolkit:AvatarView>
+
+                <!--Profile text-->
+                <Label 
+                Grid.Column="1"
+                
+                Text="Baby Doll"
+                FontSize="12"
+        
+                Margin="10,20"
+                TextColor="White"
+                />
+                <Frame
+                    Grid.Column="2"
+                    BackgroundColor="{StaticResource DefaultCyan}"
+                    Padding="0,0,10,0"
+                    WidthRequest="132"
+                    HeightRequest="20"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        Text="0310.Chicago"
+                        FontFamily="SFProText"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        TextColor="{StaticResource DefaultWhite}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                </Frame>
+
+                <!--Button-->
+                <components:GradientImageButton
+                Grid.Column="3"
+                Margin="10"
+                    ImageSource="back.png"
+                 Width="60" 
+                 Height="30" 
+                 Name="btnBack" 
+                 OnClick="btnBack_Click"
+                
+                />
+            </Grid>
+
+            <!--Row 2-->
+            <BoxView 
+                    Grid.Row="1"
+                    HeightRequest="1" WidthRequest="340" Color="{StaticResource DefaultPurple}"/>
+
+            <!--Row 3-->
+
+            <Label
+                Grid.Row="2"
+                Text="March 5"
+                FontFamily="SFProText"
+                FontSize="12"
+                LineHeight="14"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                WidthRequest="49"
+                HeightRequest="14"
+                TextColor="{StaticResource DefaultWhite}" />  
+
+
+            <!--Row 4-->
+
+            <Image
+                    Margin="0,0,0,0"
+                Grid.Row="3"
+                Source="im1.png" 
+               HeightRequest="294" WidthRequest="220" />
+            
+        </Grid>
+           
+
+            <!--Row 2-->
+            <!-- Chat bubble container -->
+        <ScrollView Grid.Row="1" >
+            <VerticalStackLayout>
+
+
+
+                <StackLayout 
+                             HorizontalOptions="Start" Padding="10">
+
+                    <!-- Arrow -->
+                    <BoxView WidthRequest="15" HeightRequest="15" BackgroundColor="{StaticResource DefaultWhite}" HorizontalOptions="Start" VerticalOptions="End">
+                        <BoxView.Triggers>
+                            <DataTrigger TargetType="BoxView" Binding="{Binding IsOutgoing}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DefaultWhite}" />
+                            </DataTrigger>
+                        </BoxView.Triggers>
+                    </BoxView>
+
+                    <!-- Message Bubble Frame -->
+                    <Frame BackgroundColor="{StaticResource DefaultWhite}" BorderColor="{StaticResource DefaultPink}" CornerRadius="24" Padding="10" HasShadow="False">
+                        <StackLayout>
+
+                            <!-- Message Text -->
+                            <Label Text="Your message here" FontFamily="SFProText" FontSize="17" TextColor="#22282B" />
+
+                            <!-- Message Time -->
+                            <Label Text="2:00pm" FontFamily="SFProText" FontSize="12" TextColor="{StaticResource DefaultBlack}" HorizontalOptions="End" />
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+
+
+                <StackLayout  
+                    HorizontalOptions="End" Padding="10">
+
+                    <!-- Arrow -->
+                    <BoxView WidthRequest="15" HeightRequest="15" BackgroundColor="{StaticResource DefaultWhite}" HorizontalOptions="End" VerticalOptions="End">
+                        <BoxView.Triggers>
+                            <DataTrigger TargetType="BoxView" Binding="{Binding IsOutgoing}" Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource DefaultWhite}" />
+                            </DataTrigger>
+                        </BoxView.Triggers>
+                    </BoxView>
+
+                    <!-- Message Bubble Frame -->
+                    <Frame BackgroundColor="#8337FF" BorderColor="{StaticResource DefaultPink}" CornerRadius="24" Padding="10" HasShadow="False">
+                        <StackLayout>
+
+                            <!-- Message Text -->
+                            <Label Text="Your message here" FontFamily="SFProText" FontSize="17" TextColor="{StaticResource DefaultWhite}" />
+
+                            <!-- Message Time -->
+                            <Label Text="2:00pm" FontFamily="SFProText" FontSize="12" TextColor="{StaticResource DefaultWhite}" HorizontalOptions="End" />
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+
+            </VerticalStackLayout>
+            
+        </ScrollView>
+
+
+        <!-- Row 3 -->
+        <!-- Bottom Bar -->
+        <Grid Grid.Row="2" VerticalOptions="End">
+            <Frame BackgroundColor="#123544" BorderColor="Transparent" Padding="0" Margin="0"
+               WidthRequest="390" HeightRequest="44" HorizontalOptions="Center" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <!-- Attachment Icon -->
+                    <Image Source="attachment.png"
+                               WidthRequest="24" HeightRequest="24" />
+
+                    <!-- Input Box -->
+                    <!--<Frame BackgroundColor="{StaticResource DefaultWhite}" BorderColor="{StaticResource DefaultWhite}" CornerRadius="16.5" 
+                       WidthRequest="282" HeightRequest="40">-->
+                    <Frame 
+BackgroundColor="{StaticResource DefaultWhite}"
+                               WidthRequest="282" HeightRequest="40"
+                             CornerRadius="16.5" 
+                           Padding="0,0,0,0"
+                               >
+
+                        <Grid 
+                                         VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="17"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Entry
+                                x:Name="txtMessage"
+                                    Grid.Column="0"
+                                    Text="Message" FontFamily="SFProText" FontSize="17" TextColor="{StaticResource DefaultBlack}"
+                               FontAttributes="None"
+                                    />
+
+                            <!-- Stickers Icon -->
+                            <Image 
+                                    Grid.Column="1"
+                                    HorizontalOptions="End" Source="stickers.png"
+                                       WidthRequest="20" HeightRequest="16" />
+
+                        </Grid>
+                    </Frame>
+
+                    <!-- Record Icon -->
+
+                    <!-- Microphone Icon -->
+                    <Image Source="send.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="sendButton_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!-- Text Counter -->
+
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+    </Grid>
+
+        
+</ContentPage>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HPostDetailsPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:DayOnes.ViewModels"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+    <ContentPage.BindingContext>
+        <local:PostCardActionViewModel />
+    </ContentPage.BindingContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Row 1-->
+        <components:HostSmallHdr
+            Grid.Row="0"
+            
+        />
+        
+        <!--Row 2-->
+        <components:FanTitleBar
+            Grid.Row="1"
+            Title="Post Summary"
+        />
+        
+        <!--Row 3-->
+        <Grid Grid.Row="2" Padding="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Column 1-->
+            <components:GradientButton
+                Text="Msg Grp"
+                Grid.Column="0"
+                FontSize="15"
+                OnClick="bntMsgGrp_Click"
+                Width="80"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center"
+                />
+            
+            <!--Column 2-->
+            <components:GrpNameTag
+                Grid.Column="1"
+                Title="922.Chicago"
+                HorizontalOptions="Center"
+            />
+            
+            <!--Column 3-->
+            <!--Back Button-->
+            <components:GradientImageButton
+                Grid.Column="2"
+                Width="50" 
+                Height="50" 
+                Margin="10"
+                HorizontalOptions="EndAndExpand"
+                ImageSource="back.png"
+                Name="btnBack" 
+                OnClick="btnBack_Click"
+            />
+            
+        </Grid>
+        
+        <!--Row 4-->
+        <!-- Top line -->
+        <BoxView  
+            Grid.Row="3"
+            HeightRequest="1" 
+            BackgroundColor="{StaticResource DefaultPurple}" 
+            Color="{StaticResource DefaultPurple}"  />
+        
+        <!--Row 5-->
+        <ScrollView Grid.Row="4" HeightRequest="100">
+            <Label
+                Padding="10"
+                Text="Welcome to my DayOnes group! This exclusive oasis is the best place to interact with me! Your replies are private to me and not seen by the rest of the group. And this is really me, not a PR team! So get ready to follow me on this journey as a personal friend! ❤️"
+                TextColor="{StaticResource DefaultWhite}"
+                BackgroundColor="{StaticResource DefaultBlack}"
+                LineBreakMode="WordWrap"
+                MaxLines="999"
+                VerticalOptions="Start"
+                HorizontalOptions="StartAndExpand"
+            />
+        </ScrollView>
+
+        <!--<Label
+             Grid.Row="4"
+             Padding="10"
+             HeightRequest="100"
+             Text="Welcome to my DayOnes group! This exclusive oasis is the best place to interact with me! Your replies are private to me and not seen by the rest of the group. And this is really me, not a PR team! So get ready to follow me on this journey as a personal friend! ❤️"
+             TextColor="{StaticResource DefaultWhite}"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             />-->
+
+        <!--Row 6-->
+        <Grid
+            Grid.Row="5"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <components:LikeLabel
+                Grid.Column="0"
+                Count="70"
+                HorizontalOptions="End"
+                />
+            
+            <!--Column 2-->
+
+            <components:CommentLabel
+                
+                Grid.Column="1"
+                HorizontalOptions="Start"
+                Count="30"
+                />
+        </Grid>
+
+        <!--Row 7-->
+        <BoxView  
+             Grid.Row="6"
+             HeightRequest="1" 
+             BackgroundColor="{StaticResource DefaultPurple}" 
+             Color="{StaticResource DefaultPurple}"  />
+
+        
+        <!--Row 8-->
+
+        <ScrollView
+            Grid.Row="7"
+            Orientation="Vertical"
+            HeightRequest="328"
+            >
+            <CollectionView 
+                x:Name="listPosts">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <components:PostCardAction
+                            ArtistName="{Binding ArtistName}"
+                            ArtistImage="{Binding ArtistImage}"
+                            PostContent="{Binding PostContent}"
+                            IsLiked="{Binding IsLiked}"
+                            BtnTapped="btnDM_Click"
+                            >
+
+                        </components:PostCardAction>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </ScrollView>
+
+        <!--Row 9-->
+
+        <components:HostTabBar
+            Grid.Row="8"
+                     VerticalOptions="End"
+            />
+    </Grid>
+</ContentPage>

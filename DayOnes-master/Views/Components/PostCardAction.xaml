@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             x:Class="DayOnes.Views.Components.PostCardAction">
+    
+    <Frame 
+        Padding="10" 
+        BackgroundColor="{StaticResource DefaultLateGrey}" 
+        BorderColor="{StaticResource DefaultPurple}" 
+        CornerRadius="8" 
+        Margin="15, 5, 15, 5"
+        >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!--Row 1-->
+            <Grid
+                Grid.Row="0"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                
+                <!--Column 1-->
+                <toolkit:AvatarView
+                    Grid.Column="0"
+                   CornerRadius="75"
+                 >      
+                    <Frame CornerRadius="25" WidthRequest="50" HeightRequest="50" Padding="0" HasShadow="False"
+                        HorizontalOptions="Start" VerticalOptions="Center">
+                        <Image x:Name="imgProfile" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                    </Frame>
+                </toolkit:AvatarView>
+                
+                <!--Column 2-->
+                <Label 
+                    Grid.Column="1"
+                    Margin="10,5"
+                    x:Name="lblArtistName"
+                    FontFamily="SFProText"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource DefaultWhite}"
+                    VerticalOptions="Center"
+                    />
+                
+                <!--Column 3-->
+                <Image
+                    Grid.Column="2"
+                    WidthRequest="20"
+                    x:Name="imgLike"
+                    />
+                
+                <!--Column 4-->
+                <components:GradientButton
+                    Grid.Column="3"
+                    x:Name="btnDM"
+                    Text="DM"
+                    OnClick="OnBtnTapped"
+                    Width="70"
+                    />
+            </Grid>
+            
+            <!--Row 2-->
+            <Label
+                Grid.Row="1"
+                x:Name="lblPostContent"
+                TextColor="{StaticResource DefaultWhite}"
+                />
+        </Grid>
+    </Frame>
+</ContentView>

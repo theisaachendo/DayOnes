@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HSelfieChooseSigPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             Title="">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <components:FanTitleBar
+             Grid.Row="0"
+            Title="Choose Action"
+        />
+
+        <Image 
+            Grid.Row="1"
+            x:Name="imgCaptured"
+            WidthRequest="390"
+            HeightRequest="350"
+            />
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Row 1-->
+            <HorizontalStackLayout
+                Grid.Row="0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="End"
+                >
+                <Label 
+                    Text="Choose Signature" 
+                    TextColor="{StaticResource DefaultWhite}" 
+                    VerticalOptions="Center"
+                    Margin="10,0,10,0"
+                    />
+
+                <Button
+                    Text="Cancel"
+                    BackgroundColor="{StaticResource DefaultGrey}"
+                    TextColor="{StaticResource DefaultBlack}"
+                    WidthRequest="90"
+                    HorizontalOptions="Center"
+                    Clicked="btnCancel_Click"
+                    Margin="10,3,10,3"
+                    />
+                
+            </HorizontalStackLayout>
+
+            <!--Row 2-->
+            <BoxView 
+                    Grid.Row="1"
+                    HeightRequest="1" 
+                Color="{StaticResource DefaultPurple}"/>
+
+            <ScrollView 
+                Grid.Row="2"
+                Margin="5,0,0,0"
+                HeightRequest="120"
+                Orientation="Horizontal">
+
+                <CollectionView 
+                x:Name="listSigs">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <toolkit:AvatarView
+                                CornerRadius="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent"
+                                WidthRequest="85"
+                                HeightRequest="90"
+                                >
+                                <Image
+                                Source="{Binding ImageSource}"
+                            >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="imgSig_Click"/>
+                                    </Image.GestureRecognizers>
+
+                                </Image>
+                            </toolkit:AvatarView>
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

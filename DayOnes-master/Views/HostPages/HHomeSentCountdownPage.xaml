@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HHomeSentCountdownPage"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <components:HostSmallHdr Grid.Row="0"/>
+
+
+        <!--Row 2-->
+        <components:FanTitleBar
+             Grid.Row="1"
+            Title="Autographs &amp; Invites"
+        />
+
+        <!--Row 3-->
+        <Frame 
+            Grid.Row="2"
+            HeightRequest="400" 
+           Padding="120"
+            WidthRequest="300"
+            BackgroundColor="{StaticResource DefaultBlack}"
+            BorderColor="Transparent"
+            VerticalOptions="Center"
+                HorizontalOptions="Center"
+            >
+
+            <Label
+                x:Name="lblCountDown"
+                Text="15"
+                FontSize="40"
+                FontFamily="SFProText"
+                TextColor="{StaticResource DefaultWhite}"
+                />
+        </Frame>
+        
+        <!--Row 4-->
+        <components:HostTabBar
+            Grid.Row="3"
+            VerticalOptions="End"
+            />
+
+    </Grid>
+</ContentPage>

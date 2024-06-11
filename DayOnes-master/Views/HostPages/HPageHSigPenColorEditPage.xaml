@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HPageHSigPenColorEditPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Row 1-->
+        <components:HostSmallHdr Grid.Row="0" />
+
+        <!--Row 2-->
+        <components:FanTitleBar 
+            Grid.Row="1" 
+            Title="Your Items"
+            />
+
+        <!--Row 3-->
+        <components:GradientImageButton
+            Grid.Row="2"
+            ImageSource="back.png"
+            Width="60"
+            Height="50"
+            VerticalOptions="Center"
+            HorizontalOptions="End"
+            OnClick="btnBack_Click"
+            Margin="0,10,20,10"
+        />
+
+        <!--Row 4-->
+        <ScrollView Grid.Row="3" Orientation="Vertical" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Row 1-->
+                <Grid Grid.Row="0"  WidthRequest="260">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Column 1-->
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Your Signatures"
+                        TextColor="{StaticResource DefaultWhite}"
+                        FontFamily="SFProText"
+                        FontSize="15"
+                        Margin="15"
+                        WidthRequest="161"
+                        HeightRequest="24"
+                        FontAttributes="Bold"
+                    />
+
+                    <!--Column 2-->
+                    <components:GradientButton
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Choose Sig"
+                        Width="90"
+                        Height="30"
+                        Margin="15"
+                        OnClick="btnSig_Click"
+                    />
+
+                    <!--Row 2-->
+                    <BoxView  
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        HeightRequest="1"  
+                    Color="{StaticResource DefaultPurple}" 
+                        BackgroundColor="{StaticResource DefaultPurple}" 
+                    />
+                </Grid>
+
+                <!--Row 2-->
+                <ScrollView 
+                    Grid.Row="1"
+                    HeightRequest="120"
+                    WidthRequest="352"
+                    Orientation="Horizontal">
+
+                    <CollectionView 
+                x:Name="listSigs">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <toolkit:AvatarView
+                                CornerRadius="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent"
+                                WidthRequest="85"
+                                HeightRequest="90"
+                                >
+                                    <Image
+                                Source="{Binding ImageSource}"
+                            >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="imgSig_Click"/>
+                                        </Image.GestureRecognizers>
+
+                                    </Image>
+                                </toolkit:AvatarView>
+                            </DataTemplate>
+
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+                <!--Row 3-->
+                <BoxView  
+                    Grid.Row="2"
+                    HeightRequest="1" 
+                    WidthRequest="352"
+                    Margin="0,0,0,4"
+                    BackgroundColor="{StaticResource DefaultPurple}" 
+                    Color="{StaticResource DefaultPurple}" 
+                />
+
+                <!--Row 4-->
+                <Grid Grid.Row="3" WidthRequest="352">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Row 1-->
+                    <components:GradientButton
+                        Text="Save"
+                        Width="120"
+                        Height="30"
+                        VerticalOptions="Center"
+                        OnClick="btnSave_Click"
+                    />
+
+                    <!--Row 2-->
+                    <Frame
+                        Grid.Column="1"
+                        WidthRequest="210"
+                        HeightRequest="210"
+                        BorderColor="{StaticResource DefaultPurple}"
+                        BackgroundColor="{StaticResource DefaultBlack}"
+                        VerticalOptions="Center"
+                    >
+                        <Image 
+                            x:Name="imgEdit"
+                            />
+
+                    </Frame>
+                </Grid>
+
+                <!--Row 5-->
+                <BoxView  
+                    Grid.Row="4"
+                    HeightRequest="1" 
+                    WidthRequest="352"
+                    BackgroundColor="{StaticResource DefaultPurple}" 
+                />
+
+                <!--Row 6-->
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Column 1-->
+                    <components:GradientButton
+                        Grid.Column="0"
+                        Text="Choose Pen Color"
+                        Width="120"
+                        Height="30"
+                        VerticalOptions="Center"
+                    />
+
+                    <Grid Grid.Column="1"  WidthRequest="231" HeightRequest="116" BackgroundColor="{StaticResource DefaultBlack}">
+                        <!-- grid for colors -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <HorizontalStackLayout
+                                Grid.Row="0"
+                                >
+
+                                <Frame 
+                            BorderColor="{StaticResource DefaultWhite}"
+                            BackgroundColor="{StaticResource DefaultBlack}" 
+                            WidthRequest="40" 
+                            HeightRequest="40" 
+                            CornerRadius="0"
+                            
+                            Margin="20,12,0,5"    >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+
+                                <Frame 
+                            BackgroundColor="{StaticResource DefaultWhite}" 
+                            WidthRequest="40" HeightRequest="40" 
+                            CornerRadius="0"
+                            Margin="55,12,0,5"     >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+                            </HorizontalStackLayout>
+                            
+                            <!--ROw 2-->
+                            <HorizontalStackLayout
+                                Grid.Row="1">
+
+                                <Frame 
+                            BackgroundColor="#AF3DFF" 
+                            WidthRequest="40" 
+                            HeightRequest="40" 
+                            CornerRadius="0"
+                            Margin="10,5,10,0" 
+                                    >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+
+
+                                <Frame BackgroundColor="#55FFE1"
+                            CornerRadius="0" 
+                                       WidthRequest="40" 
+                                       HeightRequest="40" 
+                                       Margin="0,5,10,0"     >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+
+                                <Frame 
+                                    BackgroundColor="#FF3B94"
+                            CornerRadius="0" WidthRequest="40" 
+                                       HeightRequest="40" 
+                                    Margin="0,5,10,0"     >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+
+                                <Frame 
+                                    BackgroundColor="#A6FD29"
+                            CornerRadius="0" 
+                                    WidthRequest="40" 
+                                    HeightRequest="40" Margin="0,5, 0,0"    >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frmColor_Tapped" />
+                                    </Frame.GestureRecognizers>
+
+                                </Frame>
+
+                            </HorizontalStackLayout>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+        <!--Row 5-->
+        <components:HostTabBar Grid.Row="4" VerticalOptions="End" />
+    </Grid>
+
+</ContentPage>

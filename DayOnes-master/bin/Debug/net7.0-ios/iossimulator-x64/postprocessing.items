@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="DayOnes.app/DayOnes">
+      <BCSymbolMapName>DayOnes.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>DayOnes.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/peterwrung/Projects/0522 1721 DayOnes Base 1/DayOnes-master/obj/Debug/net7.0-ios/iossimulator-x64/mtouch-symbols.list</SymbolFile>
+      <DSymName>DayOnes.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/peterwrung/Projects/0522 1721 DayOnes Base 1/DayOnes-master</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

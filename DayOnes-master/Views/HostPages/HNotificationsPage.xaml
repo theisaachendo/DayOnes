@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HNotificationsPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+
+    <Grid RowDefinitions="auto,*,auto">
+
+        <StackLayout>
+            <components:HostSmallHdr/>
+
+
+            <components:FanTitleBar
+                Title="Notifications"
+                />
+        </StackLayout>
+
+        <Grid RowDefinitions="*,*" Grid.Row="1">
+            <VerticalStackLayout>
+
+
+
+                <StackLayout Padding="15,20,0,0" WidthRequest="356" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label Text="DayOnes Messages" FontFamily="SFProText"
+                        FontSize="26"
+                        TextColor="{StaticResource DefaultWhite}"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Start"></Label>
+                    <BoxView HeightRequest="1" Color="{StaticResource DefaultPurple}" Margin="0,0,0,10"></BoxView>
+                    <!-- D1 Chat Artist -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!--Column 1-->
+                        <components:GrpNameTag
+                            Grid.Column="0"
+                            Title="9332.Chicago"
+                            />
+                        
+                        <!--Column 2-->
+                        <Label
+                            Margin="12,0,0,0"
+                            Grid.Column="1"
+                            Text="You have 19 new comments"
+                            TextColor="{StaticResource DefaultWhite}"
+                            BackgroundColor="{StaticResource DefaultBlack}"
+                            />
+                    </Grid>
+                    
+
+                </StackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1">
+
+
+
+                <StackLayout Padding="15,20,0,0" WidthRequest="356" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label Text="Direct Messages" FontFamily="SFProText"
+                        FontSize="26"
+                        TextColor="{StaticResource DefaultWhite}"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Start"></Label>
+                    <BoxView HeightRequest="1" Color="{StaticResource DefaultPurple}" Margin="0,0,0,10"></BoxView>
+                    <!-- D1 Chat Artist -->
+
+                    <ScrollView
+                        Orientation="Vertical"
+                        >       
+                        <CollectionView 
+                            x:Name="listPosts">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <components:PostCard
+                            ArtistName="{Binding ArtistName}"
+                            ArtistImage="{Binding ArtistImage}"
+                            PostContent="{Binding PostContent}"
+                            IsPinned="{Binding IsPinned}"
+                                        FanTapped="fan_Tapped"
+                            
+                            />
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+
+                    </ScrollView>
+
+                </StackLayout>
+            </VerticalStackLayout>
+        </Grid>
+
+
+        <components:HostTabBar Grid.Row="2"
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

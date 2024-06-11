@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.GradientImageButton">
+    <VerticalStackLayout>
+
+        <ImageButton 
+            x:Name="btnGradient" 
+            Clicked="OnButtonClicked"
+            Source="singer.png"
+            HeightRequest="30"
+            WidthRequest="30"
+            Padding="5, 0, 5, 0"
+            CornerRadius="8"
+            
+                >
+            <ImageButton.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource DefaultPink}" Offset="0.0" />
+                    <GradientStop Color="#6B1C56" Offset="1.0" />
+                </LinearGradientBrush>
+            </ImageButton.Background>
+
+
+        </ImageButton>
+    </VerticalStackLayout>
+</ContentView>

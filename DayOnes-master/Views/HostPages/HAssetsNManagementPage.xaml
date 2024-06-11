@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HostPages.HAssetsNManagementPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components">
+
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <components:HostSmallHdr
+            Grid.Row="0"
+            
+            />
+
+        <!--Row 2-->
+        <components:FanTitleBar
+            Grid.Row="1"
+            Title="Your Items"
+            />
+
+        <!--Row 3-->
+        <components:GradientImageButton
+            Grid.Row="2"
+                Margin="10"
+                 Width="60" 
+                 Height="50"
+                ImageSource="back.png"
+                HorizontalOptions="End"
+                 Name="btnBack" 
+                 OnClick="btnBack_Click"
+            />
+
+        <!--Row 4-->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Column 1-->
+            <Label 
+                Grid.Column="0"
+                Text="Your Signatures"
+                TextColor="{StaticResource DefaultWhite}"
+                FontFamily="SFProText"
+                FontSize="18"
+                Margin="5,0,5,0"
+                VerticalOptions="Center"
+                FontAttributes="Bold"
+                />
+
+            <!--Column 2-->
+            <components:GradientImageButton
+                ImageSource="plus.png"
+                Grid.Column="1"
+                Margin="5,0,5,0"
+                OnClick="btnSigPlus_Click"
+                Width="50"
+                />
+
+            <!--Column 3-->
+            <components:GradientImageButton
+                ImageSource="minus.png"
+                Grid.Column="2"
+                OnClick="btnSigMinus_Click"
+                Margin="5,0,5,0"
+                Width="50"
+                />
+
+            <!--Column 4-->
+            <components:GradientButton
+                Grid.Column="3"
+                Text="Sig Color"
+                Margin="5,0,5,0"
+                OnClick="btnSigColor_Click"
+                />
+
+        </Grid>
+        
+        <!--Row 5-->
+
+        <BoxView 
+            Grid.Row="4"
+            HeightRequest="1" 
+            Color="{StaticResource DefaultPurple}"
+            Margin="0,5,0,5"
+            />
+        
+        <!--Row 6-->
+
+
+        <ScrollView 
+                Grid.Row="5"
+                HeightRequest="120"
+                Orientation="Horizontal">
+
+            <CollectionView 
+                x:Name="listSigs">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <toolkit:AvatarView
+                                CornerRadius="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent"
+                                WidthRequest="85"
+                                HeightRequest="90"
+                                >
+                            <Image
+                                Source="{Binding ImageSource}"
+                            >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imgSig_Click"/>
+                                </Image.GestureRecognizers>
+
+                            </Image>
+                        </toolkit:AvatarView>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!--Row 7-->
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <Label 
+                Grid.Column="0"
+                Text="Photo History"
+                TextColor="{StaticResource DefaultWhite}"
+                FontFamily="SFProText"
+                FontSize="18"
+                Margin="5,0,5,0"
+                VerticalOptions="Center"
+                FontAttributes="Bold"
+                
+                />
+
+            <!--Column 2-->
+            <components:GradientImageButton
+                ImageSource="plus.png"
+                Grid.Column="1"
+                Margin="5,0,5,0"
+                OnClick="btnPlus_Clicked"
+                Width="50"
+                />
+
+            <!--Column 3-->
+            <components:GradientImageButton
+                ImageSource="minus.png"
+                Grid.Column="2"
+                OnClick="btnMinus_Click"
+                Margin="5,0,5,0"
+                Width="50"
+                />
+
+            <!--Column 4-->
+            <components:GradientButton
+                Grid.Column="3"
+                Text="Upload"
+                Margin="5,0,5,0"
+                />
+
+        </Grid>
+        
+        <!--Row 8-->
+
+        <BoxView 
+            Grid.Row="7"
+            HeightRequest="1" Color="{StaticResource DefaultPurple}"
+            Margin="0,5,0,0"
+            />
+        
+        <!--Row 9-->
+
+
+        <ScrollView 
+                Grid.Row="8"
+                HeightRequest="120"
+            Margin="0,-70,0,0"
+            WidthRequest="352"
+                Orientation="Horizontal">
+
+            <!--<Image
+                    Source="sig2.png"
+                    />-->
+
+            <CollectionView 
+                x:Name="listImgs">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <toolkit:AvatarView
+                                CornerRadius="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent"
+                            WidthRequest="126"
+                            HeightRequest="168"
+                                >
+                            <Image
+                                Source="{Binding ImageSource}"
+                            >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imgSig_Click"/>
+                                </Image.GestureRecognizers>
+
+                            </Image>
+                        </toolkit:AvatarView>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!--Row 10-->
+        <components:HostTabBar
+            Grid.Row="9"
+            VerticalOptions="End"
+            />
+
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DayOnes"
+             x:Class="DayOnes.App">
+    <Application.Resources>
+        
+        <ResourceDictionary>
+
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                
+            </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="DefaultBlack">#000000</Color>
+            <Color x:Key="DefaultWhite">#FFFFFF</Color>
+            <Color x:Key="DefaultGrey">#979393</Color>
+            <Color x:Key="DefaultLightGrey">#979797</Color>
+            <Color x:Key="DefaultDarkGrey">#808080</Color>
+            <Color x:Key="DefaultLateGrey">#123544</Color>
+            <Color x:Key="DefaultPurple">#9747FF</Color>
+            <Color x:Key="DefaultLightPurple">#e451ff</Color>
+            <Color x:Key="DefaultDimPurple">#8337FF</Color>
+            <Color x:Key="DefaultPink">#e70971</Color>
+            <Color x:Key="DefaultLightPink">#E615DE</Color> 
+            <Color x:Key="DefaultCyan">#3DC1F9</Color>
+            <Color x:Key="PickerBorderColor">#7236bf</Color>
+        </ResourceDictionary>
+        
+        
+
+    </Application.Resources>
+</Application>

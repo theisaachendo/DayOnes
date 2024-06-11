@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="DayOnes.Views.FNotificationsPage"
+    BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+
+    <Grid RowDefinitions="auto,*,auto">
+
+        <StackLayout>
+            <components:FanSmallHdr/>
+
+            <Label 
+ Grid.Row="0"
+ Grid.Column="0"
+ Text="Notifications"
+FontFamily="SFProText"
+FontSize="20"
+FontAttributes="Bold"
+WidthRequest="600"
+HeightRequest="50"
+TextColor="White"
+HorizontalTextAlignment="Center"
+VerticalTextAlignment="Center"
+VerticalOptions="Start"
+ >
+                <Label.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#3A27BC" Offset="0.0" />
+                        <GradientStop Color="{StaticResource DefaultBlack}" Offset="0.5" />
+                        <GradientStop Color="#3DC1F9" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+        </StackLayout>
+
+        <Grid RowDefinitions="*,*" Grid.Row="1">
+            <VerticalStackLayout>
+
+              
+
+                    <StackLayout Padding="15,20,0,0" WidthRequest="356" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label Text="DayOnes Messages" FontFamily="SFProText"
+FontSize="26"
+TextColor="White"
+                           HorizontalOptions="Start"
+                           HorizontalTextAlignment="Start"
+VerticalOptions="Start"></Label>
+                    <BoxView HeightRequest="1" Color="{StaticResource DefaultPurple}" Margin="0,0,0,10"></BoxView>
+                    <!-- D1 Chat Artist -->
+                    <Frame 
+     BackgroundColor="#123544"
+     BorderColor="HotPink"  
+                  Margin="15,0"     
+     CornerRadius="16" 
+     Padding="10" 
+     HeightRequest="60">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                            <!-- Fan Picture and Name -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+
+
+                                <!--<Image Source="im1.jpg" WidthRequest="40" HeightRequest="40" Aspect="AspectFill" />-->
+
+                                <toolkit:AvatarView
+                      CornerRadius="75">
+                                <Frame CornerRadius="20" Margin="5" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                                    <Image Source="im4.png" WidthRequest="40" HeightRequest="40" Aspect="AspectFill"  />
+                                    </Frame>
+                                </toolkit:AvatarView>
+
+                                <Label Text="Artist" 
+                                FontFamily="SFProText" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                            </StackLayout>
+
+                            <!-- Likes Frame -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0,0,20,0" Spacing="8">
+                                <Image Source="heart.png" WidthRequest="13.33" HeightRequest="12.23" />
+                                <Label Text="10.8k" 
+                                FontFamily="SFProText" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1">
+
+
+
+                <StackLayout Padding="15,20,0,0" WidthRequest="356" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label Text="Direct Messages" FontFamily="SFProText"
+FontSize="26"
+TextColor="White"
+                           HorizontalOptions="Start"
+                           HorizontalTextAlignment="Start"
+VerticalOptions="Start"></Label>
+                    <BoxView HeightRequest="1" Color="{StaticResource DefaultPurple}" Margin="0,0,0,10"></BoxView>
+                    <!-- D1 Chat Artist -->
+                    <Frame 
+     BackgroundColor="#123544"
+     BorderColor="HotPink"  
+     CornerRadius="16" 
+                  Margin="15,0"     
+                        
+     Padding="10" 
+     HeightRequest="60">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                            <!-- Fan Picture and Name -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+
+
+                                <!--<Image Source="im1.jpg" WidthRequest="40" HeightRequest="40" Aspect="AspectFill" />-->
+
+                                <toolkit:AvatarView
+                      CornerRadius="75">
+                                    <Frame CornerRadius="20" Margin="5" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                                        <Image Source="im4.png" WidthRequest="40" HeightRequest="40" Aspect="AspectFill"  />
+                                    </Frame>
+                                </toolkit:AvatarView>
+
+                                <Label Text="Artist" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                            </StackLayout>
+
+                            <!-- Likes Frame -->
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0,0,20,0" Spacing="8">
+                                <Image Source="heart.png" WidthRequest="13.33" HeightRequest="12.23" />
+                                <Label Text="10.8k" 
+                                FontFamily="SFProText" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </VerticalStackLayout>
+        </Grid>
+            
+
+        <components:FanTabBar Grid.Row="2"
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

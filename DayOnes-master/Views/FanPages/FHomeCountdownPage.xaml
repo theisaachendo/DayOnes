@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             x:Class="DayOnes.Views.FHomeCountdownPage"
+             Background="{StaticResource DefaultBlack}"
+             >
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+    <VerticalStackLayout  
+        Grid.Row="0"
+     HorizontalOptions="FillAndExpand" 
+     >
+
+        <!-- Fan Head -->
+        <components:FanSmallHdr/>
+            <components:FanTitleBar
+    Title="Receive Invites"
+    />
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <!-- UpperText -->
+                <Label 
+        Margin="0,60,0,30"
+        x:Name="lblCountDown"
+        Text="{Binding CountdownText}"
+                FontFamily="SFProText"
+                FontSize="32"
+                TextColor="{StaticResource DefaultWhite}"
+                LineBreakMode="TailTruncation"
+                HorizontalOptions="Center"/>
+
+                <Image Source="d1logo3.png"
+        WidthRequest="130"
+Aspect="AspectFit"
+VerticalOptions="Center"
+HorizontalOptions="Center"
+Margin="10,20"/>
+
+                <components:GradientButton
+    
+     Text="Receive Invites" 
+     Width="200" 
+     Height="60" 
+     x:Name="btnInvites" 
+            IsEnabled="False"
+        IsVisible="False"
+     OnClick="btnInvites_Click"
+    />
+            </StackLayout>
+       
+    </VerticalStackLayout>
+
+        <components:FanTabBar
+            CurrentPage="1"
+            Grid.Row="1"
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

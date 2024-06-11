@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<!--<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.TextBox"
+             x:Name="this">
+    <VerticalStackLayout>
+
+        <StackLayout Margin="0" Padding="0" Spacing="10">
+            <Grid>
+                --><!-- Background --><!--
+                <BoxView Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#4B0981" CornerRadius="20" />
+
+                --><!-- Text Entry --><!--
+                <Entry x:Name="textBox"
+                   Placeholder="{Binding PlaceHolder, Source={x:Reference this}}"
+                   PlaceholderColor="#979393"
+                   BackgroundColor="Transparent"
+                   TextColor="#979393"
+                   FontFamily="SFProText"
+                   FontSize="20"
+                   Margin="10,0,0,0"
+                   >
+                </Entry>
+
+                --><!-- Frame --><!--
+                <Frame Grid.Row="0" BackgroundColor="{StaticResource DefaultBlack}" CornerRadius="8" Padding="5,0" HasShadow="False">
+                    <Label x:Name="lblName"
+                           TextColor="{StaticResource DefaultWhite}"
+                           FontFamily="SFProText"
+                           FontSize="8"
+                           FontAttributes="Bold" />
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentView>-->
+    
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.TextBox">
+    <VerticalStackLayout>
+
+        <StackLayout Margin="0" Padding="0" Spacing="10">
+            <Grid>
+                <!-- Background -->
+                <BoxView Grid.Row="0" Grid.RowSpan="2" BackgroundColor="#4B0981" CornerRadius="20" />
+
+                <!-- Text Entry -->
+                <Entry x:Name="textBox"
+                   Placeholder="{Binding PlaceHolder}"
+                   PlaceholderColor="#979393"
+                   BackgroundColor="Transparent"
+                   TextColor="#979393"
+                   FontFamily="SFProText"
+                   FontSize="20"
+                   Margin="10,0,0,0"
+                   />
+
+                <!-- Frame -->
+                <Frame Grid.Row="0" BackgroundColor="{StaticResource DefaultBlack}" CornerRadius="8" Padding="5,0" HasShadow="False">
+                    <Label x:Name="lblName"
+                       
+                       TextColor="{StaticResource DefaultWhite}"
+                       FontFamily="SFProText"
+                       FontSize="8"
+                       FontAttributes="Bold" />
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentView>

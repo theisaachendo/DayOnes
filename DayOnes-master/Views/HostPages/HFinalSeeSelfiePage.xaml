@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HFinalSeeSelfiePage"
+             
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             Title="">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <components:FanTitleBar
+             Grid.Row="0"
+            Title="Choose Action"
+        />
+
+
+        <!--Row 2-->
+        <Grid Grid.Row="1" >
+            <Image 
+            x:Name="imgCaptured" WidthRequest="349" HeightRequest="379" />
+
+            <Border Stroke="#cc0000"
+                    BackgroundColor="Transparent"
+                StrokeThickness="4"
+                StrokeDashOffset="5"
+                    StrokeDashArray="1,1"
+                    HeightRequest="92"
+                    WidthRequest="114"
+                Padding="5,5"
+                    Margin="0,0,55,15"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                    
+                    
+                    >
+                <Image x:Name="imgSig" HorizontalOptions="End" VerticalOptions="End"  />
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <Image
+                Source="cancelselfie.png"
+                Grid.Column="0"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Margin="20"
+                >
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgCancel_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+
+            <!--Column 2-->
+            <Image
+                Source="saveupload.png"
+                Grid.Column="1"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                >
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgUpload_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+        
+        <!--<Grid Grid.Row="1" >
+            <Image x:Name="imgCaptured" WidthRequest="390" HeightRequest="657" />
+
+
+            <Border Stroke="#cc0000"
+                    BackgroundColor="Transparent"
+                StrokeThickness="4"
+                StrokeDashOffset="5"
+                    StrokeDashArray="1,1"
+                    HeightRequest="168"
+                    WidthRequest="151"
+                Padding="5,5"
+                    Margin="0,0,55,15"
+                    
+                    
+                    >
+                <Image x:Name="imgSig" 
+                       
+                       HorizontalOptions="End" VerticalOptions="End"  />
+            </Border>
+        </Grid>
+       
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            Column 1
+            <Image
+                Source="cancelselfie.png"
+                Grid.Column="0"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Margin="20"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgCancel_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+
+            Column 2
+            <Image
+                Source="saveupload.png"
+                Grid.Column="1"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgUpload_Tap"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>-->
+    </Grid>
+
+</ContentPage>

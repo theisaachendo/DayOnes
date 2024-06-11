@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HSettingsPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Background="{StaticResource DefaultBlack}"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+
+        <components:HostSmallHdr
+            Grid.Row="0"
+            />
+
+        <components:FanTitleBar
+            Grid.Row="1"
+            Title="Settings"
+            />
+        <VerticalStackLayout 
+            
+            Grid.Row="2"
+            >
+
+
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Frame
+                  Margin="20,10,20,0"
+                   Padding="5,5,0,5"
+        BorderColor="{StaticResource DefaultPurple}"
+        CornerRadius="0"
+                Background="{StaticResource DefaultBlack}">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                            Grid.Column="0"
+                    Text="Notifications"
+                    FontFamily="SFProText"
+                    FontSize="20"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9" 
+                    VerticalOptions="Center" />
+
+                                <Image
+                        Grid.Column="1"
+Source="chevswitchdown.png"
+                        Rotation="180"
+HeightRequest="27.14"
+                        HorizontalOptions="End"
+WidthRequest="64"
+VerticalOptions="CenterAndExpand"
+ />
+                            </Grid>
+                        </Frame>
+                    </toolkit:Expander.Header>
+                    <Frame
+        Padding="10,5"
+            Grid.Row="1"
+ Margin="20,0,20,0"
+BorderColor="{StaticResource DefaultPurple}"
+CornerRadius="0"
+        Background="{StaticResource DefaultBlack}"
+HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Label
+                        Grid.Row="0"
+                    Text="Please select your preference"
+                    
+                    FontSize="12"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9"
+                    VerticalOptions="Center" />
+
+
+                            <HorizontalStackLayout Grid.Row="1"
+                                           Margin="0,0,0,0"
+                                           >
+
+                                <!-- Toggle Switch -->
+
+                                <Switch
+                                x:Name="toggleSoundSwitch"
+                                Margin="0,0,5,0"
+                                    
+                                WidthRequest="65"
+                                HeightRequest="30"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                ThumbColor="{StaticResource DefaultLightPink}"
+                                OnColor="{StaticResource DefaultDimPurple}"
+                                BackgroundColor="{StaticResource DefaultBlack}"
+                                Toggled="toggleSoundSwitch_Toggle" />
+                                <Label
+                        Grid.Row="0"
+                    Text="Sound"
+                    
+                    FontSize="12"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9"
+                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+
+                            <!--Row 3-->
+
+                            <StackLayout Grid.Row="2" Orientation="Horizontal"
+                                           
+                                           Margin="0,10,0,0"
+                                           >
+
+                                <!-- Toggle Switch -->
+                                <Switch
+                                x:Name="togglePushSwitch"
+                                Margin="0,0,5,0"
+                                WidthRequest="65"
+                                HeightRequest="30"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                ThumbColor="{StaticResource DefaultLightPink}"
+                                OnColor="{StaticResource DefaultDimPurple}"
+                                BackgroundColor="{StaticResource DefaultBlack}"
+                                Toggled="togglePushSwitch_Toggle" />
+                                <Label
+                        Grid.Row="0"
+                    Text="Push Notifications"
+                    FontFamily="SFProText"
+                    FontSize="12"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9"
+                    VerticalOptions="Center" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </toolkit:Expander>
+
+              
+
+                
+
+                <VerticalStackLayout Grid.Row="2" Margin="20,10,20,0">
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        Grid.Column="0"
+                    Text="Visual Quick-Start"
+                    
+                    FontSize="20"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9"
+                    VerticalOptions="Center" />
+
+                        <Image Grid.Column="1"
+                               Source="quickstart.png"
+       HeightRequest="20"
+       WidthRequest="20"
+       VerticalOptions="Center"
+       HorizontalOptions="End">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lblQuickStart_Tapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </Grid>
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                </VerticalStackLayout>
+
+                <!--Row 4-->
+
+                <VerticalStackLayout Grid.Row="3" Margin="20,10,20,0">
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        Grid.Column="0"
+                    Text="FAQs"
+                    
+                    FontSize="20"
+                    TextColor="{StaticResource DefaultWhite}"
+                    Opacity="0.9"
+                    VerticalOptions="Center" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lblFAQs_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                        Grid.Column="1"
+Text="&#xf0ac;"
+FontFamily="FAS"
+HeightRequest="20"
+                
+WidthRequest="20"
+TextColor="{StaticResource DefaultPink}"
+VerticalOptions="Center"
+HorizontalOptions="End" />
+                    </Grid>
+                    <!--Notifications-->
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                </VerticalStackLayout>
+
+                <!--Row 5-->
+
+                <VerticalStackLayout Grid.Row="4" Margin="20,10,20,0">
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        
+                        Grid.Column="0"
+                    Text="DayOnes Web"
+                    FontFamily="SFProText"
+                    FontSize="20"
+                    TextColor="#3DC1F9"
+                    Opacity="0.9"
+                    TextDecorations="Underline"
+                    VerticalOptions="Center" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lblDayOnesWeb_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <!-- Aligns to the left -->
+                        <Label
+                        Grid.Column="1"
+        Text="&#xf0ac;"
+        FontFamily="FAS"
+        HeightRequest="20"
+                       
+        WidthRequest="20"
+        TextColor="{StaticResource DefaultPink}"
+        VerticalOptions="Center"
+        HorizontalOptions="End" />
+                    </Grid>
+
+                    <!-- DayOnes Web -->
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                </VerticalStackLayout>
+
+                <!--Row 6-->
+
+                <VerticalStackLayout Grid.Row="5" Margin="20,10,20,0">
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        Grid.Column="0"
+        Text="Pricing"
+        FontFamily="SFProText"
+        FontSize="20"
+        TextColor="#3DC1F9"
+        Opacity="0.9"
+        TextDecorations="Underline"
+        VerticalOptions="Center"
+        HorizontalOptions="Start" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lblPricing_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <!-- Aligns to the left -->
+                        <Label
+                        Grid.Column="1"
+        Text="&#xf0ac;"
+        FontFamily="FAS"
+        HeightRequest="20"
+        WidthRequest="20"
+        TextColor="{StaticResource DefaultPink}"
+        VerticalOptions="Center"
+        HorizontalOptions="End" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1"  Color="{StaticResource DefaultPurple}"/>
+
+
+                </VerticalStackLayout>
+            </Grid>
+
+            <components:GradientButton
+                VerticalOptions="End"
+            x:Name="btnLogout"
+            Text="Logout"
+            FontSize="30"
+            Width="130"
+            Margin="0,10"
+            OnClick="btnLogout_Click"
+            />
+        </VerticalStackLayout>
+
+        <components:HostTabBar
+            
+            Grid.Row="3"
+    VerticalOptions="End" HorizontalOptions="FillAndExpand"
+    />
+
+    </Grid>
+</ContentPage>

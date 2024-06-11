@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="DayOnes.Views.FD1MsgsPage"
+    BackgroundColor="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             >
+
+    <Grid>
+        <VerticalStackLayout>
+
+            <components:FanSmallHdr/>
+
+            <components:FanTitleBar
+                Grid.Row="0"
+                Title="DayOnes Chats"
+                />
+
+            <ScrollView
+            Grid.Row="7"
+            Orientation="Vertical"
+            >
+                <CollectionView 
+                x:Name="listChats">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <components:ArtistChatCard
+                            ArtistName="{Binding ArtistName}"
+                            ArtistImage="{Binding ArtistImage}"
+                            LikeCount="{Binding LikeCount}"
+                            IsLiked="{Binding IsLiked}"
+                            
+                            >
+                                <components:ArtistChatCard.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="chat_Tapped"/>
+                                </components:ArtistChatCard.GestureRecognizers>
+
+                            </components:ArtistChatCard>
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+
+            <!--<StackLayout Padding="20,20,20,0" HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                
+                --><!-- D1 Chat Artist --><!--
+                <Frame 
+                    
+                BackgroundColor="#123544"
+                BorderColor="{StaticResource DefaultPurple}"  
+                CornerRadius="16" 
+                Padding="10" 
+                HeightRequest="70">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameTapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                        --><!-- Fan Picture and Name --><!--
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+
+
+                            --><!--<Image Source="im1.jpg" WidthRequest="40" HeightRequest="40" Aspect="AspectFill" />--><!--
+
+                            <toolkit:AvatarView
+                      CornerRadius="75">
+                                <Frame CornerRadius="100" Margin="5" WidthRequest="50" HeightRequest="50" HasShadow="False" Padding="0" BackgroundColor="Transparent">
+                                    <Image Source="im4.png" Aspect="AspectFill"  />
+                                </Frame>
+                            </toolkit:AvatarView>
+
+                            <Label Text="Artist" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                        </StackLayout>
+
+                        --><!-- Likes Frame --><!--
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0,0,20,0" Spacing="8">
+                            <Image Source="heart.png" WidthRequest="13.33" HeightRequest="12.23" />
+                            <Label Text="10.8k" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource DefaultWhite}" VerticalOptions="Center" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    --><!--<Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>--><!--
+                </Frame>
+
+            </StackLayout>-->
+        </VerticalStackLayout>
+
+        <components:FanTabBar
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

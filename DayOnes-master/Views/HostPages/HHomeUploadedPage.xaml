@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HHomeUploadedPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             >
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--Row 1-->
+        <components:HostSmallHdr Grid.Row="0"/>
+
+
+        <!--Row 2-->
+        <components:FanTitleBar
+             Grid.Row="1"
+            Title="Autographs &amp; Invites"
+        />
+        
+        <Grid
+            Grid.Row="2"
+            >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+        <!--Row 1-->
+        <!-- Outer Frame -->
+        <Frame 
+            Grid.Row="0" 
+            BorderColor="#3DC1F9" 
+            CornerRadius="20" 
+            VerticalOptions="Center"
+            Padding="5" 
+            HasShadow="False" 
+            BackgroundColor="{StaticResource DefaultBlack}"
+            Margin="10"
+            >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Attachment Icon -->
+                <Image 
+                    Grid.Column="0" 
+                    Source="fileattachment.png" 
+                    WidthRequest="28.44" 
+                    HeightRequest="16" 
+                    VerticalOptions="Center" 
+                    >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="imgAttach_Click"/>
+                    </Image.GestureRecognizers>
+
+                </Image>
+
+                <!-- Image Upload Text -->
+                <Label 
+                    Grid.Column="1"  
+                    x:Name="lblImageName"
+                    FontFamily="SFProText" 
+                    FontSize="20" 
+                    FontAttributes="Bold" 
+                    TextColor="#FFFFFF" VerticalOptions="Center" />
+
+                <components:GradientButton
+                    Grid.Column="2"
+                    Text="Reset"
+                    Margin="0,15,0,0"
+                    FontSize="15"
+                    OnClick="btnReset_Click"
+                     WidthRequest="100" HeightRequest="60" 
+                    VerticalOptions="Center"
+                    />
+
+            </Grid>
+        </Frame>
+        
+        <!--Row 2-->
+
+            <StackLayout Grid.Row="1" Padding="20"  HeightRequest="56" >
+                <Slider 
+                x:Name="distanceSlider" 
+                MinimumTrackColor="{StaticResource DefaultLightPurple}" 
+                ThumbColor="{StaticResource DefaultPink}" 
+                MaximumTrackColor="{StaticResource DefaultCyan}"
+                Margin="0,10,0,10"
+                Maximum="2000" 
+                Minimum="10" 
+                ValueChanged="sliderDistance_ValueChanged" />
+                <Grid HorizontalOptions="Center" VerticalOptions="Start" >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="lblFtDistance" FontFamily="SFProText" Margin="0,-10,20,0" FontSize="16" TextColor="#FFFFFF" />
+                    <Label Grid.Column="1" x:Name="lblMeterDistance"  FontFamily="SFProText" Margin="0,-10,20,0" FontSize="16" TextColor="#FFFFFF" />
+                </Grid>
+
+            </StackLayout>
+
+            <!--Row 3-->
+
+        <components:GradientButton
+                    Grid.Row="2"
+                    Text="Send"
+            FontSize="24"
+            x:Name="btnSend"
+            OnClick="btnSend_Click"
+                     WidthRequest="223" 
+            HeightRequest="80" 
+                    />
+        </Grid>
+        
+        <!--Row 3-->
+        <components:HostTabBar
+            Grid.Row="2"
+            VerticalOptions="End"
+            HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

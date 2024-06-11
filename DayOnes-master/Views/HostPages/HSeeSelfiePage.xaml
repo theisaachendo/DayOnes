@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HSeeSelfiePage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             BackgroundColor="{StaticResource DefaultBlack}"
+             Title="">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Row 1-->
+        <components:FanTitleBar
+             Grid.Row="0"
+            Title="Choose Action"
+        />
+
+        <Image 
+            Grid.Row="1"
+            x:Name="imgCaptured"
+            WidthRequest="390"
+            HeightRequest="607"
+            />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Column 1-->
+            <Image
+                Source="cancelselfie.png"
+                Grid.Column="0"
+                WidthRequest="50"
+                VerticalOptions="Center"
+                >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="imgCancel_Tap"/>
+                </Image.GestureRecognizers>
+
+            </Image>
+
+
+            <!--Column 1-->
+            <Image
+                Source="chossig.png"
+                Grid.Column="1"
+                WidthRequest="60"
+                VerticalOptions="Center"
+                >
+                <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="imgSig_Tap"/>
+                </Image.GestureRecognizers>
+
+            </Image>
+
+
+
+            <!--Column 3-->
+            <Image
+                Source="saveupload.png"
+                Grid.Column="2"
+                WidthRequest="50"
+                VerticalOptions="Center">
+                
+                <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="imgUpload_Tap"/>
+                </Image.GestureRecognizers>
+
+            </Image>
+
+        </Grid>
+    </Grid>
+</ContentPage>

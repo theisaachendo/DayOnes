@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.GrpNameTag">
+    <Frame
+    Grid.Column="2"
+    BackgroundColor="{StaticResource DefaultCyan}"
+    Padding="0,0,10,0"
+    WidthRequest="132"
+    HeightRequest="20"
+    CornerRadius="10"
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+
+        <Label
+        x:Name="lblName"
+        FontFamily="SFProText"
+        FontAttributes="Bold"
+        FontSize="12"
+        TextColor="{StaticResource DefaultWhite}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+    </Frame>
+</ContentView>

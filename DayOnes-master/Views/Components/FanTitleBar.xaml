@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.FanTitleBar">
+    <VerticalStackLayout>
+
+        <Label 
+    x:Name="lblTitle"
+   FontFamily="SFProText"
+   FontSize="20"
+   FontAttributes="Bold"
+  
+   HeightRequest="50"
+   TextColor="White"
+   HorizontalTextAlignment="Center"   
+   VerticalTextAlignment="Center"
+   VerticalOptions="Start"
+    >
+            <!--Row 1-->
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#3A27BC" Offset="0.0" />
+                    <GradientStop Color="{StaticResource DefaultBlack}" Offset="0.5" />
+                    <GradientStop Color="#3DC1F9" Offset="1.0" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+    </VerticalStackLayout>
+</ContentView>

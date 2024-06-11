@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.FMyPicsLrgPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             Background="{StaticResource DefaultBlack}"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        
+        <components:FanSmallHdr
+            Grid.Row="0"
+            
+            />
+
+        <components:FanTitleBar
+            Title="My Collections"
+            Grid.Row="1"
+            />
+        
+        <ScrollView Grid.Row="2">
+
+
+            <Grid VerticalOptions="CenterAndExpand" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+
+                <Image
+                    Margin="0,10,0,0"
+                Grid.Row="0"
+                Source="im3.png" 
+               HeightRequest="294" WidthRequest="220" />
+
+
+                <!-- Radio buttons with text -->
+                <!--Rb1-->
+                <Grid Grid.Row="1" Margin="54,1,0,0" >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="54"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        x:Name="imgSelected1"
+                        Source="selectedrb.png"
+                        WidthRequest="40"
+                        HeightRequest="33"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        
+          >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="onSend_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <RadioButton 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        
+                        
+    CheckedChanged="EmailRadioButton_CheckedChanged"
+    x:Name="emailRadioButton"
+                Content="Email" TextColor="{StaticResource DefaultWhite}" GroupName="PhotoAction"  
+                        
+                        />
+                    
+                
+                <!--Rb 2-->
+                
+
+                <Image
+                    
+                        Grid.Column="0"
+                        Grid.Row="1"
+          x:Name="imgSelected2"
+          Source="selectedrb.png"
+          IsVisible="False"
+                        WidthRequest="40"
+                        HeightRequest="33"
+          
+          >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="onSend_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <RadioButton
+                        BorderColor="Transparent"
+                        
+                        Grid.Column="1"
+                        Grid.Row="1" 
+                        Content="Your Device Photo Library" 
+                        
+                    CheckedChanged="DeviceRadioButton_CheckedChanged"
+                        TextColor="{StaticResource DefaultWhite}" GroupName="PhotoAction"   />
+                
+
+                <!--Rb 3-->
+
+
+                    <Image
+                
+                        Grid.Column="0"
+                        Grid.Row="2"
+          x:Name="imgSelected3"
+          Source="selectedrb.png"
+                        WidthRequest="40"
+                        HeightRequest="33"
+          IsVisible="False"
+          >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="onSend_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <RadioButton  
+                        BorderColor="Transparent"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                    CheckedChanged="TextRadioButton_CheckedChanged"
+                        Content="SMS Text" TextColor="{StaticResource DefaultWhite}" GroupName="PhotoAction" 
+                        />
+
+                </Grid>
+                
+                <!-- Delete button -->
+                <StackLayout 
+                Grid.Row="3" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xf2ed;"  FontFamily="FAS"  HeightRequest="20" WidthRequest="20" TextColor="{StaticResource DefaultPink}" />
+                    <Button Text="Delete This Photo" FontSize="12" BackgroundColor="{StaticResource DefaultBlack}" FontFamily="SFProText" TextColor="{StaticResource DefaultWhite}" />
+                </StackLayout>
+                <components:GradientButton 
+     Grid.Row="4"
+        Text="Send" 
+        Width="200" 
+        Height="60" 
+        Name="btnSignup" 
+Margin="10"
+Padding="10" />
+            </Grid>
+        </ScrollView>
+        
+        <components:FanTabBar
+            Grid.Row="5"
+            VerticalOptions="End" HorizontalOptions="FillAndExpand"
+            />
+    </Grid>
+</ContentPage>

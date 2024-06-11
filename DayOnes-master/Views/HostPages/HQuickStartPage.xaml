@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.HQuickStartPage"
+             xmlns:components="clr-namespace:DayOnes.Views.Components"
+             Background="{StaticResource DefaultBlack}"
+             >
+    <VerticalStackLayout>
+
+        <Image Source="d1logo3.png"
+               WidthRequest="60"
+       Aspect="AspectFit"
+       VerticalOptions="Center"
+       HorizontalOptions="Center"
+       Margin="10,20"/>
+
+        <Frame
+    Margin="0,10,0,0"
+    Padding="10,0"
+    BackgroundColor="#3DC1F9"
+    BorderColor="{StaticResource DefaultBlack}"
+    CornerRadius="0"
+    HeightRequest="40"
+    WidthRequest="247">
+
+            <Label
+        Text="Quick Start Guides"
+        FontFamily="SFProText"
+                
+        FontSize="24"
+        FontAttributes="Bold"
+        TextColor="#FFFFFF"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" />
+        </Frame>
+
+        <StackLayout
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+    Padding="0"
+    Spacing="5"
+    WidthRequest="339.2"
+    HeightRequest="226">
+
+            <!-- Frame for the button label -->
+
+            <StackLayout Margin="0,30,0,5">
+                <BoxView HeightRequest="1" WidthRequest="100" Color="#3DC1F9"/>
+                <Label
+  Text="Fan / Client"
+  FontFamily="SFProText"
+  FontSize="15"
+  TextColor="#FFFFFF"
+  HorizontalOptions="Center"
+  VerticalOptions="Center" />
+                <BoxView HeightRequest="1" WidthRequest="100" Color="#3DC1F9"/>
+
+            </StackLayout>
+
+
+
+
+
+            <!-- Container for the background gradient and image -->
+            <Frame
+        WidthRequest="339.2"
+        HeightRequest="201"
+        Padding="0"
+        HasShadow="True"
+        BackgroundColor="Transparent">
+
+
+
+                <Image
+            Source="quickstartpage.png"
+            WidthRequest="332"
+            HeightRequest="201"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            BackgroundColor="Transparent"
+            Aspect="Fill">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer  Tapped="OnImage_Tap" />
+                    </Image.GestureRecognizers>
+
+                </Image>
+            </Frame>
+        </StackLayout>
+
+        <components:GradientButton
+                       
+                      Margin="8,90,0,0"
+                        Width="120"
+            Height="50"
+            FontSize="16"
+Text="Back" 
+Name="btnBack" 
+OnClick="btnBack_Click"
+                        />
+
+    </VerticalStackLayout>
+</ContentPage>
