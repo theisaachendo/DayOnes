@@ -1,8 +1,27 @@
 {
-  "profiles": {
-    "Windows Machine": {
-      "commandName": "MsixPackage",
-      "nativeDebugging": false
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Android App",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/bin/Debug/net7.0-android/DayOnes.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal",
+      "logging": {
+        "moduleLoad": false
+      },
+      "internalConsoleOptions": "openOnSessionStart",
+      "launchBrowser": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      }
     }
-  }
+  ]
 }

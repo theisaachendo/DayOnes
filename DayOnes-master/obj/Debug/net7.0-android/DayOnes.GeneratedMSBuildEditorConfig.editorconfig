@@ -364,6 +364,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HU
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HUPLSeePhotoPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HUPLSeePhotoPage.xaml
 
+[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/RegArtistPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.RegArtistPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HostPages\RegArtistPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HostPages\RegArtistPage.xaml
+
 [C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.LoginPage.xaml

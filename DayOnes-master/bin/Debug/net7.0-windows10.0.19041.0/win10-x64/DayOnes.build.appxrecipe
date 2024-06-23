@@ -10,34 +10,34 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>ac52b3d0-2d9f-4b58-a16d-09989187f4b5</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.runtimeconfig.json">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.runtimeconfig.json">
       <PackagePath>DayOnes.runtimeconfig.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.dll">
       <PackagePath>DayOnes.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DayOnes.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.deps.json">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DayOnes.deps.json">
       <PackagePath>DayOnes.deps.json</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Isaac Henderson\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.20\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
@@ -760,373 +760,373 @@
     <AppxPackagedFile Include="C:\Users\Isaac Henderson\.nuget\packages\microsoft.maui.core.ref.win\7.0.101\ref\net7.0-windows10.0.19041\Microsoft.Maui.pri">
       <PackagePath>Microsoft.Maui.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Brands-Regular-400.otf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Brands-Regular-400.otf">
       <PackagePath>Brands-Regular-400.otf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Regular-400.otf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Regular-400.otf">
       <PackagePath>Free-Regular-400.otf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Solid-900.otf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Free-Solid-900.otf">
       <PackagePath>Free-Solid-900.otf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\SF-Pro-Text-Regular.otf">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\SF-Pro-Text-Regular.otf">
       <PackagePath>SF-Pro-Text-Regular.otf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist1.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist1.scale-100.png">
       <PackagePath>artist1.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist2.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\artist2.scale-100.png">
       <PackagePath>artist2.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\attachment.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\attachment.scale-100.png">
       <PackagePath>attachment.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.png">
       <PackagePath>back.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back2.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\back2.scale-100.png">
       <PackagePath>back2.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\camera.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\camera.scale-100.png">
       <PackagePath>camera.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cancelselfie.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cancelselfie.scale-100.png">
       <PackagePath>cancelselfie.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chevswitchdown.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chevswitchdown.scale-100.png">
       <PackagePath>chevswitchdown.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chossig.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\chossig.scale-100.png">
       <PackagePath>chossig.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\d1logo3.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\d1logo3.scale-100.png">
       <PackagePath>d1logo3.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dmic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dmic.scale-100.png">
       <PackagePath>dmic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dropdown.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dropdown.scale-100.png">
       <PackagePath>dropdown.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fileattachment.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\fileattachment.scale-100.png">
       <PackagePath>fileattachment.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heart.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heart.scale-100.png">
       <PackagePath>heart.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvector.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvector.scale-100.png">
       <PackagePath>heartvector.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvectorfilled.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\heartvectorfilled.scale-100.png">
       <PackagePath>heartvectorfilled.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\homeic.scale-100.png">
       <PackagePath>homeic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im1.scale-100.PNG">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im1.scale-100.PNG">
       <PackagePath>im1.scale-100.PNG</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.jfif">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.jfif">
       <PackagePath>im2.scale-100.jfif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im2.scale-100.png">
       <PackagePath>im2.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im3.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im3.scale-100.png">
       <PackagePath>im3.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.jfif">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.jfif">
       <PackagePath>im4.scale-100.jfif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im4.scale-100.png">
       <PackagePath>im4.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im5.scale-100.jpg">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\im5.scale-100.jpg">
       <PackagePath>im5.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mic.scale-100.png">
       <PackagePath>mic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\microphone.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\microphone.scale-100.png">
       <PackagePath>microphone.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\minus.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\minus.scale-100.png">
       <PackagePath>minus.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\msgsic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\msgsic.scale-100.png">
       <PackagePath>msgsic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mystuffic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\mystuffic.scale-100.png">
       <PackagePath>mystuffic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\notificationic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\notificationic.scale-100.png">
       <PackagePath>notificationic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pics.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pics.scale-100.png">
       <PackagePath>pics.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pin.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pin.scale-100.png">
       <PackagePath>pin.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\plus.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\plus.scale-100.png">
       <PackagePath>plus.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pmic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pmic.scale-100.png">
       <PackagePath>pmic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\post.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\post.scale-100.png">
       <PackagePath>post.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\postic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\postic.scale-100.png">
       <PackagePath>postic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ppin.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ppin.scale-100.png">
       <PackagePath>ppin.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\psend.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\psend.scale-100.png">
       <PackagePath>psend.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstart.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstart.scale-100.png">
       <PackagePath>quickstart.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstartpage.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\quickstartpage.scale-100.png">
       <PackagePath>quickstartpage.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\saveupload.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\saveupload.scale-100.png">
       <PackagePath>saveupload.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sdmic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sdmic.scale-100.png">
       <PackagePath>sdmic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selectedrb.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selectedrb.scale-100.png">
       <PackagePath>selectedrb.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selfie.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\selfie.scale-100.png">
       <PackagePath>selfie.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\send.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\send.scale-100.png">
       <PackagePath>send.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\setting.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\setting.scale-100.png">
       <PackagePath>setting.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png">
       <PackagePath>settings.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\shomeic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\shomeic.scale-100.png">
       <PackagePath>shomeic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig1.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig1.scale-100.png">
       <PackagePath>sig1.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig2.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig2.scale-100.png">
       <PackagePath>sig2.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig3.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\sig3.scale-100.png">
       <PackagePath>sig3.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\singer.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\singer.scale-100.png">
       <PackagePath>singer.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smsgsic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smsgsic.scale-100.png">
       <PackagePath>smsgsic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smystuffic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\smystuffic.scale-100.png">
       <PackagePath>smystuffic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\snotificationic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\snotificationic.scale-100.png">
       <PackagePath>snotificationic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spostic.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spostic.scale-100.png">
       <PackagePath>spostic.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ssetting.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\ssetting.scale-100.png">
       <PackagePath>ssetting.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stickers.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\stickers.scale-100.png">
       <PackagePath>stickers.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorcomment.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorcomment.scale-100.png">
       <PackagePath>vectorcomment.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png">
       <PackagePath>vectorheart.scale-100.png</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

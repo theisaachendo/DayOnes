@@ -4,17 +4,20 @@ using WebSocketSharp;
 
 namespace WebSocketClientApp
 {
-    class Program
+    class WebSocketClient
     {
-        static WebSocket? ws;
-        static string? username;
-        static string? connectionId;
+        private WebSocket? ws;
+        private string? username;
+        private string? connectionId;
 
-        static void Main(string[] args)
+        public WebSocketClient(string username)
         {
-            Console.WriteLine("Please enter your username:");
-            username = Console.ReadLine() ?? "defaultUser";
+            this.username = username;
+            InitializeWebSocket();
+        }
 
+        private void InitializeWebSocket()
+        {
             string apiUrl = $"wss://visg9cqg1e.execute-api.us-west-1.amazonaws.com/productionv3/?username={username}";
             ws = new WebSocket(apiUrl);
 
@@ -24,43 +27,15 @@ namespace WebSocketClientApp
             ws.OnClose += OnClosed;
 
             ws.Connect();
-            HandleUserInput();
-            ws.Close();
         }
 
-        private static void HandleUserInput()
+        public void Disconnect()
         {
-            while (true)
-            {
-                Console.WriteLine("Enter command ('c' to create, 'j' to join, 's' to send, 'l' to list sessions, 'q' to quit):");
-                char key = GetKey();
-                switch (key)
-                {
-                    case 'c':
-                        CreateSession();
-                        break;
-                    case 'j':
-                        JoinSession();
-                        break;
-                    case 's':
-                        SendMessage();
-                        break;
-                    case 'l':
-                        ListSessions();
-                        break;
-                    case 'q':
-                        return;
-                    default:
-                        Console.WriteLine("Invalid input. Use 'c', 'j', 's', 'l', or 'q'.");
-                        break;
-                }
-            }
+            ws?.Close();
         }
 
-        private static void CreateSession()
+        public void CreateSession(string groupName)
         {
-            Console.WriteLine("Enter group name:");
-            string groupName = Console.ReadLine() ?? "defaultGroup";
             if (ws != null && ws.ReadyState == WebSocketState.Open)
             {
                 var message = new
@@ -79,10 +54,8 @@ namespace WebSocketClientApp
             }
         }
 
-        private static void JoinSession()
+        public void JoinSession(string sessionId)
         {
-            Console.WriteLine("Enter session ID:");
-            string sessionId = Console.ReadLine() ?? "defaultSessionId";
             if (ws != null && ws.ReadyState == WebSocketState.Open)
             {
                 var message = new
@@ -101,22 +74,8 @@ namespace WebSocketClientApp
             }
         }
 
-        private static void SendMessage()
+        public void SendMessage(string sessionId, string messageText, bool isPrivate, string recipient = "")
         {
-            Console.WriteLine("Enter session ID:");
-            string sessionId = Console.ReadLine() ?? "defaultSessionId";
-            Console.WriteLine("Enter your message:");
-            string messageText = Console.ReadLine() ?? "";
-            Console.WriteLine("Is this message private? (yes/no):");
-            bool isPrivate = Console.ReadLine()?.ToLower() == "yes";
-            string recipient = "";
-
-            if (isPrivate)
-            {
-                Console.WriteLine("Enter the recipient's username:");
-                recipient = Console.ReadLine() ?? "defaultRecipient";
-            }
-
             if (ws != null && ws.ReadyState == WebSocketState.Open)
             {
                 var message = new
@@ -138,35 +97,26 @@ namespace WebSocketClientApp
             }
         }
 
-private static void ListSessions()
-{
-    if (ws != null && ws.ReadyState == WebSocketState.Open)
-    {
-        var message = new
+        public void ListSessions()
         {
-            // Assuming 'action' might still be needed to be parsed by your Lambda
-            action = "listSessions",
-            username = username // Although this might be redundant since it's in the query
-        };
-        string jsonMessage = JsonSerializer.Serialize(message);  // This creates a non-empty body.
-        Console.WriteLine("Sending JSON: " + jsonMessage);
-        ws.Send(jsonMessage);
-    }
-    else
-    {
-        Console.WriteLine("WebSocket connection is not open.");
-    }
-}
-
-
-
-        private static char GetKey()
-        {
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            return keyInfo.KeyChar;
+            if (ws != null && ws.ReadyState == WebSocketState.Open)
+            {
+                var message = new
+                {
+                    action = "listSessions",
+                    username = username
+                };
+                string jsonMessage = JsonSerializer.Serialize(message);
+                Console.WriteLine("Sending JSON: " + jsonMessage);
+                ws.Send(jsonMessage);
+            }
+            else
+            {
+                Console.WriteLine("WebSocket connection is not open.");
+            }
         }
 
-        private static void OnMessageReceived(object? sender, MessageEventArgs e)
+        private void OnMessageReceived(object? sender, MessageEventArgs e)
         {
             if (e.Data == null)
             {
@@ -211,17 +161,17 @@ private static void ListSessions()
             }
         }
 
-        private static void OnOpened(object? sender, EventArgs e)
+        private void OnOpened(object? sender, EventArgs e)
         {
             Console.WriteLine("Connected!");
         }
 
-        private static void OnError(object? sender, WebSocketSharp.ErrorEventArgs e)
+        private void OnError(object? sender, WebSocketSharp.ErrorEventArgs e)
         {
             Console.WriteLine("Error: " + e?.Message);
         }
 
-        private static void OnClosed(object? sender, CloseEventArgs e)
+        private void OnClosed(object? sender, CloseEventArgs e)
         {
             Console.WriteLine($"Disconnected! Code: {e.Code}, Reason: {e.Reason}");
         }
