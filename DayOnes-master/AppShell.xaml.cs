@@ -12,6 +12,7 @@ namespace DayOnes
             //Fan Page Navigation routes registration
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(RegFanPage), typeof(RegFanPage));
+            Routing.RegisterRoute(nameof(RegArtistPage), typeof(RegArtistPage));
             Routing.RegisterRoute(nameof(FHomePage), typeof(FHomePage));
             Routing.RegisterRoute(nameof(FHomeCountdownPage), typeof(FHomeCountdownPage));
             Routing.RegisterRoute(nameof(FMessageReceivedPage), typeof(FMessageReceivedPage));

@@ -207,7 +207,7 @@
                     Margin="20,0,0,0"
                     Grid.Row="1"
                     x:Name="txtArtistPhone"
-                    Placeholder="+CountryCode-Nationalregion-5-8 Numbers"
+                    Placeholder="asdf"
                     BackgroundColor="Transparent"
                     TextColor="White"
                     FontSize="16"
