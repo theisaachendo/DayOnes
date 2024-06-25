@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls;
+
 namespace DayOnes.Views
 {
     public partial class RegArtistPage : ContentPage
@@ -69,6 +71,20 @@ namespace DayOnes.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Navigation to FHomePage failed: {ex.Message}");
+            }
+        }
+
+        private async void btnCancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Console.WriteLine("Cancel button clicked.");
+                await Shell.Current.GoToAsync($"///{nameof(LoginPage)}");
+                Console.WriteLine("Navigated to LoginPage.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Navigation to LoginPage failed: {ex.Message}");
             }
         }
 
