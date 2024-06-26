@@ -44,6 +44,7 @@ namespace DayOnes.Views
                 var phone = this.txtArtistPhone.Text;
                 var password = this.txtArtistPassword.Text;
                 var confirmPassword = this.txtArtistConfirmPassword.Text;
+                var instagramHandle = this.txtArtistSocialMediaHandle.Text;
 
                 Console.WriteLine("Register button clicked.");
                 Console.WriteLine($"FullName: {fullName}, Username: {userName}, Email: {email}, Phone: {phone}");
@@ -60,7 +61,7 @@ namespace DayOnes.Views
                     Console.WriteLine("Validation failed: Password and confirm password do not match.");
                     return;
                 }
-
+                    // HHome page 
                 await Shell.Current.GoToAsync(nameof(FHomePage));
                 Console.WriteLine("Navigated to FHomePage.");
 
