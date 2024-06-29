@@ -10866,19 +10866,20 @@ public final class R {
     public static final int sig1=0x7f0700fe;
     public static final int sig2=0x7f0700ff;
     public static final int sig3=0x7f070100;
-    public static final int singer=0x7f070101;
-    public static final int smsgsic=0x7f070102;
-    public static final int smystuffic=0x7f070103;
-    public static final int snotificationic=0x7f070104;
-    public static final int splash=0x7f070105;
-    public static final int spostic=0x7f070106;
-    public static final int ssetting=0x7f070107;
-    public static final int stickers=0x7f070108;
-    public static final int test_level_drawable=0x7f070109;
-    public static final int tooltip_frame_dark=0x7f07010a;
-    public static final int tooltip_frame_light=0x7f07010b;
-    public static final int vectorcomment=0x7f07010c;
-    public static final int vectorheart=0x7f07010d;
+    public static final int signature=0x7f070101;
+    public static final int singer=0x7f070102;
+    public static final int smsgsic=0x7f070103;
+    public static final int smystuffic=0x7f070104;
+    public static final int snotificationic=0x7f070105;
+    public static final int splash=0x7f070106;
+    public static final int spostic=0x7f070107;
+    public static final int ssetting=0x7f070108;
+    public static final int stickers=0x7f070109;
+    public static final int test_level_drawable=0x7f07010a;
+    public static final int tooltip_frame_dark=0x7f07010b;
+    public static final int tooltip_frame_light=0x7f07010c;
+    public static final int vectorcomment=0x7f07010d;
+    public static final int vectorheart=0x7f07010e;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

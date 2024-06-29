@@ -1129,6 +1129,12 @@
     <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\vectorheart.scale-100.png">
       <PackagePath>vectorheart.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\Assets\Logo.jpg">
+      <PackagePath>Assets\Logo.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\Assets\Sig.MOV">
+      <PackagePath>Assets\Sig.MOV</PackagePath>
+    </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
     <ResolvedSDKReference Include="C:\Users\Isaac Henderson\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.2.msix">

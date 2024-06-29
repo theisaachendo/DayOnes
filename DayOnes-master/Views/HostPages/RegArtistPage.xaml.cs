@@ -1,4 +1,6 @@
 using Microsoft.Maui.Controls;
+using System;
+using System.Threading.Tasks;
 
 namespace DayOnes.Views
 {
@@ -12,6 +14,9 @@ namespace DayOnes.Views
                 IsVisible = false
             });
             Console.WriteLine("RegArtistPage initialized.");
+
+            // Start the logo animation
+            AnimateLogo();
         }
 
         private void OnToggled(object sender, ToggledEventArgs e)
@@ -61,11 +66,12 @@ namespace DayOnes.Views
                     Console.WriteLine("Validation failed: Password and confirm password do not match.");
                     return;
                 }
-                    // HHome page 
+
+                // Navigate to FHomePage
                 await Shell.Current.GoToAsync(nameof(FHomePage));
                 Console.WriteLine("Navigated to FHomePage.");
 
-                // if user is a client then call call AWS - API: RegC1 with all the above fields
+                // if user is a client then call AWS API: RegC1 with all the above fields
                 // If the user is a Host, then they will press the Switch on this page where the
                 // app will navigate to Page: Reg HOST
             }
@@ -100,6 +106,44 @@ namespace DayOnes.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Navigation to MainPage failed: {ex.Message}");
+            }
+        }
+
+        private async void OnEntryFocused(object sender, FocusEventArgs e)
+        {
+            var entry = sender as Entry;
+            if (entry != null)
+            {
+                var parentFrame = entry.Parent.Parent as Frame;
+                if (parentFrame != null)
+                {
+                    await parentFrame.ScaleTo(1.05, 200);
+                    await parentFrame.FadeTo(0.8, 200);
+                }
+            }
+        }
+
+        private async void OnEntryUnfocused(object sender, FocusEventArgs e)
+        {
+            var entry = sender as Entry;
+            if (entry != null)
+            {
+                var parentFrame = entry.Parent.Parent as Frame;
+                if (parentFrame != null)
+                {
+                    await parentFrame.ScaleTo(1, 200);
+                    await parentFrame.FadeTo(1, 200);
+                }
+            }
+        }
+
+        private async void AnimateLogo()
+        {
+            while (true)
+            {
+                await LogoImage.RotateTo(360, 2000); // Rotate for 2 seconds
+                LogoImage.Rotation = 0; // Reset rotation
+               
             }
         }
     }

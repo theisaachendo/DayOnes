@@ -21816,43 +21816,46 @@ namespace DayOnes
 			public const int sig3 = 2131165440;
 			
 			// aapt resource value: 0x7F070101
-			public const int singer = 2131165441;
+			public const int signature = 2131165441;
 			
 			// aapt resource value: 0x7F070102
-			public const int smsgsic = 2131165442;
+			public const int singer = 2131165442;
 			
 			// aapt resource value: 0x7F070103
-			public const int smystuffic = 2131165443;
+			public const int smsgsic = 2131165443;
 			
 			// aapt resource value: 0x7F070104
-			public const int snotificationic = 2131165444;
+			public const int smystuffic = 2131165444;
 			
 			// aapt resource value: 0x7F070105
-			public const int splash = 2131165445;
+			public const int snotificationic = 2131165445;
 			
 			// aapt resource value: 0x7F070106
-			public const int spostic = 2131165446;
+			public const int splash = 2131165446;
 			
 			// aapt resource value: 0x7F070107
-			public const int ssetting = 2131165447;
+			public const int spostic = 2131165447;
 			
 			// aapt resource value: 0x7F070108
-			public const int stickers = 2131165448;
+			public const int ssetting = 2131165448;
 			
 			// aapt resource value: 0x7F070109
-			public const int test_level_drawable = 2131165449;
+			public const int stickers = 2131165449;
 			
 			// aapt resource value: 0x7F07010A
-			public const int tooltip_frame_dark = 2131165450;
+			public const int test_level_drawable = 2131165450;
 			
 			// aapt resource value: 0x7F07010B
-			public const int tooltip_frame_light = 2131165451;
+			public const int tooltip_frame_dark = 2131165451;
 			
 			// aapt resource value: 0x7F07010C
-			public const int vectorcomment = 2131165452;
+			public const int tooltip_frame_light = 2131165452;
 			
 			// aapt resource value: 0x7F07010D
-			public const int vectorheart = 2131165453;
+			public const int vectorcomment = 2131165453;
+			
+			// aapt resource value: 0x7F07010E
+			public const int vectorheart = 2131165454;
 			
 			static Drawable()
 			{

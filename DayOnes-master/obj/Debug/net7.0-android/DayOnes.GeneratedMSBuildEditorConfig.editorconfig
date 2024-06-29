@@ -375,3 +375,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/SplashScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.SplashScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SplashScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SplashScreenPage.xaml

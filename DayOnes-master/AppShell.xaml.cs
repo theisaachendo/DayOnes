@@ -26,6 +26,7 @@ namespace DayOnes
             Routing.RegisterRoute(nameof(FProfilePage), typeof(FProfilePage));
             Routing.RegisterRoute(nameof(FQuickStartPage), typeof(FQuickStartPage));
             Routing.RegisterRoute(nameof(FSettingsPage), typeof(FSettingsPage));
+            Routing.RegisterRoute(nameof(SplashScreenPage), typeof(SplashScreenPage));
 
             //
 

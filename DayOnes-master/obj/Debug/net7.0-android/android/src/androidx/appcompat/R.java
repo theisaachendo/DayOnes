@@ -584,9 +584,9 @@ public final class R {
 		public static final int btn_radio_off_to_on_mtrl_animation = 0x7f07007d;
 		public static final int btn_radio_on_mtrl = 0x7f07007e;
 		public static final int btn_radio_on_to_off_mtrl_animation = 0x7f07007f;
-		public static final int test_level_drawable = 0x7f070109;
-		public static final int tooltip_frame_dark = 0x7f07010a;
-		public static final int tooltip_frame_light = 0x7f07010b;
+		public static final int test_level_drawable = 0x7f07010a;
+		public static final int tooltip_frame_dark = 0x7f07010b;
+		public static final int tooltip_frame_light = 0x7f07010c;
 	}
 	public static final class id {
 		public static final int action_bar = 0x7f080034;

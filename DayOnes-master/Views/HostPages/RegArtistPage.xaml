@@ -1,23 +1,49 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:DayOnes.Views.Components"
-             x:Class="DayOnes.Views.RegArtistPage" Background="{StaticResource DefaultBlack}">
+             x:Class="DayOnes.Views.RegArtistPage"
+             Background="{StaticResource DefaultBlack}">
+
+    <ContentPage.Resources>
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        </Style>
+
+        <Style x:Key="FrameStyle" TargetType="Frame">
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Padding" Value="0,0,0,0" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="{StaticResource DefaultPurple}" />
+            <Setter Property="HeightRequest" Value="52" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black" Opacity="0.5" Radius="10" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="SFProText" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
 
     <ScrollView>
         <StackLayout>
 
-            <Image Source="d1logo3" WidthRequest="57" HeightRequest="80"></Image>
+            <Image x:Name="LogoImage" Source="d1logo3" WidthRequest="57" HeightRequest="80" />
 
             <!-- Full Name Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                ZIndex="0"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="FullNameFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -39,39 +65,20 @@
                            HorizontalOptions="Start"
                            BackgroundColor="White"
                            BorderColor="Red">
-                        <Label
-                            Text="Full Name"
-                            FontFamily="SFProText"
-                            FontSize="17"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Full Name" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        x:Name="txtArtistFullName"
-                        Grid.Row="1"
-                        Margin="18,0,0,0"
-                        Placeholder="Enter your full name"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry x:Name="txtArtistFullName"
+                           Style="{StaticResource EntryStyle}"
+                           Grid.Row="1"
+                           Margin="18,0,0,0"
+                           Placeholder="Enter your full name"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- Username Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                HeightRequest="52"
-                CornerRadius="20"
-                ZIndex="1">
+            <Frame x:Name="UsernameFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -91,38 +98,20 @@
                            HorizontalOptions="Start"
                            BackgroundColor="White"
                            BorderColor="Red">
-                        <Label
-                            Text="Username"
-                            FontFamily="SFProText"
-                            FontSize="17"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Username" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Margin="18,0,0,0"
-                        x:Name="txtArtistUsername"
-                        Grid.Row="1"
-                        Placeholder="Choose a username"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Margin="18,0,0,0"
+                           x:Name="txtArtistUsername"
+                           Style="{StaticResource EntryStyle}"
+                           Grid.Row="1"
+                           Placeholder="Choose a username"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- E-Mail Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="EmailFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -143,38 +132,20 @@
                            HorizontalOptions="Start"
                            BackgroundColor="White"
                            BorderColor="Red">
-                        <Label
-                            Text="Email"
-                            FontFamily="SFProText"
-                            FontSize="18"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Center"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Email" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Margin="18,0,0,0"
-                        x:Name="txtArtistEmail"
-                        Grid.Row="1"
-                        Placeholder="Enter your email address"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Margin="18,0,0,0"
+                           x:Name="txtArtistEmail"
+                           Style="{StaticResource EntryStyle}"
+                           Grid.Row="1"
+                           Placeholder="Enter your email address"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- Phone Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="PhoneFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -194,39 +165,20 @@
                            HorizontalOptions="Start"
                            BackgroundColor="White"
                            BorderColor="Red">
-                        <Label
-                            Text="Phone"
-                            FontFamily="SFProText"
-                            FontSize="18"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Phone" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Margin="20,0,0,0"
-                        Grid.Row="1"
-                        x:Name="txtArtistPhone"
-                        Placeholder="Enter your phone number"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="16"
-                        FontAttributes="Bold"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Margin="20,0,0,0"
+                           Grid.Row="1"
+                           x:Name="txtArtistPhone"
+                           Style="{StaticResource EntryStyle}"
+                           Placeholder="Enter your phone number"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- Password Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                ZIndex="0"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="PasswordFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -247,39 +199,21 @@
                            HorizontalOptions="Start"
                            BorderColor="Red"
                            BackgroundColor="White">
-                        <Label
-                            Text="Password"
-                            FontFamily="SFProText"
-                            FontSize="18"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Password" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Grid.Row="1"
-                        Margin="19,0,0,0"
-                        x:Name="txtArtistPassword"
-                        IsPassword="True"
-                        Placeholder="Enter your password"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Grid.Row="1"
+                           Margin="19,0,0,0"
+                           x:Name="txtArtistPassword"
+                           IsPassword="True"
+                           Style="{StaticResource EntryStyle}"
+                           Placeholder="Enter your password"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- Confirm Password Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                ZIndex="0"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="ConfirmPasswordFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -299,40 +233,21 @@
                            HorizontalOptions="Start"
                            BorderColor="Red"
                            BackgroundColor="White">
-                        <Label
-                            Text="Confirm Password"
-                            FontFamily="SFProText"
-                            FontSize="18"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Confirm Password" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Grid.Row="1"
-                        Margin="20,0,0,0"
-                        IsPassword="True"
-                        x:Name="txtArtistConfirmPassword"
-                        Placeholder="Confirm your password"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Grid.Row="1"
+                           Margin="20,0,0,0"
+                           IsPassword="True"
+                           x:Name="txtArtistConfirmPassword"
+                           Style="{StaticResource EntryStyle}"
+                           Placeholder="Confirm your password"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
             <!-- Social Media Handle Field -->
-            <Frame
-                Margin="15"
-                Padding="0,0,0,0"
-                BackgroundColor="Transparent"
-                BorderColor="{StaticResource DefaultPurple}"
-                ZIndex="0"
-                HeightRequest="52"
-                CornerRadius="20">
+            <Frame x:Name="SocialMediaHandleFrame" Style="{StaticResource FrameStyle}">
                 <Frame.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#4B0981" Offset="0" />
@@ -353,26 +268,15 @@
                            HorizontalOptions="Start"
                            BorderColor="Red"
                            BackgroundColor="White">
-                        <Label
-                            Text="Social Media Handle"
-                            FontFamily="SFProText"
-                            FontSize="18"
-                            TextColor="Red"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Start"
-                            VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                        <Label Text="Social Media Handle" Style="{StaticResource LabelStyle}" />
                     </Frame>
-                    <Entry
-                        Grid.Row="1"
-                        Margin="19,0,0,0"
-                        x:Name="txtArtistSocialMediaHandle"
-                        Placeholder="Enter your social media handle"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        FontSize="18"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
+                    <Entry Grid.Row="1"
+                           Margin="19,0,0,0"
+                           x:Name="txtArtistSocialMediaHandle"
+                           Style="{StaticResource EntryStyle}"
+                           Placeholder="Enter your social media handle"
+                           Focused="OnEntryFocused"
+                           Unfocused="OnEntryUnfocused" />
                 </Grid>
             </Frame>
 
@@ -402,12 +306,12 @@
 
             <!-- Text -->
             <Label Margin="0"
-                Text="Already Have an Account?"
-                FontSize="16"
-                TextColor="{StaticResource DefaultWhite}"
-                WidthRequest="220"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                   Text="Already Have an Account?"
+                   FontSize="16"
+                   TextColor="{StaticResource DefaultWhite}"
+                   WidthRequest="220"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
 
             <!-- Login Button -->
             <components:GradientButton
