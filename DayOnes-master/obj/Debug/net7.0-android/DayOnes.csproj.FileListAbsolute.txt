@@ -2329,6 +2329,7 @@ C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-mast
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\resizetizer\r\drawable\signature.mp4
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\mscorlib.dll
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\System.Collections.Concurrent.dll
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\System.Data.Common.dll
@@ -2342,4 +2343,3 @@ C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-mast
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\android\assets\System.Xml.dll
-C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\resizetizer\r\drawable\signature.mp4

@@ -1,3 +1,4 @@
+using DayOnes.UtilityClass;
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
@@ -6,6 +7,8 @@ namespace DayOnes.Views
 {
     public partial class RegArtistPage : ContentPage
     {
+        private readonly UserService _userService;
+
         public RegArtistPage()
         {
             InitializeComponent();
@@ -14,6 +17,9 @@ namespace DayOnes.Views
                 IsVisible = false
             });
             Console.WriteLine("RegArtistPage initialized.");
+
+            // Initialize UserService
+            _userService = new UserService();
 
             // Start the logo animation
             AnimateLogo();
@@ -42,7 +48,7 @@ namespace DayOnes.Views
         {
             try
             {
-                // fields
+                // Fields
                 var fullName = this.txtArtistFullName.Text;
                 var userName = this.txtArtistUsername.Text;
                 var email = this.txtArtistEmail.Text;
@@ -58,12 +64,25 @@ namespace DayOnes.Views
                     string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
                 {
                     Console.WriteLine("Validation failed: One or more fields are empty.");
+                    await DisplayAlert("Validation Failed", "Please fill in all required fields.", "OK");
                     return;
                 }
 
                 if (password != confirmPassword)
                 {
                     Console.WriteLine("Validation failed: Password and confirm password do not match.");
+                    await DisplayAlert("Validation Failed", "Password and confirm password do not match.", "OK");
+                    return;
+                }
+
+                // Try to register the user
+                bool isRegistered = await _userService.TryRegisterUser(userName, password, fullName, email, phone, instagramHandle, "Artist");
+
+                if (!isRegistered)
+                {
+                    await DisplayAlert("Username Taken", "The username is already taken. Please choose a different one.", "OK");
+                    txtArtistUsername.Text = string.Empty;
+                    txtArtistUsername.Focus();
                     return;
                 }
 
@@ -71,7 +90,7 @@ namespace DayOnes.Views
                 await Shell.Current.GoToAsync(nameof(FHomePage));
                 Console.WriteLine("Navigated to FHomePage.");
 
-                // if user is a client then call AWS API: RegC1 with all the above fields
+                // Call AWS API: RegC1 with all the above fields
                 // If the user is a Host, then they will press the Switch on this page where the
                 // app will navigate to Page: Reg HOST
             }
@@ -143,7 +162,6 @@ namespace DayOnes.Views
             {
                 await LogoImage.RotateTo(360, 2000); // Rotate for 2 seconds
                 LogoImage.Rotation = 0; // Reset rotation
-               
             }
         }
     }
