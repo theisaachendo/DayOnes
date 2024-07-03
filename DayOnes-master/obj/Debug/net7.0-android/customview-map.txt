@@ -21,6 +21,7 @@ background;obj\Debug\net7.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 bitmap;obj\Debug\net7.0-android\resizetizer\sp\drawable-v31\maui_splash_image.xml
 bitmap;obj\Debug\net7.0-android\resizetizer\sp\drawable\maui_splash_image.xml
 cache-path;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\163\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+cache-path;c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\168\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\162\jl\res\values\colors.xml
 color;obj\Debug\net7.0-android\res\values\colors.xml
 color;obj\Debug\net7.0-android\resizetizer\sp\values\maui_colors.xml
@@ -33,7 +34,9 @@ declare-styleable;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124
 declare-styleable;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\162\jl\res\values\attr.xml
 declare-styleable;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\164\jl\res\values\attrs.xml
 external-cache-path;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\163\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+external-cache-path;c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\168\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\163\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+external-path;c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\168\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\net7.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 foreground;obj\Debug\net7.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 item;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\160\jl\res\values\styles.xml
@@ -47,6 +50,7 @@ layer-list;obj\Debug\net7.0-android\resizetizer\sp\drawable-v31\maui_splash_imag
 layer-list;obj\Debug\net7.0-android\resizetizer\sp\drawable\maui_splash_image.xml
 microsoft.maui.controls.platform.compatibility.ShellFlyoutLayout;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\159\jl\res\layout\flyoutcontent.xml
 paths;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\163\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+paths;c:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\168\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\159\jl\res\values\strings.xml
 resources;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\160\jl\res\values\attrs.xml
 resources;C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\obj\Debug\net7.0-android\lp\160\jl\res\values\styles.xml

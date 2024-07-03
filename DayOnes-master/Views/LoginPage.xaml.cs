@@ -1,10 +1,15 @@
 using DayOnes.Models;
 using DayOnes.Views.HostPages;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace DayOnes.Views
 {
     public partial class LoginPage : ContentPage
     {
+        private readonly HttpClient _httpClient;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -13,33 +18,68 @@ namespace DayOnes.Views
                 IsVisible = false
             });
             Console.WriteLine("LoginPage initialized.");
+
+            // Initialize HttpClient
+            _httpClient = new HttpClient();
         }
 
-        private void btnLog_Click(object sender, EventArgs e)
+        private async void btnLog_Click(object sender, EventArgs e)
         {
-            var email = this.txtEmail.Text;
+            var username = this.txtEmail.Text;
             var password = this.txtPassword.Text;
 
-            //Based on this type we decide whether the user is a host or fan
-            UserTypeEnum type = UserTypeEnum.Host;
-            /*
-             1. Collected registration data
-            2. Execute AWS API:L1 passing the Username & Password
-            to AWS, and receiving data as to whether the user is a
-            Client or Host. Client or Host status should be store in
-            SQLite
-            3. Collect the EULA Agreement Data
-            ? Timestamp
-            ? Boolean with agreement status
-            4. Just below the previous comment, write a comment on
-            EULA and detail the EULA data comment
-            5. Collect Geolocation data from the iPhone, store it in
-            SQLite, and ID the variable containing the data. Will need the Username as part
-            of the data set.
-            */
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                await DisplayAlert("Validation Failed", "Please enter both username and password.", "OK");
+                return;
+            }
 
-            Shell.Current.GoToAsync(nameof(FHomePage));
-            Console.WriteLine("Navigated to FHomePage.");
+            try
+            {
+                // Authenticate the user and retrieve the role
+                var result = await AuthenticateUser(username, password);
+                if (!result.Item1)
+                {
+                    await DisplayAlert("Login Failed", "Invalid username or password. Please try again.", "OK");
+                    return;
+                }
+
+                // Determine user type and navigate to the appropriate page
+                UserTypeEnum type = result.Item2 == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
+                switch (type)
+                {
+                    case UserTypeEnum.Host:
+                        await Shell.Current.GoToAsync(nameof(HHomePage));
+                        break;
+                    case UserTypeEnum.Fan:
+                        await Shell.Current.GoToAsync(nameof(FHomePage));
+                        break;
+                }
+                Console.WriteLine("Navigated to appropriate home page.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Login failed: {ex.Message}");
+                await DisplayAlert("Error", "An error occurred during login. Please try again.", "OK");
+            }
+        }
+
+        private async Task<(bool, string)> AuthenticateUser(string username, string password)
+        {
+            // Replace with your AWS Lambda endpoint URL for authentication and role retrieval
+            var url = $"arn:aws:lambda:us-east-1:274045439458:function:UserAuthenticationLogin?username={username}&password={password}";
+            var response = await _httpClient.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var jsonResponse = JObject.Parse(content);
+                return (true, jsonResponse["role"].ToString());
+            }
+            else
+            {
+                return (false, string.Empty);
+            }
         }
 
         private async void btnSignup_Click(object sender, EventArgs e)
@@ -61,7 +101,7 @@ namespace DayOnes.Views
             }
         }
 
-        private void imgLogo_Tapped(object sender, TappedEventArgs e)
+        private void imgLogo_Tapped(object sender, EventArgs e)
         {
             Console.WriteLine("Logo tapped.");
             Shell.Current.GoToAsync(nameof(HHomePage));
