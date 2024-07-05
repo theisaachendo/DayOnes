@@ -82,6 +82,7 @@ Xamarin.AndroidX.VersionedParcelable.dll
 Xamarin.AndroidX.ViewPager.dll
 Xamarin.AndroidX.ViewPager2.dll
 Xamarin.AndroidX.Window.dll
+Xamarin.Essentials.dll
 Xamarin.Google.Android.Material.dll
 Xamarin.Google.Crypto.Tink.Android.dll
 Xamarin.Google.Guava.ListenableFuture.dll
@@ -131,6 +132,7 @@ androidx.appcompat.appcompat.aar
 androidx.constraintlayout.constraintlayout.aar
 androidx.cardview.cardview.aar
 com.google.android.material.material.aar
+androidx.browser.browser.aar
 androidx.window.window.aar
 androidx.swiperefreshlayout.swiperefreshlayout.aar
 androidx.slidingpanelayout.slidingpanelayout.aar
@@ -151,7 +153,6 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.exifinterface.exifinterface.aar
-androidx.browser.browser.aar
 gifdecoder.aar
 glide.aar
 CommunityToolkit.Maui.Core.aar
@@ -166,4 +167,3 @@ SkiaSharp.Views.Android.aar
 Syncfusion.Maui.Buttons.aar
 Syncfusion.Maui.Core.aar
 Xamarin.Google.Crypto.Tink.Android.aar
-Xamarin.Essentials.dll

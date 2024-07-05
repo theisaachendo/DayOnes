@@ -76,7 +76,7 @@ namespace DayOnes.Views
                 }
 
                 // Try to register the user
-                bool isRegistered = await _userService.TryRegisterUser(userName, password, fullName, email, phone, instagramHandle, "Artist");
+                bool isRegistered = await _userService.TryRegisterUser(userName, password, fullName, email, phone, instagramHandle, "artist");
 
                 if (!isRegistered)
                 {
@@ -89,14 +89,11 @@ namespace DayOnes.Views
                 // Navigate to FHomePage
                 await Shell.Current.GoToAsync(nameof(FHomePage));
                 Console.WriteLine("Navigated to FHomePage.");
-
-                // Call AWS API: RegC1 with all the above fields
-                // If the user is a Host, then they will press the Switch on this page where the
-                // app will navigate to Page: Reg HOST
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Navigation to FHomePage failed: {ex.Message}");
+                await DisplayAlert("Error", $"An error occurred during registration: {ex.Message}", "OK");
             }
         }
 
