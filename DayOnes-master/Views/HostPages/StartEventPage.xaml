@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.StartEventPage"
+             Background="{StaticResource DefaultBlack}"
+             xmlns:components="clr-namespace:DayOnes.Views.Components">
+    <VerticalStackLayout Padding="20" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Start Your Event"
+               FontFamily="SFProText"
+               FontSize="30"
+               TextColor="{StaticResource DefaultPurple}"
+               HorizontalTextAlignment="Center"/>
+        
+        <Label Text="Welcome to the event creation process! You can choose to take a selfie, upload a picture, or just send a message to your fans."
+               FontFamily="SFProText"
+               FontSize="18"
+               TextColor="{StaticResource DefaultCyan}"
+               HorizontalTextAlignment="Center"/>
+        
+        <components:GradientButton
+            Text="Start"
+            FontSize="25"
+            Width="200"
+            Height="60"
+            OnClick="btnStart_Click"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -366,6 +366,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.Re
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\RegArtistPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\RegArtistPage.xaml
 
+[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/StartEventPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.StartEventPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HostPages\StartEventPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HostPages\StartEventPage.xaml
+
+[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/WhatToSendPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.WhatToSendPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HostPages\WhatToSendPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HostPages\WhatToSendPage.xaml
+
 [C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.LoginPage.xaml

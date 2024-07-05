@@ -4,11 +4,9 @@
              x:Class="DayOnes.Views.HostPages.HHomePage"
              Background="{StaticResource DefaultBlack}"
              xmlns:components="clr-namespace:DayOnes.Views.Components"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-         
-             >
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -22,71 +20,66 @@
         <!--Row 1-->
         <components:HostSmallHdr Grid.Row="0"/>
 
-
         <!--Row 2-->
-        <components:FanTitleBar
-             Grid.Row="1"
-            Title="Autographs &amp; Invites"
-        />
+        <components:FanTitleBar Grid.Row="1" Title="Autographs and Invites"/>
 
         <!--Row 3-->
-        <StackLayout  Grid.Row="2" Padding="15" Spacing="20" WidthRequest="357" HeightRequest="155">
-            <!-- UpperHdr -->
-            <StackLayout  Spacing="16">
-                <!-- Header Frame -->
-                <Frame 
-                    WidthRequest="357" 
-                    HeightRequest="135" 
-                    BackgroundColor="{StaticResource DefaultBlack}" 
-                    BorderColor="{StaticResource DefaultCyan}" 
-                    CornerRadius="20" 
-                    
-                    Padding="10,0,10,0">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" >
-                        <!-- Home HostHeader3 -->
-                        <Frame Padding="10" WidthRequest="162" HeightRequest="115" BackgroundColor="#123544" BorderColor="{StaticResource DefaultCyan}" CornerRadius="20">
-                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
-                                <!-- Interior -->
-                                <StackLayout Padding="5" Spacing="10">
-                                    <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="layoutCamera_Tapped"/>
-                                    </StackLayout.GestureRecognizers>
-                                    
-                                    <Image WidthRequest="25" HeightRequest="23.33" Source="camera.png"/>
-                                    
-                                    <Label Text="Click Selfie" FontFamily="SFProText" FontAttributes="Bold" FontSize="20" TextColor="#FFFFFF" HorizontalTextAlignment="Center" />
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                        <!-- Home HostHeader3 -->
-                        <Frame Padding="10" WidthRequest="162" HeightRequest="115" BackgroundColor="#123544" BorderColor="{StaticResource DefaultCyan}" CornerRadius="20">
-                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
-                                <!-- Interior -->
-                                <StackLayout Padding="5" Spacing="10">
+        <StackLayout Grid.Row="2" Padding="15" Spacing="20" WidthRequest="357" HeightRequest="155">
+            <Frame WidthRequest="357" HeightRequest="135" BackgroundColor="{StaticResource DefaultBlack}" BorderColor="{StaticResource DefaultCyan}" CornerRadius="20" Padding="10,0,10,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                    <!-- Start Your Event Button -->
+                    <components:GradientButton
+                        Text="Start Your Event"
+                        FontSize="10"
+                        Width="200"
+                        Height="60"
+                        Name="btnStartEvent"
+                        OnClick="btnStartEvent_Click"
+                        Margin="10"
+                        Padding="10"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
 
-                                    <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="layoutPics_Tapped"/>
-                                    </StackLayout.GestureRecognizers>
+        <!-- Placeholder for additional options (selfie, upload image, or nothing) -->
+        <StackLayout Grid.Row="3" x:Name="OptionsStack" IsVisible="False" Spacing="20">
+            <components:GradientButton
+                Text="Click Selfie"
+                FontSize="30"
+                Width="200"
+                Height="60"
+                Name="btnClickSelfie"
+                OnClick="btnClickSelfie_Click"
+                Margin="10"
+                Padding="10"/>
+            
+            <components:GradientButton
+                Text="Upload Image"
+                FontSize="30"
+                Width="200"
+                Height="60"
+                Name="btnUploadImage"
+                OnClick="btnUploadImage_Click"
+                Margin="10"
+                Padding="10"/>
 
-                                    <!--<BoxView WidthRequest="25" HeightRequest="25" />-->
-                                    <Image  WidthRequest="25" HeightRequest="25" Source="pics.png" />
-                                    <Label Text="Upload Pic" FontFamily="SFProText" FontAttributes="Bold" FontSize="20" TextColor="#FFFFFF" HorizontalTextAlignment="Center" />
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                </Frame>
-
-            </StackLayout>
+            <components:GradientButton
+                Text="Send Invite"
+                FontSize="30"
+                Width="200"
+                Height="60"
+                Name="btnSendInvite"
+                OnClick="btnSendInvite_Click"
+                Margin="10"
+                Padding="10"/>
         </StackLayout>
 
         <!--Row 4-->
-        <StackLayout Grid.Row="3" Padding="20"  HeightRequest="56" >
+        <StackLayout Grid.Row="4" Padding="20" HeightRequest="56">
             <Slider 
                 x:Name="distanceSlider" 
                 MinimumTrackColor="{StaticResource DefaultLightPurple}" 
                 ThumbColor="{StaticResource DefaultPink}" 
-                
                 MaximumTrackColor="{StaticResource DefaultCyan}"
                 Margin="0,10,0,10"
                 Maximum="2000" 
@@ -94,7 +87,6 @@
                 ValueChanged="sliderDistance_ValueChanged" />
             <Grid VerticalOptions="Start" ColumnSpacing="0">
                 <Grid.ColumnDefinitions >
-                    
                     <ColumnDefinition Width="*"  />
                     <ColumnDefinition Width="45" />
                     <ColumnDefinition Width="20" />
@@ -102,13 +94,11 @@
                     <ColumnDefinition Width="20" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                
                 <Label Grid.Column="1" x:Name="lblFtDistance" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
                 <Label Grid.Column="2" Text="ft" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
-                <Label Grid.Column="3" x:Name="lblMeterDistance"  FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
+                <Label Grid.Column="3" x:Name="lblMeterDistance" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
                 <Label Grid.Column="4" Text="m" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
             </Grid>
-            
         </StackLayout>
 
         <!--Row 5-->
@@ -116,8 +106,7 @@
               Margin="0,30,0,0"
               WidthRequest="308"
               HeightRequest="260"
-              ZIndex="1"
-              >
+              ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -130,32 +119,29 @@
                    FontFamily="SFProText" FontAttributes="Italic" FontSize="20" 
                    TextColor="{StaticResource DefaultPurple}" Margin="0,30,0,5" />
 
-            <toolkit:Expander Grid.Row="1" x:Name="expandedtab">
+            <toolkit:Expander Grid.Row="1" x:Name="expandedtab" ExpandedChanged="Expander_ExpandedChanged">
                 <toolkit:Expander.Header>
                     <Frame Grid.Row="1"
-                       Background="{StaticResource DefaultBlack}" 
-                       BorderColor="{StaticResource DefaultPurple}" 
-                       HeightRequest="60"
-                       CornerRadius="0"
-                       Padding="40,10,20,10">
+                           Background="{StaticResource DefaultBlack}" 
+                           BorderColor="{StaticResource DefaultPurple}" 
+                           HeightRequest="60"
+                           CornerRadius="0"
+                           Padding="40,10,20,10">
                         <Grid ColumnDefinitions="Auto,*">
                             <Label x:Name="selecteditemaa" Text="" FontSize="20" Margin="10"></Label>
-
                             <Image
                                 Grid.Column="1"
                                 x:Name="imageproperty"
                                 Source="dropdown.png"
-                                HorizontalOptions="EndAndExpand"
-                            />
+                                HorizontalOptions="EndAndExpand"/>
                         </Grid>
-                       
                     </Frame>
                 </toolkit:Expander.Header>
                 <Frame Grid.Row="1"
-                    Background="{StaticResource DefaultBlack}" 
-                    BorderColor="{StaticResource DefaultPurple}" 
-                    HeightRequest="160"
-                    Padding="0,0">
+                       Background="{StaticResource DefaultBlack}" 
+                       BorderColor="{StaticResource DefaultPurple}" 
+                       HeightRequest="160"
+                       Padding="0,0">
                     <CollectionView SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                         <CollectionView.ItemsSource>
                             <x:Array Type="{x:Type View}">
@@ -172,17 +158,8 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-
-
-
-
-
                 </Frame>
             </toolkit:Expander>
-
-            <!--Row 2-->
-            
-
         </Grid>
 
         <!-- Send Button Row 6-->
@@ -193,12 +170,11 @@
             FontSize="25"
             Width="223"
             Height="60"
-            />
+            x:Name="btnSendInviteMain"
+            IsVisible="False"
+            OnClick="btnSendInviteMain_Click"/>
+
         <!--Row 7-->
-        <components:HostTabBar
-            
-            VerticalOptions="End"
-            Grid.Row="6"
-            />
+        <components:HostTabBar Grid.Row="6" VerticalOptions="End"/>
     </Grid>
 </ContentPage>

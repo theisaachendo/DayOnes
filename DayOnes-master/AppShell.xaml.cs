@@ -51,6 +51,8 @@ namespace DayOnes
             Routing.RegisterRoute(nameof(HUPLPhotoChooseSigPage), typeof(HUPLPhotoChooseSigPage));
             Routing.RegisterRoute(nameof(HUPLSeePhotoPage), typeof(HUPLSeePhotoPage));
             Routing.RegisterRoute(nameof(HAssetsNManagementPage), typeof(HAssetsNManagementPage));
+            Routing.RegisterRoute(nameof(StartEventPage), typeof(StartEventPage));
+            Routing.RegisterRoute(nameof(WhatToSendPage), typeof(WhatToSendPage));
         }
     }
 }
