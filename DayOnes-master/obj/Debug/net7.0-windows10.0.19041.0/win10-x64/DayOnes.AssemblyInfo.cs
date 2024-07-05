@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DayOnes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+3553bca565e3da27650c422ec09a4a6f9c31b2fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e68bcc358f2182f5c40d06ea70dfaf74fb72a378")]
 [assembly: System.Reflection.AssemblyProductAttribute("DayOnes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DayOnes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

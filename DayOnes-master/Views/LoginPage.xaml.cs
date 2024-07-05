@@ -3,6 +3,7 @@ using DayOnes.Views.HostPages;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Microsoft.Maui.Controls;
 
 namespace DayOnes.Views
 {
@@ -36,7 +37,7 @@ namespace DayOnes.Views
 
             try
             {
-                // Authenticate the user and retrieve the role
+                // Authenticate the user and retrieve the profile
                 var result = await AuthenticateUser(username, password);
                 if (!result.Item1)
                 {
@@ -44,8 +45,12 @@ namespace DayOnes.Views
                     return;
                 }
 
+                var profile = result.Item2;
+                // Use the profile information as needed
+                Console.WriteLine("Authenticated user profile: " + profile);
+
                 // Determine user type and navigate to the appropriate page
-                UserTypeEnum type = result.Item2 == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
+                UserTypeEnum type = profile["role"].ToString() == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
                 switch (type)
                 {
                     case UserTypeEnum.Host:
@@ -64,21 +69,21 @@ namespace DayOnes.Views
             }
         }
 
-        private async Task<(bool, string)> AuthenticateUser(string username, string password)
+        private async Task<(bool, JObject)> AuthenticateUser(string username, string password)
         {
-            // Replace with your AWS Lambda endpoint URL for authentication and role retrieval
-            var url = $"arn:aws:lambda:us-east-1:274045439458:function:UserAuthenticationLogin?username={username}&password={password}";
+            // Replace with your AWS Lambda endpoint URL for authentication and profile retrieval
+            var url = $"https://2hokj4ow5etr4dw2h55tizgvpi0dusbo.lambda-url.us-east-1.on.aws/?username={username}&password={password}";
             var response = await _httpClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var jsonResponse = JObject.Parse(content);
-                return (true, jsonResponse["role"].ToString());
+                return (true, (JObject)jsonResponse["profile"]);
             }
             else
             {
-                return (false, string.Empty);
+                return (false, null);
             }
         }
 
