@@ -1,8 +1,4 @@
 is_global = true
-build_property.EnableAotAnalyzer = 
-build_property.EnableSingleFileAnalyzer = 
-build_property.EnableTrimAnalyzer = false
-build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net7.0-maccatalyst
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -12,383 +8,383 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DayOnes
-build_property.ProjectDir = C:\Users\Isaac Henderson\Desktop\dayones\DayOnes-master 060124.1854\DayOnes-master\
+build_property.ProjectDir = C:\Users\jesse\Documents\DayOnes\DayOnes-master\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/App.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/AppShell.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/MainPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Resources/Styles/Colors.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Resources/Styles/Styles.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Styles/ResourceDictionary.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Styles/ResourceDictionary.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Styles.ResourceDictionary.xaml
 build_metadata.AdditionalFiles.TargetPath = Styles\ResourceDictionary.xaml
 build_metadata.AdditionalFiles.RelativePath = Styles\ResourceDictionary.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/ArtistChatCard.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/ArtistChatCard.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.ArtistChatCard.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\ArtistChatCard.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\ArtistChatCard.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/ChatMessageContainer.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/ChatMessageContainer.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.ChatMessageContainer.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\ChatMessageContainer.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\ChatMessageContainer.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/CommentLabel.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/CommentLabel.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.CommentLabel.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\CommentLabel.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\CommentLabel.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/EntryControl.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/EntryControl.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.EntryControl.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\EntryControl.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\EntryControl.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/FanSmallHdr .xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/FanSmallHdr .xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.FanSmallHdr .xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\FanSmallHdr .xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\FanSmallHdr .xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/FanTabBar.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/FanTabBar.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.FanTabBar.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\FanTabBar.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\FanTabBar.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/FanTitleBar.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/FanTitleBar.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.FanTitleBar.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\FanTitleBar.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\FanTitleBar.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/GradientButton.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/GradientButton.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.GradientButton.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\GradientButton.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\GradientButton.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/GradientImageButton.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/GradientImageButton.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.GradientImageButton.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\GradientImageButton.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\GradientImageButton.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/GrpNameTag.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/GrpNameTag.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.GrpNameTag.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\GrpNameTag.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\GrpNameTag.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/HostPostContainer.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/HostPostContainer.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.HostPostContainer.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\HostPostContainer.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\HostPostContainer.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/HostSmallHdr.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/HostSmallHdr.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.HostSmallHdr.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\HostSmallHdr.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\HostSmallHdr.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/HostTabBar.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/HostTabBar.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.HostTabBar.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\HostTabBar.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\HostTabBar.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/LikeLabel.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/LikeLabel.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.LikeLabel.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\LikeLabel.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\LikeLabel.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/PostCard.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/PostCard.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.PostCard.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\PostCard.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\PostCard.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/PostCardAction.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/PostCardAction.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.PostCardAction.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\PostCardAction.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\PostCardAction.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/Components/TextBox.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/Components/TextBox.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.Components.TextBox.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Components\TextBox.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Components\TextBox.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FD1MsgsBubblesPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FD1MsgsBubblesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FD1MsgsBubblesPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FD1MsgsBubblesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FD1MsgsBubblesPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FD1MsgsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FD1MsgsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FD1MsgsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FD1MsgsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FD1MsgsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FDirectMsgsBubblesPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FDirectMsgsBubblesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FDirectMsgsBubblesPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FDirectMsgsBubblesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FDirectMsgsBubblesPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FDirectMsgsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FDirectMsgsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FDirectMsgsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FDirectMsgsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FDirectMsgsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FHomeCountdownPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FHomeCountdownPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FHomeCountdownPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FHomeCountdownPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FHomeCountdownPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FHomePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FHomePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FHomePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FHomePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FHomePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FMessageReceivedPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FMessageReceivedPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FMessageReceivedPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FMessageReceivedPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FMessageReceivedPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FMyCollocationPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FMyCollocationPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FMyCollocationPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FMyCollocationPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FMyCollocationPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FMyPicsLrgPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FMyPicsLrgPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FMyPicsLrgPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FMyPicsLrgPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FMyPicsLrgPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FNotificationsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FNotificationsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FNotificationsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FNotificationsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FNotificationsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FProfilePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FProfilePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FQuickStartPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FQuickStartPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FQuickStartPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FQuickStartPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FQuickStartPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/FSettingsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/FSettingsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.FSettingsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\FSettingsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\FSettingsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/FanPages/RegFanPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/FanPages/RegFanPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.FanPages.RegFanPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\FanPages\RegFanPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FanPages\RegFanPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HAssetsNManagementPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HAssetsNManagementPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HAssetsNManagementPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HAssetsNManagementPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HAssetsNManagementPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HDMDetailsList.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HDMDetailsList.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HDMDetailsList.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HDMDetailsList.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HDMDetailsList.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HDMDetailsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HDMDetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HDMDetailsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HDMDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HDMDetailsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HFinalSeeSelfiePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HFinalSeeSelfiePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HFinalSeeSelfiePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HFinalSeeSelfiePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HFinalSeeSelfiePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HHomePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HHomePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HHomePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HHomePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HHomePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HHomeSentCountdownPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HHomeSentCountdownPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HHomeSentCountdownPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HHomeSentCountdownPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HHomeSentCountdownPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HHomeUploadedPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HHomeUploadedPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HHomeUploadedPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HHomeUploadedPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HHomeUploadedPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HNewALLPostPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HNewALLPostPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HNewALLPostPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HNewALLPostPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HNewALLPostPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HNewGrpPostPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HNewGrpPostPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HNewGrpPostPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HNewGrpPostPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HNewGrpPostPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HNotificationsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HNotificationsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HNotificationsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HNotificationsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HNotificationsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HPageHSigPenColorEditPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HPageHSigPenColorEditPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HPageHSigPenColorEditPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HPageHSigPenColorEditPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HPageHSigPenColorEditPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HPostDetailsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HPostDetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HPostDetailsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HPostDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HPostDetailsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HPOSTURSentMsgsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HPOSTURSentMsgsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HPOSTURSentMsgsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HPOSTURSentMsgsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HPOSTURSentMsgsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HProfilePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HProfilePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HQuickStartPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HQuickStartPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HQuickStartPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HQuickStartPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HQuickStartPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HReviewPhotoPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HReviewPhotoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HReviewPhotoPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HReviewPhotoPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HReviewPhotoPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HSeeSelfiePage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HSeeSelfiePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HSeeSelfiePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HSeeSelfiePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HSeeSelfiePage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HSelfieChooseSigPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HSelfieChooseSigPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HSelfieChooseSigPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HSelfieChooseSigPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HSelfieChooseSigPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HSettingsPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HSettingsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HSettingsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HSettingsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HSettingsPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HUPLPhotoChooseSigPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HUPLPhotoChooseSigPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HUPLPhotoChooseSigPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HUPLPhotoChooseSigPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HUPLPhotoChooseSigPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/HUPLSeePhotoPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/HUPLSeePhotoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.HUPLSeePhotoPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\HUPLSeePhotoPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\HUPLSeePhotoPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/RegArtistPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/RegArtistPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.RegArtistPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\RegArtistPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\RegArtistPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/StartEventPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/StartEventPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.StartEventPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\StartEventPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\StartEventPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/HostPages/WhatToSendPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/HostPages/WhatToSendPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.HostPages.WhatToSendPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HostPages\WhatToSendPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HostPages\WhatToSendPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/LoginPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
 
-[C:/Users/Isaac Henderson/Desktop/dayones/DayOnes-master 060124.1854/DayOnes-master/Views/SplashScreenPage.xaml]
+[C:/Users/jesse/Documents/DayOnes/DayOnes-master/Views/SplashScreenPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DayOnes.Views.SplashScreenPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SplashScreenPage.xaml
