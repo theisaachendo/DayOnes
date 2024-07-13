@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+    <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>DayOnes</RootNamespace>
     <UseMaui>true</UseMaui>
@@ -21,26 +20,15 @@
     <ApplicationVersion>1</ApplicationVersion>
 
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
     <StartupObject>DayOnes.iOS.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
-    <AndroidSdkDirectory>C:\Users\Isaac Henderson\AppData\Local\Android\Sdk</AndroidSdkDirectory>
-    <JavaSdkDirectory>C:\Program Files\Eclipse Adoptium\jdk-17.0.11.9-hotspot</JavaSdkDirectory>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
-    <StartupObject>DayOnes.MacCatalyst.Program</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net7.0-windows10.0.19041.0'">
-    <StartupObject>DayOnes.Windows.Program</StartupObject>
+    <AndroidSdkDirectory>$(ANDROID_SDK_ROOT)</AndroidSdkDirectory>
+    <JavaSdkDirectory>$(JAVA_SDK_ROOT)</JavaSdkDirectory>
   </PropertyGroup>
 
   <ItemGroup>

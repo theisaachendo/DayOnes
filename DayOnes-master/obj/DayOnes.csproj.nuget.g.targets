@@ -88,13 +88,4 @@
     <Import Project="$(NuGetPackageRoot)skiasharp.nativeassets.ios\2.88.8\buildTransitive\net6.0-ios13.6\SkiaSharp.NativeAssets.iOS.targets" Condition="Exists('$(NuGetPackageRoot)skiasharp.nativeassets.ios\2.88.8\buildTransitive\net6.0-ios13.6\SkiaSharp.NativeAssets.iOS.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets')" />
   </ImportGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net7.0-maccatalyst' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)skiasharp.nativeassets.maccatalyst\2.88.8\buildTransitive\net6.0-maccatalyst13.5\SkiaSharp.NativeAssets.MacCatalyst.targets" Condition="Exists('$(NuGetPackageRoot)skiasharp.nativeassets.maccatalyst\2.88.8\buildTransitive\net6.0-maccatalyst13.5\SkiaSharp.NativeAssets.MacCatalyst.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets')" />
-  </ImportGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net7.0-windows10.0.19041.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.756\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.756\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.windowsappsdk\1.2.221209.1\buildTransitive\Microsoft.WindowsAppSDK.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windowsappsdk\1.2.221209.1\buildTransitive\Microsoft.WindowsAppSDK.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Logging.Abstractions.targets')" />
-  </ImportGroup>
 </Project>

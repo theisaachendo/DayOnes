@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DayOnes
-build_property.ProjectDir = /Volumes/WD 4TB PWR/PWR Personal/Sync/WH PWR/PWR D1 Source/041924.3 Src7 from RAR - NOPE Clail text labels solver DIFF This/DayOnes-master/
+build_property.ProjectDir = C:\Users\jesse\Documents\DayOnes\DayOnes-master\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
