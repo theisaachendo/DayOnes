@@ -1,4 +1,4 @@
 def lol():
     print("lol")
-    print("asd")
+    print("asdad")
     
