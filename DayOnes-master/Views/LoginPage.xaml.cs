@@ -4,12 +4,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Microsoft.Maui.Controls;
+using DayOnes.UtilityClass; // Updated namespace
 
 namespace DayOnes.Views
 {
     public partial class LoginPage : ContentPage
     {
         private readonly HttpClient _httpClient;
+        private WebSocketService _webSocketService;
 
         public LoginPage()
         {
@@ -48,6 +50,9 @@ namespace DayOnes.Views
                 var profile = result.Item2;
                 // Use the profile information as needed
                 Console.WriteLine("Authenticated user profile: " + profile);
+
+                // Initialize WebSocketService with the authenticated username
+                _webSocketService = new WebSocketService(username);
 
                 // Determine user type and navigate to the appropriate page
                 UserTypeEnum type = profile["role"].ToString() == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
