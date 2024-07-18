@@ -6,11 +6,11 @@ public partial class GradientButton : ContentView
 {
 
     public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(GradientButton), string.Empty);
-    public static readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(GradientButton), double.NaN);
-    public static readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(GradientButton), double.NaN);
+    public static new readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(GradientButton), double.NaN);
+    public static new readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(GradientButton), double.NaN);
     public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(GradientButton), string.Empty);
 
-    //FontSize Property 
+    //FontSize Property
     public static readonly BindableProperty FontSizeProperty =
         BindableProperty.Create(
             nameof(FontSize),
@@ -30,13 +30,13 @@ public partial class GradientButton : ContentView
         set => SetValue(TextProperty, value);
     }
 
-    public double Width
+    public new double Width
     {
         get => (double)GetValue(WidthProperty);
         set => SetValue(WidthProperty, value);
     }
 
-    public double Height
+    public new double Height
     {
         get => (double)GetValue(HeightProperty);
         set => SetValue(HeightProperty, value);

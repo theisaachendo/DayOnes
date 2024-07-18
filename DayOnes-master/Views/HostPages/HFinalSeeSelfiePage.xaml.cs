@@ -12,8 +12,8 @@ public partial class HFinalSeeSelfiePage : ContentPage
     private SKBitmap imgSigBitmap;
 
     public HFinalSeeSelfiePage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         Shell.SetBackButtonBehavior(this, new BackButtonBehavior
         {
             IsVisible = false
@@ -53,20 +53,21 @@ public partial class HFinalSeeSelfiePage : ContentPage
 
 
         // Open a FileStream for writing
-       /* using FileStream localFileStream = File.OpenWrite(this.imgCaptured.Source.ToString());
-        using Stream sourceStream = await myPhoto.OpenReadAsync();
+        /* using FileStream localFileStream = File.OpenWrite(this.imgCaptured.Source.ToString());
+         using Stream sourceStream = await myPhoto.OpenReadAsync();
 
-        // Copy the image stream asynchronously
-        await sourceStream.CopyToAsync(localFileStream);*/
+         // Copy the image stream asynchronously
+         await sourceStream.CopyToAsync(localFileStream);*/
         await CombineAndSaveImagesAsync();
-        Shell.Current.GoToAsync(nameof(HHomeUploadedPage));
+        await Shell.Current.GoToAsync(nameof(HHomeUploadedPage));
 
     }
-    private async Task LoadImagesAsync()
+    private Task LoadImagesAsync()
     {
         // Load image sources into SKBitmap objects
         imgCapturedBitmap = LoadImageBitmap(imgCaptured.Source.ToString());
         imgSigBitmap = LoadImageBitmap(imgSig.Source.ToString());
+        return Task.CompletedTask;
     }
 
     private SKBitmap LoadImageBitmap(string imagePath)

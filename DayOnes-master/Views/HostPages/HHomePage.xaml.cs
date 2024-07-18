@@ -5,7 +5,7 @@ namespace DayOnes.Views.HostPages;
 public partial class HHomePage : ContentPage
 {
     private double distance = 10;
-    private string option = "";
+    // private string option = "";
     public static string CapturedImageResource = "";
     public static string UploadedImageResource = "";
     private const double FT_TO_METER = 0.3048;
@@ -25,6 +25,19 @@ public partial class HHomePage : ContentPage
     private void sliderDistance_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         distance = e.NewValue;
+        lblFtDistance.Text = $"{Convert.ToInt32(distance)}";
+        lblMeterDistance.Text = $"{Convert.ToInt32(distance * FT_TO_METER)}";
+    }
+
+    private void sliderDistance_DragCompleted(object sender, EventArgs e)
+    {
+        // Round to the nearest 10
+        distance = Math.Round(distance / 10) * 10;
+
+        // Update the slider value to the rounded value
+        distanceSlider.Value = distance;
+
+        // Update the labels
         lblFtDistance.Text = $"{Convert.ToInt32(distance)}";
         lblMeterDistance.Text = $"{Convert.ToInt32(distance * FT_TO_METER)}";
     }
@@ -52,7 +65,7 @@ public partial class HHomePage : ContentPage
             await Shell.Current.DisplayAlert("OOPS", "Your device isn't supported", "Ok");
         }
         // Invoke the device camera to take a selfie
-        Shell.Current.GoToAsync(nameof(HSeeSelfiePage));
+        await Shell.Current.GoToAsync(nameof(HSeeSelfiePage));
     }
 
     private async void layoutPics_Tapped(object sender, TappedEventArgs e)
@@ -78,7 +91,7 @@ public partial class HHomePage : ContentPage
             await Shell.Current.DisplayAlert("OOPS", "Your device isn't supported", "Ok");
         }
         // This opens the device photo libraries where the user picks a photo
-        Shell.Current.GoToAsync(nameof(HReviewPhotoPage));
+        await Shell.Current.GoToAsync(nameof(HReviewPhotoPage));
     }
 
     private void drpAction_Change(object sender, EventArgs e)

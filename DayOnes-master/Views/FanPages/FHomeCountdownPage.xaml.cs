@@ -10,7 +10,7 @@ public partial class FHomeCountdownPage : ContentPage
     private int remainingSeconds;
     private bool isCountdownRunning;
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public new event PropertyChangedEventHandler PropertyChanged;
 
     public int RemainingSeconds
     {
@@ -28,8 +28,8 @@ public partial class FHomeCountdownPage : ContentPage
     public bool IsButtonEnabled => !isCountdownRunning && remainingSeconds == 0;
 
     public FHomeCountdownPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         Shell.SetBackButtonBehavior(this, new BackButtonBehavior
         {
             IsVisible = false

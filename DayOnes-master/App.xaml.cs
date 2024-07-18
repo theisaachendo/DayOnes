@@ -1,6 +1,4 @@
-﻿// App.xaml.cs
-
-using Microsoft.Maui;
+﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using DayOnes.Views;
 using System;
@@ -21,14 +19,22 @@ namespace DayOnes
             // Delay before navigating to AppShell
             Task.Run(async () =>
             {
-                // Simulate loading or animation duration
-                await Task.Delay(3000); // Replace with appropriate delay
-
-                // After splash screen duration, navigate to your AppShell (MainPage)
-                await Device.InvokeOnMainThreadAsync(() =>
+                try
                 {
-                    MainPage = new AppShell();
-                });
+                    // Simulate loading or animation duration
+                    await Task.Delay(3000); // Replace with appropriate delay
+
+                    // After splash screen duration, navigate to your AppShell (MainPage)
+                    await MainThread.InvokeOnMainThreadAsync(() =>
+                    {
+                        MainPage = new AppShell();
+                    });
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions as necessary
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
             });
         }
     }

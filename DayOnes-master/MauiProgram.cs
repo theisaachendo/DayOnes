@@ -10,23 +10,19 @@ namespace DayOnes
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>() // Only call this once.
-                .UseMauiCommunityToolkit();
-
+            builder.UseMauiApp<App>() // Only call this once.
+            .UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement();
             builder.Services.AddTransient<FSettingsPage>();
-
             // Example of platform-specific modifications
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
             {
-#if __ANDROID__                 
-                handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent); 
-#elif __IOS__                 
-                handler.PlatformView.BackgroundColor = UIKit.UIColor.Clear;                 
-                handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None; 
+#if __ANDROID__
+                handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
+#elif __IOS__
+                handler.PlatformView.BackgroundColor = UIKit.UIColor.Clear;
+                handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
 #endif
             });
-
             builder.ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -36,11 +32,9 @@ namespace DayOnes
                 fonts.AddFont("Free-Regular-400.otf", "FAR");
                 fonts.AddFont("Free-Solid-900.otf", "FAS");
             });
-
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
             return builder.Build();
         }
     }

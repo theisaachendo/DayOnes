@@ -8,7 +8,7 @@ public partial class HHomeSentCountdownPage : ContentPage
     private int remainingSeconds;
     private bool isCountdownRunning;
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public new event PropertyChangedEventHandler PropertyChanged;
 
     public int RemainingSeconds
     {
@@ -26,8 +26,8 @@ public partial class HHomeSentCountdownPage : ContentPage
     public bool IsButtonEnabled => !isCountdownRunning && remainingSeconds == 0;
 
     public HHomeSentCountdownPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         Shell.SetBackButtonBehavior(this, new BackButtonBehavior
         {
             IsVisible = false
@@ -58,7 +58,7 @@ public partial class HHomeSentCountdownPage : ContentPage
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsButtonEnabled)));
 
-            Shell.Current.GoToAsync(nameof(HPOSTURSentMsgsPage));
+            _ = Shell.Current.GoToAsync(nameof(HPOSTURSentMsgsPage));
         }
         catch { }
     }

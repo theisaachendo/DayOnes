@@ -9,8 +9,8 @@ public partial class HHomeUploadedPage : ContentPage
     private const double FT_TO_METER = 0.3048;
 
     public HHomeUploadedPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         Shell.SetBackButtonBehavior(this, new BackButtonBehavior
         {
             IsVisible = false
@@ -18,7 +18,6 @@ public partial class HHomeUploadedPage : ContentPage
 
         lblFtDistance.Text = $"{Math.Round(distance, 2)} ft";
         lblMeterDistance.Text = $"{Math.Ceiling(distance * FT_TO_METER).ToString("0.00")} m";
-
     }
 
     private void sliderDistance_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -28,15 +27,28 @@ public partial class HHomeUploadedPage : ContentPage
         lblMeterDistance.Text = $"{Math.Ceiling(distance * FT_TO_METER).ToString("0.00")} m";
     }
 
+    private void sliderDistance_DragCompleted(object sender, EventArgs e)
+    {
+        // Round to the nearest 10
+        distance = Math.Round(distance / 10) * 10;
+
+        // Update the slider value to the rounded value
+        distanceSlider.Value = distance;
+
+        // Update the labels
+        lblFtDistance.Text = $"{distance} ft";
+        lblMeterDistance.Text = $"{Math.Ceiling(distance * FT_TO_METER).ToString("0.00")} m";
+    }
+
     private void btnSend_Click(object sender, EventArgs e)
     {
-        /*a. The app sends the device’ GPS coordinates to AWS
+        /*a. The app sends the deviceâ€™s GPS coordinates to AWS
         with API: SetMyGPS.
-        i.Pass
-        1.Username
-        2.Lon.Lat
-        3.Timestamp
-        4.City
+        i. Pass
+        1. Username
+        2. Lon.Lat
+        3. Timestamp
+        4. City
 
         b. Start Send Process AWS API: StartSendProc
         i. For this deliverable, comment the code with the
@@ -47,7 +59,6 @@ public partial class HHomeUploadedPage : ContentPage
 
     private void btnReset_Click(object sender, EventArgs e)
     {
-
         /*the upload area is cleared by invoking the API:
         CLRUpload.*/
 
@@ -59,7 +70,6 @@ public partial class HHomeUploadedPage : ContentPage
 
     private async void imgAttach_Click(object sender, TappedEventArgs e)
     {
-
         if (MediaPicker.Default.IsCaptureSupported)
         {
             //TAKE PHOTO OR CAPTURE PHOTO
@@ -83,7 +93,7 @@ public partial class HHomeUploadedPage : ContentPage
         }
         else
         {
-            await Shell.Current.DisplayAlert("OOPS", "You device isn't supported", "Ok");
+            await Shell.Current.DisplayAlert("OOPS", "Your device isn't supported", "Ok");
         }
     }
 }

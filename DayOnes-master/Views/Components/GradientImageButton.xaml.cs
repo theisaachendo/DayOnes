@@ -2,11 +2,11 @@ namespace DayOnes.Views.Components;
 
 public partial class GradientImageButton : ContentView
 {
-    public static readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(GradientImageButton), double.NaN);
-    public static readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(GradientImageButton), double.NaN);
+    public static new readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(GradientImageButton), double.NaN);
+    public static new readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(GradientImageButton), double.NaN);
     public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(GradientImageButton), string.Empty);
 
-    //ImageSource Property 
+    //ImageSource Property
     public static readonly BindableProperty ImageSourceProperty =
         BindableProperty.Create(
             nameof(ImageSource),
@@ -22,13 +22,13 @@ public partial class GradientImageButton : ContentView
 
     public event EventHandler<EventArgs> OnClick;
 
-    public double Width
+    public new double Width
     {
         get => (double)GetValue(WidthProperty);
         set => SetValue(WidthProperty, value);
     }
 
-    public double Height
+    public new double Height
     {
         get => (double)GetValue(HeightProperty);
         set => SetValue(HeightProperty, value);
@@ -52,7 +52,7 @@ public partial class GradientImageButton : ContentView
         btnGradient.BindingContext = this;
         btnGradient.SetBinding(Button.WidthRequestProperty, new Binding(nameof(Width), source: this));
         btnGradient.SetBinding(Button.HeightRequestProperty, new Binding(nameof(Height), source: this));
-        
+
     }
 
     private void OnButtonClicked(object sender, EventArgs e)

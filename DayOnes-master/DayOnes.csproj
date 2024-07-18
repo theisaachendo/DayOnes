@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>DayOnes</RootNamespace>
     <UseMaui>true</UseMaui>
@@ -59,7 +59,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
+    <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.61" />
     <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+    <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="4.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SkiaSharp.Views" Version="2.88.8" />

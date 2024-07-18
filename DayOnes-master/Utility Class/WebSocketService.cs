@@ -8,7 +8,7 @@ namespace DayOnes.UtilityClass
     {
         private WebSocket ws;
         private string username;
-        private string connectionId;
+
 
         public WebSocketService(string username)
         {

@@ -21,46 +21,82 @@
 
         <!--Row 2-->
         <components:FanTitleBar
-             Grid.Row="1"
-            Title="Autographs &amp; Invites"
-        />
+            Grid.Row="1"
+            Title="Autographs &amp; Invites"/>
 
         <!--Row 3-->
-        <StackLayout  Grid.Row="2" Padding="15" Spacing="20" WidthRequest="357" HeightRequest="155">
+        <StackLayout  Grid.Row="2"
+                Padding="15"
+                Spacing="20"
+                WidthRequest="357"
+                HeightRequest="155">
             <!-- UpperHdr -->
             <StackLayout  Spacing="16">
                 <!-- Header Frame -->
-                <Frame 
-                    WidthRequest="357" 
-                    HeightRequest="135" 
-                    BackgroundColor="{StaticResource DefaultBlack}" 
-                    BorderColor="{StaticResource DefaultCyan}" 
-                    CornerRadius="20" 
+                <Frame
+                    WidthRequest="357"
+                    HeightRequest="135"
+                    BackgroundColor="{StaticResource DefaultBlack}"
+                    BorderColor="{StaticResource DefaultCyan}"
+                    CornerRadius="20"
                     Padding="10,0,10,0">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" >
+                    <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Spacing="10">
                         <!-- Home HostHeader3 -->
-                        <Frame Padding="10" WidthRequest="162" HeightRequest="115" BackgroundColor="#123544" BorderColor="{StaticResource DefaultCyan}" CornerRadius="20">
-                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Frame Padding="10"
+                                WidthRequest="162"
+                                HeightRequest="115"
+                                BackgroundColor="#123544"
+                                BorderColor="{StaticResource DefaultCyan}"
+                                CornerRadius="20">
+                            <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Spacing="10">
                                 <!-- Interior -->
-                                <StackLayout Padding="5" Spacing="10">
+                                <StackLayout Padding="5"
+                                        Spacing="10">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="layoutCamera_Tapped"/>
                                     </StackLayout.GestureRecognizers>
-                                    <Image WidthRequest="25" HeightRequest="23.33" Source="camera.png"/>
-                                    <Label Text="Click Selfie" FontFamily="SFProText" FontAttributes="Bold" FontSize="20" TextColor="#FFFFFF" HorizontalTextAlignment="Center" />
+                                    <Image WidthRequest="25"
+                                            HeightRequest="23.33"
+                                            Source="camera.png"/>
+                                    <Label Text="Click Selfie"
+                                            FontFamily="SFProText"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            TextColor="#FFFFFF"
+                                            HorizontalTextAlignment="Center"/>
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
                         <!-- Home HostHeader3 -->
-                        <Frame Padding="10" WidthRequest="162" HeightRequest="115" BackgroundColor="#123544" BorderColor="{StaticResource DefaultCyan}" CornerRadius="20">
-                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Frame Padding="10"
+                                WidthRequest="162"
+                                HeightRequest="115"
+                                BackgroundColor="#123544"
+                                BorderColor="{StaticResource DefaultCyan}"
+                                CornerRadius="20">
+                            <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Spacing="10">
                                 <!-- Interior -->
-                                <StackLayout Padding="5" Spacing="10">
+                                <StackLayout Padding="5"
+                                        Spacing="10">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="layoutPics_Tapped"/>
                                     </StackLayout.GestureRecognizers>
-                                    <Image  WidthRequest="25" HeightRequest="25" Source="pics.png" />
-                                    <Label Text="Upload Pic" FontFamily="SFProText" FontAttributes="Bold" FontSize="20" TextColor="#FFFFFF" HorizontalTextAlignment="Center" />
+                                    <Image  WidthRequest="25"
+                                            HeightRequest="25"
+                                            Source="pics.png"/>
+                                    <Label Text="Upload Pic"
+                                            FontFamily="SFProText"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            TextColor="#FFFFFF"
+                                            HorizontalTextAlignment="Center"/>
                                 </StackLayout>
                             </StackLayout>
                         </Frame>
@@ -70,34 +106,67 @@
         </StackLayout>
 
         <!--Row 4-->
-        <StackLayout Grid.Row="3" Padding="20"  HeightRequest="56" >
-            <Slider 
-                x:Name="distanceSlider" 
-                MinimumTrackColor="{StaticResource DefaultLightPurple}" 
-                ThumbColor="{StaticResource DefaultPink}" 
+        <StackLayout Grid.Row="3"
+                Padding="20"
+                HeightRequest="56">
+            <Slider
+                x:Name="distanceSlider"
+                MinimumTrackColor="{StaticResource DefaultLightPurple}"
+                ThumbColor="{StaticResource DefaultPink}"
                 MaximumTrackColor="{StaticResource DefaultCyan}"
                 Margin="0,10,0,10"
-                Maximum="2000" 
-                Minimum="10" 
-                ValueChanged="sliderDistance_ValueChanged" />
-            <Grid VerticalOptions="Start" ColumnSpacing="0">
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition Width="*"  />
-                    <ColumnDefinition Width="45" />
-                    <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="40" />
-                    <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="*" />
+                Maximum="2000"
+                Minimum="10"
+                ValueChanged="sliderDistance_ValueChanged"
+                DragCompleted="sliderDistance_DragCompleted"/>
+
+            <Grid VerticalOptions="Start"
+                    ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="1" x:Name="lblFtDistance" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
-                <Label Grid.Column="2" Text="ft" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
-                <Label Grid.Column="3" x:Name="lblMeterDistance"  FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
-                <Label Grid.Column="4" Text="m" FontFamily="SFProText" FontSize="16" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TextColor="#FFFFFF" />
+                <Label Grid.Column="1"
+                        x:Name="lblFtDistance"
+                        FontFamily="SFProText"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        TextColor="#FFFFFF"/>
+                <Label Grid.Column="2"
+                        Text="ft"
+                        FontFamily="SFProText"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        TextColor="#FFFFFF"/>
+                <Label Grid.Column="3"
+                        x:Name="lblMeterDistance"
+                        FontFamily="SFProText"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        TextColor="#FFFFFF"/>
+                <Label Grid.Column="4"
+                        Text="m"
+                        FontFamily="SFProText"
+                        FontSize="16"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        TextColor="#FFFFFF"/>
             </Grid>
         </StackLayout>
 
         <!--Row 5-->
-        <Grid Grid.Row="4" Margin="0,30,0,0" WidthRequest="308" HeightRequest="260" ZIndex="1">
+        <Grid Grid.Row="4"
+                Margin="0,30,0,0"
+                WidthRequest="308"
+                HeightRequest="260"
+                ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -105,33 +174,60 @@
             </Grid.RowDefinitions>
 
             <!--Row 1-->
-            <Label Grid.Row="0" 
-                   Text="Choose what to send:" 
-                   FontFamily="SFProText" FontAttributes="Italic" FontSize="20" 
-                   TextColor="{StaticResource DefaultPurple}" Margin="0,30,0,5" />
+            <Label Grid.Row="0"
+                   Text="Choose what to send:"
+                   FontFamily="SFProText"
+                    FontAttributes="Italic"
+                    FontSize="20"
+                   TextColor="{StaticResource DefaultPurple}"
+                    Margin="0,30,0,5"/>
 
-            <toolkit:Expander Grid.Row="1" x:Name="expandedtab">
+            <toolkit:Expander Grid.Row="1"
+                    x:Name="expandedtab">
                 <toolkit:Expander.Header>
-                    <Frame Grid.Row="1" Background="{StaticResource DefaultBlack}" BorderColor="{StaticResource DefaultPurple}" HeightRequest="60" CornerRadius="0" Padding="40,10,20,10">
+                    <Frame Grid.Row="1"
+                            Background="{StaticResource DefaultBlack}"
+                            BorderColor="{StaticResource DefaultPurple}"
+                            HeightRequest="60"
+                            CornerRadius="0"
+                            Padding="40,10,20,10">
                         <Grid ColumnDefinitions="Auto,*">
-                            <Label x:Name="selecteditemaa" Text="" FontSize="20" Margin="10"></Label>
-                            <Image Grid.Column="1" x:Name="imageproperty" Source="dropdown.png" HorizontalOptions="EndAndExpand"/>
+                            <Label x:Name="selecteditemaa"
+                                    Text=""
+                                    FontSize="20"
+                                    Margin="10"></Label>
+                            <Image Grid.Column="1"
+                                    x:Name="imageproperty"
+                                    Source="dropdown.png"
+                                    HorizontalOptions="EndAndExpand"/>
                         </Grid>
                     </Frame>
                 </toolkit:Expander.Header>
-                <Frame Grid.Row="1" Background="{StaticResource DefaultBlack}" BorderColor="{StaticResource DefaultPurple}" HeightRequest="160" Padding="0,0">
-                    <CollectionView SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+                <Frame Grid.Row="1"
+                        Background="{StaticResource DefaultBlack}"
+                        BorderColor="{StaticResource DefaultPurple}"
+                        HeightRequest="160"
+                        Padding="0,0">
+                    <CollectionView SelectionMode="Single"
+                            SelectionChanged="CollectionView_SelectionChanged">
                         <CollectionView.ItemsSource>
                             <x:Array Type="{x:Type View}">
-                                <Label Text="Invite and Photo" Margin="10"/>
-                                <Label Text="Invite Only" Margin="10"/>
-                                <Label Text="Photo Only" Margin="10"/>
+                                <Label Text="Invite and Photo"
+                                        Margin="10"/>
+                                <Label Text="Invite Only"
+                                        Margin="10"/>
+                                <Label Text="Photo Only"
+                                        Margin="10"/>
                             </x:Array>
                         </CollectionView.ItemsSource>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Padding="10" BackgroundColor="Transparent">
-                                    <Label Text="{Binding Text}" TextColor="White" FontSize="24" HorizontalTextAlignment="Center"/>
+                                <Grid Padding="10"
+                                        BackgroundColor="Transparent">
+                                    <Label Text="{Binding Text}"
+                                            TextColor="White"
+                                            FontSize="24"
+                                            HorizontalTextAlignment="Center"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -147,10 +243,10 @@
             Text="Send"
             FontSize="25"
             Width="223"
-            Height="60"
-        />
+            Height="60"/>
 
         <!--Row 7-->
-        <components:HostTabBar VerticalOptions="End" Grid.Row="6"/>
+        <components:HostTabBar VerticalOptions="End"
+                Grid.Row="6"/>
     </Grid>
 </ContentPage>

@@ -33,26 +33,26 @@ public partial class TextBox : ContentView
 {
 
     public static readonly BindableProperty LabelTextProperty = BindableProperty.Create(nameof(LabelText), typeof(string), typeof(TextBox), string.Empty);
-    public static readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(TextBox), double.NaN);
-    public static readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(TextBox), double.NaN);
+    public static new readonly BindableProperty WidthProperty = BindableProperty.Create(nameof(Width), typeof(double), typeof(TextBox), double.NaN);
+    public static new readonly BindableProperty HeightProperty = BindableProperty.Create(nameof(Height), typeof(double), typeof(TextBox), double.NaN);
     public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(TextBox), string.Empty);
     public static readonly BindableProperty PlaceHolderProperty = BindableProperty.Create(nameof(PlaceHolder), typeof(string), typeof(TextBox), string.Empty);
 
 
-    public event EventHandler<EventArgs> OnTextChange;
+    // public event EventHandler<EventArgs> OnTextChange;
     public string LabelText
     {
         get => (string)GetValue(LabelTextProperty);
         set => SetValue(LabelTextProperty, value);
     }
 
-    public double Width
+    public new double Width
     {
         get => (double)GetValue(WidthProperty);
         set => SetValue(WidthProperty, value);
     }
 
-    public double Height
+    public new double Height
     {
         get => (double)GetValue(HeightProperty);
         set => SetValue(HeightProperty, value);
@@ -71,8 +71,8 @@ public partial class TextBox : ContentView
 
 
     public TextBox()
-	{
-		InitializeComponent(); 
+    {
+        InitializeComponent();
         textBox.BindingContext = this;
         textBox.SetBinding(Entry.TextProperty, new Binding(nameof(Text), source: this));
         textBox.SetBinding(Grid.WidthRequestProperty, new Binding(nameof(Width), source: this));
