@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DayOnes.Views.Components.CustomSlider"
+             x:Name="customSlider">
+    <StackLayout Padding="20">
+        <Slider
+            x:Name="distanceSlider"
+            MinimumTrackColor="{StaticResource DefaultLightPurple}"
+            ThumbColor="{StaticResource DefaultPink}"
+            MaximumTrackColor="{StaticResource DefaultCyan}"
+            Margin="0,10,0,10"
+            Maximum="2000"
+            Minimum="10"
+            ValueChanged="Slider_ValueChanged"
+            DragCompleted="Slider_DragCompleted"/>
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   x:Name="lblFtDistance"
+                   FontFamily="SFProText"
+                   Margin="0,-10,20,0"
+                   FontSize="16"
+                   TextColor="#FFFFFF"/>
+            <Label Grid.Column="1"
+                   x:Name="lblMeterDistance"
+                   FontFamily="SFProText"
+                   Margin="0,-10,20,0"
+                   FontSize="16"
+                   TextColor="#FFFFFF"/>
+        </Grid>
+    </StackLayout>
+</ContentView>

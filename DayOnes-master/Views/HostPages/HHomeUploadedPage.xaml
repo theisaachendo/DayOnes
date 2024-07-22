@@ -69,7 +69,7 @@
                         FontSize="20"
                         FontAttributes="Bold"
                         TextColor="#FFFFFF"
-                            VerticalOptions="Center"/>
+                        VerticalOptions="Center"/>
 
                     <components:GradientButton
                         Grid.Column="2"
@@ -78,7 +78,7 @@
                         FontSize="15"
                         OnClick="btnReset_Click"
                         WidthRequest="100"
-                            HeightRequest="60"
+                        HeightRequest="60"
                         VerticalOptions="Center"/>
 
                 </Grid>
@@ -86,41 +86,8 @@
 
             <!--Row 2-->
 
-            <StackLayout Grid.Row="1"
-                    Padding="20"
-                    HeightRequest="56">
-                <Slider
-                    x:Name="distanceSlider"
-                    MinimumTrackColor="{StaticResource DefaultLightPurple}"
-                    ThumbColor="{StaticResource DefaultPink}"
-                    MaximumTrackColor="{StaticResource DefaultCyan}"
-                    Margin="0,10,0,10"
-                    Maximum="2000"
-                    Minimum="10"
-                    ValueChanged="sliderDistance_ValueChanged"
-                    DragCompleted="sliderDistance_DragCompleted"/>
-
-                <Grid HorizontalOptions="Center"
-                        VerticalOptions="Start">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                            x:Name="lblFtDistance"
-                            FontFamily="SFProText"
-                            Margin="0,-10,20,0"
-                            FontSize="16"
-                            TextColor="#FFFFFF"/>
-                    <Label Grid.Column="1"
-                            x:Name="lblMeterDistance"
-                            FontFamily="SFProText"
-                            Margin="0,-10,20,0"
-                            FontSize="16"
-                            TextColor="#FFFFFF"/>
-                </Grid>
-
-            </StackLayout>
+            <components:CustomSlider Grid.Row="1"
+                                     Distance="{Binding Distance, Mode=TwoWay}"/>
 
             <!--Row 3-->
 
