@@ -4,7 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Microsoft.Maui.Controls;
-using DayOnes.UtilityClass; // Updated namespace
+using DayOnes.UtilityClass;
+using System;
+using System.IO;
 
 namespace DayOnes.Views
 {
@@ -12,6 +14,7 @@ namespace DayOnes.Views
     {
         private readonly HttpClient _httpClient;
         private WebSocketService _webSocketService;
+        private string _dbPath;
 
         public LoginPage()
         {
@@ -65,6 +68,10 @@ namespace DayOnes.Views
                         await Shell.Current.GoToAsync(nameof(FHomePage));
                         break;
                 }
+
+                // Sync account data to local SQLite database
+                await SyncAccountData(profile);
+
                 Console.WriteLine("Navigated to appropriate home page.");
             }
             catch (Exception ex)
@@ -90,6 +97,23 @@ namespace DayOnes.Views
             {
                 return (false, null);
             }
+        }
+
+        private async Task SyncAccountData(JObject profile)
+        {
+            var account = new D1Account
+            {
+                AccountID = profile["accountID"].ToString(),
+                FullName = profile["fullName"].ToString(),
+                Username = profile["username"].ToString(),
+                Email = profile["email"].ToString(),
+                Phone = profile["phone"].ToString(),
+                Password = profile["password"].ToString(),
+                Instagram = profile["instagram"].ToString(),
+                CreatedAt = DateTime.Parse(profile["createdAt"].ToString())
+            };
+
+            D1AccountMethods.InsertD1Account(account.Username, account);
         }
 
         private async void btnSignup_Click(object sender, EventArgs e)

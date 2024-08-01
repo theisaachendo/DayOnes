@@ -1,7 +1,7 @@
 using DayOnes.UtilityClass;
 using Microsoft.Maui.Controls;
 using System;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace DayOnes.Views
 {
@@ -21,8 +21,76 @@ namespace DayOnes.Views
             // Initialize UserService
             _userService = new UserService();
 
+            // Hardcoded test to insert and retrieve an artist account
+            HardcodedTest();
+
             // Start the logo animation
             AnimateLogo();
+        }
+
+        private void HardcodedTest()
+        {
+            var artistAccount = new D1Account
+            {
+                AccountID = "test_account_id",
+                Username = "test_user",
+                Password = "test_password",
+                FullName = "Test User",
+                License = "test_license",
+                Email = "test@example.com",
+                Phone = "1234567890",
+                Instagram = "test_instagram",
+                D1Type2 = 1,
+                AcntCreatTS = DateTime.Now.ToString(),
+                TOSAcpt = 1,
+                TOSAcptTS = DateTime.Now.ToString(),
+                DevName = "test_device",
+                PremiumAcct = 1,
+                FanGift = 0,
+                GiftTS = DateTime.Now.ToString(),
+                GPSLocationLat = 0.0,
+                GPSLocationLon = 0.0,
+                GPSLastTS = DateTime.Now.ToString(),
+                GPSGeoHash = 0.0,
+                GPSTS = DateTime.Now.ToString(),
+                GPSCity = "test_city",
+                HFanNotifDM = 0,
+                HFanNotifD1 = 0,
+                InviteTS = DateTime.Now.ToString(),
+                UploadStatus = "test_status",
+                UploadLatestTS = DateTime.Now.ToString(),
+                HNewGrp = "test_group",
+                HSignatureCount = 0,
+                HPhoto270Count = 0,
+                HPhoto100Count = 0,
+                HInviteReset = 0,
+                HInviteTS = DateTime.Now.ToString(),
+                HInviteReminder = DateTime.Now.ToString(),
+                HLikeCount = 0,
+                NotPushOn = "yes",
+                NotSndOn = "yes",
+                GPSRange = 100,
+                GEOHash = 123456,
+                SessionId = "test_session_id",
+                ChatSessionId = "test_chat_session_id",
+                GroupName = "test_group_name",
+                InitiatedBy = "test_initiator",
+                SessionType = "test_session_type",
+                CreatedAt = DateTime.Now
+            };
+
+            D1AccountMethods.InsertD1Account(artistAccount.Username, artistAccount);
+
+            // Retrieve the inserted artist account
+            var retrievedAccount = D1AccountMethods.GetD1Account(artistAccount.Username, artistAccount.ID);
+            if (retrievedAccount != null)
+            {
+                Console.WriteLine($"Retrieved Artist Account: {retrievedAccount.FullName}, {retrievedAccount.Email}");
+            }
+            else
+            {
+                Console.WriteLine("Failed to retrieve the artist account.");
+            }
         }
 
         private void OnToggled(object sender, ToggledEventArgs e)
@@ -85,6 +153,23 @@ namespace DayOnes.Views
                     txtArtistUsername.Focus();
                     return;
                 }
+
+                // Initialize user-specific database
+                D1AccountMethods.InitializeUserDatabase(userName);
+
+                // Store artist data in SQLite database
+                var artistAccount = new D1Account
+                {
+                    AccountID = Guid.NewGuid().ToString(),
+                    FullName = fullName,
+                    Username = userName,
+                    Email = email,
+                    Phone = phone,
+                    Password = password,
+                    Instagram = instagramHandle,
+                    CreatedAt = DateTime.Now
+                };
+                D1AccountMethods.InsertD1Account(userName, artistAccount);
 
                 // Navigate to FHomePage
                 await Shell.Current.GoToAsync(nameof(FHomePage));
