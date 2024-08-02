@@ -1,13 +1,13 @@
 using DayOnes.UtilityClass;
 using Microsoft.Maui.Controls;
 using System;
-using System.IO;
 
 namespace DayOnes.Views
 {
     public partial class RegArtistPage : ContentPage
     {
         private readonly UserService _userService;
+        private const string APP_TAG = "DayOnesApp";
 
         public RegArtistPage()
         {
@@ -16,99 +16,31 @@ namespace DayOnes.Views
             {
                 IsVisible = false
             });
-            Console.WriteLine("RegArtistPage initialized.");
+            Console.WriteLine($"{APP_TAG}: RegArtistPage initialized.");
 
             // Initialize UserService
             _userService = new UserService();
-
-            // Hardcoded test to insert and retrieve an artist account
-            HardcodedTest();
 
             // Start the logo animation
             AnimateLogo();
         }
 
-        private void HardcodedTest()
-        {
-            var artistAccount = new D1Account
-            {
-                AccountID = "test_account_id",
-                Username = "test_user",
-                Password = "test_password",
-                FullName = "Test User",
-                License = "test_license",
-                Email = "test@example.com",
-                Phone = "1234567890",
-                Instagram = "test_instagram",
-                D1Type2 = 1,
-                AcntCreatTS = DateTime.Now.ToString(),
-                TOSAcpt = 1,
-                TOSAcptTS = DateTime.Now.ToString(),
-                DevName = "test_device",
-                PremiumAcct = 1,
-                FanGift = 0,
-                GiftTS = DateTime.Now.ToString(),
-                GPSLocationLat = 0.0,
-                GPSLocationLon = 0.0,
-                GPSLastTS = DateTime.Now.ToString(),
-                GPSGeoHash = 0.0,
-                GPSTS = DateTime.Now.ToString(),
-                GPSCity = "test_city",
-                HFanNotifDM = 0,
-                HFanNotifD1 = 0,
-                InviteTS = DateTime.Now.ToString(),
-                UploadStatus = "test_status",
-                UploadLatestTS = DateTime.Now.ToString(),
-                HNewGrp = "test_group",
-                HSignatureCount = 0,
-                HPhoto270Count = 0,
-                HPhoto100Count = 0,
-                HInviteReset = 0,
-                HInviteTS = DateTime.Now.ToString(),
-                HInviteReminder = DateTime.Now.ToString(),
-                HLikeCount = 0,
-                NotPushOn = "yes",
-                NotSndOn = "yes",
-                GPSRange = 100,
-                GEOHash = 123456,
-                SessionId = "test_session_id",
-                ChatSessionId = "test_chat_session_id",
-                GroupName = "test_group_name",
-                InitiatedBy = "test_initiator",
-                SessionType = "test_session_type",
-                CreatedAt = DateTime.Now
-            };
-
-            D1AccountMethods.InsertD1Account(artistAccount.Username, artistAccount);
-
-            // Retrieve the inserted artist account
-            var retrievedAccount = D1AccountMethods.GetD1Account(artistAccount.Username, artistAccount.ID);
-            if (retrievedAccount != null)
-            {
-                Console.WriteLine($"Retrieved Artist Account: {retrievedAccount.FullName}, {retrievedAccount.Email}");
-            }
-            else
-            {
-                Console.WriteLine("Failed to retrieve the artist account.");
-            }
-        }
-
         private void OnToggled(object sender, ToggledEventArgs e)
         {
-            Console.WriteLine("Toggle switched. New value: " + e.Value);
+            Console.WriteLine($"{APP_TAG}: Toggle switched. New value: {e.Value}");
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                Console.WriteLine("Login button clicked.");
+                Console.WriteLine($"{APP_TAG}: Login button clicked.");
                 await Shell.Current.GoToAsync($"///{nameof(LoginPage)}");
-                Console.WriteLine("Navigated to LoginPage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to LoginPage.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Navigation to LoginPage failed: {ex.Message}");
+                Console.WriteLine($"{APP_TAG}: Navigation to LoginPage failed: {ex.Message}");
             }
         }
 
@@ -125,20 +57,20 @@ namespace DayOnes.Views
                 var confirmPassword = this.txtArtistConfirmPassword.Text;
                 var instagramHandle = this.txtArtistSocialMediaHandle.Text;
 
-                Console.WriteLine("Register button clicked.");
-                Console.WriteLine($"FullName: {fullName}, Username: {userName}, Email: {email}, Phone: {phone}");
+                Console.WriteLine($"{APP_TAG}: Register button clicked.");
+                Console.WriteLine($"{APP_TAG}: FullName: {fullName}, Username: {userName}, Email: {email}, Phone: {phone}");
 
                 if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(email) ||
                     string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
                 {
-                    Console.WriteLine("Validation failed: One or more fields are empty.");
+                    Console.WriteLine($"{APP_TAG}: Validation failed: One or more fields are empty.");
                     await DisplayAlert("Validation Failed", "Please fill in all required fields.", "OK");
                     return;
                 }
 
                 if (password != confirmPassword)
                 {
-                    Console.WriteLine("Validation failed: Password and confirm password do not match.");
+                    Console.WriteLine($"{APP_TAG}: Validation failed: Password and confirm password do not match.");
                     await DisplayAlert("Validation Failed", "Password and confirm password do not match.", "OK");
                     return;
                 }
@@ -171,13 +103,15 @@ namespace DayOnes.Views
                 };
                 D1AccountMethods.InsertD1Account(userName, artistAccount);
 
+                Console.WriteLine($"{APP_TAG}: Database initialized and user account inserted.");
+
                 // Navigate to FHomePage
                 await Shell.Current.GoToAsync(nameof(FHomePage));
-                Console.WriteLine("Navigated to FHomePage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to FHomePage.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Navigation to FHomePage failed: {ex.Message}");
+                Console.WriteLine($"{APP_TAG}: Error during registration: {ex.Message}\nStack Trace: {ex.StackTrace}");
                 await DisplayAlert("Error", $"An error occurred during registration: {ex.Message}", "OK");
             }
         }
@@ -186,13 +120,13 @@ namespace DayOnes.Views
         {
             try
             {
-                Console.WriteLine("Cancel button clicked.");
+                Console.WriteLine($"{APP_TAG}: Cancel button clicked.");
                 await Shell.Current.GoToAsync($"///{nameof(LoginPage)}");
-                Console.WriteLine("Navigated to LoginPage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to LoginPage.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Navigation to LoginPage failed: {ex.Message}");
+                Console.WriteLine($"{APP_TAG}: Navigation to LoginPage failed: {ex.Message}");
             }
         }
 
@@ -200,13 +134,13 @@ namespace DayOnes.Views
         {
             try
             {
-                Console.WriteLine("Logo tapped.");
+                Console.WriteLine($"{APP_TAG}: Logo tapped.");
                 await Shell.Current.GoToAsync(nameof(MainPage));
-                Console.WriteLine("Navigated to MainPage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to MainPage.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Navigation to MainPage failed: {ex.Message}");
+                Console.WriteLine($"{APP_TAG}: Navigation to MainPage failed: {ex.Message}");
             }
         }
 

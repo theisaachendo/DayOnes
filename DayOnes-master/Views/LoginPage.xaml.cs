@@ -6,7 +6,6 @@ using Newtonsoft.Json.Linq;
 using Microsoft.Maui.Controls;
 using DayOnes.UtilityClass;
 using System;
-using System.IO;
 
 namespace DayOnes.Views
 {
@@ -14,7 +13,7 @@ namespace DayOnes.Views
     {
         private readonly HttpClient _httpClient;
         private WebSocketService _webSocketService;
-        private string _dbPath;
+        private const string APP_TAG = "DayOnesApp";
 
         public LoginPage()
         {
@@ -23,7 +22,7 @@ namespace DayOnes.Views
             {
                 IsVisible = false
             });
-            Console.WriteLine("LoginPage initialized.");
+            Console.WriteLine($"{APP_TAG}: LoginPage initialized.");
 
             // Initialize HttpClient
             _httpClient = new HttpClient();
@@ -44,102 +43,121 @@ namespace DayOnes.Views
             {
                 // Authenticate the user and retrieve the profile
                 var result = await AuthenticateUser(username, password);
-                if (!result.Item1)
+                if (!result.Item1 || result.Item2 == null)
                 {
                     await DisplayAlert("Login Failed", "Invalid username or password. Please try again.", "OK");
                     return;
                 }
 
                 var profile = result.Item2;
-                // Use the profile information as needed
-                Console.WriteLine("Authenticated user profile: " + profile);
+                Console.WriteLine($"{APP_TAG}: Authenticated user profile: {profile}");
 
                 // Initialize WebSocketService with the authenticated username
                 _webSocketService = new WebSocketService(username);
 
+                // Copy the database from the local directory to the device
+                D1AccountMethods.CopyDatabaseToDevice(username);
+
+                // Sync account data to local SQLite database on the device
+                await SyncAccountData(profile);
+
                 // Determine user type and navigate to the appropriate page
-                UserTypeEnum type = profile["role"].ToString() == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
+                UserTypeEnum type = profile["role"]?.ToString() == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
                 switch (type)
                 {
                     case UserTypeEnum.Host:
                         await Shell.Current.GoToAsync(nameof(HHomePage));
+                        Console.WriteLine($"{APP_TAG}: Navigated to HHomePage.");
                         break;
                     case UserTypeEnum.Fan:
                         await Shell.Current.GoToAsync(nameof(FHomePage));
+                        Console.WriteLine($"{APP_TAG}: Navigated to FHomePage.");
                         break;
                 }
 
-                // Sync account data to local SQLite database
-                await SyncAccountData(profile);
-
-                Console.WriteLine("Navigated to appropriate home page.");
+                Console.WriteLine($"{APP_TAG}: Navigated to appropriate home page.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Login failed: {ex.Message}");
+                Console.WriteLine($"{APP_TAG}: Login failed: {ex.Message}\nStack Trace: {ex.StackTrace}");
                 await DisplayAlert("Error", "An error occurred during login. Please try again.", "OK");
             }
         }
 
         private async Task<(bool, JObject)> AuthenticateUser(string username, string password)
         {
-            // Replace with your AWS Lambda endpoint URL for authentication and profile retrieval
-            var url = $"https://2hokj4ow5etr4dw2h55tizgvpi0dusbo.lambda-url.us-east-1.on.aws/?username={username}&password={password}";
-            var response = await _httpClient.GetAsync(url);
-            var content = await response.Content.ReadAsStringAsync();
+            try
+            {
+                // Replace with your AWS Lambda endpoint URL for authentication and profile retrieval
+                var url = $"https://2hokj4ow5etr4dw2h55tizgvpi0dusbo.lambda-url.us-east-1.on.aws/?username={username}&password={password}";
+                var response = await _httpClient.GetAsync(url);
+                var content = await response.Content.ReadAsStringAsync();
 
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var jsonResponse = JObject.Parse(content);
-                return (true, (JObject)jsonResponse["profile"]);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var jsonResponse = JObject.Parse(content);
+                    return (true, (JObject)jsonResponse["profile"]);
+                }
+                else
+                {
+                    return (false, null);
+                }
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine($"{APP_TAG}: Error during authentication: {ex.Message}\nStack Trace: {ex.StackTrace}");
                 return (false, null);
             }
         }
 
         private async Task SyncAccountData(JObject profile)
         {
+            if (profile == null)
+            {
+                Console.WriteLine($"{APP_TAG}: Profile is null, cannot sync account data.");
+                return;
+            }
+
             var account = new D1Account
             {
-                AccountID = profile["accountID"].ToString(),
-                FullName = profile["fullName"].ToString(),
-                Username = profile["username"].ToString(),
-                Email = profile["email"].ToString(),
-                Phone = profile["phone"].ToString(),
-                Password = profile["password"].ToString(),
-                Instagram = profile["instagram"].ToString(),
-                CreatedAt = DateTime.Parse(profile["createdAt"].ToString())
+                AccountID = profile["accountID"]?.ToString(),
+                FullName = profile["fullName"]?.ToString(),
+                Username = profile["username"]?.ToString(),
+                Email = profile["email"]?.ToString(),
+                Phone = profile["phone"]?.ToString(),
+                Password = profile["password"]?.ToString(),
+                Instagram = profile["instagram"]?.ToString(),
+                CreatedAt = DateTime.Parse(profile["createdAt"]?.ToString() ?? DateTime.Now.ToString())
             };
 
-            D1AccountMethods.InsertD1Account(account.Username, account);
+            await Task.Run(() => D1AccountMethods.InsertD1Account(account.Username, account));
+            Console.WriteLine($"{APP_TAG}: Account data synchronized.");
         }
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Signup button clicked.");
+            Console.WriteLine($"{APP_TAG}: Signup button clicked.");
             string action = await DisplayActionSheet("Select Account Type", "Cancel", null, "Fan", "Artist");
 
             if (action == "Fan")
             {
-                Console.WriteLine("Fan selected.");
+                Console.WriteLine($"{APP_TAG}: Fan selected.");
                 await Shell.Current.GoToAsync(nameof(RegFanPage));
-                Console.WriteLine("Navigated to RegFanPage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to RegFanPage.");
             }
             else if (action == "Artist")
             {
-                Console.WriteLine("Artist selected.");
+                Console.WriteLine($"{APP_TAG}: Artist selected.");
                 await Shell.Current.GoToAsync(nameof(RegArtistPage));
-                Console.WriteLine("Navigated to RegArtistPage.");
+                Console.WriteLine($"{APP_TAG}: Navigated to RegArtistPage.");
             }
         }
 
         private void imgLogo_Tapped(object sender, EventArgs e)
         {
-            Console.WriteLine("Logo tapped.");
+            Console.WriteLine($"{APP_TAG}: Logo tapped.");
             Shell.Current.GoToAsync(nameof(HHomePage));
-            Console.WriteLine("Navigated to HHomePage.");
+            Console.WriteLine($"{APP_TAG}: Navigated to HHomePage.");
         }
     }
 }
