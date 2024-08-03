@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.dayones" android:versionCode="3" android:versionName="3.1">
 
     <application android:allowBackup="true" android:icon="@mipmap/appicon" android:supportsRtl="true" android:label="DayOnes">
+        <!-- Media session service for handling media button actions -->
         <service android:name="CommunityToolkit.Maui.Media.Services" android:exported="false" android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
@@ -12,6 +13,7 @@
         </service>
     </application>
 
+    <!-- Required permissions for network and media access -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -25,11 +27,13 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
 
+    <!-- Query for camera capture capability -->
     <queries>
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
     </queries>
 
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"></uses-sdk>
+    <!-- Specify minimum and target SDK versions -->
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34" />
 </manifest>

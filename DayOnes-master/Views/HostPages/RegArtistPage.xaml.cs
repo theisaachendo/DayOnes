@@ -86,13 +86,10 @@ namespace DayOnes.Views
                     return;
                 }
 
-                // Initialize user-specific database
-                D1AccountMethods.InitializeUserDatabase(userName);
-
-                // Store artist data in SQLite database
+                // Store artist data in DynamoDB
                 var artistAccount = new D1Account
                 {
-                    AccountID = Guid.NewGuid().ToString(),
+                    ID = Guid.NewGuid().ToString(),
                     FullName = fullName,
                     Username = userName,
                     Email = email,
@@ -101,13 +98,14 @@ namespace DayOnes.Views
                     Instagram = instagramHandle,
                     CreatedAt = DateTime.Now
                 };
-                D1AccountMethods.InsertD1Account(userName, artistAccount);
 
-                Console.WriteLine($"{APP_TAG}: Database initialized and user account inserted.");
+                await D1AccountMethods.StoreUserDataToDynamoDB(artistAccount);
 
-                // Navigate to FHomePage
-                await Shell.Current.GoToAsync(nameof(FHomePage));
-                Console.WriteLine($"{APP_TAG}: Navigated to FHomePage.");
+                Console.WriteLine($"{APP_TAG}: Artist account created successfully.");
+
+                // Navigate to LoginPage
+                await Shell.Current.GoToAsync($"///{nameof(LoginPage)}");
+                Console.WriteLine($"{APP_TAG}: Navigated to LoginPage.");
             }
             catch (Exception ex)
             {

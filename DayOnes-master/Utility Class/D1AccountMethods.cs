@@ -1,194 +1,219 @@
-using SQLite;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Media;
 using Microsoft.Maui.Storage;
+using Amazon;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
+using Amazon.Runtime;
 
 namespace DayOnes.UtilityClass
 {
     public class D1Account
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
-        public string AccountID { get; set; }
-        public string Username { get; set; }
+        public string ID { get; set; }  // Partition key
+        public string Username { get; set; }  // Sort key
         public string Password { get; set; }
         public string FullName { get; set; }
-        public string License { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Instagram { get; set; }
-        public int D1Type2 { get; set; }
-        public string AcntCreatTS { get; set; }
-        public int TOSAcpt { get; set; }
-        public string TOSAcptTS { get; set; }
-        public string DevName { get; set; }
-        public int PremiumAcct { get; set; }
-        public int FanGift { get; set; }
-        public string GiftTS { get; set; }
-        public double GPSLocationLat { get; set; }
-        public double GPSLocationLon { get; set; }
-        public string GPSLastTS { get; set; }
-        public double GPSGeoHash { get; set; }
-        public string GPSTS { get; set; }
-        public string GPSCity { get; set; }
-        public int HFanNotifDM { get; set; }
-        public int HFanNotifD1 { get; set; }
-        public string InviteTS { get; set; }
-        public string UploadStatus { get; set; }
-        public string UploadLatestTS { get; set; }
-        public string HNewGrp { get; set; }
-        public int HSignatureCount { get; set; }
-        public int HPhoto270Count { get; set; }
-        public int HPhoto100Count { get; set; }
-        public int HInviteReset { get; set; }
-        public string HInviteTS { get; set; }
-        public string HInviteReminder { get; set; }
-        public int HLikeCount { get; set; }
-        public string NotPushOn { get; set; }
-        public string NotSndOn { get; set; }
-        public int GPSRange { get; set; }
-        public int GEOHash { get; set; }
-        public string SessionId { get; set; }
-        public string ChatSessionId { get; set; }
-        public string GroupName { get; set; }
-        public string InitiatedBy { get; set; }
-        public string SessionType { get; set; }
         public DateTime CreatedAt { get; set; }
+        public string ProfileImagePath { get; set; }  // Add ProfileImagePath property
     }
 
     public static class D1AccountMethods
     {
-        const string APP_TAG = "DayOnesApp";
+        private const string APP_TAG = "DayOnesApp";
+        private static readonly string tableName = "D1UsersLookup.2"; // Update with your table name
+        private static AmazonDynamoDBClient _dynamoDbClient;
 
-        // Method to initialize the database for a user on a local machine
-        public static void InitializeUserDatabase(string username)
+        static D1AccountMethods()
         {
-            var dbPath = GetLocalDatabasePath(username);
-            try
-            {
-                Console.WriteLine($"{APP_TAG}: Initializing database for user {username} at path: {dbPath}");
-                using (var db = new SQLiteConnection(dbPath))
-                {
-                    db.CreateTable<D1Account>();
-                }
-                Console.WriteLine($"{APP_TAG}: Database and table created successfully.");
-            }
-            catch (SQLiteException ex)
-            {
-                Console.WriteLine($"{APP_TAG}: SQLite error initializing database: {ex.Message}\nStack Trace: {ex.StackTrace}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{APP_TAG}: General error initializing database: {ex.Message}\nStack Trace: {ex.StackTrace}");
-            }
+            var credentials = new BasicAWSCredentials("YOUR_ACCESS_KEY", "YOUR_SECRET_KEY");
+            _dynamoDbClient = new AmazonDynamoDBClient(credentials, RegionEndpoint.USEast1);
         }
 
-        // Insert account details into the database
-        public static void InsertD1Account(string username, D1Account account)
+        // Method to authenticate a user
+        public static async Task<D1Account> AuthenticateUserAsync(string username, string password)
         {
-            var dbPath = GetLocalDatabasePath(username);
             try
             {
-                using (var db = new SQLiteConnection(dbPath))
+                var request = new QueryRequest
                 {
-                    db.Insert(account);
-                }
-                Console.WriteLine($"{APP_TAG}: Account inserted successfully.");
-            }
-            catch (SQLiteException ex)
-            {
-                Console.WriteLine($"{APP_TAG}: SQLite error inserting account: {ex.Message}\nStack Trace: {ex.StackTrace}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{APP_TAG}: General error inserting account: {ex.Message}\nStack Trace: {ex.StackTrace}");
-            }
-        }
+                    TableName = tableName,
+                    KeyConditionExpression = "Username = :username",
+                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+                    {
+                        { ":username", new AttributeValue { S = username } }
+                    }
+                };
 
-        // Fetch account details from the database
-        public static D1Account GetD1Account(string username, int id)
-        {
-            var dbPath = GetDeviceDatabasePath(username);
-            try
-            {
-                using (var db = new SQLiteConnection(dbPath))
+                var response = await _dynamoDbClient.QueryAsync(request);
+
+                if (response.Items.Count > 0)
                 {
-                    return db.Find<D1Account>(id);
+                    var item = response.Items[0];
+                    var dbPassword = item["Password"].S;
+
+                    if (dbPassword == password)
+                    {
+                        var account = new D1Account
+                        {
+                            ID = item["ID"].S,
+                            Username = item["Username"].S,
+                            Password = dbPassword,
+                            FullName = item["FullName"].S,
+                            Email = item["Email"].S,
+                            Phone = item["Phone"].S,
+                            Instagram = item["Instagram"].S,
+                            CreatedAt = DateTime.Parse(item["CreatedAt"].S),
+                            ProfileImagePath = item.ContainsKey("ProfileImagePath") ? item["ProfileImagePath"].S : null
+                        };
+
+                        Console.WriteLine($"{APP_TAG}: User authenticated successfully.");
+                        return account;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{APP_TAG}: Invalid password.");
+                        return null;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{APP_TAG}: User not found.");
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{APP_TAG}: Error fetching account: {ex.Message}\nStack Trace: {ex.StackTrace}");
+                Console.WriteLine($"{APP_TAG}: Error authenticating user: {ex.Message}\nStack Trace: {ex.StackTrace}");
                 return null;
             }
         }
 
-        // Generate the database path on the local machine for testing
-        private static string GetLocalDatabasePath(string username)
+        // Method to store user data in DynamoDB
+        public static async Task StoreUserDataToDynamoDB(D1Account account)
         {
+            if (account == null) return;
+
             try
             {
-                // Path for storing database files in your project directory
-                var folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "DayOnesDatabases");
+                var item = new Dictionary<string, AttributeValue>
+                {
+                    { "ID", new AttributeValue { S = account.ID } },
+                    { "Username", new AttributeValue { S = account.Username } },
+                    { "Password", new AttributeValue { S = account.Password } },
+                    { "FullName", new AttributeValue { S = account.FullName } },
+                    { "Email", new AttributeValue { S = account.Email } },
+                    { "Phone", new AttributeValue { S = account.Phone } },
+                    { "Instagram", new AttributeValue { S = account.Instagram } },
+                    { "CreatedAt", new AttributeValue { S = account.CreatedAt.ToString("o") } },
+                    { "ProfileImagePath", new AttributeValue { S = account.ProfileImagePath ?? string.Empty } }
+                };
 
-                // Ensure the directory exists
-                Directory.CreateDirectory(folderPath);
+                var request = new PutItemRequest
+                {
+                    TableName = tableName,
+                    Item = item
+                };
 
-                // Return the path for the specific user's database file
-                var dbPath = Path.Combine(folderPath, $"{username}_D1AccountDB.db");
-                Console.WriteLine($"{APP_TAG}: Local Database Path: {dbPath}");
-                return dbPath;
+                await _dynamoDbClient.PutItemAsync(request);
+                Console.WriteLine($"{APP_TAG}: User data stored in DynamoDB.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{APP_TAG}: Error getting local database path: {ex.Message}\nStack Trace: {ex.StackTrace}");
-                throw;
+                Console.WriteLine($"{APP_TAG}: Error storing user data in DynamoDB: {ex.Message}\nStack Trace: {ex.StackTrace}");
             }
         }
 
-        // Generate the database path on the device
-        private static string GetDeviceDatabasePath(string username)
+        // Method to store user data locally
+        public static async Task StoreUserDataLocally(D1Account account)
         {
+            if (account == null) return;
+
             try
             {
-                // Use MAUI's app-specific storage to get a writable path on the device
-                var folderPath = FileSystem.AppDataDirectory; // App-specific directory on the device
-                Console.WriteLine($"{APP_TAG}: AppDataDirectory Path: {folderPath}");
+                await Task.Run(() =>
+                {
+                    Preferences.Set("Username", account.Username);
+                    Preferences.Set("FullName", account.FullName);
+                    Preferences.Set("Email", account.Email);
+                    Preferences.Set("Phone", account.Phone);
+                    Preferences.Set("Instagram", account.Instagram);
+                    Preferences.Set("CreatedAt", account.CreatedAt.ToString("o"));
+                    Preferences.Set($"{account.Username}_ProfileImagePath", account.ProfileImagePath);
+                });
 
-                // Return the path for the specific user's database file on the device
-                var dbPath = Path.Combine(folderPath, $"{username}_D1AccountDB.db");
-                Console.WriteLine($"{APP_TAG}: Device Database Path: {dbPath}");
-                return dbPath;
+                Console.WriteLine($"{APP_TAG}: User data stored locally.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{APP_TAG}: Error getting device database path: {ex.Message}\nStack Trace: {ex.StackTrace}");
-                throw;
+                Console.WriteLine($"{APP_TAG}: Error storing user data locally: {ex.Message}\nStack Trace: {ex.StackTrace}");
             }
         }
 
-        // Copy the database from the local path to the device
-        public static void CopyDatabaseToDevice(string username)
+        // Method to retrieve local user data
+        public static D1Account GetLocalUserData()
         {
             try
             {
-                var localPath = GetLocalDatabasePath(username);
-                var devicePath = GetDeviceDatabasePath(username);
+                var username = Preferences.Get("Username", null);
+                if (string.IsNullOrEmpty(username)) return null;
 
-                if (File.Exists(localPath))
+                return new D1Account
                 {
-                    File.Copy(localPath, devicePath, true);
-                    Console.WriteLine($"{APP_TAG}: Database copied to device successfully.");
-                }
-                else
-                {
-                    Console.WriteLine($"{APP_TAG}: Local database file not found.");
-                }
+                    Username = username,
+                    FullName = Preferences.Get("FullName", null),
+                    Email = Preferences.Get("Email", null),
+                    Phone = Preferences.Get("Phone", null),
+                    Instagram = Preferences.Get("Instagram", null),
+                    CreatedAt = DateTime.Parse(Preferences.Get("CreatedAt", DateTime.Now.ToString("o"))),
+                    ProfileImagePath = Preferences.Get($"{username}_ProfileImagePath", null)
+                };
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{APP_TAG}: Error copying database to device: {ex.Message}\nStack Trace: {ex.StackTrace}");
-                throw;
+                Console.WriteLine($"{APP_TAG}: Error retrieving local user data: {ex.Message}\nStack Trace: {ex.StackTrace}");
+                return null;
+            }
+        }
+
+        // Method to update profile
+        public static void UpdateProfile(D1Account updatedProfile)
+        {
+            if (updatedProfile == null) return;
+
+            try
+            {
+                Console.WriteLine($"{APP_TAG}: Updated profile for {updatedProfile.Username}");
+                Preferences.Set("Username", updatedProfile.Username);
+                Preferences.Set("Email", updatedProfile.Email);
+                Preferences.Set("Phone", updatedProfile.Phone);
+                Preferences.Set("Password", updatedProfile.Password);
+                Preferences.Set($"{updatedProfile.Username}_ProfileImagePath", updatedProfile.ProfileImagePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{APP_TAG}: Error updating profile: {ex.Message}");
+            }
+        }
+
+        // Method to update profile image path
+        public static void UpdateProfileImagePath(string username, string path)
+        {
+            try
+            {
+                Console.WriteLine($"{APP_TAG}: Updated profile image path for {username} to {path}");
+                Preferences.Set($"{username}_ProfileImagePath", path);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{APP_TAG}: Error updating profile image path: {ex.Message}");
             }
         }
     }

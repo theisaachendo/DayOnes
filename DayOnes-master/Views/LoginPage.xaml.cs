@@ -1,19 +1,22 @@
 using DayOnes.Models;
 using DayOnes.Views.HostPages;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Microsoft.Maui.Controls;
 using DayOnes.UtilityClass;
-using System;
 
 namespace DayOnes.Views
 {
     public partial class LoginPage : ContentPage
     {
-        private readonly HttpClient _httpClient;
         private WebSocketService _webSocketService;
         private const string APP_TAG = "DayOnesApp";
+        private readonly HttpClient _httpClient;
+
+        // Lambda URL for authentication
+        private const string LambdaUrl = "https://2hokj4ow5etr4dw2h55tizgvpi0dusbo.lambda-url.us-east-1.on.aws/";
 
         public LoginPage()
         {
@@ -24,7 +27,6 @@ namespace DayOnes.Views
             });
             Console.WriteLine($"{APP_TAG}: LoginPage initialized.");
 
-            // Initialize HttpClient
             _httpClient = new HttpClient();
         }
 
@@ -42,40 +44,56 @@ namespace DayOnes.Views
             try
             {
                 // Authenticate the user and retrieve the profile
-                var result = await AuthenticateUser(username, password);
-                if (!result.Item1 || result.Item2 == null)
+                var profile = await AuthenticateUser(username, password);
+                if (profile == null)
                 {
                     await DisplayAlert("Login Failed", "Invalid username or password. Please try again.", "OK");
                     return;
                 }
 
-                var profile = result.Item2;
                 Console.WriteLine($"{APP_TAG}: Authenticated user profile: {profile}");
+
+                // Create D1Account from JObject
+                var account = new D1Account
+                {
+                    Username = profile["username"]?.ToString(),
+                    FullName = profile["fullName"]?.ToString(),
+                    Email = profile["email"]?.ToString(),
+                    Phone = profile["phone"]?.ToString(),
+                    Instagram = profile["instagram"]?.ToString(),
+                    ID = profile["accountID"]?.ToString(),
+                    CreatedAt = DateTime.Now
+                };
+
+                // Sync account data to local storage
+                await D1AccountMethods.StoreUserDataLocally(account);
 
                 // Initialize WebSocketService with the authenticated username
                 _webSocketService = new WebSocketService(username);
 
-                // Copy the database from the local directory to the device
-                D1AccountMethods.CopyDatabaseToDevice(username);
-
-                // Sync account data to local SQLite database on the device
-                await SyncAccountData(profile);
-
                 // Determine user type and navigate to the appropriate page
-                UserTypeEnum type = profile["role"]?.ToString() == "artist" ? UserTypeEnum.Host : UserTypeEnum.Fan;
-                switch (type)
-                {
-                    case UserTypeEnum.Host:
-                        await Shell.Current.GoToAsync(nameof(HHomePage));
-                        Console.WriteLine($"{APP_TAG}: Navigated to HHomePage.");
-                        break;
-                    case UserTypeEnum.Fan:
-                        await Shell.Current.GoToAsync(nameof(FHomePage));
-                        Console.WriteLine($"{APP_TAG}: Navigated to FHomePage.");
-                        break;
-                }
+                var role = profile["role"]?.ToString();
+                var type = role == "artist" ? Models.UserTypeEnum.Host : Models.UserTypeEnum.Fan;
+                Console.WriteLine($"{APP_TAG}: User role determined as: {type}");
 
-                Console.WriteLine($"{APP_TAG}: Navigated to appropriate home page.");
+                if (type == Models.UserTypeEnum.Host)
+                {
+                    Console.WriteLine($"{APP_TAG}: Navigating to HHomePage...");
+                    await Shell.Current.GoToAsync(nameof(HHomePage));
+                    Console.WriteLine($"{APP_TAG}: Successfully navigated to HHomePage.");
+                }
+                else if (type == Models.UserTypeEnum.Fan)
+                {
+                    Console.WriteLine($"{APP_TAG}: Navigating to FHomePage...");
+                    await Shell.Current.GoToAsync(nameof(FHomePage));
+                    Console.WriteLine($"{APP_TAG}: Successfully navigated to FHomePage.");
+                }
+                else
+                {
+                    Console.WriteLine($"{APP_TAG}: Unknown user role: {role}. Unable to navigate.");
+                    await DisplayAlert("Error", "Unknown user role. Please contact support.", "OK");
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -84,54 +102,32 @@ namespace DayOnes.Views
             }
         }
 
-        private async Task<(bool, JObject)> AuthenticateUser(string username, string password)
+        private async Task<JObject> AuthenticateUser(string username, string password)
         {
             try
             {
-                // Replace with your AWS Lambda endpoint URL for authentication and profile retrieval
-                var url = $"https://2hokj4ow5etr4dw2h55tizgvpi0dusbo.lambda-url.us-east-1.on.aws/?username={username}&password={password}";
+                // Make a request to the Lambda function
+                var url = $"{LambdaUrl}?username={username}&password={password}";
                 var response = await _httpClient.GetAsync(url);
-                var content = await response.Content.ReadAsStringAsync();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (response.IsSuccessStatusCode)
                 {
-                    var jsonResponse = JObject.Parse(content);
-                    return (true, (JObject)jsonResponse["profile"]);
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    var jsonData = JObject.Parse(jsonResponse);
+
+                    if (jsonData["message"]?.ToString() == "Authenticated")
+                    {
+                        return (JObject)jsonData["profile"];
+                    }
                 }
-                else
-                {
-                    return (false, null);
-                }
+
+                return null;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"{APP_TAG}: Error during authentication: {ex.Message}\nStack Trace: {ex.StackTrace}");
-                return (false, null);
+                return null;
             }
-        }
-
-        private async Task SyncAccountData(JObject profile)
-        {
-            if (profile == null)
-            {
-                Console.WriteLine($"{APP_TAG}: Profile is null, cannot sync account data.");
-                return;
-            }
-
-            var account = new D1Account
-            {
-                AccountID = profile["accountID"]?.ToString(),
-                FullName = profile["fullName"]?.ToString(),
-                Username = profile["username"]?.ToString(),
-                Email = profile["email"]?.ToString(),
-                Phone = profile["phone"]?.ToString(),
-                Password = profile["password"]?.ToString(),
-                Instagram = profile["instagram"]?.ToString(),
-                CreatedAt = DateTime.Parse(profile["createdAt"]?.ToString() ?? DateTime.Now.ToString())
-            };
-
-            await Task.Run(() => D1AccountMethods.InsertD1Account(account.Username, account));
-            Console.WriteLine($"{APP_TAG}: Account data synchronized.");
         }
 
         private async void btnSignup_Click(object sender, EventArgs e)
