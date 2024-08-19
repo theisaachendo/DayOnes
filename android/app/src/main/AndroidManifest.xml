@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dayones">  <!-- Ensure this matches your actual package name -->
 
+    <!-- Permission for Internet access -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permissions for accessing location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".MainApplication"
