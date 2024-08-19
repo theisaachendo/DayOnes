@@ -16,22 +16,39 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!username || !password) {
       Alert.alert('Validation Error', 'Please enter both username and password.');
       return;
     }
 
-    if (username === 'admin' && password === 'password') {
-      Alert.alert('Login Successful', 'Welcome!');
-    } else {
-      Alert.alert('Login Failed', 'Invalid username or password.');
+    try {
+      const response = await fetch(`https://ifxz5tco3iasejg5ldo3udsq740cxxbl.lambda-url.us-east-1.on.aws/?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+        method: 'GET',
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200) {
+        Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
+        // Navigate to the appropriate screen, possibly passing user data
+        navigation.navigate('HomePage', { profile: result.profile });
+      } else if (response.status === 401) {
+        Alert.alert('Login Failed', 'Invalid username or password.');
+      } else if (response.status === 404) {
+        Alert.alert('Login Failed', 'User not found.');
+      } else {
+        Alert.alert('Login Failed', 'An unexpected error occurred.');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      Alert.alert('Login Failed', 'An unexpected error occurred.');
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <View style={styles.logoContainer}>
         <Text style={styles.logoText}>YourApp</Text>
       </View>
@@ -68,7 +85,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#000', // Black background for consistency
   },
   logoContainer: {
     marginBottom: 50,
@@ -77,7 +94,7 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#4B0981',
+    color: '#fff', // White logo text for contrast
   },
   inputContainer: {
     marginBottom: 20,
@@ -89,7 +106,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 15,
     marginBottom: 10,
-    color: '#000',
+    color: '#fff', // White text color for inputs
+    backgroundColor: 'transparent',
   },
   button: {
     backgroundColor: '#4B0981',

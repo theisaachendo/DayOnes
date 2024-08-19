@@ -22,30 +22,33 @@ const RegFanPage = () => {
       return;
     }
 
-    const registrationSuccess = await registerFan(fullName, userName, email, phone, password);
-    if (registrationSuccess) {
-      navigation.navigate('FHomePage'); // Adjust navigation based on your setup
-    } else {
-      Alert.alert('Registration Failed', 'An error occurred during registration. Please try again.');
-    }
-  };
+    const queryParams = new URLSearchParams({
+      Username: userName,
+      Password: password,
+      FullName: fullName,
+      Email: email,
+      Phone: phone,
+      Role: 'fan', // Specify 'fan' role
+    }).toString();
 
-  const registerFan = async (fullName, userName, email, phone, password) => {
     try {
-      const url = `https://y7owu4h5aixdy4zvqxpabpvdbm0ilbnw.lambda-url.us-east-1.on.aws/?Username=${encodeURIComponent(userName)}&Password=${encodeURIComponent(password)}&FullName=${encodeURIComponent(fullName)}&Email=${encodeURIComponent(email)}&Phone=${encodeURIComponent(phone)}&Role=fan`;
-      const response = await fetch(url);
-      const content = await response.json();
+      const response = await fetch(`https://pdgoqkofzbudgfnvypspz72kh40zttnv.lambda-url.us-east-1.on.aws/?${queryParams}`, {
+        method: 'GET',
+      });
+
+      const result = await response.json();
 
       if (response.status === 201) {
-        console.log('Registration successful:', content);
-        return true;
+        Alert.alert('Success', 'Registration successful');
+        navigation.navigate('LoginPage');
+      } else if (response.status === 200) {
+        Alert.alert('Error', result);
       } else {
-        console.log('Registration failed:', content);
-        return false;
+        Alert.alert('Error', 'An unexpected error occurred');
       }
     } catch (error) {
-      console.log(`Error during RegisterFan: ${error.message}`);
-      return false;
+      console.error('Registration error:', error);
+      Alert.alert('Error', 'An unexpected error occurred');
     }
   };
 
