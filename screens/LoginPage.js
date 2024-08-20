@@ -88,8 +88,8 @@ const LoginScreen = () => {
       </TouchableOpacity>
 
       {/* Test Page Button */}
-      <TouchableOpacity style={styles.testPageButton} onPress={() => navigation.navigate('TestPage')}>
-        <Text style={styles.testPageButtonText}>Go to Test Page</Text>
+      <TouchableOpacity style={styles.testPageButton} onPress={() => navigation.navigate('GeolocationPage')}>
+        <Text style={styles.testPageButtonText}>Go to Geolocation Page</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
