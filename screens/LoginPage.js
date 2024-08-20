@@ -1,3 +1,5 @@
+// Updated LoginScreen.js
+
 import React, { useState } from 'react';
 import {
   SafeAreaView,
@@ -31,7 +33,6 @@ const LoginScreen = () => {
 
       if (response.status === 200) {
         Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
-        // Navigate to the appropriate screen, possibly passing user data
         navigation.navigate('HomePage', { profile: result.profile });
       } else if (response.status === 401) {
         Alert.alert('Login Failed', 'Invalid username or password.');
@@ -72,10 +73,15 @@ const LoginScreen = () => {
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-      
+
       {/* Sign Up Button */}
       <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate('RegisterOptionPage')}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
+      </TouchableOpacity>
+
+      {/* Test Page Button */}
+      <TouchableOpacity style={styles.testPageButton} onPress={() => navigation.navigate('TestPage')}>
+        <Text style={styles.testPageButtonText}>Go to Test Page</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -125,6 +131,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signUpButtonText: {
+    color: '#4B0981',
+    fontSize: 18,
+  },
+  testPageButton: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  testPageButtonText: {
     color: '#4B0981',
     fontSize: 18,
   },
