@@ -10,6 +10,7 @@ import TestPage from './screens/TestPage'; // Import the TestPage
 import GeoLocationPage from './screens/GeolocationPage'; // Import the GeoLocationPage
 import ArtistStack from './navigation/ArtistStack'; // Import the Artist stack
 import FanStack from './navigation/FanStack'; // Import the Fan stack
+import ProfileScreen from './screens/ProfileScreen'; // Import the Profile screen
 
 const Stack = createStackNavigator();
 
@@ -48,10 +49,10 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-  name="GeoLocationPage"
-  component={GeoLocationPage}
-  options={{ headerShown: false }}
-/>
+          name="GeoLocationPage"
+          component={GeoLocationPage}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="ArtistStack"
           component={ArtistStack}
@@ -60,6 +61,11 @@ const App = () => {
         <Stack.Screen
           name="FanStack"
           component={FanStack}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProfileScreen"
+          component={ProfileScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

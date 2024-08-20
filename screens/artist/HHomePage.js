@@ -1,101 +1,146 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Slider from '@ptomasroos/react-native-multi-slider';  // Importing the multi-slider package
+import Slider from '@ptomasroos/react-native-multi-slider';  
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
+
+import ProfileScreen from '../ProfileScreen'; // Adjusted path if necessary
+import PostsScreen from '../PostsScreen'; // Adjusted path if necessary
+import NotificationsScreen from '../NotificationsScreen'; // Adjusted path if necessary
+import DMsScreen from '../DMsScreen'; // Adjusted path if necessary
+
+const Tab = createBottomTabNavigator();
 
 const HHomePage = () => {
   const [sliderValue, setSliderValue] = useState([50]);
+  const navigation = useNavigation();
 
   const takePicture = () => {
-    launchCamera(
-      {
-        mediaType: 'photo',
-        saveToPhotos: true,
-      },
-      (response) => {
-        if (response.didCancel) {
-          Alert.alert('Cancelled', 'User cancelled camera picker');
-        } else if (response.errorCode) {
-          Alert.alert('Error', response.errorMessage);
-        } else {
-          console.log(response.uri);
-          // Handle navigation to the photo review page
-        }
-      }
-    );
+    // Your take picture logic
   };
 
   const uploadPicture = () => {
-    launchImageLibrary(
-      {
-        mediaType: 'photo',
-      },
-      (response) => {
-        if (response.didCancel) {
-          Alert.alert('Cancelled', 'User cancelled image picker');
-        } else if (response.errorCode) {
-          Alert.alert('Error', response.errorMessage);
-        } else {
-          console.log(response.uri);
-          // Handle navigation to the photo review page
-        }
-      }
-    );
+    // Your upload picture logic
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Autographs & Invites</Text>
-      </View>
+    <Tab.Navigator
+      initialRouteName="Main"
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
 
-      <View style={styles.pictureContainer}>
-        <TouchableOpacity style={styles.pictureButton} onPress={takePicture}>
-          <Icon name="camera" size={30} color="#FFFFFF" style={styles.icon} />
-          <Text style={styles.buttonText}>Click Selfie</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.pictureButton} onPress={uploadPicture}>
-          <Icon name="picture-o" size={30} color="#FFFFFF" style={styles.icon} />
-          <Text style={styles.buttonText}>Upload Pic</Text>
-        </TouchableOpacity>
-      </View>
+          switch (route.name) {
+            case 'Profile':
+              iconName = 'user';
+              break;
+            case 'Posts':
+              iconName = 'file-text-o';
+              break;
+            case 'Notifications':
+              iconName = 'bell-o';
+              break;
+            case 'DMs':
+              iconName = 'envelope-o';
+              break;
+            default:
+              iconName = 'circle';
+              break;
+          }
 
-      <Text style={styles.sliderLabel}>Adjust Value:</Text>
-      <Slider
-        values={sliderValue}
-        sliderLength={300}
-        onValuesChange={(value) => setSliderValue(value)}
-        min={0}
-        max={100}
-        selectedStyle={styles.sliderSelectedStyle}
-        unselectedStyle={styles.sliderUnselectedStyle}
-        trackStyle={styles.sliderTrackStyle}
-        markerStyle={styles.sliderMarkerStyle}
-      />
-      <Text style={styles.sliderValue}>Value: {sliderValue[0]}</Text>
+          return <Icon name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#7B1FA2',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {
+          backgroundColor: '#000',
+          borderTopWidth: 0,
+        },
+        headerShown: false,
+      })}
+    >
+      <Tab.Screen name="Main" options={{ tabBarLabel: '' }}>
+        {() => (
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <Text style={styles.title}>Autographs & Invites</Text>
+              <TouchableOpacity
+                style={styles.profileButton}
+                onPress={() => navigation.navigate('ProfileScreen', {
+                  profile: { // Example data, replace with actual user data
+                    profilePicture: 'https://example.com/profile.jpg',
+                    fullName: 'John Doe',
+                    username: 'johndoe',
+                    email: 'johndoe@example.com',
+                    phone: '123-456-7890',
+                    role: 'Artist',
+                  },
+                })}
+              >
+                <Icon name="user-circle" size={30} color="#FFFFFF" />
+              </TouchableOpacity>
+            </View>
 
-      <TouchableOpacity style={styles.sendButton}>
-        <Text style={styles.sendButtonText}>Send</Text>
-      </TouchableOpacity>
-    </View>
+            <View style={styles.pictureContainer}>
+              <TouchableOpacity style={styles.pictureButton} onPress={takePicture}>
+                <Icon name="camera" size={30} color="#FFFFFF" style={styles.icon} />
+                <Text style={styles.buttonText}>Click Selfie</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.pictureButton} onPress={uploadPicture}>
+                <Icon name="picture-o" size={30} color="#FFFFFF" style={styles.icon} />
+                <Text style={styles.buttonText}>Upload Pic</Text>
+              </TouchableOpacity>
+            </View>
+
+            <Text style={styles.sliderLabel}>Adjust Value:</Text>
+            <Slider
+              values={sliderValue}
+              sliderLength={300}
+              onValuesChange={(value) => setSliderValue(value)}
+              min={0}
+              max={100}
+              selectedStyle={styles.sliderSelectedStyle}
+              unselectedStyle={styles.sliderUnselectedStyle}
+              trackStyle={styles.sliderTrackStyle}
+              markerStyle={styles.sliderMarkerStyle}
+            />
+            <Text style={styles.sliderValue}>Value: {sliderValue[0]}</Text>
+
+            <TouchableOpacity style={styles.sendButton}>
+              <Text style={styles.sendButtonText}>Send</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Posts" component={PostsScreen} />
+      <Tab.Screen name="Notifications" component={NotificationsScreen} />
+      <Tab.Screen name="DMs" component={DMsScreen} />
+    </Tab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // DefaultBlack background
+    backgroundColor: '#000',
     padding: 20,
   },
   header: {
     marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
+  },
+  profileButton: {
+    padding: 5,
   },
   pictureContainer: {
     flexDirection: 'row',
@@ -106,7 +151,7 @@ const styles = StyleSheet.create({
     width: 162,
     height: 115,
     backgroundColor: '#123544',
-    borderColor: '#00FFFF', // DefaultCyan equivalent
+    borderColor: '#00FFFF',
     borderWidth: 1,
     borderRadius: 20,
     alignItems: 'center',
@@ -128,25 +173,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   sliderSelectedStyle: {
-    backgroundColor: '#7B1FA2', // Updated color to make it more vibrant
+    backgroundColor: '#7B1FA2',
     borderRadius: 8,
   },
   sliderUnselectedStyle: {
-    backgroundColor: '#333', // Darker unselected portion for contrast
+    backgroundColor: '#333',
     borderRadius: 8,
   },
   sliderTrackStyle: {
     height: 10,
     borderRadius: 10,
-    backgroundColor: '#444', // Add a background color to the track for better visibility
+    backgroundColor: '#444',
   },
   sliderMarkerStyle: {
     height: 25,
     width: 25,
     borderRadius: 12.5,
-    backgroundColor: '#7B1FA2', // Consistent color for the marker
+    backgroundColor: '#7B1FA2',
     borderWidth: 2,
-    borderColor: '#fff', // White border for better visibility
+    borderColor: '#fff',
   },
   sliderValue: {
     fontSize: 18,
@@ -155,7 +200,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   sendButton: {
-    backgroundColor: '#7B1FA2', // DefaultPurple equivalent
+    backgroundColor: '#7B1FA2',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -164,6 +209,12 @@ const styles = StyleSheet.create({
   sendButtonText: {
     color: '#fff',
     fontSize: 18,
+  },
+  screenContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000',
   },
 });
 
