@@ -4,7 +4,8 @@ import Geolocation from 'react-native-geolocation-service';
 import { PermissionsAndroid, Platform } from 'react-native';
 import Geocoder from 'react-native-geocoder-reborn'; // Import the geocoder
 
-const GeoLocationPage = () => {
+
+const GeoLocationPage = ({ navigation }) => {
   const [locationData, setLocationData] = useState({ timestamp: '', latitude: null, longitude: null, locale: '' });
 
   useEffect(() => {
@@ -79,11 +80,21 @@ const GeoLocationPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Timestamp: {locationData.timestamp}</Text>
-      <Text style={styles.label}>Latitude: {locationData.latitude}</Text>
-      <Text style={styles.label}>Longitude: {locationData.longitude}</Text>
-      <Text style={styles.label}>Locale: {locationData.locale}</Text>
-      <Button title="Refresh Location" onPress={startWatchingLocation} />
+      {/* Header with back arrow */}
+      <View style={styles.header}>
+      <Text onPress={() => navigation.goBack()} style={{ color: '#FFFFFF', fontSize: 40 }}>←</Text>
+
+
+        <Text style={styles.title}>GeoLocation Testing</Text>
+      </View>
+
+      <View style={styles.contentContainer}>
+        <Text style={styles.label}>Timestamp: {locationData.timestamp}</Text>
+        <Text style={styles.label}>Latitude: {locationData.latitude}</Text>
+        <Text style={styles.label}>Longitude: {locationData.longitude}</Text>
+        <Text style={styles.label}>Locale: {locationData.locale}</Text>
+        <Button title="Refresh Location" onPress={startWatchingLocation} />
+      </View>
     </View>
   );
 };
@@ -91,10 +102,24 @@ const GeoLocationPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#000', // DefaultBlack background
+    padding: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginLeft: 10, // Space between the arrow and the title
+  },
+  contentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#000',
   },
   label: {
     fontSize: 18,
