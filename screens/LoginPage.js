@@ -34,6 +34,14 @@ const LoginScreen = () => {
       if (response.status === 200) {
         Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
         navigation.navigate('HomePage', { profile: result.profile });
+        // Navigate to the appropriate stack based on the user's role
+        if (result.profile.role === 'artist') {
+          navigation.navigate('ArtistStack');
+        } else if (result.profile.role === 'fan') {
+          navigation.navigate('FanStack');
+        } else {
+          Alert.alert('Login Error', 'Unrecognized user role.');
+        }
       } else if (response.status === 401) {
         Alert.alert('Login Failed', 'Invalid username or password.');
       } else if (response.status === 404) {

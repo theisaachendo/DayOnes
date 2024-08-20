@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import FHomePage from '../screens/fan/FHomePage'; // Placeholder for Fan's Home Page
-// Import other fan-specific screens here
+import FHomePage from '../screens/fan/FHomePage'; // Fan's Home Page
 
 const Stack = createStackNavigator();
 

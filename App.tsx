@@ -8,6 +8,8 @@ import RegFanPage from './screens/fan/RegFanPage';
 import RegisterOptionPage from './screens/RegisterOptionPage'; // Import the registration option page
 import TestPage from './screens/TestPage'; // Import the TestPage
 import GeoLocationPage from './screens/GeolocationPage'; // Import the GeoLocationPage
+import ArtistStack from './navigation/ArtistStack'; // Import the Artist stack
+import FanStack from './navigation/FanStack'; // Import the Fan stack
 
 const Stack = createStackNavigator();
 
@@ -50,6 +52,16 @@ const App = () => {
   component={GeoLocationPage}
   options={{ headerShown: false }}
 />
+        <Stack.Screen
+          name="ArtistStack"
+          component={ArtistStack}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FanStack"
+          component={FanStack}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
