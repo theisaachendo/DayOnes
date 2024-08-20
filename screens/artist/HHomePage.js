@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Slider from '@ptomasroos/react-native-multi-slider';  // Importing the multi-slider package
+import MultiSlider from '@ptomasroos/react-native-multi-slider';  // Importing the multi-slider package
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 const HHomePage = () => {
-  const [sliderValue, setSliderValue] = useState([50]);
+  const [sliderValue, setSliderValue] = useState([10]);
+
+  // Function to convert feet to meters
+  const feetToMeters = (feet) => {
+    return (feet * 0.3048).toFixed(0); // Convert to meters and round to nearest integer
+  };
 
   const takePicture = () => {
     launchCamera(
@@ -61,19 +66,24 @@ const HHomePage = () => {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.sliderLabel}>Adjust Value:</Text>
-      <Slider
+      <Text style={styles.sliderLabel}>Adjust Distance (Feet to Meters):</Text>
+
+      <MultiSlider
         values={sliderValue}
         sliderLength={300}
         onValuesChange={(value) => setSliderValue(value)}
-        min={0}
-        max={100}
+        min={10}
+        max={2000}
+        step={10}  // Step of 10 feet
         selectedStyle={styles.sliderSelectedStyle}
         unselectedStyle={styles.sliderUnselectedStyle}
         trackStyle={styles.sliderTrackStyle}
         markerStyle={styles.sliderMarkerStyle}
       />
-      <Text style={styles.sliderValue}>Value: {sliderValue[0]}</Text>
+
+      {/* Show both feet and meters */}
+      <Text style={styles.sliderValue}>Distance: {sliderValue[0]} feet ({feetToMeters(sliderValue[0])} meters)</Text>
+
 
       <TouchableOpacity style={styles.sendButton}>
         <Text style={styles.sendButtonText}>Send</Text>
