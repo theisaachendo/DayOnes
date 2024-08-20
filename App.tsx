@@ -6,8 +6,7 @@ import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
 import RegisterOptionPage from './screens/RegisterOptionPage'; // Import the registration option page
-import TestPage from './screens/TestPage'; // Import the TestPage
-import GeoLocationPage from './screens/GeolocationPage'; // Import the GeoLocationPage
+import GeolocationPage from './screens/GeolocationPage'; // Import the GeoLocationPage
 import ArtistStack from './navigation/ArtistStack'; // Import the Artist stack
 import FanStack from './navigation/FanStack'; // Import the Fan stack
 import ProfileScreen from './screens/ProfileScreen'; // Import the Profile screen
@@ -44,16 +43,19 @@ const App = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="TestPage"
-          component={TestPage}
+          name="GeolocationPage"
+          component={GeolocationPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen
+<<<<<<< HEAD
           name="GeoLocationPage"
           component={GeoLocationPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen
+=======
+>>>>>>> 39f8bbb63ef516a0653b2291ce58c940d87786c9
           name="ArtistStack"
           component={ArtistStack}
           options={{ headerShown: false }}

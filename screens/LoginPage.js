@@ -59,7 +59,7 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <View style={styles.logoContainer}>
-        <Text style={styles.logoText}>YourApp</Text>
+        <Text style={styles.logoText}>DayOnes</Text>
       </View>
       <View style={styles.inputContainer}>
         <TextInput
@@ -88,8 +88,8 @@ const LoginScreen = () => {
       </TouchableOpacity>
 
       {/* Test Page Button */}
-      <TouchableOpacity style={styles.testPageButton} onPress={() => navigation.navigate('TestPage')}>
-        <Text style={styles.testPageButtonText}>Go to Test Page</Text>
+      <TouchableOpacity style={styles.testPageButton} onPress={() => navigation.navigate('GeolocationPage')}>
+        <Text style={styles.testPageButtonText}>Go to Geolocation Page</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
