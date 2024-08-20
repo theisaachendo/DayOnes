@@ -6,6 +6,8 @@ import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
 import RegisterOptionPage from './screens/RegisterOptionPage'; // Import the registration option page
+import ArtistStack from './navigation/ArtistStack'; // Import the Artist stack
+import FanStack from './navigation/FanStack'; // Import the Fan stack
 
 const Stack = createStackNavigator();
 
@@ -36,6 +38,16 @@ const App = () => {
         <Stack.Screen 
           name="RegFanPage" 
           component={RegFanPage} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="ArtistStack" 
+          component={ArtistStack} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="FanStack" 
+          component={FanStack} 
           options={{ headerShown: false }} 
         />
       </Stack.Navigator>
