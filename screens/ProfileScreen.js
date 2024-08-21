@@ -1,25 +1,25 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { useSelector } from 'react-redux';
 
-const ProfileScreen = ({ route }) => {
-  // Provide default values if profile or params are undefined
-  const profile = route?.params?.profile || {
-    profilePicture: 'https://example.com/default-profile.jpg',
-    fullName: 'Unknown User',
-    username: 'unknown',
-    email: 'unknown@example.com',
-    phone: '000-000-0000',
-    role: 'Unknown',
-  };
+const ProfileScreen = () => {
+  // Access the profile data from the Redux store
+  const profile = useSelector((state) => state.profile.profile);
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: profile.profilePicture }} style={styles.profileImage} />
-      <Text style={styles.name}>{profile.fullName}</Text>
-      <Text style={styles.username}>@{profile.username}</Text>
-      <Text style={styles.email}>{profile.email}</Text>
-      <Text style={styles.phone}>{profile.phone}</Text>
-      <Text style={styles.role}>{profile.role}</Text>
+      {profile ? (
+        <>
+          <Image source={{ uri: profile.profilePicture }} style={styles.profileImage} />
+          <Text style={styles.name}>{profile.fullName}</Text>
+          <Text style={styles.username}>@{profile.username}</Text>
+          <Text style={styles.email}>{profile.email}</Text>
+          <Text style={styles.phone}>{profile.phone}</Text>
+          <Text style={styles.role}>{profile.role}</Text>
+        </>
+      ) : (
+        <Text style={styles.text}>No profile data available</Text>
+      )}
     </View>
   );
 };
@@ -63,6 +63,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     marginTop: 10,
+  },
+  text: {
+    fontSize: 18,
+    color: '#ccc',
   },
 });
 
