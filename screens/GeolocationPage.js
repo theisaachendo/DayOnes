@@ -3,10 +3,10 @@ import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import { PermissionsAndroid, Platform } from 'react-native';
 import Geocoder from 'react-native-geocoder-reborn'; // Import the geocoder
-
+import geohash from 'ngeohash'; // Import a geohash library
 
 const GeoLocationPage = ({ navigation }) => {
-  const [locationData, setLocationData] = useState({ timestamp: '', latitude: null, longitude: null, locale: '' });
+  const [locationData, setLocationData] = useState({ timestamp: '', latitude: null, longitude: null, locale: '', geohash: '' });
 
   useEffect(() => {
     const watchId = startWatchingLocation();
@@ -41,10 +41,13 @@ const GeoLocationPage = ({ navigation }) => {
           const { latitude, longitude } = position.coords;
           const timestamp = new Date(position.timestamp).toISOString();
 
+          // Calculate the geohash
+          const locationGeohash = geohash.encode(latitude, longitude, 6);
+
           // Fetch the locale using Geocoder
           try {
             const locale = await getLocale(latitude, longitude);
-            setLocationData({ timestamp, latitude, longitude, locale });
+            setLocationData({ timestamp, latitude, longitude, locale, geohash: locationGeohash });
           } catch (error) {
             console.error("Error getting locale", error);
             Alert.alert("Error", "Failed to get the locale. Please check the logs for details.");
@@ -82,9 +85,7 @@ const GeoLocationPage = ({ navigation }) => {
     <View style={styles.container}>
       {/* Header with back arrow */}
       <View style={styles.header}>
-      <Text onPress={() => navigation.goBack()} style={{ color: '#FFFFFF', fontSize: 40 }}>←</Text>
-
-
+        <Text onPress={() => navigation.goBack()} style={{ color: '#FFFFFF', fontSize: 40 }}>←</Text>
         <Text style={styles.title}>GeoLocation Testing</Text>
       </View>
 
@@ -93,6 +94,7 @@ const GeoLocationPage = ({ navigation }) => {
         <Text style={styles.label}>Latitude: {locationData.latitude}</Text>
         <Text style={styles.label}>Longitude: {locationData.longitude}</Text>
         <Text style={styles.label}>Locale: {locationData.locale}</Text>
+        <Text style={styles.label}>Geohash: {locationData.geohash}</Text>
         <Button title="Refresh Location" onPress={startWatchingLocation} />
       </View>
     </View>
