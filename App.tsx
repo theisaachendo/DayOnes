@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
-import { Provider } from 'react-redux'; // Import Provider from react-redux
-import store from './store/store'; // Import your Redux store
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { startWatchingLocation, stopWatchingLocation } from './services/geolocationService';
 
 import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
 import RegisterOptionPage from './screens/RegisterOptionPage';
-import GeolocationPage from './screens/GeolocationPage';
+import GeoLocationPage from './screens/GeoLocationPage';
 import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
@@ -18,12 +19,19 @@ const Stack = createStackNavigator();
 
 const App = () => {
   useEffect(() => {
-    // Hide the splash screen once the app has loaded
     SplashScreen.hide();
+
+    // Start watching geolocation when the app starts
+    startWatchingLocation();
+
+    return () => {
+      // Stop watching geolocation when the app unmounts
+      stopWatchingLocation();
+    };
   }, []);
 
   return (
-    <Provider store={store}> {/* Wrap your app with Provider */}
+    <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="LoginPage">
           <Stack.Screen
@@ -48,7 +56,7 @@ const App = () => {
           />
           <Stack.Screen
             name="GeolocationPage"
-            component={GeolocationPage}
+            component={GeoLocationPage}
             options={{ headerShown: false }}
           />
           <Stack.Screen

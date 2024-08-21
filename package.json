@@ -10,12 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/vector-icons": "^14.0.2",
     "@ptomasroos/react-native-multi-slider": "^2.2.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/stack": "^6.4.1",
+    "@reduxjs/toolkit": "^2.2.7",
     "aws-amplify": "^6.5.0",
+    "ngeohash": "^0.6.3",
     "react": "18.2.0",
     "react-native": "0.74.5",
     "react-native-elements": "^3.4.3",

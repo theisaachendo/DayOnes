@@ -11,13 +11,13 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { setProfile } from '../store/actions/profileActions'; // Import the action
+import { setUserProfile } from '../redux/actions'; // Import the action
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-  const dispatch = useDispatch(); // Initialize useDispatch
+  const dispatch = useDispatch(); // Use dispatch to send actions to Redux
 
   const handleLogin = async () => {
     if (!username || !password) {
@@ -34,7 +34,9 @@ const LoginScreen = () => {
 
       if (response.status === 200) {
         Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
-        dispatch(setProfile(result.profile)); // Dispatch the profile data to Redux
+
+        // Dispatch the user profile data to Redux store
+        dispatch(setUserProfile(result.profile));
 
         // Navigate to the appropriate stack based on the user's role
         if (result.profile.role === 'artist') {
