@@ -1,5 +1,3 @@
-// Updated LoginScreen.js
-
 import React, { useState } from 'react';
 import {
   SafeAreaView,
@@ -12,11 +10,14 @@ import {
   StatusBar,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { setUserProfile } from '../redux/actions'; // Import the action
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
+  const dispatch = useDispatch(); // Use dispatch to send actions to Redux
 
   const handleLogin = async () => {
     if (!username || !password) {
@@ -33,7 +34,10 @@ const LoginScreen = () => {
 
       if (response.status === 200) {
         Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
-        navigation.navigate('HomePage', { profile: result.profile });
+
+        // Dispatch the user profile data to Redux store
+        dispatch(setUserProfile(result.profile));
+
         // Navigate to the appropriate stack based on the user's role
         if (result.profile.role === 'artist') {
           navigation.navigate('ArtistStack');
