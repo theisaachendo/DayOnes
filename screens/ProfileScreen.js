@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useSelector } from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
 
 // Utility function to format phone numbers
 const formatPhoneNumber = (phoneNumber) => {
   if (!phoneNumber) return '';
-  // Remove any non-numeric characters
   const cleaned = ('' + phoneNumber).replace(/\D/g, '');
   const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
   if (match) {
@@ -34,6 +34,14 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Gradient Background */}
+      <LinearGradient
+        colors={['#FF00FF', '#001F3F']}
+        style={styles.gradientBackground}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      />
+
       <View style={styles.profileImageContainer}>
         {profile.profilePicture ? (
           <Image source={{ uri: profile.profilePicture }} style={styles.profileImage} />
@@ -41,7 +49,9 @@ const ProfileScreen = () => {
           <View style={styles.placeholderImage} />
         )}
       </View>
-      <Text style={styles.welcomeText}>Hello {profile.fullName}, welcome to your {capitalizedRole} account!</Text>
+      <Text style={styles.welcomeText}>
+        Hello {profile.fullName}, welcome to your {capitalizedRole} account!
+      </Text>
       <View style={styles.infoContainer}>
         <Text style={styles.label}>Username: <Text style={styles.info}>{profile.username}</Text></Text>
         <Text style={styles.label}>Email: <Text style={styles.info}>{profile.email}</Text></Text>
@@ -57,16 +67,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 60, // Move the content higher
     padding: 20,
   },
+  gradientBackground: {
+    ...StyleSheet.absoluteFillObject,
+  },
   profileImageContainer: {
-    width: 140, // Increase size for a larger image
+    width: 140,
     height: 140,
+    marginTop: 40, // Adjust this value to raise the image
     marginBottom: 20,
-    borderRadius: 70, // Adjust borderRadius to match the larger size
+    borderRadius: 70,
     overflow: 'hidden',
+    borderWidth: 3,
+    borderColor: '#00FFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   profileImage: {
     width: '100%',
@@ -75,14 +91,19 @@ const styles = StyleSheet.create({
   placeholderImage: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#444',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   welcomeText: {
-    fontSize: 26, // Slightly larger text
+    fontSize: 26,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FFFFFF',
     textAlign: 'center',
     marginBottom: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   infoContainer: {
     marginTop: 20,
@@ -90,16 +111,17 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    color: '#ccc',
+    color: '#CCCCCC',
     marginBottom: 5,
   },
   info: {
     fontSize: 16,
-    color: '#fff',
+    color: '#FFFFFF',
+    fontWeight: 'bold',
   },
   text: {
     fontSize: 18,
-    color: '#ccc',
+    color: '#CCCCCC',
   },
 });
 

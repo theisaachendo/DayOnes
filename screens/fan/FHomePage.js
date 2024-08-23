@@ -7,7 +7,7 @@ import ProfileScreen from '../ProfileScreen'; // Adjust the path as necessary
 import PostsScreen from '../PostsScreen'; // Adjust the path as necessary
 import NotificationsScreen from '../NotificationsScreen'; // Adjust the path as necessary
 import DMsScreen from '../DMsScreen'; // Adjust the path as necessary
-import DistanceTest from '../DistanceTest'; // Adjust the path as necessary
+
 
 const Tab = createBottomTabNavigator();
 
@@ -17,10 +17,7 @@ const FHomePage = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to the Fan Home Page!</Text>
-      <Button
-        title="Go to Distance Test"
-        onPress={() => navigation.navigate('DistanceTest')}
-      />
+
     </View>
   );
 };
