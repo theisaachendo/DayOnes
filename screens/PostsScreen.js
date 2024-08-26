@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 
 const PostsScreen = ({ navigation }) => {
@@ -56,6 +56,13 @@ const PostsScreen = ({ navigation }) => {
               <Text style={styles.postDistance}>Max Distance: {post.Distance} feet</Text>
               <Text style={styles.postLocation}>Lat: {post.Lat}, Lon: {post.Lon}</Text>
               <Text style={styles.postDate}>Date: {date}</Text>
+              {/* Remove the line that shows the URL as text */}
+              {post.ImageUrl && (
+                <Image
+                  source={{ uri: post.ImageUrl }}
+                  style={styles.postImage}
+                />
+              )}
             </View>
           );
         })}
@@ -126,6 +133,13 @@ const styles = StyleSheet.create({
   postDate: {
     fontSize: 14,
     color: '#bbbbbb',
+    marginBottom: 10,
+  },
+  postImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    marginTop: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
