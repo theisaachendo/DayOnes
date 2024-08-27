@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import { useSelector } from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const PostsScreen = ({ navigation }) => {
   const locationData = useSelector(state => state.geolocationData);
@@ -42,33 +43,33 @@ const PostsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Page Title */}
       <Text style={styles.pageTitle}>Posts</Text>
 
-      {/* ScrollView to Display Posts */}
       <ScrollView style={styles.scrollView}>
         {posts.map((post, index) => {
           const date = new Date(post.CreatedAt).toLocaleString();
           return (
-            <View key={index} style={styles.postCard}>
-              <Text style={styles.postUser}>User: {post.UserName}</Text>
-              <Text style={styles.postContent}>Content: {post.Content}</Text>
-              <Text style={styles.postDistance}>Max Distance: {post.Distance} feet</Text>
-              <Text style={styles.postLocation}>Lat: {post.Lat}, Lon: {post.Lon}</Text>
-              <Text style={styles.postDate}>Date: {date}</Text>
-              {/* Remove the line that shows the URL as text */}
-              {post.ImageUrl && (
-                <Image
-                  source={{ uri: post.ImageUrl }}
-                  style={styles.postImage}
-                />
-              )}
+            <View key={index} style={styles.postContainer}>
+              <Text style={styles.postUser}>{post.UserName}</Text>
+              <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
+                {post.ImageUrl && (
+                  <Image
+                    source={{ uri: post.ImageUrl }}
+                    style={styles.postImage}
+                  />
+                )}
+              </TouchableOpacity>
+              <View style={styles.interactionContainer}>
+                <Icon name="heart" size={20} color="#FF0080" />
+                <Text style={styles.interactionText}> Like</Text>
+                <Icon name="comment" size={20} color="#FF0080" style={styles.commentIcon} />
+                <Text style={styles.interactionText}> Comment</Text>
+              </View>
             </View>
           );
         })}
       </ScrollView>
 
-      {/* Buttons */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={sendLocationData} style={styles.button}>
           <Text style={styles.buttonText}>Get Posts Near You</Text>
@@ -98,48 +99,33 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 20,
   },
-  postCard: {
-    backgroundColor: '#1e1e1e',
-    padding: 15,
-    borderRadius: 15,
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
+  postContainer: {
+    marginBottom: 20, // Add space between posts
   },
   postUser: {
     fontSize: 16,
     color: '#ffffff',
     marginBottom: 5,
     fontWeight: 'bold',
-  },
-  postContent: {
-    fontSize: 16,
-    color: '#dddddd',
-    marginBottom: 5,
-  },
-  postDistance: {
-    fontSize: 14,
-    color: '#bbbbbb',
-    marginBottom: 5,
-  },
-  postLocation: {
-    fontSize: 14,
-    color: '#bbbbbb',
-    marginBottom: 5,
-  },
-  postDate: {
-    fontSize: 14,
-    color: '#bbbbbb',
-    marginBottom: 10,
+    paddingLeft: 5, // Adjust left padding to align with the post image
   },
   postImage: {
     width: '100%',
-    height: 200,
-    borderRadius: 10,
+    height: 400, // Adjust height to match desired aspect ratio
+  },
+  interactionContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 10,
+    paddingLeft: 5, // Adjust left padding to align with the post image
+  },
+  interactionText: {
+    fontSize: 16,
+    color: '#FF0080',
+    marginLeft: 5,
+  },
+  commentIcon: {
+    marginLeft: 20,
   },
   buttonContainer: {
     flexDirection: 'row',
