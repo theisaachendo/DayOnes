@@ -67,22 +67,22 @@ const HHomePage = () => {
       alert("Please take a picture or upload a file.");
       return;
     }
-
+  
     if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
       alert("User information is missing.");
       return;
     }
-
+  
     console.log("Creating post with the following details:");
     console.log("Username:", userProfile.username);
     console.log("Selected Image:", selectedImage);
     console.log("Geolocation Data:", geolocationData);
     console.log("Slider Value:", sliderValue);
-
-    const lambdaUrl = 'https://3xdngatdoau6vdolabpqslp3440vripd.lambda-url.us-east-1.on.aws/';
-
+  
+    const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
+  
     const postData = {
-      username: userProfile.username,
+      username: userProfile.username,  // Include username in the request
       postContent: "This is my new post!",
       multimediaFile: {
         content: selectedImage.base64,
@@ -93,43 +93,26 @@ const HHomePage = () => {
       geohash: geolocationData.geohash,
       distance: sliderValue[0],
     };
-
+  
     console.log("Post data being sent:", postData);
-
-    // Correct payload structure
-    const payload = {
-      requestContext: {
-        routeKey: "createPost", // Ensure this matches the routeKey in your Lambda function
-        connectionId: "test-connection-id",
-        domainName: "50rg1bdul5.execute-api.us-east-1.amazonaws.com",
-        stage: "production",
-        apiId: "50rg1bdul5"
-      },
-      queryStringParameters: {
-        username: userProfile.username  // Correctly pass the username here
-      },
-      body: JSON.stringify(postData)  // Ensure postData is correctly stringified
-    };
-
-    console.log("Payload being sent to Lambda:", payload);
-
+  
     try {
       const response = await fetch(lambdaUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(postData),  // Send postData directly as payload
       });
-
+  
       const textResponse = await response.text();
-
+  
       console.log("Raw response from Lambda:", textResponse);
-
+  
       try {
         const jsonResponse = JSON.parse(textResponse);
         console.log("Parsed JSON response:", jsonResponse);
-
+  
         if (response.ok) {
           alert('Post created successfully!');
         } else {
@@ -145,8 +128,7 @@ const HHomePage = () => {
       alert('Error creating post.');
     }
   };
-
-
+  
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
   };
