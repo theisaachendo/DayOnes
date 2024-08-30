@@ -6,10 +6,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
-import ProfileScreen from '../ProfileScreen'; 
+import ProfileScreen from '../ProfileScreen';
 import PostsScreen from '../PostsScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
+import ArtistPostsPage from './ArtistPostsPage';
 
 const { width } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
@@ -67,20 +68,20 @@ const HHomePage = () => {
       alert("Please take a picture or upload a file.");
       return;
     }
-  
+
     if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
       alert("User information is missing.");
       return;
     }
-  
+
     console.log("Creating post with the following details:");
     console.log("Username:", userProfile.username);
     console.log("Selected Image:", selectedImage);
     console.log("Geolocation Data:", geolocationData);
     console.log("Slider Value:", sliderValue);
-  
+
     const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
-  
+
     const postData = {
       username: userProfile.username,  // Include username in the request
       postContent: "This is my new post!",
@@ -93,9 +94,9 @@ const HHomePage = () => {
       geohash: geolocationData.geohash,
       distance: sliderValue[0],
     };
-  
+
     console.log("Post data being sent:", postData);
-  
+
     try {
       const response = await fetch(lambdaUrl, {
         method: 'POST',
@@ -104,15 +105,15 @@ const HHomePage = () => {
         },
         body: JSON.stringify(postData),  // Send postData directly as payload
       });
-  
+
       const textResponse = await response.text();
-  
+
       console.log("Raw response from Lambda:", textResponse);
-  
+
       try {
         const jsonResponse = JSON.parse(textResponse);
         console.log("Parsed JSON response:", jsonResponse);
-  
+
         if (response.ok) {
           alert('Post created successfully!');
         } else {
@@ -128,7 +129,7 @@ const HHomePage = () => {
       alert('Error creating post.');
     }
   };
-  
+
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
   };
@@ -224,7 +225,7 @@ const HHomePage = () => {
         )}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Posts" component={PostsScreen} />
+      <Tab.Screen name="Posts" component={ArtistPostsPage} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
       <Tab.Screen name="DMs" component={DMsScreen} />
     </Tab.Navigator>
