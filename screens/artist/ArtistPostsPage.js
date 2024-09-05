@@ -3,54 +3,58 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } fr
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const PostsScreen = ({ navigation }) => {
-  const locationData = useSelector(state => state.geolocationData);
+const ArtistPostsPage = () => {
   const [posts, setPosts] = useState([]);
 
-  const sendLocationData = async () => {
-    const data = {
-      geohash: locationData.geohash,
-      latitude: locationData.latitude,
-      longitude: locationData.longitude,
-    };
+  // Retrieve the username and geolocation data from the user's profile in the Redux store
+  const profile = useSelector(state => state.userProfile) || { username: 'unknown' };
+  const geolocationData = useSelector(state => state.geolocationData) || { locale: 'Location Unknown' };
+  const artistUsername = profile.username;
 
+  // Log the username to the console for troubleshooting
+  console.log(`Fetching posts for username: ${artistUsername}`);
+
+  const fetchArtistPosts = async () => {
     try {
-      const response = await fetch('https://a55yh6pw6pks3fc7vtlfs65tli0ujdlf.lambda-url.us-east-1.on.aws/', {
-        method: 'POST',
+      console.log(`Sending request to Lambda with username: ${artistUsername}`);
+      const response = await fetch(`https://q3bf3wdaqwd4aa5cahc2kffyke0dqiae.lambda-url.us-east-1.on.aws/?artistUsername=${artistUsername}`, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        if (result.length > 0) {
-          setPosts(result); // Save posts to state
+        if (result.data && result.data.length > 0) {
+          setPosts(result.data); // Save posts to state
+          console.log(`Posts fetched successfully: ${result.data.length} posts found.`);
         } else {
           setPosts([]); // Clear posts if none are found
-          Alert.alert("Sorry", "No nearby posts found.");
+          Alert.alert("Sorry", "No recent posts found.");
+          console.log('No posts found for this username.');
         }
       } else {
         Alert.alert("Error", "Failed to invoke Lambda function");
+        console.error('Failed to fetch posts: Non-OK response from Lambda.');
       }
     } catch (error) {
-      console.error("Error invoking Lambda function", error);
+      console.error("Error invoking Lambda function:", error);
       Alert.alert("Error", "An unexpected error occurred");
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Posts</Text>
+      <Text style={styles.pageTitle}>Your Recent Posts</Text>
 
       <ScrollView style={styles.scrollView}>
         {posts.map((post, index) => {
           const date = new Date(post.CreatedAt).toLocaleString();
           return (
             <View key={index} style={styles.postContainer}>
-              <Text style={styles.postUser}>{post.UserName}</Text>
+              <Text style={styles.postUser}>{geolocationData.locale}</Text>
               <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
                 {post.ImageUrl && (
                   <Image
@@ -70,14 +74,14 @@ const PostsScreen = ({ navigation }) => {
         })}
       </ScrollView>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={sendLocationData} style={styles.button}>
-          <Text style={styles.buttonText}>Get Posts Near You</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("My Posts", "This feature is under construction!")} style={styles.buttonSecondary}>
-          <Text style={styles.buttonText}>View My Posts</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Conditionally render the button if no posts have been fetched */}
+      {posts.length === 0 && (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={fetchArtistPosts} style={styles.button}>
+            <Text style={styles.buttonText}>Fetch Your Posts</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -144,21 +148,6 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 5,
   },
-  buttonSecondary: {
-    flex: 1,
-    backgroundColor: '#282828',
-    padding: 15,
-    borderRadius: 25,
-    marginHorizontal: 5,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#FF0080',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
-    elevation: 5,
-  },
   buttonText: {
     fontSize: 18,
     color: '#ffffff',
@@ -166,4 +155,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PostsScreen;
+export default ArtistPostsPage;

@@ -14,6 +14,7 @@ import GeoLocationPage from './screens/GeoLocationPage';
 import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
+import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 
 
 const Stack = createStackNavigator();
@@ -77,6 +78,11 @@ const App = () => {
           <Stack.Screen
             name="ProfileScreen"
             component={ProfileScreen}
+            options={{ headerShown: false }}
+          />
+                    <Stack.Screen
+            name="ArtistPostsPage"
+            component={ArtistPostsPage}
             options={{ headerShown: false }}
           />
 

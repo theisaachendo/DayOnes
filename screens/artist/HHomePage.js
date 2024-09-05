@@ -1,21 +1,135 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ProfileScreen from '../ProfileScreen'; // Adjusted path if necessary
-import PostsScreen from '../PostsScreen'; // Adjusted path if necessary
-import NotificationsScreen from '../NotificationsScreen'; // Adjusted path if necessary
-import DMsScreen from '../DMsScreen'; // Adjusted path if necessary
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { useSelector } from 'react-redux';
+import ProfileScreen from '../ProfileScreen';
+import PostsScreen from '../PostsScreen';
+import NotificationsScreen from '../NotificationsScreen';
+import DMsScreen from '../DMsScreen';
+import ArtistPostsPage from './ArtistPostsPage';
 
 const { width } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
 
 const HHomePage = () => {
   const [sliderValue, setSliderValue] = useState([100]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  // Function to convert feet to meters and round to nearest whole number
+  const userProfile = useSelector(state => state.userProfile) || {
+    username: 'unknown',
+    fullName: 'Unknown User',
+  };
+
+  useEffect(() => {
+    console.log("UserProfile from Redux:", userProfile);
+  }, [userProfile]);
+
+  const geolocationData = useSelector(state => state.geolocationData) || {
+    latitude: 0.0,
+    longitude: 0.0,
+    geohash: 'abc123'
+  };
+
+  const options = {
+    mediaType: 'photo',
+    includeBase64: true,
+  };
+
+  const takePicture = () => {
+    launchCamera(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorMessage) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else if (response.assets && response.assets.length > 0) {
+        setSelectedImage(response.assets[0]);
+      }
+    });
+  };
+
+  const uploadFile = () => {
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorMessage) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else if (response.assets && response.assets.length > 0) {
+        setSelectedImage(response.assets[0]);
+      }
+    });
+  };
+
+  const createPost = async () => {
+    if (!selectedImage) {
+      alert("Please take a picture or upload a file.");
+      return;
+    }
+
+    if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
+      alert("User information is missing.");
+      return;
+    }
+
+    console.log("Creating post with the following details:");
+    console.log("Username:", userProfile.username);
+    console.log("Selected Image:", selectedImage);
+    console.log("Geolocation Data:", geolocationData);
+    console.log("Slider Value:", sliderValue);
+
+    const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
+
+    const postData = {
+      username: userProfile.username,  // Include username in the request
+      postContent: "This is my new post!",
+      multimediaFile: {
+        content: selectedImage.base64,
+        name: selectedImage.fileName || 'image.jpg',
+      },
+      lat: geolocationData.latitude,
+      lon: geolocationData.longitude,
+      geohash: geolocationData.geohash,
+      distance: sliderValue[0],
+    };
+
+    console.log("Post data being sent:", postData);
+
+    try {
+      const response = await fetch(lambdaUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),  // Send postData directly as payload
+      });
+
+      const textResponse = await response.text();
+
+      console.log("Raw response from Lambda:", textResponse);
+
+      try {
+        const jsonResponse = JSON.parse(textResponse);
+        console.log("Parsed JSON response:", jsonResponse);
+
+        if (response.ok) {
+          alert('Post created successfully!');
+        } else {
+          console.error("Failed to create post:", jsonResponse);
+          alert('Failed to create post.');
+        }
+      } catch (error) {
+        console.error("Response was not JSON:", textResponse);
+        alert('Received an unexpected response from the server.');
+      }
+    } catch (error) {
+      console.error("Error creating post:", error);
+      alert('Error creating post.');
+    }
+  };
+
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
   };
@@ -73,11 +187,11 @@ const HHomePage = () => {
             </LinearGradient>
 
             <View style={styles.pictureContainer}>
-              <TouchableOpacity style={styles.pictureButton}>
+              <TouchableOpacity style={styles.pictureButton} onPress={takePicture}>
                 <Icon name="camera" size={30} color="#00FFFF" style={styles.icon} />
                 <Text style={styles.buttonText}>Take Picture</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.pictureButton}>
+              <TouchableOpacity style={styles.pictureButton} onPress={uploadFile}>
                 <Icon name="file" size={30} color="#00FFFF" style={styles.icon} />
                 <Text style={styles.buttonText}>Upload File</Text>
               </TouchableOpacity>
@@ -86,7 +200,6 @@ const HHomePage = () => {
             <View style={styles.sliderContainer}>
               <Text style={styles.sliderLabel}>Range</Text>
 
-              {/* Display the current value in feet and meters */}
               <Text style={styles.sliderValue}>
                 {sliderValue[0]} feet ({feetToMeters(sliderValue[0])} meters)
               </Text>
@@ -97,7 +210,7 @@ const HHomePage = () => {
                 onValuesChange={(value) => setSliderValue(value)}
                 min={10}
                 max={2000}
-                step={10}  // Step of 10 feet
+                step={10}
                 selectedStyle={styles.sliderSelectedStyle}
                 unselectedStyle={styles.sliderUnselectedStyle}
                 trackStyle={styles.sliderTrackStyle}
@@ -105,14 +218,14 @@ const HHomePage = () => {
               />
             </View>
 
-            <TouchableOpacity style={styles.sendButton}>
+            <TouchableOpacity style={styles.sendButton} onPress={createPost}>
               <Text style={styles.sendButtonText}>Send Invite</Text>
             </TouchableOpacity>
           </View>
         )}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Posts" component={PostsScreen} />
+      <Tab.Screen name="Posts" component={ArtistPostsPage} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
       <Tab.Screen name="DMs" component={DMsScreen} />
     </Tab.Navigator>
