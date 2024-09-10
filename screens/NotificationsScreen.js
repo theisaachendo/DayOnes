@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
-const NotificationsScreen = () => {
+const NotificationsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Notifications Screen</Text>
+      <Button
+        title="Go to Signature Test"
+        onPress={() => navigation.navigate('SignatureTest')}
+      />
     </View>
   );
 };

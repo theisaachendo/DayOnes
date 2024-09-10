@@ -15,6 +15,7 @@ import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
 import ArtistPostsPage from './screens/artist/ArtistPostsPage';
+import SignatureTest from './screens/SignatureTest';
 
 
 const Stack = createStackNavigator();
@@ -83,6 +84,11 @@ const App = () => {
                     <Stack.Screen
             name="ArtistPostsPage"
             component={ArtistPostsPage}
+            options={{ headerShown: false }}
+          />
+            <Stack.Screen
+            name="SignatureTest"
+            component={SignatureTest}
             options={{ headerShown: false }}
           />
 
