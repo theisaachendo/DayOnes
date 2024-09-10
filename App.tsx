@@ -18,6 +18,7 @@ import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 import SignatureTest from './screens/SignatureTest';
 
 
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -91,6 +92,7 @@ const App = () => {
             component={SignatureTest}
             options={{ headerShown: false }}
           />
+
 
         </Stack.Navigator>
       </NavigationContainer>
