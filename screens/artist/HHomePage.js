@@ -76,7 +76,6 @@ const HHomePage = () => {
 
     console.log("Creating post with the following details:");
     console.log("Username:", userProfile.username);
-    console.log("Selected Image:", selectedImage);
     console.log("Geolocation Data:", geolocationData);
     console.log("Slider Value:", sliderValue);
 
@@ -92,6 +91,7 @@ const HHomePage = () => {
       lat: geolocationData.latitude,
       lon: geolocationData.longitude,
       geohash: geolocationData.geohash,
+      locale: geolocationData.locale,
       distance: sliderValue[0],
     };
 

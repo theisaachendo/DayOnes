@@ -6,14 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const ArtistPostsPage = () => {
   const [posts, setPosts] = useState([]);
 
-  // Retrieve the username and geolocation data from the user's profile in the Redux store
+  // Retrieve the username from the user's profile in the Redux store
   const profile = useSelector(state => state.userProfile) || { username: 'unknown' };
-  const geolocationData = useSelector(state => state.geolocationData) || { locale: 'Location Unknown' };
   const artistUsername = profile.username;
 
-  // Log the username to the console for troubleshooting
-  console.log(`Fetching posts for username: ${artistUsername}`);
-
+  // Function to fetch artist posts
   const fetchArtistPosts = async () => {
     try {
       console.log(`Sending request to Lambda with username: ${artistUsername}`);
@@ -47,14 +44,15 @@ const ArtistPostsPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Your Recent Posts</Text>
+      <Text style={styles.pageTitle}>Recent Posts</Text>
 
       <ScrollView style={styles.scrollView}>
         {posts.map((post, index) => {
           const date = new Date(post.CreatedAt).toLocaleString();
           return (
             <View key={index} style={styles.postContainer}>
-              <Text style={styles.postUser}>{geolocationData.locale}</Text>
+              {/* Display the locale from the post */}
+              <Text style={styles.postUser}>{post.Locale || 'Unknown Location'}</Text>
               <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
                 {post.ImageUrl && (
                   <Image
@@ -74,11 +72,11 @@ const ArtistPostsPage = () => {
         })}
       </ScrollView>
 
-      {/* Conditionally render the button if no posts have been fetched */}
+      {/* Conditionally render the button to fetch posts only if there are no posts */}
       {posts.length === 0 && (
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={fetchArtistPosts} style={styles.button}>
-            <Text style={styles.buttonText}>Fetch Your Posts</Text>
+            <Text style={styles.buttonText}>Fetch Posts</Text>
           </TouchableOpacity>
         </View>
       )}
@@ -104,24 +102,24 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   postContainer: {
-    marginBottom: 20, // Add space between posts
+    marginBottom: 20,
   },
   postUser: {
     fontSize: 16,
     color: '#ffffff',
     marginBottom: 5,
     fontWeight: 'bold',
-    paddingLeft: 5, // Adjust left padding to align with the post image
+    paddingLeft: 5,
   },
   postImage: {
     width: '100%',
-    height: 400, // Adjust height to match desired aspect ratio
+    height: 400,
   },
   interactionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
-    paddingLeft: 5, // Adjust left padding to align with the post image
+    paddingLeft: 5,
   },
   interactionText: {
     fontSize: 16,
@@ -133,14 +131,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    marginTop: 20,
   },
   button: {
-    flex: 1,
     backgroundColor: '#FF0080',
     padding: 15,
     borderRadius: 25,
-    marginHorizontal: 5,
     alignItems: 'center',
     shadowColor: '#FF0080',
     shadowOffset: { width: 0, height: 5 },
