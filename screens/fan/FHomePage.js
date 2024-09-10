@@ -1,23 +1,37 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import ProfileScreen from '../ProfileScreen'; // Adjust the path as necessary
-import PostsScreen from '../PostsScreen'; // Adjust the path as necessary
-import NotificationsScreen from '../NotificationsScreen'; // Adjust the path as necessary
-import DMsScreen from '../DMsScreen'; // Adjust the path as necessary
-
+import ProfileScreen from '../ProfileScreen';
+import PostsScreen from '../PostsScreen';
+import NotificationsScreen from '../NotificationsScreen';
+import DMsScreen from '../DMsScreen';
 
 const Tab = createBottomTabNavigator();
 
 const FHomePage = () => {
   const navigation = useNavigation();
 
+  const handleReceiveInvites = () => {
+    // Navigate to FHomeCountdownPage
+    navigation.navigate('FHomeCountdownPage');
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to the Fan Home Page!</Text>
-
+      {/* Receive Invites Button */}
+      <TouchableOpacity style={styles.buttonContainer} onPress={handleReceiveInvites}>
+        <LinearGradient
+          colors={['#FF0080', '#FF00FF']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.gradientButton}
+        >
+          <Text style={styles.buttonText}>Receive Invites</Text>
+        </LinearGradient>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -25,7 +39,7 @@ const FHomePage = () => {
 const MainComponent = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Main"
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           let iconName;
@@ -50,7 +64,7 @@ const MainComponent = () => {
 
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#7B1FA2',
+        tabBarActiveTintColor: '#FF0080',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: '#000',
@@ -59,9 +73,7 @@ const MainComponent = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Main" options={{ tabBarLabel: 'Home' }}>
-        {() => <FHomePage />}
-      </Tab.Screen>
+      <Tab.Screen name="Home" component={FHomePage} options={{ tabBarLabel: 'Home' }} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="Posts" component={PostsScreen} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
@@ -73,15 +85,25 @@ const MainComponent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#000',
+    justifyContent: 'flex-end', // Aligns the button to the bottom
     padding: 20,
   },
-  welcomeText: {
-    fontSize: 24,
+  buttonContainer: {
+    alignSelf: 'center',
+    width: '100%',
+  },
+  gradientButton: {
+    width: '100%',
+    paddingVertical: 15,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
   },
 });
 
