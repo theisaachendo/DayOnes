@@ -10,7 +10,6 @@ import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
 import RegisterOptionPage from './screens/RegisterOptionPage';
-import GeoLocationPage from './screens/GeoLocationPage';
 import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
@@ -60,11 +59,6 @@ const App = () => {
           <Stack.Screen
             name="RegFanPage"
             component={RegFanPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="GeolocationPage"
-            component={GeoLocationPage}
             options={{ headerShown: false }}
           />
           <Stack.Screen
