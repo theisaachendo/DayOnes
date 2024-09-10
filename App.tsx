@@ -17,6 +17,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 
 
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -85,6 +86,7 @@ const App = () => {
             component={ArtistPostsPage}
             options={{ headerShown: false }}
           />
+
 
         </Stack.Navigator>
       </NavigationContainer>

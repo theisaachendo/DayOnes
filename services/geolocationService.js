@@ -1,4 +1,3 @@
-// services/geolocationService.js
 import Geolocation from 'react-native-geolocation-service';
 import { PermissionsAndroid, Platform, Alert } from 'react-native';
 import Geocoder from 'react-native-geocoder-reborn';
@@ -6,60 +5,76 @@ import geohash from 'ngeohash';
 import store from '../redux/store';
 import { setGeolocationData } from '../redux/actions';
 
-let watchId; // Declare the watchId variable globally within this module
+let watchId;
 
 const requestLocationPermission = async () => {
   if (Platform.OS === 'android') {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      {
-        title: 'Location Permission',
-        message: 'This app needs access to your location.',
-        buttonNeutral: 'Ask Me Later',
-        buttonNegative: 'Cancel',
-        buttonPositive: 'OK',
-      }
-    );
-    return granted === PermissionsAndroid.RESULTS.GRANTED;
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Location Permission',
+          message: 'This app needs access to your location.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        }
+      );
+      return granted === PermissionsAndroid.RESULTS.GRANTED;
+    } catch (err) {
+      console.warn(err);
+      return false;
+    }
+  } else if (Platform.OS === 'ios') {
+    const authStatus = await Geolocation.requestAuthorization('whenInUse');
+    return authStatus === 'granted';
   }
-  return true; // iOS automatically handles permissions
+  return false;
 };
 
 const startWatchingLocation = async () => {
-  const granted = await requestLocationPermission();
-  if (granted) {
+  const permissionGranted = await requestLocationPermission();
+  if (permissionGranted) {
     watchId = Geolocation.watchPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
         const timestamp = new Date(position.timestamp).toISOString();
-
         const locationGeohash = geohash.encode(latitude, longitude, 6);
 
         try {
           const locale = await getLocale(latitude, longitude);
-          store.dispatch(setGeolocationData({ timestamp, latitude, longitude, locale, geohash: locationGeohash }));
+          store.dispatch(setGeolocationData({
+            timestamp,
+            latitude,
+            longitude,
+            locale,
+            geohash: locationGeohash,
+          }));
         } catch (error) {
           console.error("Error getting locale", error);
-          Alert.alert("Error", "Failed to get the locale. Please check the logs for details.");
+          Alert.alert("Error", "Failed to get the locale.");
         }
       },
       (error) => {
         console.error('Error watching location', error);
+        Alert.alert('Location Error', error.message);
       },
       {
         enableHighAccuracy: true,
         distanceFilter: 0,
-        interval: 10000, // Set interval to 10 seconds (10000 milliseconds)
-        fastestInterval: 10000, // Ensure the fastest interval is also 10 seconds
+        interval: 10000, // 10 seconds
+        fastestInterval: 5000, // Fastest interval of 5 seconds
       }
     );
+  } else {
+    Alert.alert("Permission Denied", "Location permission not granted.");
   }
 };
 
 const stopWatchingLocation = () => {
   if (watchId !== null && watchId !== undefined) {
-    Geolocation.clearWatch(watchId); // Ensure watchId is passed to clearWatch
-    watchId = null; // Reset the watchId after clearing the watch
+    Geolocation.clearWatch(watchId);
+    watchId = null;
   }
 };
 
