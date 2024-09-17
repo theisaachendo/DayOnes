@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, Image, StyleSheet, TouchableOpacity, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const SignatureTest = () => {
+  const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [startTime, setStartTime] = useState(null);
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -16,6 +17,34 @@ const SignatureTest = () => {
   const options = {
     mediaType: 'photo',
     includeBase64: true,
+  };
+
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Camera Permission',
+            message: 'App needs camera permission to take pictures',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('Camera permission granted');
+          takePicture();
+        } else {
+          console.log('Camera permission denied');
+          Alert.alert('Permission Denied', 'Camera permission is required to take pictures.');
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    } else {
+      takePicture(); // For iOS or other platforms, proceed without explicit permission request
+    }
   };
 
   const takePicture = () => {
@@ -53,11 +82,6 @@ const SignatureTest = () => {
       return;
     }
 
-    // Log the start time when upload begins
-    const start = new Date();
-    setStartTime(start);
-    console.log(`Upload started at: ${start.toLocaleTimeString()}`);
-
     const lambdaUrl = `https://72ae811to2.execute-api.us-east-1.amazonaws.com/default/signatureUpload`;
 
     const uploadData = {
@@ -82,20 +106,25 @@ const SignatureTest = () => {
     } catch (error) {
       console.error('Error uploading image:', error);
       alert('Error uploading image.');
-    } finally {
-      // Log the end time and calculate the elapsed time
-      const end = new Date();
-      const elapsed = (end - start) / 1000; // Convert milliseconds to seconds
-      console.log(`Upload finished at: ${end.toLocaleTimeString()}`);
-      console.log(`Total time taken: ${elapsed.toFixed(2)} seconds`);
     }
   };
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Text style={styles.backButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.topRightButton}
+          onPress={() => navigation.navigate('ArtistSignatures')}
+        >
+          <Text style={styles.topRightButtonText}>My Signatures</Text>
+        </TouchableOpacity>
+      </View>
       <Text style={styles.title}>Signature Test Screen</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={takePicture}>
+        <TouchableOpacity style={styles.button} onPress={requestCameraPermission}>
           <Text style={styles.buttonText}>Take Picture</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={uploadFile}>
@@ -124,6 +153,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  backButton: {
+    padding: 10,
+    backgroundColor: '#001F3F',
+    borderRadius: 5,
+  },
+  backButtonText: {
+    color: '#00FFFF',
+    fontSize: 16,
+  },
+  topRightButton: {
+    padding: 10,
+    backgroundColor: '#FF5733',
+    borderRadius: 5,
+  },
+  topRightButtonText: {
+    color: '#fff',
+    fontSize: 14,
   },
   title: {
     fontSize: 24,

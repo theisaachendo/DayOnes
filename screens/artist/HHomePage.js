@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image, PermissionsAndroid, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import LinearGradient from 'react-native-linear-gradient';
@@ -7,7 +7,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import ProfileScreen from '../ProfileScreen';
-import PostsScreen from '../PostsScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
 import ArtistPostsPage from './ArtistPostsPage';
@@ -37,6 +36,58 @@ const HHomePage = () => {
   const options = {
     mediaType: 'photo',
     includeBase64: true,
+  };
+
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Camera Permission',
+            message: 'App needs camera permission to take pictures',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          takePicture();
+        } else {
+          Alert.alert('Permission Denied', 'Camera permission is required to take pictures.');
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    } else {
+      takePicture();
+    }
+  };
+
+  const requestExternalStoragePermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'External Storage Permission',
+            message: 'App needs permission to access your files',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          uploadFile();
+        } else {
+          Alert.alert('Permission Denied', 'Storage permission is required to upload files.');
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    } else {
+      uploadFile();
+    }
   };
 
   const takePicture = () => {
@@ -194,11 +245,11 @@ const HHomePage = () => {
             </LinearGradient>
 
             <View style={styles.pictureContainer}>
-              <TouchableOpacity style={styles.pictureButton} onPress={takePicture}>
+              <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
                 <Icon name="camera" size={30} color="#00FFFF" style={styles.icon} />
                 <Text style={styles.buttonText}>Take Picture</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.pictureButton} onPress={uploadFile}>
+              <TouchableOpacity style={styles.pictureButton} onPress={requestExternalStoragePermission}>
                 <Icon name="file" size={30} color="#00FFFF" style={styles.icon} />
                 <Text style={styles.buttonText}>Upload File</Text>
               </TouchableOpacity>
