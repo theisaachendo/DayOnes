@@ -68,9 +68,9 @@ const HHomePage = () => {
     if (Platform.OS === 'android') {
       try {
         const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
           {
-            title: 'External Storage Permission',
+            title: 'Storage Permission',
             message: 'App needs permission to access your files',
             buttonNeutral: 'Ask Me Later',
             buttonNegative: 'Cancel',
@@ -89,6 +89,7 @@ const HHomePage = () => {
       uploadFile();
     }
   };
+
 
   const takePicture = () => {
     launchCamera(options, (response) => {

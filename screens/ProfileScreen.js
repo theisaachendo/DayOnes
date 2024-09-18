@@ -1,64 +1,95 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
+import LogoText from '../components/LogoText'; // Import the reusable LogoText component
 
-// Utility function to format phone numbers
-const formatPhoneNumber = (phoneNumber) => {
-  if (!phoneNumber) return '';
-  const cleaned = ('' + phoneNumber).replace(/\D/g, '');
-  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-  if (match) {
-    return `${match[1]}-${match[2]}-${match[3]}`;
-  }
-  return phoneNumber;
-};
+const { height } = Dimensions.get('window'); // Get screen height to ensure everything fits
 
-const ProfileScreen = () => {
-  // Use useSelector to get the user profile and geolocation data from the Redux store
+const ProfileScreen = ({ navigation }) => {
   const profile = useSelector(state => state.userProfile) || {
     profilePicture: null,
-    fullName: 'Unknown User',
-    username: 'unknown',
-    email: 'unknown@example.com',
-    phone: '000-000-0000',
-    role: 'Unknown',
+    fullName: 'Jesse Jento',
+    email: 'jessejento@gmail.com',
   };
-
-  const geolocationData = useSelector(state => state.geolocationData) || {
-    locale: 'Location Unknown',
-  };
-
-  // Capitalize the role
-  const capitalizedRole = profile.role.charAt(0).toUpperCase() + profile.role.slice(1);
 
   return (
-    <View style={styles.container}>
-      {/* Gradient Background */}
-      <LinearGradient
-        colors={['#FF00FF', '#001F3F']}
-        style={styles.gradientBackground}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      />
+    <>
+      {/* Set the status bar background color and content */}
+      <StatusBar backgroundColor="#4B0082" barStyle="light-content" />
 
-      <View style={styles.profileImageContainer}>
-        {profile.profilePicture ? (
-          <Image source={{ uri: profile.profilePicture }} style={styles.profileImage} />
-        ) : (
-          <View style={styles.placeholderImage} />
-        )}
+      <View style={styles.container}>
+        <LinearGradient
+          colors={['#6600cc', '#330099']} // Adjusted to match the colors better
+          style={styles.gradientBackground}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+        />
+
+        {/* Center the LogoText and add space from the top and below */}
+        <View style={styles.logoContainer}>
+          <LogoText />
+        </View>
+
+        <View style={styles.profileSection}>
+          <Text style={styles.sectionTitle}>Profile</Text>
+
+          {/* Profile Picture */}
+          <Image
+            source={profile.profilePicture ? { uri: profile.profilePicture } : require('../images/defaultProfileImage.png')}
+            style={styles.profilePicture}
+          />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Change Picture</Text>
+          </TouchableOpacity>
+
+          {/* Name Input */}
+          <TextInput
+            style={styles.input}
+            value={profile.fullName}
+            placeholder="Name"
+            placeholderTextColor="#FFF"
+            editable={false} // Just display the name for now
+          />
+
+          {/* Email Input */}
+          <TextInput
+            style={styles.input}
+            value={profile.email}
+            placeholder="youremail@gmail.com"
+            placeholderTextColor="#FFF"
+            editable={false} // Just display the email for now
+          />
+
+          {/* Line between sections */}
+          <View style={styles.line} />
+
+          {/* Connected Accounts */}
+          <View style={styles.connectedAccounts}>
+            <Text style={styles.connectedAccountsTitle}>Connected Accounts</Text>
+            <View style={styles.socialIcons}>
+              <Image source={require('../images/Instagram_logo.png')} style={styles.iconLeft} />
+              <Image source={require('../images/Facebook_logo.png')} style={styles.iconLeft} />
+              <Image source={require('../images/X_logo.jpg')} style={styles.iconLeft} />
+            </View>
+            <TouchableOpacity style={[styles.button, styles.connectButton]}>
+              <Text style={styles.buttonText}>+ Connect More</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Line above signature button */}
+          <View style={styles.line} />
+
+          {/* Signature & Text Settings */}
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('SignaturePage')} // Navigate to the signatures page
+          >
+            <Text style={styles.buttonText}>Manage Signatures/Texts</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <Text style={styles.welcomeText}>
-        Hello {profile.fullName}, welcome to your {capitalizedRole} account!
-      </Text>
-      <View style={styles.infoContainer}>
-        <Text style={styles.label}>Username: <Text style={styles.info}>{profile.username}</Text></Text>
-        <Text style={styles.label}>Email: <Text style={styles.info}>{profile.email}</Text></Text>
-        <Text style={styles.label}>Phone: <Text style={styles.info}>{formatPhoneNumber(profile.phone)}</Text></Text>
-        <Text style={styles.label}>Location: <Text style={styles.info}>{geolocationData.locale}</Text></Text>
-      </View>
-    </View>
+    </>
   );
 };
 
@@ -66,62 +97,91 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-    alignItems: 'center',
+    justifyContent: 'center',
     padding: 20,
+    height: height, // Ensure it fits the screen without scrolling
   },
   gradientBackground: {
     ...StyleSheet.absoluteFillObject,
   },
-  profileImageContainer: {
-    width: 140,
-    height: 140,
-    marginTop: 40, // Adjust this value to raise the image
-    marginBottom: 20,
-    borderRadius: 70,
-    overflow: 'hidden',
-    borderWidth: 3,
-    borderColor: '#00FFFF',
-    alignItems: 'center',
+  logoContainer: {
+    alignItems: 'center', // Center the logo horizontally
+    marginTop: 30, // Add spacing from the top
+    marginBottom: 20, // Add spacing between the logo and the next section
+  },
+  profileSection: {
+    backgroundColor: '#111',
+    borderRadius: 10,
+    padding: 20,
     justifyContent: 'center',
+    alignItems: 'center', // Center elements horizontally
   },
-  profileImage: {
-    width: '100%',
-    height: '100%',
-  },
-  placeholderImage: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#444',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  welcomeText: {
-    fontSize: 26,
-    fontWeight: 'bold',
+  sectionTitle: {
     color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: 'bold',
     textAlign: 'center',
+    marginBottom: 10,
+  },
+  profilePicture: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     marginBottom: 20,
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 10,
+    alignSelf: 'center',
   },
-  infoContainer: {
-    marginTop: 20,
-    alignItems: 'center',
+  input: {
+    backgroundColor: '#333',
+    color: '#FFF',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 5,
+    width: '100%',
+    textAlign: 'center', // Center the text
   },
-  label: {
-    fontSize: 16,
-    color: '#CCCCCC',
-    marginBottom: 5,
+  line: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#888',
+    marginVertical: 10,
   },
-  info: {
-    fontSize: 16,
+  connectedAccounts: {
+    marginVertical: 20,
+    width: '100%',
+  },
+  connectedAccountsTitle: {
     color: '#FFFFFF',
-    fontWeight: 'bold',
-  },
-  text: {
     fontSize: 18,
-    color: '#CCCCCC',
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'left', // Align to the left side
+    alignSelf: 'flex-start',
+  },
+  socialIcons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start', // Align icons to the left
+    marginBottom: 10,
+    width: '100%',
+  },
+  iconLeft: {
+    width: 40,
+    height: 40,
+    marginRight: 15, // Space between icons
+  },
+  button: {
+    backgroundColor: '#FFD700', // Gold color for the buttons
+    paddingVertical: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginVertical: 5,
+    width: '100%',
+  },
+  connectButton: {
+    marginTop: 15, // Add some margin to separate from icons
+  },
+  buttonText: {
+    color: '#000',
+    fontWeight: 'bold',
   },
 });
 
