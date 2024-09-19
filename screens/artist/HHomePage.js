@@ -90,7 +90,6 @@ const HHomePage = () => {
     }
   };
 
-
   const takePicture = () => {
     launchCamera(options, (response) => {
       if (response.didCancel) {
@@ -207,7 +206,7 @@ const HHomePage = () => {
               iconName = 'envelope-o';
               break;
             default:
-              iconName = 'circle';
+              iconName = 'home';
               break;
           }
 
@@ -222,7 +221,7 @@ const HHomePage = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Main" options={{ tabBarLabel: '' }}>
+      <Tab.Screen name="Main" options={{ tabBarLabel: 'Home' }}>
         {() => (
           <View style={styles.container}>
             <View style={styles.header}>

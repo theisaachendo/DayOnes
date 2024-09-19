@@ -25,7 +25,7 @@ const App = () => {
     // Hide the splash screen
     SplashScreen.hide();
 
-  
+
 
     // Start watching geolocation when the app starts
     startWatchingLocation();

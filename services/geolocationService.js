@@ -3,7 +3,7 @@ import { PermissionsAndroid, Platform, Alert } from 'react-native';
 import Geocoder from 'react-native-geocoder-reborn';
 import geohash from 'ngeohash';
 import store from '../redux/store';
-import { setGeolocationData } from '../redux/actions';
+import { setGeolocationData } from '../reduxStore/actions';
 
 let watchId;
 
