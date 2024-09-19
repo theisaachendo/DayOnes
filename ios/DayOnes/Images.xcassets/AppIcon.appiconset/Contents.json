@@ -1,46 +1,55 @@
 {
   "images" : [
     {
+      "filename" : "DayOnes_40x40_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "DayOnes_60x60_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "DayOnes_58x58_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "DayOnes_87x87_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "DayOnes_80x80_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "DayOnes_120x120_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "DayOnes_120x120_no_alpha 1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "DayOnes_180x180_no_alpha.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "DayOnes_1024x1024_no_alpha.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
