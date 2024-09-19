@@ -13,7 +13,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient for the background
 import { useNavigation } from '@react-navigation/native';
-import { addUser } from '../../services/SQLiteService'; // Import the SQLite service
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
+
+const { width } = Dimensions.get('window');
 
 const RegArtistPage = () => {
   const navigation = useNavigation();
@@ -62,7 +64,6 @@ const RegArtistPage = () => {
           phone,
           password, // Note: You should hash the password in a real application
           role: 'artist',
-          instagramHandle,
         });
 
         navigation.navigate('LoginPage');
