@@ -5,7 +5,7 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-const SignatureTest = () => {
+const SignaturePage = () => {
   const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -219,4 +219,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignatureTest;
+export default SignaturePage;

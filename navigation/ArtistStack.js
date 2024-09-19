@@ -8,8 +8,16 @@ const Stack = createStackNavigator();
 const ArtistStack = () => {
   return (
     <Stack.Navigator initialRouteName="HHomePage">
-      <Stack.Screen name="HHomePage" component={HHomePage} />
-      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen
+        name="HHomePage"
+        component={HHomePage}
+        options={{ headerShown: false }}  // Disable the header
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false }}  // Disable the header
+      />
       {/* Add other artist-specific screens here */}
     </Stack.Navigator>
   );

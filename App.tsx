@@ -14,7 +14,7 @@ import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
 import ArtistPostsPage from './screens/artist/ArtistPostsPage';
-import SignatureTest from './screens/SignatureTest';
+import SignaturePage from './screens/artist/SignaturePage';
 import ArtistSignatures from './screens/artist/ArtistSignatures';
 
 
@@ -83,8 +83,8 @@ const App = () => {
             options={{ headerShown: false }}
           />
             <Stack.Screen
-            name="SignatureTest"
-            component={SignatureTest}
+            name="SignaturePage"
+            component={SignaturePage}
             options={{ headerShown: false }}
           />
                     <Stack.Screen

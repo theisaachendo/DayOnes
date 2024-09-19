@@ -5,10 +5,6 @@ const NotificationsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Notifications Screen</Text>
-      <Button
-        title="Go to Signature Test"
-        onPress={() => navigation.navigate('SignatureTest')}
-      />
     </View>
   );
 };
