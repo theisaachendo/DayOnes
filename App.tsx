@@ -9,7 +9,6 @@ import { startWatchingLocation, stopWatchingLocation } from './services/geolocat
 import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
-import RegisterOptionPage from './screens/RegisterOptionPage';
 import ArtistStack from './navigation/ArtistStack';
 import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
@@ -47,11 +46,6 @@ const App = () => {
           <Stack.Screen
             name="LoginPage"
             component={LoginPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RegisterOptionPage"
-            component={RegisterOptionPage}
             options={{ headerShown: false }}
           />
           <Stack.Screen
