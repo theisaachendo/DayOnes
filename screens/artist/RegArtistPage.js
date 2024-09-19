@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  StatusBar,
+  Image,
+  Dimensions,
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient for the background
 import { useNavigation } from '@react-navigation/native';
-import { addUser } from '../../services/SQLiteService'; // Import the SQLite service
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
+
+const { width } = Dimensions.get('window');
 
 const RegArtistPage = () => {
   const navigation = useNavigation();
@@ -11,7 +25,6 @@ const RegArtistPage = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [instagramHandle, setInstagramHandle] = useState('');
 
   const handleRegister = async () => {
     if (!fullName || !userName || !email || !phone || !password || !confirmPassword) {
@@ -31,7 +44,6 @@ const RegArtistPage = () => {
       Email: email,
       Phone: phone,
       Role: 'artist', // Specify 'artist' role
-      Instragram: instagramHandle || '', // Optional Instagram handle
     }).toString();
 
     try {
@@ -44,16 +56,6 @@ const RegArtistPage = () => {
       if (response.status === 201) {
         Alert.alert('Success', 'Registration successful');
 
-        // Store user data in SQLite
-        addUser({
-          userName,
-          fullName,
-          email,
-          phone,
-          password, // Note: You should hash the password in a real application
-          role: 'artist',
-          instagramHandle,
-        });
 
         navigation.navigate('LoginPage');
       } else if (response.status === 200) {
@@ -68,132 +70,212 @@ const RegArtistPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Register as an Artist</Text>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your full name"
-        placeholderTextColor="#888"
-        value={fullName}
-        onChangeText={setFullName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Choose a username"
-        placeholderTextColor="#888"
-        value={userName}
-        onChangeText={setUserName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your email address"
-        placeholderTextColor="#888"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your phone number"
-        placeholderTextColor="#888"
-        value={phone}
-        onChangeText={setPhone}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your password"
-        placeholderTextColor="#888"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm your password"
-        placeholderTextColor="#888"
-        secureTextEntry
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Instagram Handle (optional)"
-        placeholderTextColor="#888"
-        value={instagramHandle}
-        onChangeText={setInstagramHandle}
+      {/* Background Gradient */}
+      <LinearGradient
+        colors={['#0c002b', '#1b0248']} // Match the background gradient
+        style={styles.gradientBackground}
       />
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleRegister}>
-          <Text style={styles.buttonText}>Register</Text>
+      <View style={styles.contentContainer}>
+        <View style={styles.topSection}>
+          <Text style={styles.title}>DayOnes.io</Text>
+          <Image
+            source={require('../../images/defaultProfileImage.png')} // Replace with your own image path
+            style={styles.avatar}
+          />
+        </View>
+
+        {/* Input Fields */}
+        <View style={styles.inputContainer}>
+          <View style={styles.inputWrapper}>
+            <Icon name="user" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Full Name"
+              placeholderTextColor="#888"
+              value={fullName}
+              onChangeText={setFullName}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Icon name="user-circle" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              placeholderTextColor="#888"
+              value={userName}
+              onChangeText={setUserName}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Icon name="envelope" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Email Address"
+              placeholderTextColor="#888"
+              value={email}
+              onChangeText={setEmail}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Icon name="phone" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Phone number"
+              placeholderTextColor="#888"
+              value={phone}
+              onChangeText={setPhone}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              placeholderTextColor="#888"
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
+          </View>
+          <View style={styles.inputWrapper}>
+            <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              placeholderTextColor="#888"
+              secureTextEntry
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+            />
+          </View>
+        </View>
+
+        {/* Connect Button */}
+        <TouchableOpacity style={styles.connectButton}>
+          <Text style={styles.connectButtonText}>+ Connect Verified Account</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginPage')}>
-          <Text style={styles.buttonText}>Cancel</Text>
-        </TouchableOpacity>
+
+        {/* Signup Button */}
+        <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.signupButton}>
+          <TouchableOpacity onPress={handleRegister} style={styles.fullWidth}>
+            <Text style={styles.buttonText}>Signup</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        {/* Login Link */}
+        <Text style={styles.loginText}>
+          Already Have an Account?{' '}
+          <Text onPress={() => navigation.navigate('LoginPage')} style={styles.loginLink}>
+            Login
+          </Text>
+        </Text>
       </View>
-
-      <Text style={styles.text}>Already Have an Account?</Text>
-      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('LoginPage')}>
-        <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#000', // DefaultBlack equivalent
+    backgroundColor: '#000', // Black background
+  },
+  gradientBackground: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'center', // Center content
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+  },
+  topSection: {
+    alignItems: 'center',
+    marginBottom: 20,
   },
   title: {
-    fontSize: 24,
-    color: '#fff',
-    marginBottom: 20,
-    textAlign: 'center',
+    fontSize: 36,
+    color: '#00ccff',
+    fontWeight: 'bold',
   },
-  input: {
-    backgroundColor: 'transparent',
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginTop: 20,
+  },
+  inputContainer: {
+    width: '100%',
+    marginBottom: 20,
+  },
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#333',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    marginBottom: 20,
     borderColor: '#4B0981',
     borderWidth: 1,
-    borderRadius: 20,
-    padding: 10,
-    marginVertical: 10,
-    color: '#fff',
-    fontSize: 18,
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 20,
+  inputIcon: {
+    marginRight: 10,
   },
-  button: {
-    backgroundColor: '#4B0981',
-    padding: 15,
-    borderRadius: 10,
+  input: {
     flex: 1,
-    marginHorizontal: 5,
+    color: '#fff',
+    fontSize: 16,
+    height: 50,
+  },
+  connectButton: {
+    backgroundColor: 'transparent',
+    borderColor: '#00ccff',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingVertical: 15,
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  connectButtonText: {
+    color: '#00ccff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  signupButton: {
+    borderRadius: 10,
+    paddingVertical: 15,
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 20,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+  },
+  fullWidth: {
+    width: '100%',
     alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
+    fontWeight: 'bold',
   },
-  text: {
-    color: '#fff',
+  loginText: {
+    color: '#888',
+    fontSize: 16,
     textAlign: 'center',
     marginTop: 20,
   },
-  loginButton: {
-    backgroundColor: '#4B0981',
-    padding: 10,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  loginButtonText: {
-    color: '#fff',
-    fontSize: 18,
+  loginLink: {
+    color: '#00ccff',
+    textDecorationLine: 'underline',
   },
 });
 
