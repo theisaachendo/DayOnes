@@ -13,9 +13,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient for the background
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
-
-const { width } = Dimensions.get('window');
+import { addUser } from '../../services/SQLiteService'; // Import the SQLite service
 
 const RegArtistPage = () => {
   const navigation = useNavigation();
@@ -56,6 +54,16 @@ const RegArtistPage = () => {
       if (response.status === 201) {
         Alert.alert('Success', 'Registration successful');
 
+        // Store user data in SQLite
+        addUser({
+          userName,
+          fullName,
+          email,
+          phone,
+          password, // Note: You should hash the password in a real application
+          role: 'artist',
+          instagramHandle,
+        });
 
         navigation.navigate('LoginPage');
       } else if (response.status === 200) {
