@@ -56,16 +56,6 @@ const RegArtistPage = () => {
       if (response.status === 201) {
         Alert.alert('Success', 'Registration successful');
 
-        // Store user data in SQLite
-        addUser({
-          userName,
-          fullName,
-          email,
-          phone,
-          password, // Note: You should hash the password in a real application
-          role: 'artist',
-        });
-
         navigation.navigate('LoginPage');
       } else if (response.status === 200) {
         Alert.alert('Error', result);
