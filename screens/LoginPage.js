@@ -10,61 +10,60 @@ import {
   StatusBar,
   Dimensions
 } from 'react-native';
-import { setUserProfile } from '../redux/actions'; // Make sure this points to your correct actions file
+import { setUserProfile } from '../redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
+import Icon from 'react-native-vector-icons/FontAwesome';
+import LogoText from '../components/LogoText';
+import useLogin from '../hooks/useLogin';  // Import the custom hook
 
-// Import the LogoText component you created
-import LogoText from '../components/LogoText'; // Adjust the path if necessary
-
-const { width, height } = Dimensions.get('window'); // Get device dimensions
+const { width } = Dimensions.get('window');
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-  const dispatch = useDispatch(); // Use dispatch to send actions to Redux
+  const dispatch = useDispatch();
 
-  const handleLogin = async () => {
+  // Use the custom hook
+  const { mutate: login, isLoading } = useLogin();
+
+  const handleLogin = () => {
     if (!username || !password) {
       Alert.alert('Validation Error', 'Please enter both username and password.');
       return;
     }
 
-    try {
-      const response = await fetch(`https://ifxz5tco3iasejg5ldo3udsq740cxxbl.lambda-url.us-east-1.on.aws/?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
-        method: 'GET',
-      });
+    login(
+      { username, password },
+      {
+        onSuccess: (result) => {
+          Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
 
-      const result = await response.json();
+          // Dispatch the user profile data to Redux store
+          dispatch(setUserProfile(result.profile));
 
-      if (response.status === 200) {
-        Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
-
-        // Dispatch the user profile data to Redux store
-        dispatch(setUserProfile(result.profile));
-
-        // Navigate to the appropriate stack based on the user's role
-        if (result.profile.role === 'artist') {
-          navigation.navigate('ArtistStack');
-        } else if (result.profile.role === 'fan') {
-          navigation.navigate('FanStack');
-        } else {
-          Alert.alert('Login Error', 'Unrecognized user role.');
+          // Navigate to the appropriate stack based on the user's role
+          if (result.profile.role === 'artist') {
+            navigation.navigate('ArtistStack');
+          } else if (result.profile.role === 'fan') {
+            navigation.navigate('FanStack');
+          } else {
+            Alert.alert('Login Error', 'Unrecognized user role.');
+          }
+        },
+        onError: (error) => {
+          if (error.response?.status === 401) {
+            Alert.alert('Login Failed', 'Invalid username or password.');
+          } else if (error.response?.status === 404) {
+            Alert.alert('Login Failed', 'User not found.');
+          } else {
+            Alert.alert('Login Failed', 'An unexpected error occurred.');
+          }
         }
-      } else if (response.status === 401) {
-        Alert.alert('Login Failed', 'Invalid username or password.');
-      } else if (response.status === 404) {
-        Alert.alert('Login Failed', 'User not found.');
-      } else {
-        Alert.alert('Login Failed', 'An unexpected error occurred.');
       }
-    } catch (error) {
-      console.error('Login error:', error);
-      Alert.alert('Login Failed', 'An unexpected error occurred.');
-    }
+    );
   };
 
   return (
@@ -73,14 +72,13 @@ const LoginScreen = () => {
 
       {/* Background Gradient */}
       <LinearGradient
-        colors={['#0c002b', '#1b0248']} // Adjusted gradient to match the first image's background
+        colors={['#0c002b', '#1b0248']}
         style={styles.gradientBackground}
       />
 
       <View style={styles.contentContainer}>
         {/* Logo, positioned closer to the top */}
         <View style={styles.topSection}>
-          {/* Use the imported LogoText component here */}
           <LogoText />
         </View>
 
@@ -93,6 +91,7 @@ const LoginScreen = () => {
               placeholderTextColor="#888"
               value={username}
               onChangeText={setUsername}
+              editable={!isLoading}
             />
             <TextInput
               style={styles.input}
@@ -101,13 +100,13 @@ const LoginScreen = () => {
               value={password}
               secureTextEntry
               onChangeText={setPassword}
+              editable={!isLoading}
             />
           </View>
 
-          {/* Login Button */}
           <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.loginButton}>
-            <TouchableOpacity onPress={handleLogin} style={styles.fullWidth}>
-              <Text style={styles.buttonText}>Login</Text>
+            <TouchableOpacity onPress={handleLogin} style={styles.fullWidth} disabled={isLoading}>
+              <Text style={styles.buttonText}>{isLoading ? 'Logging in...' : 'Login'}</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
@@ -123,7 +122,6 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Sign Up Links */}
         <Text style={styles.signupText}>
           Didn’t signup yet?{' '}
           <Text onPress={() => navigation.navigate('RegFanPage')} style={styles.signupLink}>
@@ -131,13 +129,12 @@ const LoginScreen = () => {
           </Text>
         </Text>
 
-        {/* Are you an artist? Section, positioned closer to the bottom */}
         <View style={styles.bottomSection}>
           <Text style={styles.artistQuestionText}>Are you an artist?</Text>
           <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
             <TouchableOpacity
               style={styles.fullWidth}
-              onPress={() => navigation.navigate('RegArtistPage')} // Navigate to the desired page
+              onPress={() => navigation.navigate('RegArtistPage')}
             >
               <Text style={[styles.signupArtistText, { color: '#fff' }]}>Signup as an Artist</Text>
             </TouchableOpacity>
@@ -151,7 +148,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // Black background
+    backgroundColor: '#000',
   },
   gradientBackground: {
     position: 'absolute',
@@ -160,13 +157,13 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'space-between', // Distribute top, middle, and bottom sections
+    justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingVertical: 40, // Adds padding to bring content away from the edges
+    paddingVertical: 40,
   },
   topSection: {
     alignItems: 'center',
-    marginBottom: 30, // Added margin to space it out from the middle section
+    marginBottom: 30,
   },
   middleSection: {
     justifyContent: 'center',
@@ -196,8 +193,8 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginBottom: 20,
-    elevation: 5, // Adds shadow on Android
-    shadowColor: '#000', // Adds shadow on iOS
+    elevation: 5,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
@@ -209,7 +206,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', // Center the icons horizontally
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 30,
   },
@@ -220,9 +217,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 15, // Add space between the two icons
-    elevation: 5, // Adds shadow on Android
-    shadowColor: '#000', // Adds shadow on iOS
+    marginHorizontal: 15,
+    elevation: 5,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
@@ -231,7 +228,7 @@ const styles = StyleSheet.create({
     color: '#888',
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 20, // Add some margin above the bottom section
+    marginBottom: 20,
   },
   signupLink: {
     color: '#00ccff',
@@ -250,8 +247,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     width: '100%',
     alignItems: 'center',
-    elevation: 5, // Adds shadow on Android
-    shadowColor: '#000', // Adds shadow on iOS
+    elevation: 5,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
