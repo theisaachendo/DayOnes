@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { startWatchingLocation, stopWatchingLocation } from './services/geolocationService';
 import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
@@ -19,6 +20,8 @@ import ArtistSignatures from './screens/artist/ArtistSignatures';
 
 
 const Stack = createStackNavigator();
+
+const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
@@ -38,6 +41,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="LoginPage">
           <Stack.Screen
@@ -94,6 +98,7 @@ const App = () => {
 
         </Stack.Navigator>
       </NavigationContainer>
+      </QueryClientProvider>
     </Provider>
   );
 };
