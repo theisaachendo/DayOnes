@@ -6,6 +6,12 @@ const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {};
+const defaultConfig = getDefaultConfig(__dirname);
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+// Adding custom configuration to handle too many open files issue
+const customConfig = {
+  watchFolders: ['./'], // Ensure this points to your project root
+  maxWorkers: 2,        // Reduce the number of workers to minimize file watchers
+};
+
+module.exports = mergeConfig(defaultConfig, customConfig);

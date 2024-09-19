@@ -5,7 +5,6 @@ import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { startWatchingLocation, stopWatchingLocation } from './services/geolocationService';
-import { initDB } from './services/SQLiteService'; // Import the SQLite initialization
 import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
@@ -26,8 +25,7 @@ const App = () => {
     // Hide the splash screen
     SplashScreen.hide();
 
-    // Initialize the SQLite database
-    initDB();
+  
 
     // Start watching geolocation when the app starts
     startWatchingLocation();
