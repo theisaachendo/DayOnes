@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar, Dimensions, ImageBackground } from 'react-native';
 import { useSelector } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import LogoText from '../components/LogoText'; // Import the reusable LogoText component
@@ -9,8 +9,8 @@ const { height } = Dimensions.get('window'); // Get screen height to ensure ever
 const ProfileScreen = ({ navigation }) => {
   const profile = useSelector(state => state.userProfile) || {
     profilePicture: null,
-    fullName: 'Jesse Jento',
-    email: 'jessejento@gmail.com',
+    fullName: 'First Last',
+    email: 'FirstLast@gmail.com',
   };
 
   return (
@@ -18,85 +18,96 @@ const ProfileScreen = ({ navigation }) => {
       {/* Set the status bar background color and content */}
       <StatusBar backgroundColor="#4B0082" barStyle="light-content" />
 
-      <View style={styles.container}>
-        <LinearGradient
-          colors={['#6600cc', '#330099']} // Adjusted to match the colors better
-          style={styles.gradientBackground}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        />
-
-        {/* Center the LogoText and add space from the top and below */}
-        <View style={styles.logoContainer}>
-          <LogoText />
-        </View>
-
-        <View style={styles.profileSection}>
-          <Text style={styles.sectionTitle}>Profile</Text>
-
-          {/* Profile Picture */}
-          <Image
-            source={profile.profilePicture ? { uri: profile.profilePicture } : require('../images/defaultProfileImage.png')}
-            style={styles.profilePicture}
-          />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Change Picture</Text>
-          </TouchableOpacity>
-
-          {/* Name Input */}
-          <TextInput
-            style={styles.input}
-            value={profile.fullName}
-            placeholder="Name"
-            placeholderTextColor="#FFF"
-            editable={false} // Just display the name for now
+      <ImageBackground
+        source={require('../images/background.png')}
+        style={styles.backgroundImage}
+      >
+        <View style={styles.container}>
+          <LinearGradient
+            colors={['#6600cc', '#330099']} // Adjusted to match the colors better
+            style={styles.gradientBackground}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
           />
 
-          {/* Email Input */}
-          <TextInput
-            style={styles.input}
-            value={profile.email}
-            placeholder="youremail@gmail.com"
-            placeholderTextColor="#FFF"
-            editable={false} // Just display the email for now
-          />
-
-          {/* Line between sections */}
-          <View style={styles.line} />
-
-          {/* Connected Accounts */}
-          <View style={styles.connectedAccounts}>
-            <Text style={styles.connectedAccountsTitle}>Connected Accounts</Text>
-            <View style={styles.socialIcons}>
-              <Image source={require('../images/Instagram_logo.png')} style={styles.iconLeft} />
-              <Image source={require('../images/Facebook_logo.png')} style={styles.iconLeft} />
-              <Image source={require('../images/X_logo.jpg')} style={styles.iconLeft} />
-            </View>
-            <TouchableOpacity style={[styles.button, styles.connectButton]}>
-              <Text style={styles.buttonText}>+ Connect More</Text>
-            </TouchableOpacity>
+          {/* Center the LogoText and add space from the top and below */}
+          <View style={styles.logoContainer}>
+            <LogoText />
           </View>
 
-          {/* Line above signature button */}
-          <View style={styles.line} />
+          <View style={styles.profileSection}>
+            <Text style={styles.sectionTitle}>Profile</Text>
 
-          {/* Signature & Text Settings */}
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('SignaturePage')} // Navigate to the signatures page
-          >
-            <Text style={styles.buttonText}>Manage Signatures/Texts</Text>
-          </TouchableOpacity>
+            {/* Profile Picture */}
+            <Image
+              source={profile.profilePicture ? { uri: profile.profilePicture } : require('../images/defaultProfileImage.png')}
+              style={styles.profilePicture}
+            />
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Change Picture</Text>
+            </TouchableOpacity>
+
+            {/* Name Input */}
+            <TextInput
+              style={styles.input}
+              value={profile.fullName}
+              placeholder="Name"
+              placeholderTextColor="#FFF"
+              editable={false} // Just display the name for now
+            />
+
+            {/* Email Input */}
+            <TextInput
+              style={styles.input}
+              value={profile.email}
+              placeholder="youremail@gmail.com"
+              placeholderTextColor="#FFF"
+              editable={false} // Just display the email for now
+            />
+
+            {/* Line between sections */}
+            <View style={styles.line} />
+
+            {/* Connected Accounts */}
+            <View style={styles.connectedAccounts}>
+              <Text style={styles.connectedAccountsTitle}>Connected Accounts</Text>
+              <View style={styles.socialIcons}>
+                <Image source={require('../images/Instagram_logo.png')} style={styles.iconLeft} />
+                <Image source={require('../images/Facebook_logo.png')} style={styles.iconLeft} />
+                <Image source={require('../images/X_logo.jpg')} style={styles.iconLeft} />
+              </View>
+              <TouchableOpacity style={[styles.button, styles.connectButton]}>
+                <Text style={styles.buttonText}>+ Connect More</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Line above signature button */}
+            <View style={styles.line} />
+
+            {/* Signature & Text Settings */}
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('SignaturePage')} // Navigate to the signatures page
+            >
+              <Text style={styles.buttonText}>Manage Signatures/Texts</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </ImageBackground>
     </>
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     padding: 20,
     height: height, // Ensure it fits the screen without scrolling

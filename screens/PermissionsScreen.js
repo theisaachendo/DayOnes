@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Alert, Platform, Linking } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Alert, Platform, Linking, ImageBackground } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -88,42 +88,49 @@ const PermissionsScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={['#0c002b', '#1b0248']} style={styles.gradientBackground} />
-      <View style={styles.contentContainer}>
-        <Text style={styles.headerText}>Permissions</Text>
+      {/* Background Image */}
+      <ImageBackground
+        source={require('../images/background.png')} // Set your background image here
+        style={styles.backgroundImage}
+      >
+        <View style={styles.contentContainer}>
+          <Text style={styles.headerText}>Permissions</Text>
 
-        <PermissionItem
-          icon="camera"
-          title="Camera"
-          enabled={cameraPermission}
-          onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA, setCameraPermission)}
-        />
-        <PermissionItem
-          icon="folder"
-          title="Library"
-          enabled={libraryPermission}
-          onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.PHOTO_LIBRARY : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE, setLibraryPermission)}
-        />
-        <PermissionItem
-          icon="bell"
-          title="Push Notifications"
-          enabled={notificationsPermission}
-          onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.NOTIFICATIONS : PERMISSIONS.ANDROID.POST_NOTIFICATIONS, setNotificationsPermission)}
-        />
-        <PermissionItem
-          icon="map-marker"
-          title="Location"
-          enabled={locationPermission}
-          onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION, setLocationPermission)}
-        />
+          <PermissionItem
+            icon="camera"
+            title="Camera"
+            enabled={cameraPermission}
+            onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA, setCameraPermission)}
+          />
+          <PermissionItem
+            icon="folder"
+            title="Library"
+            enabled={libraryPermission}
+            onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.PHOTO_LIBRARY : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE, setLibraryPermission)}
+          />
+          <PermissionItem
+            icon="bell"
+            title="Push Notifications"
+            enabled={notificationsPermission}
+            onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.NOTIFICATIONS : PERMISSIONS.ANDROID.POST_NOTIFICATIONS, setNotificationsPermission)}
+          />
+          <PermissionItem
+            icon="map-marker"
+            title="Location"
+            enabled={locationPermission}
+            onPress={() => requestPermission(Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION, setLocationPermission)}
+          />
 
-        <TouchableOpacity
-          onPress={() => navigateToAppropriateStack(profile.role)}
-          style={styles.continueButton}
-        >
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>
-      </View>
+          <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.continueButton}>
+            <TouchableOpacity
+              onPress={() => navigateToAppropriateStack(profile.role)}
+              style={styles.fullWidth}
+            >
+              <Text style={styles.buttonText}>Continue</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -144,10 +151,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-  gradientBackground: {
-    position: 'absolute',
+  backgroundImage: {
+    flex: 1,
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
   },
   contentContainer: {
     flex: 1,
@@ -159,12 +167,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginBottom: 30,
+    fontWeight: 'bold',
   },
   permissionItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    borderRadius: 8,
   },
   permissionText: {
     color: '#fff',
@@ -186,10 +199,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   continueButton: {
-    backgroundColor: '#ff00ff',
-    paddingVertical: 15,
     borderRadius: 10,
+    paddingVertical: 15,
+    width: '100%',
+    alignItems: 'center',
     marginTop: 40,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+  },
+  fullWidth: {
+    width: '100%',
     alignItems: 'center',
   },
   buttonText: {

@@ -9,7 +9,8 @@ import {
   Alert,
   StatusBar,
   Dimensions,
-  Platform
+  Platform,
+  ImageBackground, // Import ImageBackground
 } from 'react-native';
 import { setUserProfile } from '../redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
@@ -94,77 +95,77 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      {/* Background Gradient */}
-      <LinearGradient
-        colors={['#0c002b', '#1b0248']}
-        style={styles.gradientBackground}
-      />
-
-      <View style={styles.contentContainer}>
-        {/* Logo, positioned closer to the top */}
-        <View style={styles.topSection}>
-          <LogoText />
-        </View>
-
-        {/* Input Fields and Login Button */}
-        <View style={styles.middleSection}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="Username"
-              placeholderTextColor="#888"
-              value={username}
-              onChangeText={setUsername}
-              editable={!isLoading}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              placeholderTextColor="#888"
-              value={password}
-              secureTextEntry
-              onChangeText={setPassword}
-              editable={!isLoading}
-            />
+      {/* Background Image */}
+      <ImageBackground
+        source={require('../images/background.png')} // Replace with your image path
+        style={styles.backgroundImage}
+      >
+        <View style={styles.contentContainer}>
+          {/* Logo, positioned closer to the top */}
+          <View style={styles.topSection}>
+            <LogoText />
           </View>
 
-          <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.loginButton}>
-            <TouchableOpacity onPress={handleLogin} style={styles.fullWidth} disabled={isLoading}>
-              <Text style={styles.buttonText}>{isLoading ? 'Logging in...' : 'Login'}</Text>
+          {/* Input Fields and Login Button */}
+          <View style={styles.middleSection}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="Username"
+                placeholderTextColor="#888"
+                value={username}
+                onChangeText={setUsername}
+                editable={!isLoading}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                placeholderTextColor="#888"
+                value={password}
+                secureTextEntry
+                onChangeText={setPassword}
+                editable={!isLoading}
+              />
+            </View>
+
+            <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.loginButton}>
+              <TouchableOpacity onPress={handleLogin} style={styles.fullWidth} disabled={isLoading}>
+                <Text style={styles.buttonText}>{isLoading ? 'Logging in...' : 'Login'}</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
+
+          {/* Google and Apple Buttons */}
+          <View style={styles.iconContainer}>
+            <TouchableOpacity style={styles.iconButton}>
+              <Icon name="google" size={24} color="#000" />
             </TouchableOpacity>
-          </LinearGradient>
-        </View>
 
-        {/* Google and Apple Buttons */}
-        <View style={styles.iconContainer}>
-          <TouchableOpacity style={styles.iconButton}>
-            <Icon name="google" size={24} color="#000" />
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.iconButton}>
+              <Icon name="apple" size={28} color="#000" />
+            </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity style={styles.iconButton}>
-            <Icon name="apple" size={28} color="#000" />
-          </TouchableOpacity>
-        </View>
-
-        <Text style={styles.signupText}>
-          Didn’t signup yet?{' '}
-          <Text onPress={() => navigation.navigate('RegFanPage')} style={styles.signupLink}>
-            Signup Now
+          <Text style={styles.signupText}>
+            Didn’t signup yet?{' '}
+            <Text onPress={() => navigation.navigate('RegFanPage')} style={styles.signupLink}>
+              Signup Now
+            </Text>
           </Text>
-        </Text>
 
-        <View style={styles.bottomSection}>
-          <Text style={styles.artistQuestionText}>Are you an artist?</Text>
-          <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
-            <TouchableOpacity
-              style={styles.fullWidth}
-              onPress={() => navigation.navigate('RegArtistPage')}
-            >
-              <Text style={[styles.signupArtistText, { color: '#fff' }]}>Signup as an Artist</Text>
-            </TouchableOpacity>
-          </LinearGradient>
+          <View style={styles.bottomSection}>
+            <Text style={styles.artistQuestionText}>Are you an artist?</Text>
+            <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
+              <TouchableOpacity
+                style={styles.fullWidth}
+                onPress={() => navigation.navigate('RegArtistPage')}
+              >
+                <Text style={[styles.signupArtistText, { color: '#fff' }]}>Signup as an Artist</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
         </View>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -174,10 +175,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-  gradientBackground: {
-    position: 'absolute',
+  backgroundImage: {
+    flex: 1,
     width: '100%',
     height: '100%',
+    resizeMode: 'cover', // or 'contain' depending on the image aspect ratio
+    justifyContent: 'center',
   },
   contentContainer: {
     flex: 1,

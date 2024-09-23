@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image, PermissionsAndroid, Platform, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import LinearGradient from 'react-native-linear-gradient';
@@ -223,63 +223,68 @@ const HHomePage = () => {
     >
       <Tab.Screen name="Main" options={{ tabBarLabel: 'Home' }}>
         {() => (
-          <View style={styles.container}>
-            <View style={styles.header}>
-              <Text style={styles.title}>Autographs & Invites</Text>
-            </View>
+          <ImageBackground
+            source={require('../../images/background.png')}
+            style={styles.backgroundImage}
+          >
+            <View style={styles.container}>
+              <View style={styles.header}>
+                <Text style={styles.title}>Autographs & Invites</Text>
+              </View>
 
-            <LinearGradient
-              colors={['#FF00FF', '#001F3F']}
-              style={styles.imageContainer}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-            >
-              {selectedImage ? (
-                <Image
-                  source={{ uri: selectedImage.uri }}
-                  style={styles.selectedImage}
+              <LinearGradient
+                colors={['#FF00FF', '#001F3F']}
+                style={styles.imageContainer}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                {selectedImage ? (
+                  <Image
+                    source={{ uri: selectedImage.uri }}
+                    style={styles.selectedImage}
+                  />
+                ) : (
+                  <Text style={styles.imageText}>Talk to your fans</Text>
+                )}
+              </LinearGradient>
+
+              <View style={styles.pictureContainer}>
+                <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
+                  <Icon name="camera" size={30} color="#00FFFF" style={styles.icon} />
+                  <Text style={styles.buttonText}>Take Picture</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.pictureButton} onPress={requestExternalStoragePermission}>
+                  <Icon name="file" size={30} color="#00FFFF" style={styles.icon} />
+                  <Text style={styles.buttonText}>Upload File</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.sliderContainer}>
+                <Text style={styles.sliderLabel}>Range</Text>
+
+                <Text style={styles.sliderValue}>
+                  {sliderValue[0]} feet ({feetToMeters(sliderValue[0])} meters)
+                </Text>
+
+                <MultiSlider
+                  values={sliderValue}
+                  sliderLength={width - 80}
+                  onValuesChange={(value) => setSliderValue(value)}
+                  min={10}
+                  max={2000}
+                  step={10}
+                  selectedStyle={styles.sliderSelectedStyle}
+                  unselectedStyle={styles.sliderUnselectedStyle}
+                  trackStyle={styles.sliderTrackStyle}
+                  markerStyle={styles.sliderMarkerStyle}
                 />
-              ) : (
-                <Text style={styles.imageText}>Talk to your fans</Text>
-              )}
-            </LinearGradient>
+              </View>
 
-            <View style={styles.pictureContainer}>
-              <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
-                <Icon name="camera" size={30} color="#00FFFF" style={styles.icon} />
-                <Text style={styles.buttonText}>Take Picture</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.pictureButton} onPress={requestExternalStoragePermission}>
-                <Icon name="file" size={30} color="#00FFFF" style={styles.icon} />
-                <Text style={styles.buttonText}>Upload File</Text>
+              <TouchableOpacity style={styles.sendButton} onPress={createPost}>
+                <Text style={styles.sendButtonText}>Send Invite</Text>
               </TouchableOpacity>
             </View>
-
-            <View style={styles.sliderContainer}>
-              <Text style={styles.sliderLabel}>Range</Text>
-
-              <Text style={styles.sliderValue}>
-                {sliderValue[0]} feet ({feetToMeters(sliderValue[0])} meters)
-              </Text>
-
-              <MultiSlider
-                values={sliderValue}
-                sliderLength={width - 80}
-                onValuesChange={(value) => setSliderValue(value)}
-                min={10}
-                max={2000}
-                step={10}
-                selectedStyle={styles.sliderSelectedStyle}
-                unselectedStyle={styles.sliderUnselectedStyle}
-                trackStyle={styles.sliderTrackStyle}
-                markerStyle={styles.sliderMarkerStyle}
-              />
-            </View>
-
-            <TouchableOpacity style={styles.sendButton} onPress={createPost}>
-              <Text style={styles.sendButtonText}>Send Invite</Text>
-            </TouchableOpacity>
-          </View>
+          </ImageBackground>
         )}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={ProfileScreen} />
@@ -291,9 +296,15 @@ const HHomePage = () => {
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 'transparent',
     padding: 20,
     alignItems: 'center',
   },

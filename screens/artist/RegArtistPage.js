@@ -10,12 +10,14 @@ import {
   StatusBar,
   Image,
   Dimensions,
+  ImageBackground, // Import ImageBackground for the background
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient'; // Import LinearGradient for the background
+import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
+import Icon from 'react-native-vector-icons/FontAwesome';
+import LogoText from '../../components/LogoText'; // Import the LogoText component
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const RegArtistPage = () => {
   const navigation = useNavigation();
@@ -43,7 +45,7 @@ const RegArtistPage = () => {
       FullName: fullName,
       Email: email,
       Phone: phone,
-      Role: 'artist', // Specify 'artist' role
+      Role: 'artist',
     }).toString();
 
     try {
@@ -55,7 +57,6 @@ const RegArtistPage = () => {
 
       if (response.status === 201) {
         Alert.alert('Success', 'Registration successful');
-
         navigation.navigate('LoginPage');
       } else if (response.status === 200) {
         Alert.alert('Error', result);
@@ -72,107 +73,104 @@ const RegArtistPage = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      {/* Background Gradient */}
-      <LinearGradient
-        colors={['#0c002b', '#1b0248']} // Match the background gradient
-        style={styles.gradientBackground}
-      />
+      {/* Background Image */}
+      <ImageBackground
+        source={require('../../images/background.png')} // Set your background image here
+        style={styles.backgroundImage}
+      >
+        <View style={styles.contentContainer}>
+          <View style={styles.topSection}>
+            <LogoText />
+            <Image
+              source={require('../../images/DayOnesLogo.png')}
+              style={styles.avatar}
+              resizeMode="contain"
+            />
+          </View>
 
-      <View style={styles.contentContainer}>
-        <View style={styles.topSection}>
-          <Text style={styles.title}>DayOnes.io</Text>
-          <Image
-            source={require('../../images/defaultProfileImage.png')} // Replace with your own image path
-            style={styles.avatar}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <View style={styles.inputWrapper}>
+              <Icon name="user" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Full Name"
+                placeholderTextColor="#888"
+                value={fullName}
+                onChangeText={setFullName}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="user-circle" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Username"
+                placeholderTextColor="#888"
+                value={userName}
+                onChangeText={setUserName}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="envelope" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Email Address"
+                placeholderTextColor="#888"
+                value={email}
+                onChangeText={setEmail}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="phone" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Phone number"
+                placeholderTextColor="#888"
+                value={phone}
+                onChangeText={setPhone}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                placeholderTextColor="#888"
+                secureTextEntry
+                value={password}
+                onChangeText={setPassword}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Confirm Password"
+                placeholderTextColor="#888"
+                secureTextEntry
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+              />
+            </View>
+          </View>
 
-        {/* Input Fields */}
-        <View style={styles.inputContainer}>
-          <View style={styles.inputWrapper}>
-            <Icon name="user" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Full Name"
-              placeholderTextColor="#888"
-              value={fullName}
-              onChangeText={setFullName}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <Icon name="user-circle" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Username"
-              placeholderTextColor="#888"
-              value={userName}
-              onChangeText={setUserName}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <Icon name="envelope" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Email Address"
-              placeholderTextColor="#888"
-              value={email}
-              onChangeText={setEmail}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <Icon name="phone" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Phone number"
-              placeholderTextColor="#888"
-              value={phone}
-              onChangeText={setPhone}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              placeholderTextColor="#888"
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-            />
-          </View>
-          <View style={styles.inputWrapper}>
-            <Icon name="lock" size={20} color="#888" style={styles.inputIcon} />
-            <TextInput
-              style={styles.input}
-              placeholder="Confirm Password"
-              placeholderTextColor="#888"
-              secureTextEntry
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
-            />
-          </View>
-        </View>
-
-        {/* Connect Button */}
-        <TouchableOpacity style={styles.connectButton}>
-          <Text style={styles.connectButtonText}>+ Connect Verified Account</Text>
-        </TouchableOpacity>
-
-        {/* Signup Button */}
-        <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.signupButton}>
-          <TouchableOpacity onPress={handleRegister} style={styles.fullWidth}>
-            <Text style={styles.buttonText}>Signup</Text>
+          <TouchableOpacity style={styles.connectButton}>
+            <Text style={styles.connectButtonText}>+ Connect Verified Account</Text>
           </TouchableOpacity>
-        </LinearGradient>
 
-        {/* Login Link */}
-        <Text style={styles.loginText}>
-          Already Have an Account?{' '}
-          <Text onPress={() => navigation.navigate('LoginPage')} style={styles.loginLink}>
-            Login
+          <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.signupButton}>
+            <TouchableOpacity onPress={handleRegister} style={styles.fullWidth}>
+              <Text style={styles.buttonText}>Signup</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+
+          <Text style={styles.loginText}>
+            Already Have an Account?{' '}
+            <Text onPress={() => navigation.navigate('LoginPage')} style={styles.loginLink}>
+              Login
+            </Text>
           </Text>
-        </Text>
-      </View>
+        </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -180,37 +178,32 @@ const RegArtistPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // Black background
+    backgroundColor: '#000',
   },
-  gradientBackground: {
-    position: 'absolute',
+  backgroundImage: {
+    flex: 1,
     width: '100%',
     height: '100%',
+    resizeMode: 'cover',
   },
   contentContainer: {
     flex: 1,
-    justifyContent: 'center', // Center content
+    justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingVertical: 20,
   },
   topSection: {
     alignItems: 'center',
     marginBottom: 20,
   },
-  title: {
-    fontSize: 36,
-    color: '#00ccff',
-    fontWeight: 'bold',
-  },
   avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginTop: 20,
+    width: 120,
+    height: 120,
+    marginTop: 10,
   },
   inputContainer: {
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -218,7 +211,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     borderRadius: 8,
     paddingHorizontal: 15,
-    marginBottom: 20,
+    marginBottom: 15,
     borderColor: '#4B0981',
     borderWidth: 1,
   },
@@ -236,7 +229,7 @@ const styles = StyleSheet.create({
     borderColor: '#00ccff',
     borderWidth: 1,
     borderRadius: 8,
-    paddingVertical: 15,
+    paddingVertical: 12,
     marginBottom: 20,
     alignItems: 'center',
   },
@@ -270,7 +263,7 @@ const styles = StyleSheet.create({
     color: '#888',
     fontSize: 16,
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   loginLink: {
     color: '#00ccff',
