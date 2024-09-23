@@ -8,7 +8,8 @@ import {
   StyleSheet,
   Alert,
   StatusBar,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native';
 import { setUserProfile } from '../redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
@@ -16,7 +17,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoText from '../components/LogoText';
-import useLogin from '../hooks/useLogin';  // Import the custom hook
+import useLogin from '../hooks/useLogin';
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 const { width } = Dimensions.get('window');
 
@@ -38,19 +40,18 @@ const LoginScreen = () => {
     login(
       { username, password },
       {
-        onSuccess: (result) => {
+        onSuccess: async (result) => {
           Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
 
           // Dispatch the user profile data to Redux store
           dispatch(setUserProfile(result.profile));
 
-          // Navigate to the appropriate stack based on the user's role
-          if (result.profile.role === 'artist') {
-            navigation.navigate('ArtistStack');
-          } else if (result.profile.role === 'fan') {
-            navigation.navigate('FanStack');
+          // Check permissions after successful login
+          const hasAllPermissions = await checkPermissions();
+          if (hasAllPermissions) {
+            navigateToAppropriateStack(result.profile.role);
           } else {
-            Alert.alert('Login Error', 'Unrecognized user role.');
+            navigation.navigate('PermissionsScreen');
           }
         },
         onError: (error) => {
@@ -64,6 +65,29 @@ const LoginScreen = () => {
         }
       }
     );
+  };
+
+  const checkPermissions = async () => {
+    try {
+      const camera = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA);
+      const library = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.PHOTO_LIBRARY : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+      const notifications = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.NOTIFICATIONS : PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
+
+      return camera === RESULTS.GRANTED && library === RESULTS.GRANTED && notifications === RESULTS.GRANTED;
+    } catch (error) {
+      console.log('Error checking permissions:', error);
+      return false;
+    }
+  };
+
+  const navigateToAppropriateStack = (role) => {
+    if (role === 'artist') {
+      navigation.navigate('ArtistStack');
+    } else if (role === 'fan') {
+      navigation.navigate('FanStack');
+    } else {
+      Alert.alert('Login Error', 'Unrecognized user role.');
+    }
   };
 
   return (

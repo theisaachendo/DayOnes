@@ -15,6 +15,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 import SignaturePage from './screens/artist/SignaturePage';
 import ArtistSignatures from './screens/artist/ArtistSignatures';
+import PermissionsScreen from './screens/PermissionsScreen';
 
 
 
@@ -86,6 +87,11 @@ const App = () => {
                     <Stack.Screen
             name="ArtistSignatures"
             component={ArtistSignatures}
+            options={{ headerShown: false }}
+          />
+                              <Stack.Screen
+            name="PermissionsScreen"
+            component={PermissionsScreen}
             options={{ headerShown: false }}
           />
 
