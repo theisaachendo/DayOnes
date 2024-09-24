@@ -16,8 +16,7 @@ import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 import SignaturePage from './screens/artist/SignaturePage';
 import ArtistSignatures from './screens/artist/ArtistSignatures';
 import PermissionsScreen from './screens/PermissionsScreen';
-
-
+import EditScreen from './screens/artist/EditScreen'; // Import the EditScreen
 
 const Stack = createStackNavigator();
 
@@ -27,8 +26,6 @@ const App = () => {
   useEffect(() => {
     // Hide the splash screen
     SplashScreen.hide();
-
-
 
     // Start watching geolocation when the app starts
     startWatchingLocation();
@@ -42,62 +39,65 @@ const App = () => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="LoginPage">
-          <Stack.Screen
-            name="LoginPage"
-            component={LoginPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RegArtistPage"
-            component={RegArtistPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RegFanPage"
-            component={RegFanPage}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ArtistStack"
-            component={ArtistStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="FanStack"
-            component={FanStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ProfileScreen"
-            component={ProfileScreen}
-            options={{ headerShown: false }}
-          />
-                    <Stack.Screen
-            name="ArtistPostsPage"
-            component={ArtistPostsPage}
-            options={{ headerShown: false }}
-          />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="LoginPage">
             <Stack.Screen
-            name="SignaturePage"
-            component={SignaturePage}
-            options={{ headerShown: false }}
-          />
-                    <Stack.Screen
-            name="ArtistSignatures"
-            component={ArtistSignatures}
-            options={{ headerShown: false }}
-          />
-                              <Stack.Screen
-            name="PermissionsScreen"
-            component={PermissionsScreen}
-            options={{ headerShown: false }}
-          />
-
-
-        </Stack.Navigator>
-      </NavigationContainer>
+              name="LoginPage"
+              component={LoginPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegArtistPage"
+              component={RegArtistPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="RegFanPage"
+              component={RegFanPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ArtistStack"
+              component={ArtistStack}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="FanStack"
+              component={FanStack}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ProfileScreen"
+              component={ProfileScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ArtistPostsPage"
+              component={ArtistPostsPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SignaturePage"
+              component={SignaturePage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ArtistSignatures"
+              component={ArtistSignatures}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="PermissionsScreen"
+              component={PermissionsScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="EditScreen" // Add the EditScreen here
+              component={EditScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </QueryClientProvider>
     </Provider>
   );

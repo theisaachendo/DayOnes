@@ -10,11 +10,12 @@ import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
 import ArtistPostsPage from './ArtistPostsPage';
+import EditScreen from './EditScreen'; // Import the EditScreen component
 
 const { width } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
 
-const HHomePage = () => {
+const HHomePage = ({ navigation, route }) => {
   const [sliderValue, setSliderValue] = useState([100]);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -25,13 +26,12 @@ const HHomePage = () => {
 
   useEffect(() => {
     console.log("UserProfile from Redux:", userProfile);
-  }, [userProfile]);
 
-  const geolocationData = useSelector(state => state.geolocationData) || {
-    latitude: 0.0,
-    longitude: 0.0,
-    geohash: 'abc123'
-  };
+    // Check if an edited image is passed from EditScreen
+    if (route.params?.editedImage) {
+      setSelectedImage(route.params.editedImage);
+    }
+  }, [userProfile, route.params]);
 
   const options = {
     mediaType: 'photo',
@@ -114,73 +114,6 @@ const HHomePage = () => {
     });
   };
 
-  const createPost = async () => {
-    if (!selectedImage) {
-      alert("Please take a picture or upload a file.");
-      return;
-    }
-
-    if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
-      alert("User information is missing.");
-      return;
-    }
-
-    console.log("Creating post with the following details:");
-    console.log("Username:", userProfile.username);
-    console.log("Geolocation Data:", geolocationData);
-    console.log("Slider Value:", sliderValue);
-
-    const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
-
-    const postData = {
-      username: userProfile.username,  // Include username in the request
-      postContent: "This is my new post!",
-      multimediaFile: {
-        content: selectedImage.base64,
-        name: selectedImage.fileName || 'image.jpg',
-      },
-      lat: geolocationData.latitude,
-      lon: geolocationData.longitude,
-      geohash: geolocationData.geohash,
-      locale: geolocationData.locale,
-      distance: sliderValue[0],
-    };
-
-    console.log("Post data being sent:", postData);
-
-    try {
-      const response = await fetch(lambdaUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(postData),  // Send postData directly as payload
-      });
-
-      const textResponse = await response.text();
-
-      console.log("Raw response from Lambda:", textResponse);
-
-      try {
-        const jsonResponse = JSON.parse(textResponse);
-        console.log("Parsed JSON response:", jsonResponse);
-
-        if (response.ok) {
-          alert('Post created successfully!');
-        } else {
-          console.error("Failed to create post:", jsonResponse);
-          alert('Failed to create post.');
-        }
-      } catch (error) {
-        console.error("Response was not JSON:", textResponse);
-        alert('Received an unexpected response from the server.');
-      }
-    } catch (error) {
-      console.error("Error creating post:", error);
-      alert('Error creating post.');
-    }
-  };
-
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
   };
@@ -232,21 +165,21 @@ const HHomePage = () => {
                 <Text style={styles.title}>Autographs & Invites</Text>
               </View>
 
-              <LinearGradient
-                colors={['#FF00FF', '#001F3F']}
-                style={styles.imageContainer}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-              >
-                {selectedImage ? (
-                  <Image
-                    source={{ uri: selectedImage.uri }}
-                    style={styles.selectedImage}
-                  />
-                ) : (
-                  <Text style={styles.imageText}>Talk to your fans</Text>
-                )}
-              </LinearGradient>
+            <LinearGradient
+              colors={['#FF00FF', '#001F3F']}
+              style={styles.imageContainer}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+            >
+              {selectedImage ? (
+                <Image
+                  source={{ uri: selectedImage.uri }}
+                  style={styles.selectedImage}
+                />
+              ) : (
+                <Text style={styles.imageText}>Talk to your fans</Text>
+              )}
+            </LinearGradient>
 
               <View style={styles.pictureContainer}>
                 <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
@@ -280,11 +213,10 @@ const HHomePage = () => {
                 />
               </View>
 
-              <TouchableOpacity style={styles.sendButton} onPress={createPost}>
-                <Text style={styles.sendButtonText}>Send Invite</Text>
-              </TouchableOpacity>
-            </View>
-          </ImageBackground>
+            <TouchableOpacity style={styles.sendButton} onPress={createPost}>
+              <Text style={styles.sendButtonText}>Send Invite</Text>
+            </TouchableOpacity>
+          </View>
         )}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={ProfileScreen} />
@@ -336,6 +268,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+  },
+  editButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: '#00000088',
+    borderRadius: 20,
+    padding: 5,
   },
   pictureContainer: {
     flexDirection: 'row',
