@@ -1,51 +1,93 @@
-import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const { width, height } = Dimensions.get('window');
 
 const EditScreen = ({ route, navigation }) => {
   const { selectedImage } = route.params; // Get the image object from navigation parameters
-  const [editText, setEditText] = useState('');
-  const [signature, setSignature] = useState('');
+  const [signatures, setSignatures] = useState([]);
+  const [selectedSignature, setSelectedSignature] = useState(null);
+  const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY());
 
-  const handleAddText = () => {
-    // Handle adding text
-    Alert.alert("Add Text", "Functionality to add text goes here.");
+  const username = useSelector(state => state.userProfile.username) || 'unknown';
+
+  useEffect(() => {
+    fetchSignatures();
+  }, []);
+
+  const fetchSignatures = async () => {
+    try {
+      const response = await axios.get('https://x4d3fe2tppuqjgz5zysgqi4sre0lpmmx.lambda-url.us-east-1.on.aws/', {
+        params: {
+          artistUsername: username,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.status === 200) {
+        setSignatures(response.data.data);
+      } else {
+        Alert.alert('Error', 'Failed to fetch signatures. Please try again later.');
+      }
+    } catch (error) {
+      Alert.alert('Error', `Error fetching signatures: ${error.response?.data?.error || error.message}`);
+    }
   };
 
-  const handleAddSignature = () => {
-    // Handle adding signature
-    Alert.alert("Add Signature", "Functionality to add signature goes here.");
+  const panResponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderMove: Animated.event(
+      [null, { dx: draggedSignaturePosition.x, dy: draggedSignaturePosition.y }],
+      { useNativeDriver: false }
+    ),
+    onPanResponderRelease: () => {
+      // Handle logic after dropping the signature, if needed
+    },
+  });
+
+  const handleSignatureSelect = (item) => {
+    setSelectedSignature(item);
+    setDraggedSignaturePosition(new Animated.ValueXY()); // Reset position when a new signature is selected
   };
 
   const handleSave = () => {
     // Simulate saving changes; in a real app, you would process the changes here
-    const editedImage = { ...selectedImage, editText, signature };
-  
-    // Ensure navigation back uses the correct route name as defined in App.js
+    const editedImage = { ...selectedImage, selectedSignature };
     navigation.navigate('HHomePage', { editedImage });
   };
-  
+
+  const renderSignature = ({ item }) => (
+    <TouchableOpacity onPress={() => handleSignatureSelect(item)}>
+      <Image source={{ uri: item.Url }} style={styles.signatureThumbnail} />
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
       <Image source={{ uri: selectedImage.uri }} style={styles.image} />
+      {selectedSignature && (
+        <Animated.View
+          style={[styles.signatureContainer, draggedSignaturePosition.getLayout()]}
+          {...panResponder.panHandlers}
+        >
+          <Image source={{ uri: selectedSignature.Url }} style={styles.signatureImage} resizeMode="contain" />
+        </Animated.View>
+      )}
 
       <View style={styles.toolbar}>
-        {/* Button to Add Text */}
-        <TouchableOpacity style={styles.iconButton} onPress={handleAddText}>
-          <Icon name="font" size={24} color="#fff" />
-          <Text style={styles.iconLabel}>Text</Text>
-        </TouchableOpacity>
-
-        {/* Button to Add Signature */}
-        <TouchableOpacity style={styles.iconButton} onPress={handleAddSignature}>
-          <Icon name="pencil" size={24} color="#fff" />
-          <Text style={styles.iconLabel}>Signature</Text>
-        </TouchableOpacity>
-
-        {/* Save Button */}
+        <FlatList
+          horizontal
+          data={signatures}
+          renderItem={renderSignature}
+          keyExtractor={item => item.Key}
+          contentContainerStyle={styles.signaturesList}
+          showsHorizontalScrollIndicator={false}
+        />
         <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
           <Icon name="save" size={24} color="#fff" />
           <Text style={styles.saveButtonText}>Save & Done</Text>
@@ -71,20 +113,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    padding: 20,
+    padding: 10,
     backgroundColor: '#333',
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
-  },
-  iconButton: {
-    alignItems: 'center',
-    padding: 10,
-  },
-  iconLabel: {
-    color: '#fff',
-    fontSize: 12,
-    marginTop: 5,
   },
   saveButton: {
     backgroundColor: '#FF0080',
@@ -92,11 +124,31 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: 10,
   },
   saveButtonText: {
     color: '#fff',
     fontWeight: 'bold',
     marginLeft: 5,
+  },
+  signaturesList: {
+    paddingLeft: 10,
+  },
+  signatureThumbnail: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+  signatureContainer: {
+    position: 'absolute',
+    zIndex: 10,
+  },
+  signatureImage: {
+    width: 100,
+    height: 100,
   },
 });
 

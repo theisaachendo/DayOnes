@@ -6,18 +6,19 @@ import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
 import ArtistPostsPage from './ArtistPostsPage';
-import EditScreen from './EditScreen'; // Import the EditScreen component
 
 const { width } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
 
-const HHomePage = ({ navigation, route }) => {
+const HHomePage = () => {
   const [sliderValue, setSliderValue] = useState([100]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigation = useNavigation();
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -26,12 +27,13 @@ const HHomePage = ({ navigation, route }) => {
 
   useEffect(() => {
     console.log("UserProfile from Redux:", userProfile);
+  }, [userProfile]);
 
-    // Check if an edited image is passed from EditScreen
-    if (route.params?.editedImage) {
-      setSelectedImage(route.params.editedImage);
-    }
-  }, [userProfile, route.params]);
+  const geolocationData = useSelector(state => state.geolocationData) || {
+    latitude: 0.0,
+    longitude: 0.0,
+    geohash: 'abc123'
+  };
 
   const options = {
     mediaType: 'photo',
@@ -114,8 +116,81 @@ const HHomePage = ({ navigation, route }) => {
     });
   };
 
+  const createPost = async () => {
+    if (!selectedImage) {
+      alert("Please take a picture or upload a file.");
+      return;
+    }
+
+    if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
+      alert("User information is missing.");
+      return;
+    }
+
+    console.log("Creating post with the following details:");
+    console.log("Username:", userProfile.username);
+    console.log("Geolocation Data:", geolocationData);
+    console.log("Slider Value:", sliderValue);
+
+    const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
+
+    const postData = {
+      username: userProfile.username,
+      postContent: "This is my new post!",
+      multimediaFile: {
+        content: selectedImage.base64,
+        name: selectedImage.fileName || 'image.jpg',
+      },
+      lat: geolocationData.latitude,
+      lon: geolocationData.longitude,
+      geohash: geolocationData.geohash,
+      locale: geolocationData.locale,
+      distance: sliderValue[0],
+    };
+
+    console.log("Post data being sent:", postData);
+
+    try {
+      const response = await fetch(lambdaUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),  // Send postData directly as payload
+      });
+
+      const textResponse = await response.text();
+
+      console.log("Raw response from Lambda:", textResponse);
+
+      try {
+        const jsonResponse = JSON.parse(textResponse);
+        console.log("Parsed JSON response:", jsonResponse);
+
+        if (response.ok) {
+          alert('Post created successfully!');
+        } else {
+          console.error("Failed to create post:", jsonResponse);
+          alert('Failed to create post.');
+        }
+      } catch (error) {
+        console.error("Response was not JSON:", textResponse);
+        alert('Received an unexpected response from the server.');
+      }
+    } catch (error) {
+      console.error("Error creating post:", error);
+      alert('Error creating post.');
+    }
+  };
+
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
+  };
+
+  const handleEditClick = () => {
+    if (selectedImage) {
+      navigation.navigate('EditScreen', { selectedImage });
+    }
   };
 
   return (
@@ -165,21 +240,26 @@ const HHomePage = ({ navigation, route }) => {
                 <Text style={styles.title}>Autographs & Invites</Text>
               </View>
 
-            <LinearGradient
-              colors={['#FF00FF', '#001F3F']}
-              style={styles.imageContainer}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-            >
-              {selectedImage ? (
-                <Image
-                  source={{ uri: selectedImage.uri }}
-                  style={styles.selectedImage}
-                />
-              ) : (
-                <Text style={styles.imageText}>Talk to your fans</Text>
-              )}
-            </LinearGradient>
+              <LinearGradient
+                colors={['#FF00FF', '#001F3F']}
+                style={styles.imageContainer}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                {selectedImage ? (
+                  <View style={styles.selectedImageContainer}>
+                    <Image
+                      source={{ uri: selectedImage.uri }}
+                      style={styles.selectedImage}
+                    />
+                    <TouchableOpacity style={styles.editButton} onPress={handleEditClick}>
+                      <Icon name="pencil" size={20} color="#fff" />
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <Text style={styles.imageText}>Talk to your fans</Text>
+                )}
+              </LinearGradient>
 
               <View style={styles.pictureContainer}>
                 <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
@@ -213,10 +293,11 @@ const HHomePage = ({ navigation, route }) => {
                 />
               </View>
 
-            <TouchableOpacity style={styles.sendButton} onPress={createPost}>
-              <Text style={styles.sendButtonText}>Send Invite</Text>
-            </TouchableOpacity>
-          </View>
+              <TouchableOpacity style={styles.sendButton} onPress={createPost}>
+                <Text style={styles.sendButtonText}>Send Invite</Text>
+              </TouchableOpacity>
+            </View>
+          </ImageBackground>
         )}
       </Tab.Screen>
       <Tab.Screen name="Profile" component={ProfileScreen} />
@@ -258,6 +339,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  selectedImageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+  },
   imageText: {
     position: 'absolute',
     color: '#fff',
@@ -271,11 +357,11 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    top: 10,
+    bottom: 10,
     right: 10,
-    backgroundColor: '#00000088',
-    borderRadius: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: 5,
+    borderRadius: 5,
   },
   pictureContainer: {
     flexDirection: 'row',
