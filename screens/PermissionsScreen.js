@@ -65,9 +65,11 @@ const PermissionsScreen = () => {
 
       if (result === RESULTS.BLOCKED) {
         openAppSettings();
+      } else if (result === RESULTS.DENIED) {
+        Alert.alert('Permission Denied', `The ${permission} permission was denied.`);
       } else {
         setPermissionState(result === RESULTS.GRANTED);
-        checkAllPermissions(); // Check all permissions again after requesting
+        checkAllPermissions(); // Re-check all permissions after requesting one
       }
     } catch (error) {
       console.log('Error requesting permission:', error);
@@ -88,7 +90,6 @@ const PermissionsScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Background Image */}
       <ImageBackground
         source={require('../images/background.png')} // Set your background image here
         style={styles.backgroundImage}
