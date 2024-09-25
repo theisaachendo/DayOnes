@@ -10,7 +10,7 @@ import {
   StatusBar,
   Dimensions,
   Platform,
-  ImageBackground, // Import ImageBackground
+  ImageBackground,
 } from 'react-native';
 import { setUserProfile } from '../redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,7 +18,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoText from '../components/LogoText';
-import useLogin from '../hooks/useLogin';
+import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 const { width } = Dimensions.get('window');
@@ -26,46 +26,46 @@ const { width } = Dimensions.get('window');
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // Add a loading state
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  // Use the custom hook
-  const { mutate: login, isLoading } = useLogin();
-
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!username || !password) {
       Alert.alert('Validation Error', 'Please enter both username and password.');
       return;
     }
 
-    login(
-      { username, password },
-      {
-        onSuccess: async (result) => {
-          Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
+    setIsLoading(true); // Set loading state
+    try {
+      const response = await axios.get(
+        `https://ifxz5tco3iasejg5ldo3udsq740cxxbl.lambda-url.us-east-1.on.aws/?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+      );
+      const result = response.data;
 
-          // Dispatch the user profile data to Redux store
-          dispatch(setUserProfile(result.profile));
+      Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
 
-          // Check permissions after successful login
-          const hasAllPermissions = await checkPermissions();
-          if (hasAllPermissions) {
-            navigateToAppropriateStack(result.profile.role);
-          } else {
-            navigation.navigate('PermissionsScreen');
-          }
-        },
-        onError: (error) => {
-          if (error.response?.status === 401) {
-            Alert.alert('Login Failed', 'Invalid username or password.');
-          } else if (error.response?.status === 404) {
-            Alert.alert('Login Failed', 'User not found.');
-          } else {
-            Alert.alert('Login Failed', 'An unexpected error occurred.');
-          }
-        }
+      // Dispatch the user profile data to Redux store
+      dispatch(setUserProfile(result.profile));
+
+      // Check permissions after successful login
+      const hasAllPermissions = await checkPermissions();
+      if (hasAllPermissions) {
+        navigateToAppropriateStack(result.profile.role);
+      } else {
+        navigation.navigate('PermissionsScreen');
       }
-    );
+    } catch (error) {
+      if (error.response?.status === 401) {
+        Alert.alert('Login Failed', 'Invalid username or password.');
+      } else if (error.response?.status === 404) {
+        Alert.alert('Login Failed', 'User not found.');
+      } else {
+        Alert.alert('Login Failed', 'An unexpected error occurred.');
+      }
+    } finally {
+      setIsLoading(false); // Reset loading state
+    }
   };
 
   const checkPermissions = async () => {
@@ -73,8 +73,12 @@ const LoginScreen = () => {
       const camera = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA);
       const library = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.PHOTO_LIBRARY : PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
       const notifications = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.NOTIFICATIONS : PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
+      const location = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
 
-      return camera === RESULTS.GRANTED && library === RESULTS.GRANTED && notifications === RESULTS.GRANTED;
+      return camera === RESULTS.GRANTED &&
+             library === RESULTS.GRANTED &&
+             notifications === RESULTS.GRANTED &&
+             location === RESULTS.GRANTED;
     } catch (error) {
       console.log('Error checking permissions:', error);
       return false;
@@ -154,6 +158,16 @@ const LoginScreen = () => {
           </Text>
 
           <View style={styles.bottomSection}>
+            {/* New Signup Button */}
+            <LinearGradient colors={['#00ffcc', '#0099cc']} style={styles.signupArtistButton}>
+              <TouchableOpacity
+                style={styles.fullWidth}
+                onPress={() => navigation.navigate('NewSignupPage')}
+              >
+                <Text style={[styles.signupArtistText, { color: '#fff' }]}>New Signup</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+
             <Text style={styles.artistQuestionText}>Are you an artist?</Text>
             <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
               <TouchableOpacity
@@ -179,7 +193,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    resizeMode: 'cover', // or 'contain' depending on the image aspect ratio
+    resizeMode: 'cover',
     justifyContent: 'center',
   },
   contentContainer: {
@@ -279,6 +293,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    marginBottom: 20, // Adjusted spacing
   },
   signupArtistText: {
     color: '#000',
