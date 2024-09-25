@@ -6,6 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
@@ -17,6 +18,7 @@ const Tab = createBottomTabNavigator();
 const HHomePage = () => {
   const [sliderValue, setSliderValue] = useState([100]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigation = useNavigation();
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -133,7 +135,7 @@ const HHomePage = () => {
     const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
 
     const postData = {
-      username: userProfile.username,  // Include username in the request
+      username: userProfile.username,
       postContent: "This is my new post!",
       multimediaFile: {
         content: selectedImage.base64,
@@ -183,6 +185,12 @@ const HHomePage = () => {
 
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
+  };
+
+  const handleEditClick = () => {
+    if (selectedImage) {
+      navigation.navigate('EditScreen', { selectedImage });
+    }
   };
 
   return (
@@ -239,10 +247,15 @@ const HHomePage = () => {
                 end={{ x: 1, y: 1 }}
               >
                 {selectedImage ? (
-                  <Image
-                    source={{ uri: selectedImage.uri }}
-                    style={styles.selectedImage}
-                  />
+                  <View style={styles.selectedImageContainer}>
+                    <Image
+                      source={{ uri: selectedImage.uri }}
+                      style={styles.selectedImage}
+                    />
+                    <TouchableOpacity style={styles.editButton} onPress={handleEditClick}>
+                      <Icon name="pencil" size={20} color="#fff" />
+                    </TouchableOpacity>
+                  </View>
                 ) : (
                   <Text style={styles.imageText}>Talk to your fans</Text>
                 )}
@@ -326,6 +339,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  selectedImageContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+  },
   imageText: {
     position: 'absolute',
     color: '#fff',
@@ -336,6 +354,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
+  },
+  editButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: 5,
+    borderRadius: 5,
   },
   pictureContainer: {
     flexDirection: 'row',
