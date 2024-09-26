@@ -7,8 +7,8 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
+import { useNavigation } from '@react-navigation/native'; // Correct import for navigation
+import { useSignup } from '../hooks/useSignup'; // Update with the actual path to your hook
 
 const NewSignupPage = () => {
   const [email, setEmail] = useState('');
@@ -18,9 +18,10 @@ const NewSignupPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [role, setRole] = useState('ARTIST');
 
-  const navigation = useNavigation();
+  const navigation = useNavigation(); // Correctly get the navigation object
+  const signupMutation = useSignup();
 
-  const handleSignup = async () => {
+  const handleSignup = () => {
     if (!email || !password || !confirmPassword || !name || !phoneNumber) {
       Alert.alert('Validation Error', 'All fields are required.');
       return;
@@ -31,24 +32,7 @@ const NewSignupPage = () => {
       return;
     }
 
-    try {
-      const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/signup', {
-        email,
-        password,
-        role,
-        name,
-        phone_number: phoneNumber,
-      });
-
-      if (response.status === 200) {
-        Alert.alert('Signup Successful', 'Please check your email for the verification code.');
-        navigation.navigate('VerifyAccount', { email }); // Navigate to VerifyAccount with email
-      } else {
-        Alert.alert('Signup Failed', 'Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      Alert.alert('Signup Error', error.response?.data?.message || 'An unexpected error occurred.');
-    }
+    signupMutation.mutate({ email, password, name, phoneNumber, role });
   };
 
   return (

@@ -38,6 +38,12 @@ const useLogin = () => {
       if (error.response?.data?.message) {
         if (typeof error.response.data.message === 'string') {
           errorMessage = error.response.data.message;
+
+          // Check for specific error messages and customize the alert
+          if (errorMessage.includes('User is not confirmed')) {
+            errorMessage = 'Your email address is not verified. Please check your inbox for a verification email.';
+          }
+
         } else if (Array.isArray(error.response.data.message)) {
           errorMessage = error.response.data.message.join(', ');
         } else if (typeof error.response.data.message === 'object') {

@@ -32,7 +32,7 @@ const VerifyAccount = () => {
 
       if (response.status === 200) {
         Alert.alert('Verification Successful', 'Your account has been verified.');
-        navigation.navigate('LoginPage'); // Redirect to login page after verification
+        navigation.navigate('NewLoginPage'); // Redirect to login page after verification
       } else {
         Alert.alert('Verification Failed', 'Invalid verification code. Please try again.');
       }

@@ -13,7 +13,7 @@ import useLogin from '../hooks/useLogin';
 import useFetchUser from '../hooks/useFetchUser';
 import useLogout from '../hooks/useLogout';
 
-const LoginPage = () => {
+const NewLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+export default NewLoginPage;
