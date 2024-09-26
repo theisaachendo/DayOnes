@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
+import { setSignatureColor, setSignatureSize } from '../../redux/actions'; // Import the action creators
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
 
@@ -12,14 +13,19 @@ const EditScreen = ({ route, navigation }) => {
   const { selectedImage } = route.params;
   const [signatures, setSignatures] = useState([]);
   const [selectedSignature, setSelectedSignature] = useState(null);
-  const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY());
-  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [signatureSize, setSignatureSize] = useState({ width: 450, height: 450 });
-  const [lastTap, setLastTap] = useState(null);
-  const [signatureColor, setSignatureColor] = useState('#FF0000'); // Default color
+  const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY({ x: width * 0.6, y: height * 0.55 }));
+  const [lastPosition, setLastPosition] = useState({ x: width * 0.6, y: height * 0.55 });
+  const lastTap = useRef(null);
+
+  const signatureColor = useSelector(state => state.signatureColor); // Use the color from Redux
+  const signatureSize = useSelector(state => state.signatureSize);   // Use the size from Redux
+  const [activeTab, setActiveTab] = useState(0); // Tab state
   const viewShotRef = useRef(null);
+  const initialSignatureSize = { width: 200, height: 200 }; // Smaller initial size
+
 
   const username = useSelector(state => state.userProfile.username) || 'unknown';
+  const dispatch = useDispatch(); // Initialize dispatch
 
   useEffect(() => {
     fetchSignatures();
@@ -64,29 +70,40 @@ const EditScreen = ({ route, navigation }) => {
 
   const handleSignatureSelect = (item) => {
     setSelectedSignature(item);
-    setDraggedSignaturePosition(new Animated.ValueXY({ x: lastPosition.x, y: lastPosition.y }));
+
+    // Calculate the center position based on the signature size
+    const startX = (width - signatureSize.width) / 2;
+    const startY = (height * 0.75 - signatureSize.height) / 2; // height * 0.75 to account for the viewable area
+
+    setDraggedSignaturePosition(new Animated.ValueXY({ x: startX, y: startY }));
+    setLastPosition({ x: startX, y: startY });
+
+    setActiveTab(2); // Automatically switch to the "Save" tab (index 2)
   };
 
+
+
   const handleDoubleTap = () => {
-    if (signatureSize.width === 450) {
-      setSignatureSize({ width: 600, height: 600 });
-    } else if (signatureSize.width === 600) {
-      setSignatureSize({ width: 350, height: 350 });
+    if (signatureSize.width === 150) {
+      dispatch(setSignatureSize({ width: 250, height: 250 }));
+    } else if (signatureSize.width === 200) {
+      dispatch(setSignatureSize({ width: 150, height: 150 }));
     } else {
-      setSignatureSize({ width: 450, height: 450 });
+      dispatch(setSignatureSize(initialSignatureSize)); // Default to the initial size
     }
   };
+
 
   const handleTap = () => {
     const now = Date.now();
-    if (lastTap && (now - lastTap) < 300) {
+    if (lastTap.current && (now - lastTap.current) < 300) {
       handleDoubleTap();
     }
-    setLastTap(now);
+    lastTap.current = now;
   };
 
   const applyColorToSignature = (color) => {
-    setSignatureColor(color);
+    dispatch(setSignatureColor(color)); // Dispatch the action to set the color in Redux
   };
 
   const captureAndSaveImage = async () => {
@@ -101,6 +118,45 @@ const EditScreen = ({ route, navigation }) => {
     } catch (error) {
       console.error('Error capturing and saving image:', error);
       Alert.alert('Error', 'Failed to save the image. Please try again.');
+    }
+  };
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 0:
+        return (
+          <FlatList
+            horizontal
+            data={signatures}
+            renderItem={renderSignature}
+            keyExtractor={item => item.Key}
+            contentContainerStyle={styles.signaturesList}
+            showsHorizontalScrollIndicator={false}
+          />
+        );
+      case 1:
+        return (
+          <View style={styles.colorOptions}>
+            {['#FFFFFF', '#FF00FF', '#00FF00', '#00FFFF', '#FFFF00', '#FF0000'].map((color) => (
+              <TouchableOpacity
+                key={color}
+                style={[styles.colorButton, { backgroundColor: color }]}
+                onPress={() => applyColorToSignature(color)}
+              />
+            ))}
+          </View>
+        );
+      case 2:
+        return (
+          <View style={styles.saveContainer}>
+            <TouchableOpacity style={styles.saveButton} onPress={captureAndSaveImage}>
+              <Icon name="save" size={24} color="#fff" />
+              <Text style={styles.saveButtonText}>Save Picture</Text>
+            </TouchableOpacity>
+          </View>
+        );
+      default:
+        return null;
     }
   };
 
@@ -141,31 +197,22 @@ const EditScreen = ({ route, navigation }) => {
         )}
       </ViewShot>
 
-      <View style={styles.colorPickerContainer}>
-        <View style={styles.colorOptions}>
-          {['#FFFFFF', '#FF00FF', '#00FF00', '#00FFFF', '#FFFF00', '#FF0000'].map((color) => (
-            <TouchableOpacity
-              key={color}
-              style={[styles.colorButton, { backgroundColor: color }]}
-              onPress={() => applyColorToSignature(color)}
-            />
-          ))}
-        </View>
+      {/* Tab Buttons */}
+      <View style={styles.tabContainer}>
+        <TouchableOpacity style={[styles.tabButton, activeTab === 0 && styles.activeTab]} onPress={() => setActiveTab(0)}>
+          <Text style={styles.tabText}>Signatures</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.tabButton, activeTab === 1 && styles.activeTab]} onPress={() => setActiveTab(1)}>
+          <Text style={styles.tabText}>Color</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.tabButton, activeTab === 2 && styles.activeTab]} onPress={() => setActiveTab(2)}>
+          <Text style={styles.tabText}>Save</Text>
+        </TouchableOpacity>
       </View>
 
-      <View style={styles.toolbar}>
-        <FlatList
-          horizontal
-          data={signatures}
-          renderItem={renderSignature}
-          keyExtractor={item => item.Key}
-          contentContainerStyle={styles.signaturesList}
-          showsHorizontalScrollIndicator={false}
-        />
-        <TouchableOpacity style={styles.saveButton} onPress={captureAndSaveImage}>
-          <Icon name="save" size={24} color="#fff" />
-          <Text style={styles.saveButtonText}>Save & Done</Text>
-        </TouchableOpacity>
+      {/* Tab Content */}
+      <View style={styles.tabContentContainer}>
+        {renderTabContent()}
       </View>
     </View>
   );
@@ -180,55 +227,37 @@ const styles = StyleSheet.create({
   },
   viewShot: {
     width: width,
-    height: height * 0.7,
+    height: height * 0.75, // Reduced the height to provide space for tabs
   },
   image: {
     width: '100%',
     height: '100%',
     resizeMode: 'contain',
   },
-  toolbar: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    padding: 10,
+  tabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     backgroundColor: '#333',
-    flexDirection: 'row',
+    width: '100%',
+    paddingVertical: 5, // Reduced padding to save space
+  },
+  tabButton: {
+    flex: 1,
+    paddingVertical: 8,
     alignItems: 'center',
   },
-  saveButton: {
-    backgroundColor: '#FF0080',
-    padding: 10,
-    borderRadius: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 10,
+  activeTab: {
+    backgroundColor: '#555',
   },
-  saveButtonText: {
+  tabText: {
     color: '#fff',
+    fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 5,
   },
-  signaturesList: {
-    paddingLeft: 10,
-  },
-  signatureThumbnail: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  signatureContainer: {
-    position: 'absolute',
-    zIndex: 10,
-  },
-  signatureImage: {
-    shadowOffset: { width: 0, height: 0 }, // Shadow offset for the glow effect
-  },
-  colorPickerContainer: {
-    marginVertical: 20,
+  tabContentContainer: {
+    paddingVertical: 10, // Added some padding to create space between thumbnails and the tab bar
+    width: '100%',
+    alignItems: 'center',
   },
   colorOptions: {
     flexDirection: 'row',
@@ -239,6 +268,41 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginHorizontal: 10,
+  },
+  saveContainer: {
+    marginTop: 20,
+  },
+  saveButton: {
+    backgroundColor: '#FF0080',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  saveButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
+  signaturesList: {
+    paddingLeft: 10,
+  },
+  signatureThumbnail: {
+    width: 100, // Increased size
+    height: 100, // Increased size
+    marginRight: 10,
+    borderRadius: 10, // Increased border-radius for better visibility
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+  signatureContainer: {
+    position: 'absolute',
+    zIndex: 10,
+  },
+  signatureImage: {
+    shadowOffset: { width: 0, height: 0 }, // Shadow offset for the glow effect
   },
 });
 
