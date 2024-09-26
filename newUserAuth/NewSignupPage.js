@@ -40,25 +40,14 @@ const NewSignupPage = () => {
         phone_number: phoneNumber,
       });
 
-      if (response.status === 200 && response.data?.success) {
+      if (response.status === 200) {
         Alert.alert('Signup Successful', 'Please check your email for the verification code.');
-        navigation.navigate('VerifyAccount', { email });
+        navigation.navigate('VerifyAccount', { email }); // Navigate to VerifyAccount with email
       } else {
-        throw new Error('User creation failed. Please try again.');
+        Alert.alert('Signup Failed', 'Something went wrong. Please try again.');
       }
     } catch (error) {
-      let errorMessage = 'An unexpected error occurred.';
-      if (error.response?.status === 500) {
-        if (error.response?.data?.message?.includes('User created')) {
-          Alert.alert('Signup Successful', 'Please check your email for the verification code.');
-          navigation.navigate('VerifyAccount', { email });
-        } else {
-          errorMessage = 'There was a server issue, but your account may still have been created. Please check your email for a verification code or try logging in.';
-        }
-      } else {
-        errorMessage = error.response?.data?.message || errorMessage;
-      }
-      Alert.alert('Signup Error', errorMessage);
+      Alert.alert('Signup Error', error.response?.data?.message || 'An unexpected error occurred.');
     }
   };
 
