@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import ViewShot from 'react-native-view-shot';
-import RNFS from 'react-native-fs'; // For file saving and manipulation
+import RNFS from 'react-native-fs';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,9 +14,10 @@ const EditScreen = ({ route, navigation }) => {
   const [selectedSignature, setSelectedSignature] = useState(null);
   const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY());
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [signatureSize, setSignatureSize] = useState({ width: 450, height: 450 }); // Default size
+  const [signatureSize, setSignatureSize] = useState({ width: 450, height: 450 });
   const [lastTap, setLastTap] = useState(null);
-  const viewShotRef = useRef(null); // Reference for capturing the view
+  const [signatureColor, setSignatureColor] = useState('#FF0000'); // Default color
+  const viewShotRef = useRef(null);
 
   const username = useSelector(state => state.userProfile.username) || 'unknown';
 
@@ -52,12 +53,10 @@ const EditScreen = ({ route, navigation }) => {
       { useNativeDriver: false }
     ),
     onPanResponderRelease: () => {
-      // Save the last known position when dragging stops
       draggedSignaturePosition.flattenOffset();
       setLastPosition({ x: draggedSignaturePosition.x._value, y: draggedSignaturePosition.y._value });
     },
     onPanResponderGrant: () => {
-      // Set the starting offset to the last known position
       draggedSignaturePosition.setOffset({ x: lastPosition.x, y: lastPosition.y });
       draggedSignaturePosition.setValue({ x: 0, y: 0 });
     },
@@ -69,7 +68,6 @@ const EditScreen = ({ route, navigation }) => {
   };
 
   const handleDoubleTap = () => {
-    // Toggle between three sizes: default (450x450), larger (600x600), and smaller (350x350)
     if (signatureSize.width === 450) {
       setSignatureSize({ width: 600, height: 600 });
     } else if (signatureSize.width === 600) {
@@ -82,22 +80,23 @@ const EditScreen = ({ route, navigation }) => {
   const handleTap = () => {
     const now = Date.now();
     if (lastTap && (now - lastTap) < 300) {
-      // Double tap detected
       handleDoubleTap();
     }
     setLastTap(now);
   };
 
+  const applyColorToSignature = (color) => {
+    setSignatureColor(color);
+  };
+
   const captureAndSaveImage = async () => {
     try {
-      const uri = await viewShotRef.current.capture(); // Capture the view as an image
-      const newFilePath = `${RNFS.DocumentDirectoryPath}/edited_image_${Date.now()}.jpg`; // Ensure unique file name
+      const uri = await viewShotRef.current.capture();
+      const newFilePath = `${RNFS.DocumentDirectoryPath}/edited_image_${Date.now()}.jpg`;
 
-      // Save captured image to local filesystem
       await RNFS.moveFile(uri, newFilePath);
 
       Alert.alert('Success', 'Image saved successfully!');
-      // Pass the new image path to the home screen for invites
       navigation.navigate('HHomePage', { editedImage: { uri: `file://${newFilePath}`, base64: await RNFS.readFile(newFilePath, 'base64') } });
     } catch (error) {
       console.error('Error capturing and saving image:', error);
@@ -123,13 +122,36 @@ const EditScreen = ({ route, navigation }) => {
             <TouchableOpacity activeOpacity={1} onPress={handleTap}>
               <Image
                 source={{ uri: selectedSignature.Url }}
-                style={[styles.signatureImage, signatureSize]}
+                style={[
+                  styles.signatureImage,
+                  signatureSize,
+                  {
+                    tintColor: signatureColor,
+                    shadowColor: signatureColor,
+                    shadowRadius: 10,
+                    shadowOpacity: 1.0,
+                    shadowOffset: { width: 0, height: 0 },
+                    elevation: 10, // For Android to apply shadow effect
+                  },
+                ]}
                 resizeMode="contain"
               />
             </TouchableOpacity>
           </Animated.View>
         )}
       </ViewShot>
+
+      <View style={styles.colorPickerContainer}>
+        <View style={styles.colorOptions}>
+          {['#FFFFFF', '#FF00FF', '#00FF00', '#00FFFF', '#FFFF00', '#FF0000'].map((color) => (
+            <TouchableOpacity
+              key={color}
+              style={[styles.colorButton, { backgroundColor: color }]}
+              onPress={() => applyColorToSignature(color)}
+            />
+          ))}
+        </View>
+      </View>
 
       <View style={styles.toolbar}>
         <FlatList
@@ -157,7 +179,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   viewShot: {
-    width: width, // Ensures the ViewShot only captures the image and signature
+    width: width,
     height: height * 0.7,
   },
   image: {
@@ -203,7 +225,20 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   signatureImage: {
-    // Signature sizes managed by state
+    shadowOffset: { width: 0, height: 0 }, // Shadow offset for the glow effect
+  },
+  colorPickerContainer: {
+    marginVertical: 20,
+  },
+  colorOptions: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  colorButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginHorizontal: 10,
   },
 });
 
