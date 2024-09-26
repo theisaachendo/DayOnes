@@ -7,8 +7,8 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Correct import for navigation
-import { useSignup } from '../hooks/useSignup'; // Update with the actual path to your hook
+import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const NewSignupPage = () => {
   const [email, setEmail] = useState('');
@@ -18,10 +18,9 @@ const NewSignupPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [role, setRole] = useState('ARTIST');
 
-  const navigation = useNavigation(); // Correctly get the navigation object
-  const signupMutation = useSignup();
+  const navigation = useNavigation();
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (!email || !password || !confirmPassword || !name || !phoneNumber) {
       Alert.alert('Validation Error', 'All fields are required.');
       return;
@@ -32,7 +31,35 @@ const NewSignupPage = () => {
       return;
     }
 
-    signupMutation.mutate({ email, password, name, phoneNumber, role });
+    try {
+      const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/signup', {
+        email,
+        password,
+        role,
+        name,
+        phone_number: phoneNumber,
+      });
+
+      if (response.status === 200 && response.data?.success) {
+        Alert.alert('Signup Successful', 'Please check your email for the verification code.');
+        navigation.navigate('VerifyAccount', { email });
+      } else {
+        throw new Error('User creation failed. Please try again.');
+      }
+    } catch (error) {
+      let errorMessage = 'An unexpected error occurred.';
+      if (error.response?.status === 500) {
+        if (error.response?.data?.message?.includes('User created')) {
+          Alert.alert('Signup Successful', 'Please check your email for the verification code.');
+          navigation.navigate('VerifyAccount', { email });
+        } else {
+          errorMessage = 'There was a server issue, but your account may still have been created. Please check your email for a verification code or try logging in.';
+        }
+      } else {
+        errorMessage = error.response?.data?.message || errorMessage;
+      }
+      Alert.alert('Signup Error', errorMessage);
+    }
   };
 
   return (

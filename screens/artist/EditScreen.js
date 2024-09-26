@@ -91,14 +91,14 @@ const EditScreen = ({ route, navigation }) => {
   const captureAndSaveImage = async () => {
     try {
       const uri = await viewShotRef.current.capture(); // Capture the view as an image
-      const newFilePath = `${RNFS.DocumentDirectoryPath}/edited_image.jpg`; // Path to save the new image
+      const newFilePath = `${RNFS.DocumentDirectoryPath}/edited_image_${Date.now()}.jpg`; // Ensure unique file name
 
       // Save captured image to local filesystem
       await RNFS.moveFile(uri, newFilePath);
 
       Alert.alert('Success', 'Image saved successfully!');
       // Pass the new image path to the home screen for invites
-      navigation.navigate('HHomePage', { editedImage: { uri: `file://${newFilePath}` } });
+      navigation.navigate('HHomePage', { editedImage: { uri: `file://${newFilePath}`, base64: await RNFS.readFile(newFilePath, 'base64') } });
     } catch (error) {
       console.error('Error capturing and saving image:', error);
       Alert.alert('Error', 'Failed to save the image. Please try again.');
@@ -112,22 +112,24 @@ const EditScreen = ({ route, navigation }) => {
   );
 
   return (
-    <ViewShot ref={viewShotRef} options={{ format: 'jpg', quality: 0.9 }} style={styles.container}>
-      <Image source={{ uri: selectedImage.uri }} style={styles.image} />
-      {selectedSignature && (
-        <Animated.View
-          style={[styles.signatureContainer, draggedSignaturePosition.getLayout()]}
-          {...panResponder.panHandlers}
-        >
-          <TouchableOpacity activeOpacity={1} onPress={handleTap}>
-            <Image
-              source={{ uri: selectedSignature.Url }}
-              style={[styles.signatureImage, signatureSize]}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        </Animated.View>
-      )}
+    <View style={styles.container}>
+      <ViewShot ref={viewShotRef} options={{ format: 'jpg', quality: 0.9 }} style={styles.viewShot}>
+        <Image source={{ uri: selectedImage.uri }} style={styles.image} />
+        {selectedSignature && (
+          <Animated.View
+            style={[styles.signatureContainer, draggedSignaturePosition.getLayout()]}
+            {...panResponder.panHandlers}
+          >
+            <TouchableOpacity activeOpacity={1} onPress={handleTap}>
+              <Image
+                source={{ uri: selectedSignature.Url }}
+                style={[styles.signatureImage, signatureSize]}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          </Animated.View>
+        )}
+      </ViewShot>
 
       <View style={styles.toolbar}>
         <FlatList
@@ -143,7 +145,7 @@ const EditScreen = ({ route, navigation }) => {
           <Text style={styles.saveButtonText}>Save & Done</Text>
         </TouchableOpacity>
       </View>
-    </ViewShot>
+    </View>
   );
 };
 
@@ -154,9 +156,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: {
-    width: width,
+  viewShot: {
+    width: width, // Ensures the ViewShot only captures the image and signature
     height: height * 0.7,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
     resizeMode: 'contain',
   },
   toolbar: {

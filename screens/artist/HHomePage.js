@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
@@ -19,6 +20,7 @@ const HHomePage = () => {
   const [sliderValue, setSliderValue] = useState([100]);
   const [selectedImage, setSelectedImage] = useState(null);
   const navigation = useNavigation();
+  const route = useRoute();
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -28,6 +30,12 @@ const HHomePage = () => {
   useEffect(() => {
     console.log("UserProfile from Redux:", userProfile);
   }, [userProfile]);
+
+  useEffect(() => {
+    if (route.params?.editedImage) {
+      setSelectedImage(route.params.editedImage);
+    }
+  }, [route.params?.editedImage]);
 
   const geolocationData = useSelector(state => state.geolocationData) || {
     latitude: 0.0,
