@@ -1,41 +1,16 @@
 // MySignaturesScreen.js
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
+import { useSignatures } from '../../hooks/useSignatures'; // Import the custom hook
 
 const ArtistSignatures = () => {
   const navigation = useNavigation();
   const username = useSelector(state => state.userProfile.username) || 'unknown';
-  const [signatures, setSignatures] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  const fetchSignatures = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get('https://x4d3fe2tppuqjgz5zysgqi4sre0lpmmx.lambda-url.us-east-1.on.aws/', {
-        params: {
-          artistUsername: username,
-        },
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.status === 200) {
-        setSignatures(response.data.data);
-      } else {
-        console.error('Failed to fetch signatures:', response);
-        Alert.alert('Error', 'Failed to fetch signatures. Please try again later.');
-      }
-    } catch (error) {
-      console.error('Error fetching signatures:', error);
-      Alert.alert('Error', `Error fetching signatures: ${error.response?.data?.error || error.message}`);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Use the custom hook to fetch signatures
+  const { data: signatures, isLoading, isError, refetch } = useSignatures(username);
 
   const renderSignature = ({ item }) => (
     <View style={styles.signatureContainer}>
@@ -51,13 +26,15 @@ const ArtistSignatures = () => {
         </TouchableOpacity>
         <Text style={styles.title}>My Signatures</Text>
       </View>
-      {!signatures.length && !loading && (
-        <TouchableOpacity style={styles.button} onPress={fetchSignatures}>
-          <Text style={styles.buttonText}>{loading ? 'Loading...' : 'Fetch Signatures'}</Text>
+      {!signatures?.length && !isLoading && (
+        <TouchableOpacity style={styles.button} onPress={refetch}>
+          <Text style={styles.buttonText}>{isLoading ? 'Loading...' : 'Fetch Signatures'}</Text>
         </TouchableOpacity>
       )}
-      {loading ? (
+      {isLoading ? (
         <ActivityIndicator size="large" color="#00FFFF" />
+      ) : isError ? (
+        <Text style={styles.errorText}>Failed to load signatures. Please try again.</Text>
       ) : (
         <FlatList
           data={signatures}
@@ -110,6 +87,11 @@ const styles = StyleSheet.create({
     color: '#00FFFF',
     fontSize: 16,
     textAlign: 'center',
+  },
+  errorText: {
+    color: '#FF0000',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   list: {
     alignItems: 'center',

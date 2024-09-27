@@ -1,56 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
 import { setSignatureColor, setSignatureSize } from '../../redux/actions'; // Import the action creators
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
+import { useSignatures } from '../../hooks/useSignatures'; // Import the custom hook
 
 const { width, height } = Dimensions.get('window');
 
 const EditScreen = ({ route, navigation }) => {
   const { selectedImage } = route.params;
-  const [signatures, setSignatures] = useState([]);
   const [selectedSignature, setSelectedSignature] = useState(null);
   const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY({ x: width * 0.6, y: height * 0.55 }));
   const [lastPosition, setLastPosition] = useState({ x: width * 0.6, y: height * 0.55 });
   const lastTap = useRef(null);
-
   const signatureColor = useSelector(state => state.signatureColor); // Use the color from Redux
   const signatureSize = useSelector(state => state.signatureSize);   // Use the size from Redux
   const [activeTab, setActiveTab] = useState(0); // Tab state
   const viewShotRef = useRef(null);
-  const initialSignatureSize = { width: 200, height: 200 }; // Smaller initial size
-
-
   const username = useSelector(state => state.userProfile.username) || 'unknown';
   const dispatch = useDispatch(); // Initialize dispatch
 
-  useEffect(() => {
-    fetchSignatures();
-  }, []);
-
-  const fetchSignatures = async () => {
-    try {
-      const response = await axios.get('https://x4d3fe2tppuqjgz5zysgqi4sre0lpmmx.lambda-url.us-east-1.on.aws/', {
-        params: {
-          artistUsername: username,
-        },
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.status === 200) {
-        setSignatures(response.data.data);
-      } else {
-        Alert.alert('Error', 'Failed to fetch signatures. Please try again later.');
-      }
-    } catch (error) {
-      Alert.alert('Error', `Error fetching signatures: ${error.response?.data?.error || error.message}`);
-    }
-  };
+  // Use the custom hook to fetch signatures
+  const { data: signatures, isLoading, isError } = useSignatures(username);
 
   const panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
@@ -81,18 +54,19 @@ const EditScreen = ({ route, navigation }) => {
     setActiveTab(2); // Automatically switch to the "Save" tab (index 2)
   };
 
-
-
   const handleDoubleTap = () => {
-    if (signatureSize.width === 150) {
-      dispatch(setSignatureSize({ width: 250, height: 250 }));
-    } else if (signatureSize.width === 200) {
-      dispatch(setSignatureSize({ width: 150, height: 150 }));
+    const smallSize = { width: width * 0.30, height: height * 0.30 };
+    const mediumSize = { width: width * 0.40, height: height * 0.40 };
+    const largeSize = { width: width * 0.55, height: height * 0.55 };
+
+    if (signatureSize.width === smallSize.width) {
+      dispatch(setSignatureSize(mediumSize));
+    } else if (signatureSize.width === mediumSize.width) {
+      dispatch(setSignatureSize(largeSize));
     } else {
-      dispatch(setSignatureSize(initialSignatureSize)); // Default to the initial size
+      dispatch(setSignatureSize(smallSize));
     }
   };
-
 
   const handleTap = () => {
     const now = Date.now();
@@ -122,6 +96,14 @@ const EditScreen = ({ route, navigation }) => {
   };
 
   const renderTabContent = () => {
+    if (isLoading) {
+      return <Text>Loading...</Text>;
+    }
+
+    if (isError) {
+      return <Text>Error loading signatures. Please try again later.</Text>;
+    }
+
     switch (activeTab) {
       case 0:
         return (
