@@ -48,58 +48,6 @@ const HHomePage = () => {
     includeBase64: true,
   };
 
-  const requestCameraPermission = async () => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.CAMERA,
-          {
-            title: 'Camera Permission',
-            message: 'App needs camera permission to take pictures',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          }
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          takePicture();
-        } else {
-          Alert.alert('Permission Denied', 'Camera permission is required to take pictures.');
-        }
-      } catch (err) {
-        console.warn(err);
-      }
-    } else {
-      takePicture();
-    }
-  };
-
-  const requestExternalStoragePermission = async () => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-          {
-            title: 'Storage Permission',
-            message: 'App needs permission to access your files',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          }
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          uploadFile();
-        } else {
-          Alert.alert('Permission Denied', 'Storage permission is required to upload files.');
-        }
-      } catch (err) {
-        console.warn(err);
-      }
-    } else {
-      uploadFile();
-    }
-  };
-
   const takePicture = () => {
     launchCamera(options, (response) => {
       if (response.didCancel) {
@@ -144,11 +92,6 @@ const HHomePage = () => {
       alert("User information is missing.");
       return;
     }
-
-    console.log("Creating post with the following details:");
-    console.log("Username:", userProfile.username);
-    console.log("Geolocation Data:", geolocationData);
-    console.log("Slider Value:", sliderValue);
 
     const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
 
@@ -203,12 +146,6 @@ const HHomePage = () => {
 
   const feetToMeters = (feet) => {
     return Math.round(feet * 0.3048);
-  };
-
-  const handleEditClick = () => {
-    if (selectedImage) {
-      navigation.navigate('EditScreen', { selectedImage });
-    }
   };
 
   return (
@@ -280,11 +217,11 @@ const HHomePage = () => {
               </LinearGradient>
 
               <View style={styles.pictureContainer}>
-                <TouchableOpacity style={styles.pictureButton} onPress={requestCameraPermission}>
+                <TouchableOpacity style={styles.pictureButton} onPress={takePicture}>
                   <Icon name="camera" size={30} color="#00FFFF" style={styles.icon} />
                   <Text style={styles.buttonText}>Take Picture</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.pictureButton} onPress={requestExternalStoragePermission}>
+                <TouchableOpacity style={styles.pictureButton} onPress={uploadFile}>
                   <Icon name="file" size={30} color="#00FFFF" style={styles.icon} />
                   <Text style={styles.buttonText}>Upload File</Text>
                 </TouchableOpacity>
