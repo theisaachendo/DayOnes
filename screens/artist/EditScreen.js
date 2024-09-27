@@ -103,9 +103,9 @@ const EditScreen = ({ route, navigation }) => {
       return <Text>Error loading signatures. Please try again later.</Text>;
     }
 
-    switch (activeTab) {
-      case 0:
-        return (
+    return (
+      <View style={styles.tabContentOverlay}>
+        <View style={[styles.tabContent, { display: activeTab === 0 ? 'flex' : 'none' }]}>
           <FlatList
             horizontal
             data={signatures}
@@ -114,9 +114,8 @@ const EditScreen = ({ route, navigation }) => {
             contentContainerStyle={styles.signaturesList}
             showsHorizontalScrollIndicator={false}
           />
-        );
-      case 1:
-        return (
+        </View>
+        <View style={[styles.tabContent, { display: activeTab === 1 ? 'flex' : 'none' }]}>
           <View style={styles.colorOptions}>
             {['#FFFFFF', '#FF00FF', '#00FF00', '#00FFFF', '#FFFF00', '#FF0000'].map((color) => (
               <TouchableOpacity
@@ -126,19 +125,17 @@ const EditScreen = ({ route, navigation }) => {
               />
             ))}
           </View>
-        );
-      case 2:
-        return (
+        </View>
+        <View style={[styles.tabContent, { display: activeTab === 2 ? 'flex' : 'none' }]}>
           <View style={styles.saveContainer}>
             <TouchableOpacity style={styles.saveButton} onPress={captureAndSaveImage}>
               <Icon name="save" size={24} color="#fff" />
               <Text style={styles.saveButtonText}>Save Picture</Text>
             </TouchableOpacity>
           </View>
-        );
-      default:
-        return null;
-    }
+        </View>
+      </View>
+    );
   };
 
   const renderSignature = ({ item }) => (
@@ -193,9 +190,7 @@ const EditScreen = ({ route, navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.tabContentContainer}>
-        {renderTabContent()}
-      </View>
+      {renderTabContent()}
     </View>
   );
 };
@@ -218,7 +213,7 @@ const styles = StyleSheet.create({
   },
   viewShot: {
     width: width,
-    height: height * 0.75,
+    height: height * 0.62,
   },
   image: {
     width: '100%',
@@ -245,21 +240,35 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  tabContentContainer: {
-    paddingVertical: 10,
+  tabContentOverlay: {
+    position: 'relative',
     width: '100%',
+    height: 150, // Ensure consistent height
+  },
+  tabContent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   colorOptions: {
     flexDirection: 'row',
     justifyContent: 'center',
+    flexWrap: 'wrap', // This allows the items to wrap into multiple rows
+    width: '80%', // Adjust the width to fit the buttons nicely
+    marginTop: 10, // Optional: add margin at the top
   },
   colorButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
     marginHorizontal: 10,
+    marginVertical: 10, // Added marginVertical to create space between rows
   },
+
   saveContainer: {
     marginTop: 20,
   },
@@ -279,6 +288,7 @@ const styles = StyleSheet.create({
   },
   signaturesList: {
     paddingLeft: 10,
+    paddingTop: 15
   },
   signatureThumbnail: {
     width: 100,
