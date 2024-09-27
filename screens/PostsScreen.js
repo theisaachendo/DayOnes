@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -6,6 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const PostsScreen = ({ navigation }) => {
   const locationData = useSelector(state => state.geolocationData);
   const [posts, setPosts] = useState([]);
+
+  // Fetch posts automatically when the component mounts
+  useEffect(() => {
+    sendLocationData();
+  }, []);
 
   const sendLocationData = async () => {
     const data = {
@@ -70,14 +75,7 @@ const PostsScreen = ({ navigation }) => {
         })}
       </ScrollView>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={sendLocationData} style={styles.button}>
-          <Text style={styles.buttonText}>Get Posts Near You</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("My Posts", "This feature is under construction!")} style={styles.buttonSecondary}>
-          <Text style={styles.buttonText}>View My Posts</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Removed button section */}
     </View>
   );
 };
@@ -126,43 +124,6 @@ const styles = StyleSheet.create({
   },
   commentIcon: {
     marginLeft: 20,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  button: {
-    flex: 1,
-    backgroundColor: '#FF0080',
-    padding: 15,
-    borderRadius: 25,
-    marginHorizontal: 5,
-    alignItems: 'center',
-    shadowColor: '#FF0080',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  buttonSecondary: {
-    flex: 1,
-    backgroundColor: '#282828',
-    padding: 15,
-    borderRadius: 25,
-    marginHorizontal: 5,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#FF0080',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  buttonText: {
-    fontSize: 18,
-    color: '#ffffff',
-    fontWeight: 'bold',
   },
 });
 
