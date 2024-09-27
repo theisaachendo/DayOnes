@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
-import { setSignatureColor, setSignatureSize } from '../../redux/actions'; // Import the action creators
+import { useSelector, useDispatch } from 'react-redux';
+import { setSignatureColor, setSignatureSize } from '../../redux/actions';
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
-import { useSignatures } from '../../hooks/useSignatures'; // Import the custom hook
+import { useSignatures } from '../../hooks/useSignatures';
 
 const { width, height } = Dimensions.get('window');
 
@@ -15,14 +15,13 @@ const EditScreen = ({ route, navigation }) => {
   const [draggedSignaturePosition, setDraggedSignaturePosition] = useState(new Animated.ValueXY({ x: width * 0.6, y: height * 0.55 }));
   const [lastPosition, setLastPosition] = useState({ x: width * 0.6, y: height * 0.55 });
   const lastTap = useRef(null);
-  const signatureColor = useSelector(state => state.signatureColor); // Use the color from Redux
-  const signatureSize = useSelector(state => state.signatureSize);   // Use the size from Redux
-  const [activeTab, setActiveTab] = useState(0); // Tab state
+  const signatureColor = useSelector(state => state.signatureColor);
+  const signatureSize = useSelector(state => state.signatureSize);
+  const [activeTab, setActiveTab] = useState(0);
   const viewShotRef = useRef(null);
   const username = useSelector(state => state.userProfile.username) || 'unknown';
-  const dispatch = useDispatch(); // Initialize dispatch
+  const dispatch = useDispatch();
 
-  // Use the custom hook to fetch signatures
   const { data: signatures, isLoading, isError } = useSignatures(username);
 
   const panResponder = PanResponder.create({
@@ -43,15 +42,11 @@ const EditScreen = ({ route, navigation }) => {
 
   const handleSignatureSelect = (item) => {
     setSelectedSignature(item);
-
-    // Calculate the center position based on the signature size
     const startX = (width - signatureSize.width) / 2;
-    const startY = (height * 0.75 - signatureSize.height) / 2; // height * 0.75 to account for the viewable area
-
+    const startY = (height * 0.75 - signatureSize.height) / 2;
     setDraggedSignaturePosition(new Animated.ValueXY({ x: startX, y: startY }));
     setLastPosition({ x: startX, y: startY });
-
-    setActiveTab(2); // Automatically switch to the "Save" tab (index 2)
+    setActiveTab(2);
   };
 
   const handleDoubleTap = () => {
@@ -77,7 +72,7 @@ const EditScreen = ({ route, navigation }) => {
   };
 
   const applyColorToSignature = (color) => {
-    dispatch(setSignatureColor(color)); // Dispatch the action to set the color in Redux
+    dispatch(setSignatureColor(color));
   };
 
   const captureAndSaveImage = async () => {
@@ -93,6 +88,10 @@ const EditScreen = ({ route, navigation }) => {
       console.error('Error capturing and saving image:', error);
       Alert.alert('Error', 'Failed to save the image. Please try again.');
     }
+  };
+
+  const handleCancel = () => {
+    navigation.goBack();
   };
 
   const renderTabContent = () => {
@@ -150,6 +149,9 @@ const EditScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.cancelButton} onPress={handleCancel}>
+        <Icon name="times" size={24} color="#fff" />
+      </TouchableOpacity>
       <ViewShot ref={viewShotRef} options={{ format: 'jpg', quality: 0.9 }} style={styles.viewShot}>
         <Image source={{ uri: selectedImage.uri }} style={styles.image} />
         {selectedSignature && (
@@ -169,7 +171,7 @@ const EditScreen = ({ route, navigation }) => {
                     shadowRadius: 10,
                     shadowOpacity: 1.0,
                     shadowOffset: { width: 0, height: 0 },
-                    elevation: 10, // For Android to apply shadow effect
+                    elevation: 10,
                   },
                 ]}
                 resizeMode="contain"
@@ -179,7 +181,6 @@ const EditScreen = ({ route, navigation }) => {
         )}
       </ViewShot>
 
-      {/* Tab Buttons */}
       <View style={styles.tabContainer}>
         <TouchableOpacity style={[styles.tabButton, activeTab === 0 && styles.activeTab]} onPress={() => setActiveTab(0)}>
           <Text style={styles.tabText}>Signatures</Text>
@@ -192,7 +193,6 @@ const EditScreen = ({ route, navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Tab Content */}
       <View style={styles.tabContentContainer}>
         {renderTabContent()}
       </View>
@@ -207,9 +207,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  cancelButton: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    zIndex: 100, // Ensure it appears above other elements
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 10,
+    borderRadius: 20,
+  },
   viewShot: {
     width: width,
-    height: height * 0.75, // Reduced the height to provide space for tabs
+    height: height * 0.75,
   },
   image: {
     width: '100%',
@@ -221,7 +230,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#333',
     width: '100%',
-    paddingVertical: 5, // Reduced padding to save space
+    paddingVertical: 5,
   },
   tabButton: {
     flex: 1,
@@ -237,7 +246,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   tabContentContainer: {
-    paddingVertical: 10, // Added some padding to create space between thumbnails and the tab bar
+    paddingVertical: 10,
     width: '100%',
     alignItems: 'center',
   },
@@ -272,10 +281,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   signatureThumbnail: {
-    width: 100, // Increased size
-    height: 100, // Increased size
+    width: 100,
+    height: 100,
     marginRight: 10,
-    borderRadius: 10, // Increased border-radius for better visibility
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
   },
@@ -284,7 +293,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   signatureImage: {
-    shadowOffset: { width: 0, height: 0 }, // Shadow offset for the glow effect
+    shadowOffset: { width: 0, height: 0 },
   },
 });
 

@@ -107,7 +107,10 @@ const HHomePage = () => {
       } else if (response.errorMessage) {
         console.log('ImagePicker Error: ', response.errorMessage);
       } else if (response.assets && response.assets.length > 0) {
-        setSelectedImage(response.assets[0]);
+        const capturedImage = response.assets[0];
+        setSelectedImage(capturedImage);
+
+        navigation.navigate('EditScreen', { selectedImage: capturedImage });
       }
     });
   };
@@ -119,9 +122,16 @@ const HHomePage = () => {
       } else if (response.errorMessage) {
         console.log('ImagePicker Error: ', response.errorMessage);
       } else if (response.assets && response.assets.length > 0) {
-        setSelectedImage(response.assets[0]);
+        const uploadedImage = response.assets[0];
+        setSelectedImage(uploadedImage);
+
+        navigation.navigate('EditScreen', { selectedImage: uploadedImage });
       }
     });
+  };
+
+  const clearSelectedImage = () => {
+    setSelectedImage(null);
   };
 
   const createPost = async () => {
@@ -260,8 +270,8 @@ const HHomePage = () => {
                       source={{ uri: selectedImage.uri }}
                       style={styles.selectedImage}
                     />
-                    <TouchableOpacity style={styles.editButton} onPress={handleEditClick}>
-                      <Icon name="pencil" size={20} color="#fff" />
+                    <TouchableOpacity style={styles.clearButton} onPress={clearSelectedImage}>
+                      <Icon name="times" size={20} color="#fff" />
                     </TouchableOpacity>
                   </View>
                 ) : (
@@ -363,9 +373,9 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
   },
-  editButton: {
+  clearButton: {
     position: 'absolute',
-    bottom: 10,
+    top: 10,
     right: 10,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: 5,
