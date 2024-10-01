@@ -6,8 +6,18 @@ import { setSignatureColor, setSignatureSize } from '../../redux/actions';
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
 import { useSignatures } from '../../hooks/useSignatures';
+import LinearGradient from 'react-native-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 
 const { width, height } = Dimensions.get('window');
+
+// Base width reference for scaling signature sizes
+const baseWidth = 375;  // Adjust according to the base device
+
+// Utility function to scale signature size relative to screen width
+const scaleValue = (size) => {
+  return (size * width) / baseWidth;
+}
 
 const EditScreen = ({ route, navigation }) => {
   const { selectedImage } = route.params;
@@ -50,9 +60,10 @@ const EditScreen = ({ route, navigation }) => {
   };
 
   const handleDoubleTap = () => {
-    const smallSize = { width: width * 0.30, height: height * 0.30 };
-    const mediumSize = { width: width * 0.40, height: height * 0.40 };
-    const largeSize = { width: width * 0.55, height: height * 0.55 };
+    // Doubling the sizes
+    const smallSize = { width: scaleValue(220), height: scaleValue(220) };  // doubled from 110
+    const mediumSize = { width: scaleValue(300), height: scaleValue(300) }; // doubled from 150
+    const largeSize = { width: scaleValue(440), height: scaleValue(440) };  // doubled from 220
 
     if (signatureSize.width === smallSize.width) {
       dispatch(setSignatureSize(mediumSize));
@@ -117,6 +128,32 @@ const EditScreen = ({ route, navigation }) => {
         </View>
         <View style={[styles.tabContent, { display: activeTab === 1 ? 'flex' : 'none' }]}>
           <View style={styles.colorOptions}>
+            {/* Gradient Colors */}
+            <TouchableOpacity onPress={() => applyColorToSignature('gradient1')}>
+              <LinearGradient
+                colors={['#00FFFF', '#FFA5FF']}
+                style={styles.colorButton}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => applyColorToSignature('gradient2')}>
+              <LinearGradient
+                colors={['#FFDFA5', '#FF00EE']}
+                style={styles.colorButton}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => applyColorToSignature('gradient3')}>
+              <LinearGradient
+                colors={['#01882D', '#FCDE03', '#D5002C']}
+                style={styles.colorButton}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              />
+            </TouchableOpacity>
+            {/* Solid Colors */}
             {['#FFFFFF', '#FF00FF', '#00FF00', '#00FFFF', '#FFFF00', '#FF0000'].map((color) => (
               <TouchableOpacity
                 key={color}
@@ -157,22 +194,30 @@ const EditScreen = ({ route, navigation }) => {
             {...panResponder.panHandlers}
           >
             <TouchableOpacity activeOpacity={1} onPress={handleTap}>
-              <Image
-                source={{ uri: selectedSignature.Url }}
-                style={[
-                  styles.signatureImage,
-                  signatureSize,
-                  {
-                    tintColor: signatureColor,
-                    shadowColor: signatureColor,
-                    shadowRadius: 10,
-                    shadowOpacity: 1.0,
-                    shadowOffset: { width: 0, height: 0 },
-                    elevation: 10,
-                  },
-                ]}
-                resizeMode="contain"
-              />
+              {/* Render signature 4 times with slight offsets */}
+              {[0, 1, 2, 3].map((_, index) => (
+                <MaskedView
+                  key={index}
+                  style={[signatureSize, { position: 'absolute', left: index * 0.1, top: index * 0.1 }]}
+                  maskElement={
+                    <Image
+                      source={{ uri: selectedSignature.Url }}
+                      style={[signatureSize, { resizeMode: 'contain' }]}
+                    />
+                  }
+                >
+                  {signatureColor.startsWith('gradient') ? (
+                    <LinearGradient
+                      colors={signatureColor === 'gradient1' ? ['#00FFFF', '#FFA5FF'] : signatureColor === 'gradient2' ? ['#FFDFA5', '#FF00EE'] : ['#01882D', '#FCDE03', '#D5002C']}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 0 }}
+                      style={signatureSize}
+                    />
+                  ) : (
+                    <View style={[signatureSize, { backgroundColor: signatureColor }]} />
+                  )}
+                </MaskedView>
+              ))}
             </TouchableOpacity>
           </Animated.View>
         )}
@@ -268,7 +313,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 10, // Added marginVertical to create space between rows
   },
-
   saveContainer: {
     marginTop: 20,
   },
