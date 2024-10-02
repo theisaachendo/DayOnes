@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSignatureColor, setSignatureSize } from '../../redux/actions';
+import { setSignatureColor, setSignatureSize } from '../../assets/redux/actions';
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
 import { useSignatures } from '../../hooks/useSignatures';

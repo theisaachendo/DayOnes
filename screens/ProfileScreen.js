@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
-import LogoText from '../components/LogoText'; // Import the reusable LogoText component
+import Icon from 'react-native-vector-icons/FontAwesome'; // Importing Icon for Home button
+import LogoText from '../assets/components/LogoText'; // Import the reusable LogoText component
 
 const { height } = Dimensions.get('window'); // Get screen height to ensure everything fits
 
@@ -10,6 +11,19 @@ const ProfileScreen = ({ navigation }) => {
     profilePicture: null,
     fullName: 'First Last',
     email: 'FirstLast@gmail.com',
+    role: 'fan', // Assuming role defaults to 'fan' if not set
+  };
+
+  const navigateToHomePage = () => {
+    // Check the role and navigate to the appropriate home page
+    if (profile.role === 'artist') {
+      navigation.navigate('ArtistStack');
+    } else if (profile.role === 'fan') {
+      navigation.navigate('FanStack');
+    } else {
+      // Fallback in case role is missing or unexpected
+      Alert.alert('Error', 'Unrecognized user role.');
+    }
   };
 
   return (
@@ -18,6 +32,12 @@ const ProfileScreen = ({ navigation }) => {
       <StatusBar backgroundColor="#0c002b" barStyle="light-content" />
 
       <View style={styles.container}>
+
+        {/* Home button in the top left-hand corner */}
+        <TouchableOpacity style={styles.homeButton} onPress={navigateToHomePage}>
+          <Icon name="home" size={24} color="#FFF" />
+        </TouchableOpacity>
+
         {/* Center the LogoText and add space from the top and below */}
         <View style={styles.logoContainer}>
           <LogoText />
@@ -92,6 +112,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     height: height, // Ensure it fits the screen without scrolling
+  },
+  homeButton: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    padding: 10,
+    backgroundColor: 'transparent', // Transparent background to avoid button being blocked
   },
   logoContainer: {
     alignItems: 'center', // Center the logo horizontally

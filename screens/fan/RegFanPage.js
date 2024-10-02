@@ -15,7 +15,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import LogoText from '../../components/LogoText'; // Import the LogoText component
+import LogoText from '../../assets/components/LogoText'; // Import the LogoText component
 
 const { width } = Dimensions.get('window');
 

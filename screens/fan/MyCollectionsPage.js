@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   StyleSheet,
@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import RNFS from 'react-native-fs'; // Add this to download images on Android
+import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
 
 // Import the logo
 import DayOnesLogo from '../../images/DayOnesLogo.png'; // Adjust the path if necessary
@@ -125,11 +126,13 @@ const MyCollectionsPage = () => {
 
   return (
     <View style={styles.background}>
+      {/* Add Profile Picture Button in the top-left corner */}
+      <ProfilePictureButton />
+
       <View style={styles.container}>
         {/* Add the Logo at the top */}
         <Image source={DayOnesLogo} style={styles.logo} />
 
-        {/* Removed the Title */}
         {posts.length > 0 ? (
           <ScrollView
             horizontal

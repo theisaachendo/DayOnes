@@ -11,12 +11,12 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import { setUserProfile } from '../redux/actions';
+import { setUserProfile } from '../assets/redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import LogoText from '../components/LogoText';
+import LogoText from '../assets/components/LogoText';
 import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 

@@ -1,9 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import ProfilePictureButton from '../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
 
 const DMsScreen = () => {
   return (
     <View style={styles.container}>
+      {/* Add Profile Picture Button in the top-left corner */}
+      <ProfilePictureButton />
+
       <Text style={styles.text}>Direct Messages Screen</Text>
     </View>
   );

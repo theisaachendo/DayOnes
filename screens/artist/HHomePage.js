@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Alert, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Import ProfilePictureButton
 import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
@@ -117,7 +117,7 @@ const HHomePage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(postData),  // Send postData directly as payload
+        body: JSON.stringify(postData),
       });
 
       const textResponse = await response.text();
@@ -156,9 +156,6 @@ const HHomePage = () => {
           let iconName;
 
           switch (route.name) {
-            case 'Profile':
-              iconName = 'user';
-              break;
             case 'Posts':
               iconName = 'file-text-o';
               break;
@@ -187,6 +184,9 @@ const HHomePage = () => {
       <Tab.Screen name="Main" options={{ tabBarLabel: 'Home' }}>
         {() => (
           <View style={styles.container}>
+            {/* Add Profile Picture Button in the top-left corner */}
+            <ProfilePictureButton />
+
             <View style={styles.header}>
               <Text style={styles.title}>Autographs & Invites</Text>
             </View>
@@ -250,7 +250,6 @@ const HHomePage = () => {
           </View>
         )}
       </Tab.Screen>
-      <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="Posts" component={ArtistPostsPage} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} />
       <Tab.Screen name="DMs" component={DMsScreen} />

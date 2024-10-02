@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import useTodos from '../hooks/useTodos'; // Adjust the path if necessary
+import ProfilePictureButton from '../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
 
 const NotificationsScreen = () => {
   const { data, error, isLoading } = useTodos();
@@ -24,6 +25,9 @@ const NotificationsScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Add Profile Picture Button in the top-left corner */}
+      <ProfilePictureButton />
+
       <Text style={styles.text}>Todos</Text>
       <FlatList
         data={data}
