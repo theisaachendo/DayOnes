@@ -14,17 +14,17 @@ const FHomePage = () => {
 
   return (
     <View style={styles.container}>
-      <LinearGradient colors={['#7B2FF7', '#9C1FFF']} style={styles.header}>
-        <Text style={styles.headerText}>Day Ones Prompter</Text>
+      <LinearGradient colors={['#00ffcc', '#0099cc']} style={styles.header}>
+        <Text style={styles.headerText}>DayOnes Invites</Text>
       </LinearGradient>
       <View style={styles.content}>
-        <Icon name="heart" size={60} color="#FF69B4" />
+        <Icon name="heart" size={60} color='#ff00ff' />
         <Text style={styles.noInviteText}>No Invites Yet</Text>
         <Text style={styles.subText}>You will see the invite prompt here once you get invited</Text>
       </View>
       <TouchableOpacity style={styles.buttonContainer} onPress={handleReceiveInvites}>
         <LinearGradient
-          colors={['#FF0080', '#FF00FF']}
+          colors={['#ffcc00', '#ff8800']}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={styles.gradientButton}
@@ -39,7 +39,7 @@ const FHomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#0c002b', // Navy blue background color
     justifyContent: 'space-between',
   },
   header: {

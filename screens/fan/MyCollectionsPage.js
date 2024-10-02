@@ -1,9 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, StyleSheet, ScrollView, Image, Text, Alert, Dimensions, ImageBackground, Animated, Easing } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Text,
+  Alert,
+  Dimensions,
+  Animated,
+  Easing,
+  TouchableWithoutFeedback,
+  PermissionsAndroid,
+  Platform,
+  CameraRoll,
+} from 'react-native';
 import { useSelector } from 'react-redux';
+import RNFS from 'react-native-fs'; // Add this to download images on Android
 
-// Import the background image
-import background from '../../images/background.png'; // Adjust the path if necessary
+// Import the logo
+import DayOnesLogo from '../../images/DayOnesLogo.png'; // Adjust the path if necessary
 
 const MyCollectionsPage = () => {
   const [posts, setPosts] = useState([]); // State for posts
@@ -71,15 +86,59 @@ const MyCollectionsPage = () => {
   // Create an interpolation for the glow color, simulating multicolored glow transitions
   const glowColor = glowAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: ['rgba(255, 0, 255, 1)', 'rgba(65, 105, 225, 1)'], // Pink to blue transition with full intensity
+    outputRange: ['rgba(255, 215, 0, 1)', 'rgba(184, 134, 11, 1)'], // Bright gold to dark goldenrod
   });
 
+  // Function to save an image
+  const saveImage = async (imageUrl) => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: "Permission to save image",
+            message: "App needs access to your storage to download the image",
+            buttonPositive: "Allow",
+          }
+        );
+        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+          Alert.alert("Permission Denied", "You need to allow storage access to save images.");
+          return;
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+
+    const downloadDest = `${RNFS.PicturesDirectoryPath}/${Math.floor(Date.now() / 1000)}.jpg`;
+    RNFS.downloadFile({
+      fromUrl: imageUrl,
+      toFile: downloadDest,
+    })
+      .promise.then(() => {
+        CameraRoll.save(downloadDest, { type: 'photo' })
+          .then(() => Alert.alert('Success', 'Image saved to gallery.'))
+          .catch(() => Alert.alert('Error', 'Failed to save image.'));
+      })
+      .catch(() => Alert.alert('Error', 'Failed to download image.'));
+  };
+
   return (
-    <ImageBackground source={background} style={styles.backgroundImage}>
+    <View style={styles.background}>
       <View style={styles.container}>
-        <Text style={styles.pageTitle}>My Collection</Text>
+        {/* Add the Logo at the top */}
+        <Image source={DayOnesLogo} style={styles.logo} />
+
+        {/* Removed the Title */}
         {posts.length > 0 ? (
-          <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            snapToInterval={width} // Ensure snapping to each post
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.scrollContainer}
+          >
             {posts.map((post, index) => (
               <Animated.View
                 key={index}
@@ -90,13 +149,15 @@ const MyCollectionsPage = () => {
                   },
                 ]}
               >
-                {post.ImageUrl && (
+                <TouchableWithoutFeedback
+                  onLongPress={() => saveImage(post.ImageUrl)} // Save image on long press
+                >
                   <Image
                     source={{ uri: post.ImageUrl }}
                     style={styles.postImage}
                     resizeMode="cover"
                   />
-                )}
+                </TouchableWithoutFeedback>
               </Animated.View>
             ))}
           </ScrollView>
@@ -104,48 +165,46 @@ const MyCollectionsPage = () => {
           <Text style={styles.noPostsText}>No nearby posts found.</Text>
         )}
       </View>
-    </ImageBackground>
+    </View>
   );
 };
 
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  backgroundImage: {
+  background: {
     flex: 1,
-    resizeMode: 'cover', // Ensure the image covers the entire screen
+    backgroundColor: '#0c002b', // Navy blue background color
   },
   container: {
     flex: 1,
     padding: 16,
   },
-  pageTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
-    marginBottom: 20,
+  logo: {
+    width: 40, // Maintain the 40 width
+    height: 40, // Maintain the 40 height
+    alignSelf: 'center', // Center the logo horizontally
+    marginBottom: 10, // Add margin to prevent cutoff
   },
   scrollContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   imageFrame: {
-    width: width * 0.85,
-    height: height * 0.65,
-    marginHorizontal: 15,
-    borderRadius: 12, // Keep the rounded corners but no border
+    width: width, // Take full width for proper paging
+    height: height * 0.75,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowOpacity: 1.5, // Increased glow intensity for better visibility
-    shadowRadius: 40, // Increased radius for stronger and larger glow
-    shadowOffset: { width: 0, height: 0 }, // Centered glow
-    elevation: 30, // Increased elevation for Android (deeper shadow)
+    shadowOpacity: 6, // Glow intensity
+    shadowRadius: 50,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 30,
   },
   postImage: {
     width: '100%',
     height: '100%',
-    borderRadius: 8, // Inner image rounded slightly to fit within the frame
+    borderRadius: 8,
+    resizeMode: 'contain', // Fit the image within the frame
   },
   noPostsText: {
     color: '#fff',

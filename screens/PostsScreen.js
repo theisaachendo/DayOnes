@@ -74,8 +74,6 @@ const PostsScreen = ({ navigation }) => {
           );
         })}
       </ScrollView>
-
-      {/* Removed button section */}
     </View>
   );
 };
@@ -83,7 +81,7 @@ const PostsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#0c002b', // Navy blue background color
     padding: 16,
   },
   pageTitle: {
