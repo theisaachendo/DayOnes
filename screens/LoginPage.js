@@ -10,14 +10,13 @@ import {
   StatusBar,
   Dimensions,
   Platform,
-  ImageBackground,
 } from 'react-native';
-import { setUserProfile } from '../redux/actions';
+import { setUserProfile } from '../assets/redux/actions';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import LogoText from '../components/LogoText';
+import LogoText from '../assets/components/LogoText';
 import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
@@ -99,87 +98,82 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      {/* Background Image */}
-      <ImageBackground
-        source={require('../images/background.png')} // Replace with your image path
-        style={styles.backgroundImage}
-      >
-        <View style={styles.contentContainer}>
-          {/* Logo, positioned closer to the top */}
-          <View style={styles.topSection}>
-            <LogoText />
-          </View>
-
-          {/* Input Fields and Login Button */}
-          <View style={styles.middleSection}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Username"
-                placeholderTextColor="#888"
-                value={username}
-                onChangeText={setUsername}
-                editable={!isLoading}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                placeholderTextColor="#888"
-                value={password}
-                secureTextEntry
-                onChangeText={setPassword}
-                editable={!isLoading}
-              />
-            </View>
-
-            <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.loginButton}>
-              <TouchableOpacity onPress={handleLogin} style={styles.fullWidth} disabled={isLoading}>
-                <Text style={styles.buttonText}>{isLoading ? 'Logging in...' : 'Login'}</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
-
-          {/* Google and Apple Buttons */}
-          <View style={styles.iconContainer}>
-            <TouchableOpacity style={styles.iconButton}>
-              <Icon name="google" size={24} color="#000" />
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.iconButton}>
-              <Icon name="apple" size={28} color="#000" />
-            </TouchableOpacity>
-          </View>
-
-          <Text style={styles.signupText}>
-            Didn’t signup yet?{' '}
-            <Text onPress={() => navigation.navigate('RegFanPage')} style={styles.signupLink}>
-              Signup Now
-            </Text>
-          </Text>
-
-          <View style={styles.bottomSection}>
-            {/* New Signup Button */}
-            <LinearGradient colors={['#00ffcc', '#0099cc']} style={styles.signupArtistButton}>
-              <TouchableOpacity
-                style={styles.fullWidth}
-                onPress={() => navigation.navigate('NewSignupPage')}
-              >
-                <Text style={[styles.signupArtistText, { color: '#fff' }]}>New Signup</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-
-            <Text style={styles.artistQuestionText}>Are you an artist?</Text>
-            <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
-              <TouchableOpacity
-                style={styles.fullWidth}
-                onPress={() => navigation.navigate('RegArtistPage')}
-              >
-                <Text style={[styles.signupArtistText, { color: '#fff' }]}>Signup as an Artist</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
+      {/* Content Container with navy blue background */}
+      <View style={styles.contentContainer}>
+        {/* Logo, positioned closer to the top */}
+        <View style={styles.topSection}>
+          <LogoText />
         </View>
-      </ImageBackground>
+
+        {/* Input Fields and Login Button */}
+        <View style={styles.middleSection}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              placeholderTextColor="#888"
+              value={username}
+              onChangeText={setUsername}
+              editable={!isLoading}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              placeholderTextColor="#888"
+              value={password}
+              secureTextEntry
+              onChangeText={setPassword}
+              editable={!isLoading}
+            />
+          </View>
+
+          <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.loginButton}>
+            <TouchableOpacity onPress={handleLogin} style={styles.fullWidth} disabled={isLoading}>
+              <Text style={styles.buttonText}>{isLoading ? 'Logging in...' : 'Login'}</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
+
+        {/* Google and Apple Buttons */}
+        <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconButton}>
+            <Icon name="google" size={24} color="#000" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconButton}>
+            <Icon name="apple" size={28} color="#000" />
+          </TouchableOpacity>
+        </View>
+
+        <Text style={styles.signupText}>
+          Didn’t signup yet?{' '}
+          <Text onPress={() => navigation.navigate('RegFanPage')} style={styles.signupLink}>
+            Signup Now
+          </Text>
+        </Text>
+
+        <View style={styles.bottomSection}>
+          {/* New Signup Button */}
+          <LinearGradient colors={['#00ffcc', '#0099cc']} style={styles.signupArtistButton}>
+            <TouchableOpacity
+              style={styles.fullWidth}
+              onPress={() => navigation.navigate('NewSignupPage')}
+            >
+              <Text style={[styles.signupArtistText, { color: '#fff' }]}>New Signup</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+
+          <Text style={styles.artistQuestionText}>Are you an artist?</Text>
+          <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
+            <TouchableOpacity
+              style={styles.fullWidth}
+              onPress={() => navigation.navigate('RegArtistPage')}
+            >
+              <Text style={[styles.signupArtistText, { color: '#fff' }]}>Signup as an Artist</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -187,14 +181,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-  },
-  backgroundImage: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    backgroundColor: '#0c002b', // Navy blue background color
   },
   contentContainer: {
     flex: 1,

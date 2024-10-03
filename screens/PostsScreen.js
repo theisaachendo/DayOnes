@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ProfilePictureButton from '../assets/components/ProfilePictureButton'; // Assuming you placed the component in the same folder
 
 const PostsScreen = ({ navigation }) => {
   const locationData = useSelector(state => state.geolocationData);
@@ -48,6 +49,9 @@ const PostsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Add Profile Picture Button in the top-left corner */}
+      <ProfilePictureButton />
+
       <Text style={styles.pageTitle}>Posts</Text>
 
       <ScrollView style={styles.scrollView}>
@@ -74,8 +78,6 @@ const PostsScreen = ({ navigation }) => {
           );
         })}
       </ScrollView>
-
-      {/* Removed button section */}
     </View>
   );
 };
@@ -83,7 +85,7 @@ const PostsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#0c002b', // Navy blue background color
     padding: 16,
   },
   pageTitle: {

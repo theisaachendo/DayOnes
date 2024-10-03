@@ -3,7 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } fr
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const ArtistPostsPage = () => {
+// Import the Profile Button component
+import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Adjust the path if necessary
+
+const ArtistPostsPage = ({ navigation }) => {
   const [posts, setPosts] = useState([]);
 
   // Retrieve the username from the user's profile in the Redux store
@@ -55,7 +58,10 @@ const ArtistPostsPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Recent Posts</Text>
+      {/* Profile Button in the top-left corner */}
+      <ProfilePictureButton navigation={navigation} />
+
+      <Text style={styles.pageTitle}>Posts</Text>
 
       <ScrollView style={styles.scrollView}>
         {posts.map((post, index) => {
@@ -98,7 +104,7 @@ const ArtistPostsPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#0c002b', // Navy blue background
     padding: 16,
   },
   pageTitle: {
