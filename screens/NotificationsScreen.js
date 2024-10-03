@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
-import useTodos from '../hooks/useTodos'; // Adjust the path if necessary
+import useTodos from '../assets/hooks/useTodos'; // Adjust the path if necessary
 import ProfilePictureButton from '../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
 
 const NotificationsScreen = () => {

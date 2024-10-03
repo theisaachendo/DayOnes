@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSignatureColor, setSignatureSize } from '../../assets/redux/actions';
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
-import { useSignatures } from '../../hooks/useSignatures';
+import { useSignatures } from '../../assets/hooks/useSignatures';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 

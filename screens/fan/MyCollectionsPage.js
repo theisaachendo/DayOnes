@@ -19,7 +19,7 @@ import RNFS from 'react-native-fs'; // Add this to download images on Android
 import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
 
 // Import the logo
-import DayOnesLogo from '../../images/DayOnesLogo.png'; // Adjust the path if necessary
+import DayOnesLogo from '../../assets/images/DayOnesLogo.png'; // Adjust the path if necessary
 
 const MyCollectionsPage = () => {
   const [posts, setPosts] = useState([]); // State for posts

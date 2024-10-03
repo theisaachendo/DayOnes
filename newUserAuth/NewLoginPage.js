@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
-import useLogin from '../hooks/useLogin';
-import useFetchUser from '../hooks/useFetchUser';
-import useLogout from '../hooks/useLogout';
+import useLogin from '../assets/hooks/useLogin';
+import useFetchUser from '../assets/hooks/useFetchUser';
+import useLogout from '../assets/hooks/useLogout';
 
 const NewLoginPage = () => {
   const [email, setEmail] = useState('');

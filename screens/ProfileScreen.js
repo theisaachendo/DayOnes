@@ -48,7 +48,7 @@ const ProfileScreen = ({ navigation }) => {
 
           {/* Profile Picture */}
           <Image
-            source={profile.profilePicture ? { uri: profile.profilePicture } : require('../images/defaultProfileImage.png')}
+            source={profile.profilePicture ? { uri: profile.profilePicture } : require('../assets/images/defaultProfileImage.png')}
             style={styles.profilePicture}
           />
           <TouchableOpacity style={styles.button}>
@@ -80,9 +80,9 @@ const ProfileScreen = ({ navigation }) => {
           <View style={styles.connectedAccounts}>
             <Text style={styles.connectedAccountsTitle}>Connected Accounts</Text>
             <View style={styles.socialIcons}>
-              <Image source={require('../images/Instagram_logo.png')} style={styles.iconLeft} />
-              <Image source={require('../images/Facebook_logo.png')} style={styles.iconLeft} />
-              <Image source={require('../images/X_logo.jpg')} style={styles.iconLeft} />
+              <Image source={require('../assets/images/Instagram_logo.png')} style={styles.iconLeft} />
+              <Image source={require('../assets/images/Facebook_logo.png')} style={styles.iconLeft} />
+              <Image source={require('../assets/images/X_logo.jpg')} style={styles.iconLeft} />
             </View>
             <TouchableOpacity style={[styles.button, styles.connectButton]}>
               <Text style={styles.buttonText}>+ Connect More</Text>

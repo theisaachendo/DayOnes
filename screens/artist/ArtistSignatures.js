@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { useSignatures } from '../../hooks/useSignatures'; // Import the custom hook
+import { useSignatures } from '../../assets/hooks/useSignatures'; // Import the custom hook
 
 const ArtistSignatures = () => {
   const navigation = useNavigation();

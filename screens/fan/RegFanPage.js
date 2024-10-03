@@ -74,14 +74,14 @@ const RegFanPage = () => {
       <StatusBar barStyle="light-content" />
 
       <ImageBackground
-        source={require('../../images/background.png')} // Set your background image here
+        source={require('../../assets/images/background.png')} // Set your background image here
         style={styles.backgroundImage}
       >
         <View style={styles.contentContainer}>
           <View style={styles.topSection}>
             <LogoText />
             <Image
-              source={require('../../images/DayOnesLogo.png')} // Replace with your logo's path
+              source={require('../../assets/images/DayOnesLogo.png')} // Replace with your logo's path
               style={styles.avatar}
               resizeMode="contain"
             />

@@ -75,14 +75,15 @@ const RegArtistPage = () => {
 
       {/* Background Image */}
       <ImageBackground
-        source={require('../../images/background.png')} // Set your background image here
+        source={require('../../assets/images/background.png')}
+        // Set your background image here
         style={styles.backgroundImage}
       >
         <View style={styles.contentContainer}>
           <View style={styles.topSection}>
             <LogoText />
             <Image
-              source={require('../../images/DayOnesLogo.png')}
+              source={require('../../assets/images/DayOnesLogo.png')}
               style={styles.avatar}
               resizeMode="contain"
             />
