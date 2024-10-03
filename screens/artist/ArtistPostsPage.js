@@ -21,20 +21,31 @@ const ArtistPostsPage = () => {
         },
       });
 
-      const result = await response.json();
+      // Log the raw response text before parsing
+      const rawResponseText = await response.text();
+      console.log("Raw response:", rawResponseText);
 
-      if (response.ok) {
-        if (result.data && result.data.length > 0) {
-          setPosts(result.data); // Save posts to state
-          console.log(`Posts fetched successfully: ${result.data.length} posts found.`);
+      // Try to parse the response only if it seems to be valid JSON
+      try {
+        const result = JSON.parse(rawResponseText);
+
+        if (response.ok) {
+          if (result.data && result.data.length > 0) {
+            setPosts(result.data); // Save posts to state
+            console.log(`Posts fetched successfully: ${result.data.length} posts found.`);
+          } else {
+            setPosts([]); // Clear posts if none are found
+            Alert.alert("Sorry", "No recent posts found.");
+            console.log('No posts found for this username.');
+          }
         } else {
-          setPosts([]); // Clear posts if none are found
-          Alert.alert("Sorry", "No recent posts found.");
-          console.log('No posts found for this username.');
+          Alert.alert("Error", "Failed to invoke Lambda function");
+          console.error('Failed to fetch posts: Non-OK response from Lambda.');
         }
-      } else {
-        Alert.alert("Error", "Failed to invoke Lambda function");
-        console.error('Failed to fetch posts: Non-OK response from Lambda.');
+      } catch (jsonError) {
+        // Log if JSON parsing fails
+        console.error("Failed to parse response as JSON:", jsonError);
+        Alert.alert("Error", "Received invalid data format from server.");
       }
     } catch (error) {
       console.error("Error invoking Lambda function:", error);
