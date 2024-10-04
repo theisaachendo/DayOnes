@@ -44,7 +44,7 @@ const App = () => {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="SplashVideoScreen">
+          <Stack.Navigator initialRouteName="LoginPage">
             <Stack.Screen
               name="SplashVideoScreen"
               component={SplashVideoScreen}
