@@ -20,6 +20,7 @@ import NewSignupPage from './newUserAuth/NewSignupPage';
 import VerifyAccount from './newUserAuth/VerifyAccount';
 import NewLoginPage from './newUserAuth/NewLoginPage';
 import EditScreen from './screens/artist/EditScreen';
+import SplashVideoScreen from './screens/SplashVideoScreen'; // Import the Splash Video Screen
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    // Hide the splash screen
+    // Hide the splash screen (the default one, not the video one)
     SplashScreen.hide();
 
     // Start watching geolocation when the app starts
@@ -43,7 +44,12 @@ const App = () => {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="LoginPage">
+          <Stack.Navigator initialRouteName="SplashVideoScreen">
+            <Stack.Screen
+              name="SplashVideoScreen"
+              component={SplashVideoScreen}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="LoginPage"
               component={LoginPage}
