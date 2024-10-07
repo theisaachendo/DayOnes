@@ -11,7 +11,7 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import { setUserProfile } from '../assets/redux/actions';
+import { setUserProfile, setFcmToken } from '../assets/redux/actions'; // Ensure both actions are imported
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
@@ -19,24 +19,27 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoText from '../assets/components/LogoText';
 import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
+import messaging from '@react-native-firebase/messaging'; // Firebase Messaging
 
 const { width } = Dimensions.get('window');
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Add a loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
+  // Login function
   const handleLogin = async () => {
     if (!username || !password) {
       Alert.alert('Validation Error', 'Please enter both username and password.');
       return;
     }
 
-    setIsLoading(true); // Set loading state
+    setIsLoading(true);
     try {
+      // Make the login request
       const response = await axios.get(
         `https://ifxz5tco3iasejg5ldo3udsq740cxxbl.lambda-url.us-east-1.on.aws/?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
       );
@@ -44,10 +47,13 @@ const LoginScreen = () => {
 
       Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
 
-      // Dispatch the user profile data to Redux store
+      // Dispatch user profile data to the Redux store
       dispatch(setUserProfile(result.profile));
 
-      // Check permissions after successful login
+      // Once login is successful, retrieve and print the FCM token
+      getFcmToken();
+
+      // Check permissions
       const hasAllPermissions = await checkPermissions();
       if (hasAllPermissions) {
         navigateToAppropriateStack(result.profile.role);
@@ -63,7 +69,20 @@ const LoginScreen = () => {
         Alert.alert('Login Failed', 'An unexpected error occurred.');
       }
     } finally {
-      setIsLoading(false); // Reset loading state
+      setIsLoading(false);
+    }
+  };
+
+  // Retrieve FCM token after successful login
+  const getFcmToken = async () => {
+    try {
+      const fcmToken = await messaging().getToken();
+      console.log('FCM Token:', fcmToken); // Print the FCM token
+
+      // Dispatch FCM token to Redux store
+      dispatch(setFcmToken(fcmToken));
+    } catch (error) {
+      console.log('Failed to get FCM token:', error);
     }
   };
 

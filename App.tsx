@@ -4,13 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import store from './assets/redux/store';
+import messaging from '@react-native-firebase/messaging'; // Import Firebase Messaging
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { startWatchingLocation, stopWatchingLocation } from './assets/services/geolocationService';
 import LoginPage from './screens/LoginPage';
 import RegArtistPage from './screens/artist/RegArtistPage';
 import RegFanPage from './screens/fan/RegFanPage';
 import ArtistStack from './navigation/ArtistStack';
-import FanStack from './navigation/FanStack'; // FanStack already includes Tab.Navigator
+import FanStack from './navigation/FanStack';
 import ProfileScreen from './screens/ProfileScreen';
 import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 import SignaturePage from './screens/artist/SignaturePage';
@@ -20,10 +21,9 @@ import NewSignupPage from './newUserAuth/NewSignupPage';
 import VerifyAccount from './newUserAuth/VerifyAccount';
 import NewLoginPage from './newUserAuth/NewLoginPage';
 import EditScreen from './screens/artist/EditScreen';
-import SplashVideoScreen from './screens/SplashVideoScreen'; // Import the Splash Video Screen
+import SplashVideoScreen from './screens/SplashVideoScreen';
 
 const Stack = createStackNavigator();
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -34,10 +34,43 @@ const App = () => {
     // Start watching geolocation when the app starts
     startWatchingLocation();
 
-    return () => {
-      // Stop watching geolocation when the app unmounts
-      stopWatchingLocation();
+    // Request notification permission and handle incoming messages
+    const requestPermissionAndHandleNotifications = async () => {
+      try {
+        const authStatus = await messaging().requestPermission();
+        const enabled =
+          authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+          authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+        if (enabled) {
+          console.log('Notification permission granted.');
+
+          // Handle foreground notifications
+          const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+            console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
+          });
+
+          // Return the unsubscribe function for cleanup
+          return unsubscribe;
+        } else {
+          console.log('Notification permission not granted.');
+        }
+      } catch (error) {
+        console.error('Error requesting permission or handling notifications:', error);
+      }
     };
+
+    // Call the notification handler
+    requestPermissionAndHandleNotifications().then((unsubscribe) => {
+      // Clean up notification listener on component unmount
+      return () => {
+        // Stop watching geolocation when the app unmounts
+        stopWatchingLocation();
+
+        // Unsubscribe from notifications if listener was set
+        unsubscribe && unsubscribe();
+      };
+    });
   }, []);
 
   return (
