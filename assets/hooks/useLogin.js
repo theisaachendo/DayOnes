@@ -5,7 +5,7 @@ import { setAccessToken, setUserID } from '../redux/actions';
 import { Alert } from 'react-native';
 
 const loginUser = async ({ email, password }) => {
-  const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/signin', {
+  const response = await axios.post(`${BASEURL}/api/v1/auth/signin`, {
     username: email,
     password,
   });

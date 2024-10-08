@@ -3,9 +3,10 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAccessToken, setUserID } from '../redux/actions';
 import { Alert } from 'react-native';
+import { BASEURL } from '../constants';
 
 const logoutUser = async (accessToken) => {
-  const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/signout', {}, {
+  const response = await axios.post(`${BASEURL}/api/v1/auth/signout`, {}, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

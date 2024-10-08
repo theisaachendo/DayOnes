@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
+import { BASEURL } from '../assets/constants';
 
 const VerifyAccount = () => {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const VerifyAccount = () => {
     }
 
     try {
-      const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/verify', {
+      const response = await axios.post(`${BASEURL}/api/v1/auth/verify`, {
         username: email,
         confirmationCode,
       });
@@ -49,7 +50,7 @@ const VerifyAccount = () => {
     }
 
     try {
-      const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/resend-confirm-email', {
+      const response = await axios.post(`${BASEURL}/api/v1/auth/resend-confirm-email`, {
         username: emailToResend,
       });
 
