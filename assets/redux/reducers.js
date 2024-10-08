@@ -20,8 +20,8 @@ const initialState = {
     userProfile: null,
     accessToken: '',
     userID: '', // Add userID to the initial state
-    signatureColor: '', // Default color for signature
-    signatureSize: '',
+    signatureColor: '#FF0000', // Default color for signature
+    signatureSize: { width: 450, height: 450 }, // Default size for signature
     token: null, // Add token to the initial state for FCM
 };
 
