@@ -8,7 +8,6 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Import ProfilePictureButton
-import ProfileScreen from '../ProfileScreen';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
 import ArtistPostsPage from './ArtistPostsPage';

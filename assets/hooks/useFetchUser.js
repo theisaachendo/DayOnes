@@ -2,9 +2,10 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Alert } from 'react-native';
+import { BASEURL } from '../constants';
 
 const fetchUserData = async (accessToken) => {
-  const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/me', {}, {
+  const response = await axios.post(`${BASEURL}/api/v1/auth/me`, {}, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

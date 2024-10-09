@@ -30,7 +30,6 @@ const NewLoginPage = () => {
 
   return (
     <View style={styles.container}>
-      {/* Status display */}
       <Text style={styles.status}>
         {accessToken ? 'Logged In' : 'Logged Out'}
       </Text>
@@ -67,7 +66,6 @@ const NewLoginPage = () => {
         <Text style={styles.buttonText}>{fetchUserLoading ? 'Loading...' : 'Fetch User Info'}</Text>
       </TouchableOpacity>
 
-      {/* Logout button */}
       <TouchableOpacity
         style={[styles.button, styles.logoutButton]}
         onPress={() => handleLogout()}
@@ -76,7 +74,6 @@ const NewLoginPage = () => {
         <Text style={styles.buttonText}>{logoutLoading ? 'Logging out...' : 'Logout'}</Text>
       </TouchableOpacity>
 
-      {/* Button to print stored UserID and AccessToken */}
       <TouchableOpacity
         style={[styles.button, styles.printButton]}
         onPress={handlePrintCredentials}
@@ -84,13 +81,21 @@ const NewLoginPage = () => {
         <Text style={styles.buttonText}>Print UserID & Token</Text>
       </TouchableOpacity>
 
-      {/* Link to NewSignupPage */}
       <TouchableOpacity
         style={[styles.button, styles.signupButton]}
         onPress={() => navigation.navigate('NewSignupPage')}
       >
         <Text style={styles.buttonText}>Go to Signup</Text>
       </TouchableOpacity>
+
+      {/* New button to navigate to create post page */}
+      <TouchableOpacity
+  style={[styles.button, styles.createPostButton]}
+  onPress={() => navigation.navigate('CreatePostPage')} // Adjust with the actual route name for your create post page
+>
+  <Text style={styles.buttonText}>Go to Create Post</Text>
+</TouchableOpacity>
+
     </View>
   );
 };
@@ -141,7 +146,10 @@ const styles = StyleSheet.create({
   },
   signupButton: {
     backgroundColor: '#00aaff',
-    marginTop: 20, // Added margin for spacing
+    marginTop: 20,
+  },
+  createPostButton: {
+    backgroundColor: '#ff00ff',
   },
   buttonText: {
     color: '#fff',

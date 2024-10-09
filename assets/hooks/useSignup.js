@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const signupUser = async ({ email, password, name, phoneNumber, role }) => {
   try {
-    const response = await axios.post('http://34.239.105.105:3000/api/v1/auth/signup', {
+    const response = await axios.post(`${BASEURL}/api/v1/auth/signup`, {
       email,
       password,
       role,
