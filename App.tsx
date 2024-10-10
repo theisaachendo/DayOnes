@@ -23,6 +23,7 @@ import NewLoginPage from './newUserAuth/NewLoginPage';
 import EditScreen from './screens/artist/EditScreen';
 import SplashVideoScreen from './screens/SplashVideoScreen';
 import CreatePostPage from './newUserAuth/CreatePostPage';
+import PostDetailsPage from './screens/artist/PostDetailsPage';
 
 const Stack = createStackNavigator();
 const queryClient = new QueryClient();
@@ -159,6 +160,12 @@ const App = () => {
               component={CreatePostPage}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="PostDetailsPage"
+              component={PostDetailsPage}
+              options={{ headerShown: false }}
+            />
+
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>

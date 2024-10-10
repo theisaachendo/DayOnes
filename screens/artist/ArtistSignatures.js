@@ -1,20 +1,36 @@
 // MySignaturesScreen.js
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { useSelector } from 'react-redux';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSignatures } from '../../assets/hooks/useSignatures'; // Import the custom hook
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ArtistSignatures = () => {
   const navigation = useNavigation();
-  const username = useSelector(state => state.userProfile.username) || 'unknown';
 
   // Use the custom hook to fetch signatures
-  const { data: signatures, isLoading, isError, refetch } = useSignatures(username);
+  const { data: signatures, isLoading, isError, refetch, deleteSignature } = useSignatures();
+
+  const handleDelete = (id) => {
+    Alert.alert(
+      "Confirm Delete",
+      "Are you sure you want to delete this signature?",
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Delete", style: "destructive", onPress: () => deleteSignature(id) }
+      ]
+    );
+  };
 
   const renderSignature = ({ item }) => (
     <View style={styles.signatureContainer}>
-      <Image source={{ uri: item.Url }} style={styles.signatureImage} resizeMode="contain" />
+      <Image source={{ uri: item.url }} style={styles.signatureImage} resizeMode="contain" />
+      <TouchableOpacity
+        style={styles.deleteButton}
+        onPress={() => handleDelete(item.id)}
+      >
+        <Icon name="times-circle" size={24} color="#FF3B30" />
+      </TouchableOpacity>
     </View>
   );
 
@@ -39,7 +55,7 @@ const ArtistSignatures = () => {
         <FlatList
           data={signatures}
           renderItem={renderSignature}
-          keyExtractor={item => item.Key}
+          keyExtractor={(item) => item.id}
           contentContainerStyle={styles.list}
         />
       )}
@@ -99,11 +115,20 @@ const styles = StyleSheet.create({
   signatureContainer: {
     marginBottom: 20,
     alignItems: 'center',
+    position: 'relative',
   },
   signatureImage: {
     width: 300,
     height: 300,
     borderRadius: 10,
+  },
+  deleteButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 4,
   },
 });
 

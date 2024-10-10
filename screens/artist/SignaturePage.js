@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Image, StyleSheet, TouchableOpacity, Alert, PermissionsAndroid, Platform } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { BASEURL } from '../../assets/constants';
+
 
 const SignaturePage = () => {
   const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
+  const accessToken = useSelector(state => state.accessToken);
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -17,34 +20,6 @@ const SignaturePage = () => {
   const options = {
     mediaType: 'photo',
     includeBase64: true,
-  };
-
-  const requestCameraPermission = async () => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.CAMERA,
-          {
-            title: 'Camera Permission',
-            message: 'App needs camera permission to take pictures',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          }
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('Camera permission granted');
-          takePicture();
-        } else {
-          console.log('Camera permission denied');
-          Alert.alert('Permission Denied', 'Camera permission is required to take pictures.');
-        }
-      } catch (err) {
-        console.warn(err);
-      }
-    } else {
-      takePicture(); // For iOS or other platforms, proceed without explicit permission request
-    }
   };
 
   const takePicture = () => {
@@ -71,41 +46,35 @@ const SignaturePage = () => {
     });
   };
 
-  const uploadToS3 = async () => {
+  const createSignature = async () => {
     if (!selectedImage) {
-      alert("Please take a picture or upload a file.");
+      Alert.alert("Please take a picture or upload a file.");
       return;
     }
 
-    if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
-      alert("User information is missing.");
-      return;
-    }
-
-    const lambdaUrl = `https://72ae811to2.execute-api.us-east-1.amazonaws.com/default/signatureUpload`;
-
-    const uploadData = {
-      username: userProfile.username,
-      imageBase64: selectedImage.base64,
-      fileName: selectedImage.fileName || 'image.jpg',
-    };
+    const imageUrl = 'https://picsum.photos/seed/picsum/200/300'; // Assuming the image URI is a URL
 
     try {
-      const response = await axios.post(lambdaUrl, uploadData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await axios.post(
+        `${BASEURL}/api/v1/signature/create`,
+        new URLSearchParams({ url: imageUrl }).toString(), // Use URL-encoded data
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
 
       if (response.status === 200) {
-        alert('Image uploaded successfully!');
+        Alert.alert('Success', 'Signature created successfully!');
       } else {
-        console.error('Failed to upload image:', response.data);
-        alert('Failed to upload image.');
+        console.error('Failed to create signature:', response.data);
+        Alert.alert('Error', 'Failed to create signature.');
       }
     } catch (error) {
-      console.error('Error uploading image:', error);
-      alert('Error uploading image.');
+      console.error('Error creating signature:', error);
+      Alert.alert('Error', 'Error creating signature.');
     }
   };
 
@@ -124,7 +93,7 @@ const SignaturePage = () => {
       </View>
       <Text style={styles.title}>Signature Test Screen</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={requestCameraPermission}>
+        <TouchableOpacity style={styles.button} onPress={takePicture}>
           <Text style={styles.buttonText}>Take Picture</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={uploadFile}>
@@ -133,12 +102,9 @@ const SignaturePage = () => {
       </View>
       {selectedImage && (
         <View>
-          <Image
-            source={{ uri: selectedImage.uri }}
-            style={styles.image}
-          />
-          <TouchableOpacity style={styles.uploadButton} onPress={uploadToS3}>
-            <Text style={styles.uploadButtonText}>Upload</Text>
+          <Image source={{ uri: selectedImage.uri }} style={styles.image} />
+          <TouchableOpacity style={styles.uploadButton} onPress={createSignature}>
+            <Text style={styles.uploadButtonText}>Create Signature</Text>
           </TouchableOpacity>
         </View>
       )}
