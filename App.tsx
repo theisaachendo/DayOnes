@@ -150,7 +150,7 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Edit Screen"
+              name="EditScreen"
               component={EditScreen}
               options={{ headerShown: false }}
             />
