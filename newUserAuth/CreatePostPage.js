@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import { useSelector } from 'react-redux';
-import { uploadToS3 } from '../assets/components/uploadToS3'; // Import the S3 upload function
+import { BASEURL } from '../assets/constants';
 
 const CreatePostPage = () => {
   const [imageUrl, setImageUrl] = useState('');
@@ -10,13 +10,6 @@ const CreatePostPage = () => {
   const userProfile = useSelector(state => state.userProfile) || { username: 'unknown' };
   const geolocationData = useSelector(state => state.geolocationData) || { latitude: 0.0, longitude: 0.0 };
   const accessToken = useSelector(state => state.accessToken);
-
-  const handleUploadImage = async () => {
-    const uploadedImageUrl = await uploadToS3(imageUrl, userProfile.username);
-    if (uploadedImageUrl) {
-      setImageUrl(uploadedImageUrl); // Update imageUrl with the S3 link if upload is successful
-    }
-  };
 
   const createPost = async () => {
     if (!imageUrl) {
@@ -27,11 +20,13 @@ const CreatePostPage = () => {
     const postData = {
       imageUrl,
       range: sliderValue[0],
-      type: "PHOTO_ONLY",
+      type: "INVITE_PHOTO",
       latitude: geolocationData.latitude.toString(),
       longitude: geolocationData.longitude.toString(),
       locale: geolocationData.locale || 'US',
     };
+
+    console.log(postData)
 
     try {
       const response = await fetch(`${BASEURL}/api/v1/post/`, {
@@ -48,24 +43,44 @@ const CreatePostPage = () => {
       if (response.ok) {
         alert('Post created successfully!');
       } else {
+        console.error("Error response:", jsonResponse);
         alert(`Failed to create post: ${jsonResponse.message || 'Unknown error'}`);
       }
     } catch (error) {
-      alert('An error occurred while creating the post.');
+      console.error("Network or parsing error:", error);
+      alert('An error occurred while creating the post. Check console for details.');
     }
   };
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch(`${BASEURL}/api/v1/post/`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const jsonResponse = await response.json();
+
+      if (response.ok) {
+        console.log("Fetched posts:", jsonResponse);
+        const postsString = JSON.stringify(jsonResponse, null, 2); // Format JSON into a string
+        Alert.alert("Fetched Posts", postsString);
+      } else {
+        console.error("Error fetching posts:", jsonResponse);
+        alert(`Failed to fetch posts: ${jsonResponse.message || 'Unknown error'}`);
+      }
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      alert('An error occurred while fetching posts.');
+    }
+  };
+
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Create a New Post</Text>
-
-      <TouchableOpacity
-        style={[styles.button, styles.uploadButton]}
-        onPress={handleUploadImage}
-      >
-        <Text style={styles.buttonText}>Upload Image to S3</Text>
-      </TouchableOpacity>
-
       <TextInput
         style={styles.input}
         placeholder="Image URL"
@@ -73,7 +88,6 @@ const CreatePostPage = () => {
         value={imageUrl}
         onChangeText={setImageUrl}
       />
-
       <Text style={styles.sliderLabel}>Range: {sliderValue[0]} feet</Text>
       <MultiSlider
         values={sliderValue}
@@ -90,10 +104,12 @@ const CreatePostPage = () => {
       <TouchableOpacity style={styles.button} onPress={createPost}>
         <Text style={styles.buttonText}>Create Post</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={fetchPosts}>
+        <Text style={styles.buttonText}>Fetch Posts</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -149,10 +165,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-  },
-  uploadButton: {
-    backgroundColor: '#007bff',
-    marginBottom: 20,
   },
 });
 

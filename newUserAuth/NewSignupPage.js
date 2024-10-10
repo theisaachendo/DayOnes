@@ -38,7 +38,7 @@ const NewSignupPage = () => {
         password,
         role,
         name,
-        phone_number: phoneNumber,
+        phonenNmber: phoneNumber,
       });
 
       if (response.status === 200) {
