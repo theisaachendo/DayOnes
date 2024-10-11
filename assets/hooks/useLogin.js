@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { setAccessToken, setUserID, setFcmToken } from '../redux/actions';
 import { Alert } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
-import Geolocation from '@react-native-community/geolocation'; // Make sure to install this dependency
+import Geolocation from '@react-native-community/geolocation';
 import { BASEURL } from '../constants';
+import useFetchUser from './useFetchUser'; // Import useFetchUser
 
 const loginUser = async ({ email, password }) => {
   console.log('loginUser called with:', { email, password });
@@ -74,12 +75,12 @@ const updateLocation = async (token, latitude, longitude) => {
 
 const useLogin = () => {
   const dispatch = useDispatch();
+  const { mutate: fetchUser } = useFetchUser(); // Destructure mutate function from useFetchUser
 
-  // Function to get the FCM token and store it in Redux
   const getFcmToken = async () => {
     try {
       const fcmToken = await messaging().getToken();
-      console.log('Retrieved FCM Token:', fcmToken); // Log the FCM token
+      console.log('Retrieved FCM Token:', fcmToken);
       dispatch(setFcmToken(fcmToken));
       return fcmToken;
     } catch (error) {
@@ -88,7 +89,6 @@ const useLogin = () => {
     }
   };
 
-  // Function to get the user's current location
   const getLocation = async () => {
     return new Promise((resolve, reject) => {
       Geolocation.getCurrentPosition(
@@ -109,20 +109,21 @@ const useLogin = () => {
   return useMutation(loginUser, {
     onSuccess: async (data) => {
       const { token, userID, fullName } = data;
-      console.log('Login successful. Access Token:', token); // Log the access token
+      console.log('Login successful. Access Token:', token);
 
       dispatch(setAccessToken(token));
       dispatch(setUserID(userID));
       Alert.alert('Login Successful', `Welcome back, ${fullName || 'User'}!`);
 
       try {
-        // Get FCM token and update notification token
+        // Fetch user profile immediately after login
+        fetchUser();
+
         const fcmToken = await getFcmToken();
         if (fcmToken) {
           await updateNotificationToken(token, fcmToken);
         }
 
-        // Get user location and update location on server
         const { latitude, longitude } = await getLocation();
         await updateLocation(token, latitude, longitude);
 

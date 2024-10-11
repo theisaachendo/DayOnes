@@ -14,7 +14,7 @@ import {
 import { setUserProfile, setFcmToken } from '../assets/redux/actions'; // Ensure both actions are imported
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoText from '../assets/components/LogoText';
 import axios from 'axios';
@@ -29,6 +29,7 @@ const LoginScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const userProfile = useSelector((state) => state.userProfile);
 
   // Login function
   const handleLogin = async () => {
@@ -47,8 +48,8 @@ const LoginScreen = () => {
 
       Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
 
+      console.log('User Profile from Redux:', userProfile);
       // Dispatch user profile data to the Redux store
-      dispatch(setUserProfile(result.profile));
 
       // Once login is successful, retrieve and print the FCM token
       getFcmToken();

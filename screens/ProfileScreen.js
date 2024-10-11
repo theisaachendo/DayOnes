@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, TextInput, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Importing Icon for Home button
 import LogoText from '../assets/components/LogoText'; // Import the reusable LogoText component
+import { BASEURL } from '../assets/constants';
+import axios from 'axios';
+import useFetchUser from '../assets/hooks/useFetchUser';
 
 const { height } = Dimensions.get('window'); // Get screen height to ensure everything fits
 
 const ProfileScreen = ({ navigation }) => {
+  const accessToken = useSelector(state => state.accessToken);
   const profile = useSelector(state => state.userProfile) || {
     profilePicture: null,
     fullName: 'First Last',
@@ -16,13 +20,44 @@ const ProfileScreen = ({ navigation }) => {
 
   const navigateToHomePage = () => {
     // Check the role and navigate to the appropriate home page
-    if (profile.role === 'artist') {
-      navigation.navigate('ArtistStack');
-    } else if (profile.role === 'fan') {
+    if (profile.data.role === 'ARTIST') {
+      navigation.navigate('HHomePage');
+    } else if (profile.data.role === 'FAN') {
       navigation.navigate('FanStack');
     } else {
       // Fallback in case role is missing or unexpected
       Alert.alert('Error', 'Unrecognized user role.');
+    }
+  };
+
+  const { mutate: fetchUser } = useFetchUser(); // Destructure mutate function for fetchUser
+
+  const handleUpdateUser = async () => {
+    const url = `${BASEURL}/api/v1/user/update-user`;
+    const data = {
+      avatarUrl: 'https://picsum.photos/seed/picsum/200/300',
+      fullName: profile.data.full_name,
+      role: profile.data.role,
+      phoneNumber: profile.data.phoneNumber,
+    };
+
+    try {
+      const response = await axios.post(url, new URLSearchParams(data).toString(), {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      Alert.alert('Success', 'User information updated successfully.');
+      console.log('Response data:', response.data);
+
+      // Call fetchUser to refresh profile data in the store
+      fetchUser();
+
+    } catch (error) {
+      console.error('Error updating user info:', error);
+      Alert.alert('Error', 'Failed to update user information.');
     }
   };
 
@@ -48,17 +83,17 @@ const ProfileScreen = ({ navigation }) => {
 
           {/* Profile Picture */}
           <Image
-            source={profile.profilePicture ? { uri: profile.profilePicture } : require('../assets/images/defaultProfileImage.png')}
+            source={profile.data.avatar_url ? { uri: profile.data.avatar_url } : require('../assets/images/defaultProfileImage.png')}
             style={styles.profilePicture}
           />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Change Picture</Text>
-          </TouchableOpacity>
+    <TouchableOpacity style={styles.button} onPress={handleUpdateUser}>
+      <Text style={styles.buttonText}>Change Picture</Text>
+    </TouchableOpacity>
 
           {/* Name Input */}
           <TextInput
             style={styles.input}
-            value={profile.fullName}
+            value={profile.data.full_name}
             placeholder="Name"
             placeholderTextColor="#FFF"
             editable={false} // Just display the name for now
@@ -67,7 +102,7 @@ const ProfileScreen = ({ navigation }) => {
           {/* Email Input */}
           <TextInput
             style={styles.input}
-            value={profile.email}
+            value={profile.data.email}
             placeholder="youremail@gmail.com"
             placeholderTextColor="#FFF"
             editable={false} // Just display the email for now

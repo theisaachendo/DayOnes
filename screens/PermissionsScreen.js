@@ -31,7 +31,7 @@ const PermissionsScreen = () => {
       setLocationPermission(location === RESULTS.GRANTED);
 
       if (camera === RESULTS.GRANTED && library === RESULTS.GRANTED && notifications === RESULTS.GRANTED && location === RESULTS.GRANTED) {
-        navigateToAppropriateStack(profile.role);
+        navigateToAppropriateStack(profile.data.role);
       }
     } catch (error) {
       console.log('Error checking permissions:', error);
@@ -60,7 +60,7 @@ const PermissionsScreen = () => {
   };
 
   const navigateToAppropriateStack = (role) => {
-    if (role === 'artist') {
+    if (role === 'ARTIST') {
       navigation.navigate('ArtistStack');
     } else if (role === 'fan') {
       navigation.navigate('FanStack');
@@ -98,7 +98,7 @@ const PermissionsScreen = () => {
         />
 
         <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.continueButton}>
-          <TouchableOpacity onPress={() => navigateToAppropriateStack(profile.role)} style={styles.fullWidth}>
+          <TouchableOpacity onPress={() => navigateToAppropriateStack(profile.data.role)} style={styles.fullWidth}>
             <Text style={styles.buttonText}>Continue</Text>
           </TouchableOpacity>
         </LinearGradient>
