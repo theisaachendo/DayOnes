@@ -32,13 +32,14 @@ const NewSignupPage = () => {
       return;
     }
 
+    
     try {
       const response = await axios.post(`${BASEURL}/api/v1/auth/signup`, {
         email,
         password,
         role,
         name,
-        phonenNmber: phoneNumber,
+        phoneNumber: phoneNumber,
       });
 
       if (response.status === 200) {
@@ -48,6 +49,7 @@ const NewSignupPage = () => {
         Alert.alert('Signup Failed', 'Something went wrong. Please try again.');
       }
     } catch (error) {
+      console.log(error)
       Alert.alert('Signup Error', error.response?.data?.message || 'An unexpected error occurred.');
     }
   };
