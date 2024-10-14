@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Alert, PanResponder, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,7 +32,11 @@ const EditScreen = ({ route, navigation }) => {
   const username = useSelector(state => state.userProfile.username) || 'unknown';
   const dispatch = useDispatch();
 
-  const { data: signatures, isLoading, isError } = useSignatures(username);
+  const { data: signatures, isLoading, isError } = useSignatures();
+  useEffect(() => {
+    console.log("Signatures loaded:", signatures);
+  }, [signatures]);
+
 
   const panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
@@ -52,12 +56,14 @@ const EditScreen = ({ route, navigation }) => {
 
   const handleSignatureSelect = (item) => {
     setSelectedSignature(item);
+    console.log("Selected signature URL:", item.url); // Log URL for debugging
     const startX = (width - signatureSize.width) / 2;
     const startY = (height * 0.75 - signatureSize.height) / 2;
     setDraggedSignaturePosition(new Animated.ValueXY({ x: startX, y: startY }));
     setLastPosition({ x: startX, y: startY });
     setActiveTab(2);
   };
+
 
   const handleDoubleTap = () => {
     // Doubling the sizes
@@ -175,11 +181,17 @@ const EditScreen = ({ route, navigation }) => {
     );
   };
 
-  const renderSignature = ({ item }) => (
-    <TouchableOpacity onPress={() => handleSignatureSelect(item)}>
-      <Image source={{ uri: item.Url }} style={styles.signatureThumbnail} />
-    </TouchableOpacity>
-  );
+const renderSignature = ({ item }) => (
+  <TouchableOpacity onPress={() => handleSignatureSelect(item)}>
+    {item.url ? (
+      <Image source={{ uri: item.url }} style={styles.signatureThumbnail} />
+    ) : (
+      <Text style={styles.placeholderText}>No Image Available</Text>
+    )}
+  </TouchableOpacity>
+);
+
+
 
   return (
     <View style={styles.container}>
@@ -201,7 +213,7 @@ const EditScreen = ({ route, navigation }) => {
                   style={[signatureSize, { position: 'absolute', left: index * 0.1, top: index * 0.1 }]}
                   maskElement={
                     <Image
-                      source={{ uri: selectedSignature.Url }}
+                      source={{ uri: selectedSignature.url }}
                       style={[signatureSize, { resizeMode: 'contain' }]}
                     />
                   }
