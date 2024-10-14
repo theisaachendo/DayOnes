@@ -1,100 +1,80 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, FlatList } from 'react-native';
-import axios from 'axios'; // Import Axios
-import { BASEURL } from '../assets/constants'; // Import your base URL from constants
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet, TextInput, Button } from 'react-native';
+import { useSelector } from 'react-redux'; // Importing Redux's useSelector
+import { useRoute } from '@react-navigation/native'; // To get conversationId from route params
+import useSendMessage from '../assets/hooks/useSendMessage';
+import { getMessages } from '../assets/services/apiService'; // Import the getMessages service
 
-const ConversationThread = ({ route }) => {
-  const { conversationId } = route.params;
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([
-    { id: '1', text: 'Hello there!', sender: 'John' },
-    { id: '2', text: 'How are you?', sender: 'You' },
-  ]);
-  const [sending, setSending] = useState(false);
+const ConversationThread = () => {
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const route = useRoute();
+  const { conversationId } = route.params; // Get conversationId from the route
+  const accessToken = useSelector((state) => state.accessToken); // Fetch the access token from Redux
+  const { sendMessage, error } = useSendMessage(accessToken); // Pass accessToken to the hook
 
-  // API call to send a message
-  const sendMessageToAPI = async (messageText) => {
+  useEffect(() => {
+    // Fetch conversation messages when the component loads
+    fetchMessages();
+  }, []);
+
+  const fetchMessages = async () => {
+    if (!accessToken) {
+      console.error('User is not authenticated');
+      return;
+    }
+
     try {
-      setSending(true); // Set the state to show a loading indicator if needed
-
-      // Log the payload to ensure it's correct
-      console.log('Sending Payload:', {
-        conversationId,
-        message: messageText,
-      });
-
-      const response = await axios.post(`${BASEURL}/api/v1/message/send`, {
-        conversationId,
-        message: messageText,
-      });
-
-      if (response.status === 200) {
-        console.log('Message sent successfully');
-        return response.data;
-      } else {
-        console.error('Error sending message:', response.status);
-      }
-    } catch (error) {
-      if (error.response) {
-        console.error('Error sending message:', error.response.data);
-      } else {
-        console.error('Error sending message:', error.message);
-      }
-    } finally {
-      setSending(false);
+      const data = await getMessages(conversationId, accessToken);  // Pass accessToken to getMessages
+      setMessages(data.data); // Assuming data.data contains the messages
+    } catch (err) {
+      console.error('Error fetching messages:', err.message);
     }
   };
 
   const handleSendMessage = async () => {
-    if (message.trim() !== '') {
-      // Simulate adding the message to the UI
-      const newMessage = {
-        id: (messages.length + 1).toString(),
-        text: message,
-        sender: 'You', // This would be replaced by the current user's data
-      };
-      
-      // Optimistically update the UI first (add the message)
-      setMessages([...messages, newMessage]);
-
-      // Send the message to the API
-      const apiResponse = await sendMessageToAPI(message);
-      
-      if (apiResponse) {
-        console.log('API Response:', apiResponse);
-      }
-
-      // Clear the input field after sending the message
-      setMessage('');
+    if (newMessage.trim() === '') {
+      return; // Don't send empty messages
     }
+
+    await sendMessage(conversationId, newMessage);
+
+    if (!error) {
+      // After sending the message successfully, clear the input and fetch updated messages
+      setNewMessage('');
+      fetchMessages();
+    }
+  };
+
+  const renderMessage = ({ item }) => {
+    return (
+      <View style={styles.messageItem}>
+        <Text style={styles.sender}>{item.sender}</Text>
+        <Text style={styles.messageText}>{item.message}</Text>
+      </View>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Conversation Thread for ID: {conversationId}</Text>
+      <Text style={styles.title}>Conversation Thread</Text>
 
-      {/* Display existing messages */}
       <FlatList
         data={messages}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.messageContainer}>
-            <Text style={styles.sender}>{item.sender}: </Text>
-            <Text style={styles.message}>{item.text}</Text>
-          </View>
-        )}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderMessage}
+        style={styles.messageList}
       />
 
-      {/* Message input and send button */}
       <View style={styles.inputContainer}>
         <TextInput
+          value={newMessage}
+          onChangeText={setNewMessage}
+          placeholder="Type a message..."
           style={styles.input}
-          placeholder="Type your message..."
-          placeholderTextColor="#888"
-          value={message}
-          onChangeText={setMessage}
+          placeholderTextColor="#ccc"
         />
-        <Button title={sending ? 'Sending...' : 'Send'} onPress={handleSendMessage} disabled={sending} />
+        <Button title="Send" onPress={handleSendMessage} />
       </View>
     </View>
   );
@@ -104,39 +84,43 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0c002b',
-    padding: 10,
+    padding: 20,
   },
-  text: {
+  title: {
     fontSize: 24,
     color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
-  messageContainer: {
-    flexDirection: 'row',
-    marginBottom: 10,
-    alignItems: 'center',
+  messageList: {
+    flex: 1,
+    marginBottom: 20,
+  },
+  messageItem: {
+    padding: 10,
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
   },
   sender: {
     fontWeight: 'bold',
     color: '#fff',
-    marginRight: 5,
   },
-  message: {
+  messageText: {
     color: '#fff',
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
+    borderTopColor: '#ccc',
+    borderTopWidth: 1,
+    paddingTop: 10,
   },
   input: {
     flex: 1,
-    height: 40,
     borderColor: '#ccc',
     borderWidth: 1,
-    paddingHorizontal: 10,
-    marginRight: 10,
+    borderRadius: 5,
+    padding: 10,
     color: '#fff',
   },
 });

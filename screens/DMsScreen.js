@@ -1,56 +1,56 @@
+// DMsScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import navigation hook
-import ProfilePictureButton from '../assets/components/ProfilePictureButton';
-
-// Mock data for conversations (use this temporarily)
-const mockConversations = [
-  { id: '1', title: 'Conversation with John Doe' },
-  { id: '2', title: 'Conversation with Jane Smith' },
-];
+import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
+import { useSelector } from 'react-redux';
+import { getConversations } from '../assets/services/apiService';
 
 const DMsScreen = () => {
   const [conversations, setConversations] = useState([]);
-  const navigation = useNavigation(); // Initialize the navigation hook
+  const [pageNo, setPageNo] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const accessToken = useSelector((state) => state.accessToken); // Fetch accessToken from Redux store
 
   useEffect(() => {
-    // Simulate fetching conversations by hard-coding the data
-    setConversations(mockConversations);
-  }, []);
+    fetchConversations();
+  }, [pageNo]);
 
-  const handleDisconnect = () => {
-    console.log('Simulated disconnect');
-  };
+  const fetchConversations = async () => {
+    if (!accessToken) {
+      Alert.alert('Error', 'User is not authenticated');
+      console.error('Error: Missing access token.');
+      return;
+    }
 
-  const handleDeleteMessage = (messageId) => {
-    console.log(`Simulated deletion of message with id ${messageId}`);
-  };
+    try {
+      console.log('Fetching conversations with access token:', accessToken);
+      const data = await getConversations(accessToken, pageNo, pageSize); // Pass pageNo and pageSize
 
-  const openConversationThread = (conversationId) => {
-    // Navigate to the conversation thread screen, passing the conversationId as a parameter
-    navigation.navigate('ConversationThread', { conversationId });
+      if (data.conversations && data.conversations.length > 0) {
+        setConversations(data.conversations); // Set conversations if found
+        console.log('Conversations fetched successfully:', data.conversations);
+      } else {
+        setConversations([]); // Set to empty if no conversations
+        console.log('No conversations found.');
+      }
+    } catch (err) {
+      console.error('Error fetching conversations:', err.message);
+      Alert.alert('Error', 'Failed to fetch conversations.');
+      setConversations([]); // In case of error, set to empty array
+    }
   };
 
   return (
     <View style={styles.container}>
-      <ProfilePictureButton />
-      <Text style={styles.text}>Direct Messages Screen</Text>
-
+      <Text style={styles.text}>Direct Messages</Text>
       <FlatList
         data={conversations}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.conversationItem}
-            onPress={() => openConversationThread(item.id)} // Navigate on press
-          >
-            <Text style={styles.conversationText}>{item.title}</Text>
-            <Button title="Delete" onPress={() => handleDeleteMessage(item.id)} />
-          </TouchableOpacity>
+          <Text style={styles.itemText}>
+            {item.sender.full_name} - Last message: {item.last_message || 'No messages yet'}
+          </Text>
         )}
       />
-
-      <Button title="Disconnect" onPress={handleDisconnect} />
     </View>
   );
 };
@@ -59,19 +59,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0c002b',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
   text: {
     fontSize: 24,
     color: '#fff',
   },
-  conversationItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  conversationText: {
+  itemText: {
     color: '#fff',
     fontSize: 18,
   },

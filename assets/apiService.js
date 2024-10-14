@@ -1,72 +1,66 @@
 import axios from 'axios';
 import { BASEURL } from './constants';
 
-// Create a new conversation
-export const createConversation = async (data) => {
-  try {
-    const response = await axios.post(`${BASEURL}/api/v1/conversation`, data);
-    return response.data;
-  } catch (error) {
-    console.error('Error creating conversation:', error);
-    throw error;
-  }
-};
-
-// Get all conversations
-export const getConversations = async (pageNo = 1, pageSize = 10) => {
+// Fetch all conversations with pagination
+export const getConversations = async (accessToken, pageNo = 1, pageSize = 10) => {
+  console.log('asdasdasd',{getConversations})
   try {
     const response = await axios.get(`${BASEURL}/api/v1/conversation`, {
-      params: { pageNo, pageSize },
+      
+      params: {
+        pageNo,  // Pass the page number
+        pageSize // Pass the page size
+      },
+      headers: {
+        Authorization: `Bearer ${accessToken}`,  // Pass Bearer token dynamically
+      },
+      
     });
+
+    console.log('Conversations fetched:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error fetching conversations:', error);
-    throw error;
+    if (error.response) {
+      // If no conversations found, return an empty array
+      if (error.response.status === 404) {
+        console.warn('No conversations found, returning empty array.');
+        return { conversations: [], meta: { count: 0, page: pageNo, size: pageSize, pages: 0 } };
+      } 
+      
+      // Handle Unauthorized (401) error
+      if (error.response.status === 401) {
+        console.error('Unauthorized request, check access token.');
+        throw new Error('Unauthorized access. Please check your credentials.');
+      }
+
+      // Handle any other specific status codes
+      console.error(`Error fetching conversations: ${error.response.status}`);
+    } else {
+      console.error('Network error or server is unreachable:', error.message);
+    }
+
+    throw error;  // Re-throw the error for further handling if necessary
   }
 };
 
-// Send a message
-export const sendMessage = async (data) => {
+// Disconnect the WebSocket
+export const disconnect = async (accessToken) => {
   try {
-    const response = await axios.post(`${BASEURL}/api/v1/message/send`, data);
-    return response.data;
-  } catch (error) {
-    console.error('Error sending message:', error);
-    throw error;
-  }
-};
-
-// Get all messages for a conversation
-export const getMessages = async (conversationId, pageNo = 1, pageSize = 3) => {
-  try {
-    const response = await axios.get(`${BASEURL}/api/v1/message`, {
-      params: { conversationId, pageNo, pageSize },
+    const response = await axios.post(`${BASEURL}/api/v1/message/disconnect`, {}, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`, // Pass Bearer token dynamically
+      },
     });
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching messages:', error);
-    throw error;
-  }
-};
 
-// Disconnect
-export const disconnect = async () => {
-  try {
-    const response = await axios.post(`${BASEURL}/api/v1/message/disconnect`);
+    console.log('Disconnected:', response.data);
     return response.data;
   } catch (error) {
+    if (error.response && error.response.status === 401) {
+      console.error('Unauthorized request, check access token.');
+      throw new Error('Unauthorized access. Please check your credentials.');
+    }
+
     console.error('Error disconnecting:', error);
-    throw error;
-  }
-};
-
-// Delete a message
-export const deleteMessage = async (messageId) => {
-  try {
-    const response = await axios.delete(`${BASEURL}/api/v1/message/${messageId}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error deleting message:', error);
     throw error;
   }
 };

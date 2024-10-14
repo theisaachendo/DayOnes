@@ -22,6 +22,7 @@ import SplashVideoScreen from './screens/SplashVideoScreen';
 import DMsScreen from './screens/DMsScreen';
 import ConversationThread from './screens/ConversationThread'; // Import ConversationThread
 import PostDetailsPage from './screens/artist/PostDetailsPage';
+import VerifyAccount from './screens/VerifyAccount'; // Add import for VerifyAccount
 
 const Stack = createStackNavigator();
 const queryClient = new QueryClient();
@@ -49,7 +50,6 @@ const App = () => {
     // Request notification permission and handle incoming messages
     const requestPermissionAndHandleNotifications = async () => {
       try {
-        // Wait for device registration to complete before requesting permission
         await registerForRemoteMessages();
 
         const authStatus = await messaging().requestPermission();
@@ -63,12 +63,10 @@ const App = () => {
           const token = await messaging().getToken(); // Get the FCM token
           console.log('FCM Token:', token); // Log the FCM token
 
-          // Handle foreground notifications
           const unsubscribe = messaging().onMessage(async (remoteMessage) => {
             console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
           });
 
-          // Return the unsubscribe function for cleanup
           return unsubscribe;
         } else {
           console.log('Notification permission not granted.');
@@ -78,7 +76,6 @@ const App = () => {
       }
     };
 
-    // Initialize the notifications setup
     const setupNotifications = async () => {
       unsubscribeFn = await requestPermissionAndHandleNotifications();
     };
@@ -86,10 +83,8 @@ const App = () => {
     setupNotifications();
 
     return () => {
-      // Stop watching geolocation when the app unmounts
       stopWatchingLocation();
 
-      // Unsubscribe from notifications if listener was set
       if (unsubscribeFn) {
         unsubscribeFn();
       }
@@ -128,7 +123,7 @@ const App = () => {
             />
             <Stack.Screen
               name="FanStack"
-              component={FanStack} // Make sure this is the only Tab.Navigator for fans
+              component={FanStack}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -168,7 +163,7 @@ const App = () => {
             />
             <Stack.Screen
               name="ConversationThread"
-              component={ConversationThread} // Ensure ConversationThread is registered here
+              component={ConversationThread}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -176,7 +171,11 @@ const App = () => {
               component={PostDetailsPage}
               options={{ headerShown: false }}
             />
-
+            <Stack.Screen
+              name="VerifyAccount" // Add the VerifyAccount screen here
+              component={VerifyAccount}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>
