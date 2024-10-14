@@ -17,9 +17,6 @@ import ArtistPostsPage from './screens/artist/ArtistPostsPage';
 import SignaturePage from './screens/artist/SignaturePage';
 import ArtistSignatures from './screens/artist/ArtistSignatures';
 import PermissionsScreen from './screens/PermissionsScreen';
-import NewSignupPage from './newUserAuth/NewSignupPage';
-import VerifyAccount from './newUserAuth/VerifyAccount';
-import NewLoginPage from './newUserAuth/NewLoginPage';
 import EditScreen from './screens/artist/EditScreen';
 import SplashVideoScreen from './screens/SplashVideoScreen';
 import DMsScreen from './screens/DMsScreen';
@@ -157,21 +154,6 @@ const App = () => {
             <Stack.Screen
               name="PermissionsScreen"
               component={PermissionsScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="NewLoginPage"
-              component={NewLoginPage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="NewSignupPage"
-              component={NewSignupPage}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="VerifyAccount"
-              component={VerifyAccount}
               options={{ headerShown: false }}
             />
             <Stack.Screen

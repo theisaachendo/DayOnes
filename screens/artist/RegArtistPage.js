@@ -15,57 +15,51 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import LogoText from '../../assets/components/LogoText'; // Import the LogoText component
+import LogoText from '../../assets/components/LogoText';
+import axios from 'axios';
+import { BASEURL } from '../../assets/constants';
+
 
 const { width, height } = Dimensions.get('window');
 
 const RegArtistPage = () => {
   const navigation = useNavigation();
-  const [fullName, setFullName] = useState('');
-  const [userName, setUserName] = useState('');
+  const [name, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phoneNumber, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegister = async () => {
-    if (!fullName || !userName || !email || !phone || !password || !confirmPassword) {
-      Alert.alert('Validation Failed', 'Please fill in all required fields.');
+  const handleSignup = async () => {
+    if (!email || !password || !confirmPassword || !name || !phoneNumber) {
+      Alert.alert('Validation Error', 'All fields are required.');
       return;
     }
 
     if (password !== confirmPassword) {
-      Alert.alert('Validation Failed', 'Password and confirm password do not match.');
+      Alert.alert('Validation Error', 'Passwords do not match.');
       return;
     }
 
-    const queryParams = new URLSearchParams({
-      Username: userName,
-      Password: password,
-      FullName: fullName,
-      Email: email,
-      Phone: phone,
-      Role: 'artist',
-    }).toString();
 
     try {
-      const response = await fetch(`https://pdgoqkofzbudgfnvypspz72kh40zttnv.lambda-url.us-east-1.on.aws/?${queryParams}`, {
-        method: 'GET',
+      const response = await axios.post(`${BASEURL}/api/v1/auth/signup`, {
+        email,
+        password,
+        role: 'ARTIST',
+        name,
+        phoneNumber: phoneNumber,
       });
 
-      const result = await response.json();
-
-      if (response.status === 201) {
-        Alert.alert('Success', 'Registration successful');
-        navigation.navigate('LoginPage');
-      } else if (response.status === 200) {
-        Alert.alert('Error', result);
+      if (response.status === 200) {
+        Alert.alert('Signup Successful', 'Please check your email for the verification code.');
+        navigation.navigate('VerifyAccount', { email }); // Navigate to VerifyAccount with email
       } else {
-        Alert.alert('Error', 'An unexpected error occurred');
+        Alert.alert('Signup Failed', 'Something went wrong. Please try again.');
       }
     } catch (error) {
-      console.error('Registration error:', error);
-      Alert.alert('Error', 'An unexpected error occurred');
+      console.log(error)
+      Alert.alert('Signup Error', error.response?.data?.message || 'An unexpected error occurred.');
     }
   };
 
@@ -90,27 +84,7 @@ const RegArtistPage = () => {
           </View>
 
           <View style={styles.inputContainer}>
-            <View style={styles.inputWrapper}>
-              <Icon name="user" size={20} color="#888" style={styles.inputIcon} />
-              <TextInput
-                style={styles.input}
-                placeholder="Full Name"
-                placeholderTextColor="#888"
-                value={fullName}
-                onChangeText={setFullName}
-              />
-            </View>
-            <View style={styles.inputWrapper}>
-              <Icon name="user-circle" size={20} color="#888" style={styles.inputIcon} />
-              <TextInput
-                style={styles.input}
-                placeholder="Username"
-                placeholderTextColor="#888"
-                value={userName}
-                onChangeText={setUserName}
-              />
-            </View>
-            <View style={styles.inputWrapper}>
+          <View style={styles.inputWrapper}>
               <Icon name="envelope" size={20} color="#888" style={styles.inputIcon} />
               <TextInput
                 style={styles.input}
@@ -118,16 +92,6 @@ const RegArtistPage = () => {
                 placeholderTextColor="#888"
                 value={email}
                 onChangeText={setEmail}
-              />
-            </View>
-            <View style={styles.inputWrapper}>
-              <Icon name="phone" size={20} color="#888" style={styles.inputIcon} />
-              <TextInput
-                style={styles.input}
-                placeholder="Phone number"
-                placeholderTextColor="#888"
-                value={phone}
-                onChangeText={setPhone}
               />
             </View>
             <View style={styles.inputWrapper}>
@@ -152,6 +116,27 @@ const RegArtistPage = () => {
                 onChangeText={setConfirmPassword}
               />
             </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="user" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Full Name"
+                placeholderTextColor="#888"
+                value={name}
+                onChangeText={setFullName}
+              />
+            </View>
+            <View style={styles.inputWrapper}>
+              <Icon name="phone" size={20} color="#888" style={styles.inputIcon} />
+              <TextInput
+                style={styles.input}
+                placeholder="Phone number"
+                placeholderTextColor="#888"
+                value={phoneNumber}
+                onChangeText={setPhone}
+              />
+            </View>
+
           </View>
 
           <TouchableOpacity style={styles.connectButton}>
@@ -159,7 +144,7 @@ const RegArtistPage = () => {
           </TouchableOpacity>
 
           <LinearGradient colors={['#ff00ff', '#7000ff']} style={styles.signupButton}>
-            <TouchableOpacity onPress={handleRegister} style={styles.fullWidth}>
+            <TouchableOpacity onPress={handleSignup} style={styles.fullWidth}>
               <Text style={styles.buttonText}>Signup</Text>
             </TouchableOpacity>
           </LinearGradient>

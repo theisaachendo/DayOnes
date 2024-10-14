@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -19,6 +19,14 @@ const VerifyAccount = () => {
   const route = useRoute();
   const passedEmail = route.params?.email || ''; // Get the email passed from the signup page or use an empty string
 
+  // Set email and resendEmail to the passedEmail on component mount if passedEmail exists
+  useEffect(() => {
+    if (passedEmail) {
+      setEmail(passedEmail);
+      setResendEmail(passedEmail);
+    }
+  }, [passedEmail]);
+
   const handleVerification = async () => {
     if (!email || !confirmationCode) {
       Alert.alert('Validation Error', 'Please enter your email and the verification code.');
@@ -33,7 +41,7 @@ const VerifyAccount = () => {
 
       if (response.status === 200) {
         Alert.alert('Verification Successful', 'Your account has been verified.');
-        navigation.navigate('NewLoginPage'); // Redirect to login page after verification
+        navigation.navigate('LoginPage'); // Redirect to login page after verification
       } else {
         Alert.alert('Verification Failed', 'Invalid verification code. Please try again.');
       }
@@ -67,13 +75,15 @@ const VerifyAccount = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Verification</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Email for Verification"
         placeholderTextColor="#888"
-        value={email || passedEmail} // Prefill with the passed email if available
+        value={email} // Prefill with the passed email if available
         onChangeText={setEmail} // Make the email field editable
       />
+
       <TextInput
         style={styles.input}
         placeholder="Verification Code"
@@ -81,6 +91,7 @@ const VerifyAccount = () => {
         value={confirmationCode}
         onChangeText={setConfirmationCode}
       />
+
       <TouchableOpacity style={styles.button} onPress={handleVerification}>
         <Text style={styles.buttonText}>Verify</Text>
       </TouchableOpacity>
@@ -91,9 +102,10 @@ const VerifyAccount = () => {
         style={styles.input}
         placeholder="Email to Resend Code"
         placeholderTextColor="#888"
-        value={resendEmail}
-        onChangeText={setResendEmail}
+        value={resendEmail} // Prefill with the passed email for resending if available
+        onChangeText={setResendEmail} // Make the resend email field editable
       />
+
       <TouchableOpacity style={[styles.button, styles.secondaryButton]} onPress={handleResendEmail}>
         <Text style={styles.buttonText}>Resend Email</Text>
       </TouchableOpacity>
@@ -140,7 +152,7 @@ const styles = StyleSheet.create({
   },
   signupButton: {
     backgroundColor: '#00aaff',
-    marginTop: 20, // Added margin for spacing
+    marginTop: 20,
   },
   buttonText: {
     color: '#fff',

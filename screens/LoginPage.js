@@ -20,6 +20,7 @@ import LogoText from '../assets/components/LogoText';
 import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import messaging from '@react-native-firebase/messaging'; // Firebase Messaging
+import useLogin from '../assets/hooks/useLogin';
 
 const { width } = Dimensions.get('window');
 
@@ -28,65 +29,10 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
-  const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.userProfile);
+  const { mutate: loginUser } = useLogin();
 
   // Login function
-  const handleLogin = async () => {
-    if (!username || !password) {
-      Alert.alert('Validation Error', 'Please enter both username and password.');
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      // Make the login request
-      const response = await axios.get(
-        `https://ifxz5tco3iasejg5ldo3udsq740cxxbl.lambda-url.us-east-1.on.aws/?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-      );
-      const result = response.data;
-
-      Alert.alert('Login Successful', `Welcome, ${result.profile.fullName || username}!`);
-
-      console.log('User Profile from Redux:', userProfile);
-      // Dispatch user profile data to the Redux store
-
-      // Once login is successful, retrieve and print the FCM token
-      getFcmToken();
-
-      // Check permissions
-      const hasAllPermissions = await checkPermissions();
-      if (hasAllPermissions) {
-        navigateToAppropriateStack(result.profile.role);
-      } else {
-        navigation.navigate('PermissionsScreen');
-      }
-    } catch (error) {
-      if (error.response?.status === 401) {
-        Alert.alert('Login Failed', 'Invalid username or password.');
-      } else if (error.response?.status === 404) {
-        Alert.alert('Login Failed', 'User not found.');
-      } else {
-        Alert.alert('Login Failed', 'An unexpected error occurred.');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Retrieve FCM token after successful login
-  const getFcmToken = async () => {
-    try {
-      const fcmToken = await messaging().getToken();
-      console.log('FCM Token:', fcmToken); // Print the FCM token
-
-      // Dispatch FCM token to Redux store
-      dispatch(setFcmToken(fcmToken));
-    } catch (error) {
-      console.log('Failed to get FCM token:', error);
-    }
-  };
-
   const checkPermissions = async () => {
     try {
       const camera = await check(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA);
@@ -114,6 +60,55 @@ const LoginScreen = () => {
     }
   };
 
+  const handleLogin = () => {
+    if (!username || !password) {
+      Alert.alert('Validation Error', 'Please enter both username and password.');
+      return;
+    }
+    setIsLoading(true);
+
+    loginUser(
+      { email: username, password },
+      {
+        onSuccess: async (data) => {
+          setIsLoading(false);
+          const { token, userID, fullName, role } = data;
+
+          // Dispatch user profile data to the Redux store
+          console.log('User Profile from Redux:', userProfile);
+
+          // Check permissions
+          const hasAllPermissions = await checkPermissions();
+          if (hasAllPermissions) {
+            navigateToAppropriateStack(role);
+          } else {
+            navigation.navigate('PermissionsScreen');
+          }
+        },
+        onError: (error) => {
+          setIsLoading(false);
+
+          // Check if the error includes 'User is not confirmed'
+          if (error.toString().includes('User is not confirmed')) {
+            Alert.alert('Account Not Confirmed', 'Please confirm your account to proceed.');
+            navigation.navigate('VerifyAccount', { email: username }); // Navigate to VerifyAccount with email
+          } else if (error.toString().includes('401')) {
+            Alert.alert('Login Failed', 'Invalid username or password.');
+          } else if (error.toString().includes('404')) {
+            Alert.alert('Login Failed', 'User not found.');
+          } else {
+            Alert.alert('Login Failed', 'An unexpected error occurred.');
+          }
+        },
+      }
+    );
+  };
+
+
+
+
+
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -130,7 +125,7 @@ const LoginScreen = () => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Username"
+              placeholder="Email"
               placeholderTextColor="#888"
               value={username}
               onChangeText={setUsername}
@@ -173,16 +168,6 @@ const LoginScreen = () => {
         </Text>
 
         <View style={styles.bottomSection}>
-          {/* New Signup Button */}
-          <LinearGradient colors={['#00ffcc', '#0099cc']} style={styles.signupArtistButton}>
-            <TouchableOpacity
-              style={styles.fullWidth}
-              onPress={() => navigation.navigate('NewSignupPage')}
-            >
-              <Text style={[styles.signupArtistText, { color: '#fff' }]}>New Signup</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-
           <Text style={styles.artistQuestionText}>Are you an artist?</Text>
           <LinearGradient colors={['#ffcc00', '#ff8800']} style={styles.signupArtistButton}>
             <TouchableOpacity
