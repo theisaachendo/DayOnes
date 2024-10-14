@@ -11,15 +11,12 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import { setUserProfile, setFcmToken } from '../assets/redux/actions'; // Ensure both actions are imported
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LogoText from '../assets/components/LogoText';
-import axios from 'axios';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
-import messaging from '@react-native-firebase/messaging'; // Firebase Messaging
 import useLogin from '../assets/hooks/useLogin';
 
 const { width } = Dimensions.get('window');
