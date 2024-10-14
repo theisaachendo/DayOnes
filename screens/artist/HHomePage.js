@@ -89,11 +89,6 @@ const HHomePage = () => {
       return;
     }
 
-    if (!userProfile || !userProfile.username || userProfile.username === 'unknown') {
-      alert("User information is missing.");
-      return;
-    }
-
     const postData = {
       imageUrl: 'https://picsum.photos/seed/picsum/200/300',
       range: sliderValue[0],
