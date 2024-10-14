@@ -15,7 +15,7 @@ const ProfileScreen = ({ navigation }) => {
     profilePicture: null,
     fullName: 'First Last',
     email: 'FirstLast@gmail.com',
-    role: 'USER', // Assuming role defaults to 'fan' if not set
+    role: 'fan', // Assuming role defaults to 'fan' if not set
   };
 
   const navigateToHomePage = () => {

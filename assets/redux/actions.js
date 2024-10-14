@@ -6,7 +6,13 @@ export const SET_USER_ID = 'SET_USER_ID';
 export const SET_SIGNATURE_COLOR = 'SET_SIGNATURE_COLOR';
 export const SET_SIGNATURE_SIZE = 'SET_SIGNATURE_SIZE';
 export const SET_FCM_TOKEN = 'SET_FCM_TOKEN';
+export const SET_INVITES_ENABLED = 'SET_INVITES_ENABLED';
 
+
+export const setInvitesEnabled = (isEnabled) => ({
+  type: SET_INVITES_ENABLED,
+  payload: isEnabled,
+});
 
 export const setGeolocationData = (geolocationData) => ({
     type: SET_GEOLOCATION_DATA,
