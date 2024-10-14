@@ -15,14 +15,14 @@ const ProfileScreen = ({ navigation }) => {
     profilePicture: null,
     fullName: 'First Last',
     email: 'FirstLast@gmail.com',
-    role: 'fan', // Assuming role defaults to 'fan' if not set
+    role: 'USER', // Assuming role defaults to 'fan' if not set
   };
 
   const navigateToHomePage = () => {
     // Check the role and navigate to the appropriate home page
     if (profile.data.role === 'ARTIST') {
       navigation.navigate('HHomePage');
-    } else if (profile.data.role === 'FAN') {
+    } else if (profile.data.role === 'USER') {
       navigation.navigate('FanStack');
     } else {
       // Fallback in case role is missing or unexpected
