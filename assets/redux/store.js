@@ -1,11 +1,9 @@
 // redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import geoReducer from './reducers';
-import accessTokenReducer from './reducers'
+import rootReducer from './reducers'; // Import the combined rootReducer
 
 const store = configureStore({
-    reducer: geoReducer,
-    reducer: accessTokenReducer,
+    reducer: rootReducer, // Use rootReducer with all reducers combined
 });
 
 export default store;

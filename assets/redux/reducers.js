@@ -6,7 +6,8 @@ import {
     SET_USER_ID,
     SET_SIGNATURE_COLOR,
     SET_SIGNATURE_SIZE,
-    SET_FCM_TOKEN, // Import FCM token action type
+    SET_FCM_TOKEN,
+    SET_INVITES_ENABLED, // Import the invites enabled action type
 } from './actions';
 
 const initialState = {
@@ -19,10 +20,11 @@ const initialState = {
     },
     userProfile: null,
     accessToken: '',
-    userID: '', // Add userID to the initial state
-    signatureColor: '#FF0000', // Default color for signature
-    signatureSize: { width: 450, height: 450 }, // Default size for signature
-    token: null, // Add token to the initial state for FCM
+    userID: '',
+    signatureColor: '#FF0000',
+    signatureSize: { width: 450, height: 450 },
+    token: null,
+    invitesEnabled: false, // Initialize invitesEnabled state
 };
 
 // Geolocation Reducer
@@ -85,10 +87,20 @@ const signatureSizeReducer = (state = initialState.signatureSize, action) => {
     }
 };
 
-// FCM Token Reducer (new reducer to handle FCM token)
+// FCM Token Reducer
 const fcmTokenReducer = (state = initialState.token, action) => {
     switch (action.type) {
         case SET_FCM_TOKEN:
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+// Invites Enabled Reducer
+const invitesEnabledReducer = (state = initialState.invitesEnabled, action) => {
+    switch (action.type) {
+        case SET_INVITES_ENABLED:
             return action.payload;
         default:
             return state;
@@ -103,7 +115,8 @@ const rootReducer = combineReducers({
     userID: userIDReducer,
     signatureColor: signatureColorReducer,
     signatureSize: signatureSizeReducer,
-    token: fcmTokenReducer, // Include FCM token reducer in the root reducer
+    token: fcmTokenReducer,
+    invitesEnabled: invitesEnabledReducer, // Add invitesEnabled reducer here
 });
 
 export default rootReducer;

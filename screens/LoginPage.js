@@ -51,9 +51,9 @@ const LoginScreen = () => {
   };
 
   const navigateToAppropriateStack = (role) => {
-    if (role === 'artist') {
+    if (role === 'ARTIST') {
       navigation.navigate('ArtistStack');
-    } else if (role === 'fan') {
+    } else if (role === 'USER') {
       navigation.navigate('FanStack');
     } else {
       Alert.alert('Login Error', 'Unrecognized user role.');

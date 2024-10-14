@@ -62,7 +62,7 @@ const PermissionsScreen = () => {
   const navigateToAppropriateStack = (role) => {
     if (role === 'ARTIST') {
       navigation.navigate('ArtistStack');
-    } else if (role === 'FAN') {
+    } else if (role === 'USER') {
       navigation.navigate('FanStack');
     }
   };

@@ -22,7 +22,7 @@ const ProfileScreen = ({ navigation }) => {
     // Check the role and navigate to the appropriate home page
     if (profile.data.role === 'ARTIST') {
       navigation.navigate('HHomePage');
-    } else if (profile.data.role === 'FAN') {
+    } else if (profile.data.role === 'USER') {
       navigation.navigate('FanStack');
     } else {
       // Fallback in case role is missing or unexpected

@@ -22,7 +22,7 @@ import SplashVideoScreen from './screens/SplashVideoScreen';
 import DMsScreen from './screens/DMsScreen';
 import ConversationThread from './screens/ConversationThread'; // Import ConversationThread
 import PostDetailsPage from './screens/artist/PostDetailsPage';
-import VerifyAccount from './screens/VerifyAccount'; // Add import for VerifyAccount
+import VerifyAccount from './screens/VerifyAccount';
 
 const Stack = createStackNavigator();
 const queryClient = new QueryClient();
@@ -171,11 +171,12 @@ const App = () => {
               component={PostDetailsPage}
               options={{ headerShown: false }}
             />
-            <Stack.Screen
-              name="VerifyAccount" // Add the VerifyAccount screen here
+                        <Stack.Screen
+              name="VerifyAccount"
               component={VerifyAccount}
               options={{ headerShown: false }}
             />
+
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>

@@ -1,220 +1,175 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  Text,
-  Alert,
-  Dimensions,
-  Animated,
-  Easing,
-  TouchableWithoutFeedback,
-  PermissionsAndroid,
-  Platform,
-  CameraRoll,
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, TextInput, Modal, Image } from 'react-native';
 import { useSelector } from 'react-redux';
-import RNFS from 'react-native-fs'; // Add this to download images on Android
-import ProfilePictureButton from '../../assets/components/ProfilePictureButton'; // Import the ProfilePictureButton
+import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
+import { BASEURL } from '../../assets/constants';
+import ProfilePictureButton from '../../assets/components/ProfilePictureButton';
 
-// Import the logo
-import DayOnesLogo from '../../assets/images/DayOnesLogo.png'; // Adjust the path if necessary
+const MyCollectionsPage = ({ navigation }) => {
+  const [posts, setPosts] = useState([]);
+  const [commentText, setCommentText] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedPostId, setSelectedPostId] = useState(null);
+  const profile = useSelector(state => state.userProfile) || { username: 'unknown' };
+  const accessToken = useSelector(state => state.accessToken);
 
-const MyCollectionsPage = () => {
-  const [posts, setPosts] = useState([]); // State for posts
-  const locationData = useSelector(state => state.geolocationData); // Get geolocation data from Redux
-  const glowAnimation = useRef(new Animated.Value(0)).current; // Animation value for the glow
-
-  useEffect(() => {
-    sendLocationData(); // Fetch posts when the component mounts
-    startGlowAnimation(); // Start the glow animation when the component mounts
-  }, []);
-
-  const startGlowAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(glowAnimation, {
-          toValue: 1,
-          duration: 4000, // Adjust speed of color transition
-          easing: Easing.linear,
-          useNativeDriver: false,
-        }),
-        Animated.timing(glowAnimation, {
-          toValue: 0,
-          duration: 4000,
-          easing: Easing.linear,
-          useNativeDriver: false,
-        }),
-      ])
-    ).start();
+  const fetchArtistPosts = async () => {
+    try {
+      const response = await axios.get(`${BASEURL}/api/v1/post/`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      setPosts(response.data?.data?.posts || []);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      Alert.alert('Error', 'An error occurred while fetching posts.');
+    }
   };
 
-  const sendLocationData = async () => {
-    const data = {
-      geohash: locationData.geohash,
-      latitude: locationData.latitude,
-      longitude: locationData.longitude,
-    };
+  const toggleLike = async (postId) => {
+    try {
+      const response = await axios.post(`${BASEURL}/api/v1/post/${postId}/likes`, {}, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      Alert.alert("Success", "Post liked!");
+    } catch (error) {
+      console.error("Error liking post:", error);
+      Alert.alert("Error", "Unable to like the post due to a network issue.");
+    }
+  };
+
+  const addComment = async () => {
+    if (!commentText) {
+      Alert.alert("Error", "Comment cannot be empty.");
+      return;
+    }
 
     try {
-      const response = await fetch('https://a55yh6pw6pks3fc7vtlfs65tli0ujdlf.lambda-url.us-east-1.on.aws/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await axios.post(
+        `${BASEURL}/api/v1/post/${selectedPostId}/comment`,
+        { message: commentText },
+        { headers: { Authorization: `Bearer ${accessToken}` } }
+      );
 
-      const result = await response.json();
+      console.log("Server response:", response); // Log full server response
 
-      if (response.ok) {
-        if (result.length > 0) {
-          setPosts(result); // Save posts to state
-        } else {
-          setPosts([]); // Clear posts if none are found
-          Alert.alert("Sorry", "No nearby posts found.");
-        }
+      if (response.status === 200 || response.status === 201) {
+        Alert.alert("Comment added", commentText);
+        setCommentText("");
+        setIsModalVisible(false);
       } else {
-        Alert.alert("Error", "Failed to invoke Lambda function");
+        console.error("Unexpected response status:", response.status);
+        Alert.alert("Error", "Unexpected response from the server.");
       }
     } catch (error) {
-      console.error("Error invoking Lambda function", error);
-      Alert.alert("Error", "An unexpected error occurred");
-    }
-  };
+      let errorMessage = "Unable to add comment.";
 
-  // Create an interpolation for the glow color, simulating multicolored glow transitions
-  const glowColor = glowAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['rgba(255, 215, 0, 1)', 'rgba(184, 134, 11, 1)'], // Bright gold to dark goldenrod
-  });
+      if (error.response) {
+        console.log("Error response data:", error.response.data);
 
-  // Function to save an image
-  const saveImage = async (imageUrl) => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-          {
-            title: "Permission to save image",
-            message: "App needs access to your storage to download the image",
-            buttonPositive: "Allow",
-          }
-        );
-        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-          Alert.alert("Permission Denied", "You need to allow storage access to save images.");
-          return;
+        if (error.response.data && error.response.data.message) {
+          errorMessage = error.response.data.message;
+        } else if (error.response.status === 401) {
+          errorMessage = "Unauthorized. Please check your credentials.";
+        } else if (error.response.status === 500) {
+          errorMessage = "Server error. Please try again later.";
         }
-      } catch (err) {
-        console.warn(err);
+      } else if (error.request) {
+        console.error("No response received from the server.");
+        errorMessage = "No response from the server. Check your internet connection.";
+      } else {
+        console.error("Error", error.message);
+        errorMessage = error.message;
       }
-    }
 
-    const downloadDest = `${RNFS.PicturesDirectoryPath}/${Math.floor(Date.now() / 1000)}.jpg`;
-    RNFS.downloadFile({
-      fromUrl: imageUrl,
-      toFile: downloadDest,
-    })
-      .promise.then(() => {
-        CameraRoll.save(downloadDest, { type: 'photo' })
-          .then(() => Alert.alert('Success', 'Image saved to gallery.'))
-          .catch(() => Alert.alert('Error', 'Failed to save image.'));
-      })
-      .catch(() => Alert.alert('Error', 'Failed to download image.'));
+      Alert.alert("Error", errorMessage);
+    }
   };
 
   return (
-    <View style={styles.background}>
-      {/* Add Profile Picture Button in the top-left corner */}
-      <ProfilePictureButton />
-
-      <View style={styles.container}>
-        {/* Add the Logo at the top */}
-        <Image source={DayOnesLogo} style={styles.logo} />
-
-        {posts.length > 0 ? (
-          <ScrollView
-            horizontal
-            pagingEnabled
-            snapToInterval={width} // Ensure snapping to each post
-            decelerationRate="fast"
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.scrollContainer}
-          >
-            {posts.map((post, index) => (
-              <Animated.View
-                key={index}
-                style={[
-                  styles.imageFrame, // Frame container for images
-                  {
-                    shadowColor: glowColor, // Apply animated glow color
-                  },
-                ]}
-              >
-                <TouchableWithoutFeedback
-                  onLongPress={() => saveImage(post.ImageUrl)} // Save image on long press
-                >
-                  <Image
-                    source={{ uri: post.ImageUrl }}
-                    style={styles.postImage}
-                    resizeMode="cover"
-                  />
-                </TouchableWithoutFeedback>
-              </Animated.View>
-            ))}
-          </ScrollView>
-        ) : (
-          <Text style={styles.noPostsText}>No nearby posts found.</Text>
-        )}
-      </View>
+    <View style={styles.container}>
+      <ProfilePictureButton navigation={navigation} />
+      <Text style={styles.pageTitle}>Posts</Text>
+      <ScrollView style={styles.scrollView}>
+        {posts.map((post, index) => (
+          <View key={index} style={styles.postContainer}>
+            <Text style={styles.postUser}>{post.locale || 'Unknown Location'}</Text>
+            <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
+              {post.image_url && (
+                <Image source={{ uri: post.image_url }} style={styles.postImage} />
+              )}
+            </TouchableOpacity>
+            <Text style={styles.postText}>{post.message}</Text>
+            <View style={styles.interactionContainer}>
+              <TouchableOpacity onPress={() => toggleLike(post.id)}>
+                <Icon name="heart" size={20} color={post.liked ? "#FF0000" : "#FFFFFF"} />
+                <Text style={styles.interactionText}> Like</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => {
+                setSelectedPostId(post.id);
+                setIsModalVisible(true);
+              }}>
+                <Icon name="comment" size={20} color="#FFFFFF" style={styles.commentIcon} />
+                <Text style={styles.interactionText}> Comment</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+      {posts.length === 0 && (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={fetchArtistPosts} style={styles.button}>
+            <Text style={styles.buttonText}>Fetch Posts</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+      {/* Comment Modal */}
+      <Modal visible={isModalVisible} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Add a Comment</Text>
+            <TextInput
+              style={styles.modalInput}
+              placeholder="Write your comment..."
+              value={commentText}
+              onChangeText={setCommentText}
+              placeholderTextColor="#aaa"
+            />
+            <View style={styles.modalButtonContainer}>
+              <TouchableOpacity style={styles.submitButton} onPress={addComment}>
+                <Text style={styles.buttonText}>Submit</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.cancelButton} onPress={() => setIsModalVisible(false)}>
+                <Text style={styles.buttonText}>Cancel</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
 
-const { width, height } = Dimensions.get('window');
-
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: '#0c002b', // Navy blue background color
-  },
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  logo: {
-    width: 40, // Maintain the 40 width
-    height: 40, // Maintain the 40 height
-    alignSelf: 'center', // Center the logo horizontally
-    marginBottom: 10, // Add margin to prevent cutoff
-  },
-  scrollContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageFrame: {
-    width: width, // Take full width for proper paging
-    height: height * 0.75,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowOpacity: 6, // Glow intensity
-    shadowRadius: 50,
-    shadowOffset: { width: 0, height: 0 },
-    elevation: 30,
-  },
-  postImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 8,
-    resizeMode: 'contain', // Fit the image within the frame
-  },
-  noPostsText: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 20,
-  },
+  container: { flex: 1, backgroundColor: '#0c002b', padding: 16 },
+  pageTitle: { fontSize: 28, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 20 },
+  scrollView: { flex: 1, marginBottom: 20 },
+  postContainer: { marginBottom: 20 },
+  postUser: { fontSize: 16, color: '#ffffff', marginBottom: 5, fontWeight: 'bold', paddingLeft: 5 },
+  postImage: { width: '100%', height: 400 },
+  interactionContainer: { flexDirection: 'row', alignItems: 'center', marginTop: 10, paddingLeft: 5 },
+  interactionText: { fontSize: 16, color: '#FF0080', marginLeft: 5 },
+  commentIcon: { marginLeft: 20 },
+  buttonContainer: { flexDirection: 'row', justifyContent: 'center', marginTop: 20 },
+  button: { backgroundColor: '#FF0080', padding: 15, borderRadius: 25, alignItems: 'center', shadowColor: '#FF0080', shadowOffset: { width: 0, height: 5 }, shadowOpacity: 0.8, shadowRadius: 8, elevation: 5 },
+  buttonText: { fontSize: 18, color: '#ffffff', fontWeight: 'bold' },
+  modalOverlay: { flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' },
+  modalContainer: { width: '80%', backgroundColor: '#fff', borderRadius: 10, padding: 20, alignItems: 'center' },
+  modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, color: '#333' },
+  modalInput: { width: '100%', height: 40, borderColor: '#ddd', borderWidth: 1, borderRadius: 5, padding: 10, marginBottom: 20 },
+  modalButtonContainer: { flexDirection: 'row', justifyContent: 'space-between', width: '100%' },
+  submitButton: { flex: 1, backgroundColor: '#FF0080', paddingVertical: 10, borderRadius: 5, alignItems: 'center', marginRight: 5 },
+  cancelButton: { flex: 1, backgroundColor: '#888', paddingVertical: 10, borderRadius: 5, alignItems: 'center', marginLeft: 5 },
 });
 
 export default MyCollectionsPage;
