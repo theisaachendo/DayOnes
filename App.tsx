@@ -22,7 +22,8 @@ import VerifyAccount from './newUserAuth/VerifyAccount';
 import NewLoginPage from './newUserAuth/NewLoginPage';
 import EditScreen from './screens/artist/EditScreen';
 import SplashVideoScreen from './screens/SplashVideoScreen';
-import CreatePostPage from './newUserAuth/CreatePostPage';
+import DMsScreen from './screens/DMsScreen';
+import ConversationThread from './screens/ConversationThread'; // Import ConversationThread
 import PostDetailsPage from './screens/artist/PostDetailsPage';
 
 const Stack = createStackNavigator();
@@ -30,15 +31,30 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
+    let unsubscribeFn: (() => void) | undefined;
+
     // Hide the splash screen (the default one, not the video one)
     SplashScreen.hide();
 
     // Start watching geolocation when the app starts
     startWatchingLocation();
 
+    // Register the device for remote messages
+    const registerForRemoteMessages = async () => {
+      try {
+        await messaging().registerDeviceForRemoteMessages(); // Register the device
+        console.log('Device registered for remote messages.');
+      } catch (error) {
+        console.error('Error registering device for remote messages:', error);
+      }
+    };
+
     // Request notification permission and handle incoming messages
     const requestPermissionAndHandleNotifications = async () => {
       try {
+        // Wait for device registration to complete before requesting permission
+        await registerForRemoteMessages();
+
         const authStatus = await messaging().requestPermission();
         const enabled =
           authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
@@ -46,6 +62,9 @@ const App = () => {
 
         if (enabled) {
           console.log('Notification permission granted.');
+
+          const token = await messaging().getToken(); // Get the FCM token
+          console.log('FCM Token:', token); // Log the FCM token
 
           // Handle foreground notifications
           const unsubscribe = messaging().onMessage(async (remoteMessage) => {
@@ -62,17 +81,22 @@ const App = () => {
       }
     };
 
-    // Call the notification handler
-    requestPermissionAndHandleNotifications().then((unsubscribe) => {
-      // Clean up notification listener on component unmount
-      return () => {
-        // Stop watching geolocation when the app unmounts
-        stopWatchingLocation();
+    // Initialize the notifications setup
+    const setupNotifications = async () => {
+      unsubscribeFn = await requestPermissionAndHandleNotifications();
+    };
 
-        // Unsubscribe from notifications if listener was set
-        unsubscribe && unsubscribe();
-      };
-    });
+    setupNotifications();
+
+    return () => {
+      // Stop watching geolocation when the app unmounts
+      stopWatchingLocation();
+
+      // Unsubscribe from notifications if listener was set
+      if (unsubscribeFn) {
+        unsubscribeFn();
+      }
+    };
   }, []);
 
   return (
@@ -156,8 +180,13 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="CreatePostPage"
-              component={CreatePostPage}
+              name="DMsScreen"
+              component={DMsScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ConversationThread"
+              component={ConversationThread} // Ensure ConversationThread is registered here
               options={{ headerShown: false }}
             />
             <Stack.Screen
