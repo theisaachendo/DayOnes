@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setAccessToken, setUserID } from '../redux/actions';
+import { setAccessToken, setUserID, setFcmToken } from '../redux/actions';
 import { Alert } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
+import Geolocation from '@react-native-community/geolocation';
 import { BASEURL } from '../constants';
+import useFetchUser from './useFetchUser'; // Import useFetchUser
 
 const loginUser = async ({ email, password }) => {
   console.log('loginUser called with:', { email, password });
@@ -23,65 +27,114 @@ const loginUser = async ({ email, password }) => {
     if (typeof token === 'string' && typeof userID === 'string') {
       return { token, userID, fullName };
     } else {
-      console.log('Token or userID not found in response');
       throw new Error('Access token or User ID not found');
     }
   } catch (error) {
     console.log('Error in loginUser:', error);
+    throw error.response ? error.response.data.message : 'Network error. Please check your connection.';
+  }
+};
 
-    if (!error.response) {
-      console.log('No response from server - likely a network issue');
-      throw new Error('Network error. Please check your internet connection.');
-    }
-    if (error.code === 'ECONNABORTED') {
-      console.log('Request timed out');
-      throw new Error('Request timed out. Please try again.');
-    }
-    throw error;
+const updateNotificationToken = async (token, notificationToken) => {
+  try {
+    const response = await axios.post(
+      `${BASEURL}/api/v1/user-notification/token`,
+      new URLSearchParams({ notificationToken }).toString(),
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+    console.log('Notification token updated successfully:', response.data);
+  } catch (error) {
+    console.error('Error updating notification token:', error);
+    throw new Error('Failed to update notification token.');
+  }
+};
+
+const updateLocation = async (token, latitude, longitude) => {
+  try {
+    const response = await axios.post(
+      `${BASEURL}/api/v1/user/update-location`,
+      new URLSearchParams({ latitude, longitude }).toString(),
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+    console.log('Location updated successfully:', response.data);
+  } catch (error) {
+    console.error('Error updating location:', error);
+    throw new Error('Failed to update location.');
   }
 };
 
 const useLogin = () => {
   const dispatch = useDispatch();
+  const { mutate: fetchUser } = useFetchUser(); // Destructure mutate function from useFetchUser
+
+  const getFcmToken = async () => {
+    try {
+      const fcmToken = await messaging().getToken();
+      console.log('Retrieved FCM Token:', fcmToken);
+      dispatch(setFcmToken(fcmToken));
+      return fcmToken;
+    } catch (error) {
+      console.error('Failed to get FCM token:', error);
+      return null;
+    }
+  };
+
+  const getLocation = async () => {
+    return new Promise((resolve, reject) => {
+      Geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log('User location:', { latitude, longitude });
+          resolve({ latitude, longitude });
+        },
+        (error) => {
+          console.error('Failed to get location:', error);
+          reject(error);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+      );
+    });
+  };
 
   return useMutation(loginUser, {
-    onSuccess: (data) => {
-      console.log('onSuccess called with data:', data);
+    onSuccess: async (data) => {
       const { token, userID, fullName } = data;
+      console.log('Login successful. Access Token:', token);
+
       dispatch(setAccessToken(token));
       dispatch(setUserID(userID));
       Alert.alert('Login Successful', `Welcome back, ${fullName || 'User'}!`);
+
+      try {
+        // Fetch user profile immediately after login
+        fetchUser();
+
+        const fcmToken = await getFcmToken();
+        if (fcmToken) {
+          await updateNotificationToken(token, fcmToken);
+        }
+
+        const { latitude, longitude } = await getLocation();
+        await updateLocation(token, latitude, longitude);
+
+      } catch (error) {
+        console.error('Failed to update FCM token or location:', error);
+        Alert.alert('Error', 'Could not update FCM token or location.');
+      }
     },
     onError: (error) => {
-      console.log('onError called with error:', error);
-      let errorMessage = 'An unexpected error occurred.';
-
-      if (error.message) {
-        errorMessage = error.message;
-      } else if (error.response?.data?.message) {
-        if (typeof error.response.data.message === 'string') {
-          errorMessage = error.response.data.message;
-          console.log('String error message from response:', errorMessage);
-
-          if (errorMessage.includes('User is not confirmed')) {
-            errorMessage = 'Your email address is not verified. Please check your inbox for a verification email.';
-            console.log('Customized error message for unconfirmed user');
-          }
-
-        } else if (Array.isArray(error.response.data.message)) {
-          errorMessage = error.response.data.message.join(', ');
-          console.log('Array error message from response:', errorMessage);
-        } else if (typeof error.response.data.message === 'object') {
-          errorMessage = JSON.stringify(error.response.data.message);
-          console.log('Object error message from response:', errorMessage);
-        }
-      }
-
-      if (typeof errorMessage !== 'string') {
-        errorMessage = 'An unexpected error occurred.';
-        console.log('Fallback error message used');
-      }
-
+      console.log('Login error:', error);
+      let errorMessage = error.message || 'An unexpected error occurred.';
       Alert.alert('Login Error', errorMessage);
     },
   });

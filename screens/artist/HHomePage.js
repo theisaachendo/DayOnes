@@ -11,6 +11,7 @@ import ProfilePictureButton from '../../assets/components/ProfilePictureButton';
 import NotificationsScreen from '../NotificationsScreen';
 import DMsScreen from '../DMsScreen';
 import ArtistPostsPage from './ArtistPostsPage';
+import { BASEURL } from '../../assets/constants';
 
 const { width } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
@@ -20,6 +21,7 @@ const HHomePage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const navigation = useNavigation();
   const route = useRoute();
+  const accessToken = useSelector(state => state.accessToken);
 
   const userProfile = useSelector(state => state.userProfile) || {
     username: 'unknown',
@@ -92,54 +94,38 @@ const HHomePage = () => {
       return;
     }
 
-    const lambdaUrl = `https://4ytdvduogwx7sejdyh4l374fyu0wymfs.lambda-url.us-east-1.on.aws/`;
-
     const postData = {
-      username: userProfile.username,
-      postContent: "This is my new post!",
-      multimediaFile: {
-        content: selectedImage.base64,
-        name: selectedImage.fileName || 'image.jpg',
-      },
-      lat: geolocationData.latitude,
-      lon: geolocationData.longitude,
-      geohash: geolocationData.geohash,
-      locale: geolocationData.locale,
-      distance: sliderValue[0],
+      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
+      range: sliderValue[0],
+      type: "INVITE_PHOTO",
+      latitude: geolocationData.latitude.toString(),
+      longitude: geolocationData.longitude.toString(),
+      locale: geolocationData.locale || 'US',
     };
 
-    console.log("Post data being sent:", postData);
+    console.log(postData)
 
     try {
-      const response = await fetch(lambdaUrl, {
+      const response = await fetch(`${BASEURL}/api/v1/post/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(postData),
       });
 
-      const textResponse = await response.text();
+      const jsonResponse = await response.json();
 
-      console.log("Raw response from Lambda:", textResponse);
-
-      try {
-        const jsonResponse = JSON.parse(textResponse);
-        console.log("Parsed JSON response:", jsonResponse);
-
-        if (response.ok) {
-          alert('Post created successfully!');
-        } else {
-          console.error("Failed to create post:", jsonResponse);
-          alert('Failed to create post.');
-        }
-      } catch (error) {
-        console.error("Response was not JSON:", textResponse);
-        alert('Received an unexpected response from the server.');
+      if (response.ok) {
+        alert('Post created successfully!');
+      } else {
+        console.error("Error response:", jsonResponse);
+        alert(`Failed to create post: ${jsonResponse.message || 'Unknown error'}`);
       }
     } catch (error) {
-      console.error("Error creating post:", error);
-      alert('Error creating post.');
+      console.error("Network or parsing error:", error);
+      alert('An error occurred while creating the post. Check console for details.');
     }
   };
 

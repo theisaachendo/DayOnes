@@ -1,8 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 import { BASEURL } from '../constants';
+import { setUserProfile } from '../redux/actions'; // Adjust the import path
 
 const fetchUserData = async (accessToken) => {
   const response = await axios.post(`${BASEURL}/api/v1/auth/me`, {}, {
@@ -19,11 +20,13 @@ const fetchUserData = async (accessToken) => {
 };
 
 const useFetchUser = () => {
+  const dispatch = useDispatch();
   const accessToken = useSelector((state) => state.accessToken);
 
   return useMutation(() => fetchUserData(accessToken), {
     onSuccess: (data) => {
-      Alert.alert('User Info', `Fetched user information: ${JSON.stringify(data)}`);
+      dispatch(setUserProfile(data)); // Store data in Redux store
+
     },
     onError: (error) => {
       let errorMessage = 'An unexpected error occurred.';

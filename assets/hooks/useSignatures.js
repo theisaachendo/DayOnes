@@ -1,29 +1,67 @@
-import { useQuery } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { BASEURL } from '../constants';
 
-const fetchSignatures = async (username) => {
-  const response = await axios.get('https://x4d3fe2tppuqjgz5zysgqi4sre0lpmmx.lambda-url.us-east-1.on.aws/', {
-    params: {
-      artistUsername: username,
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+export const useSignatures = () => {
+  const [data, setData] = useState([]); // This will store only URLs
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const accessToken = useSelector(state => state.accessToken); // Get the access token from Redux
 
-  if (response.status === 200) {
-    return response.data.data;
-  } else {
-    throw new Error('Failed to fetch signatures');
-  }
-};
+  console.log('useSignatures hook initialized'); // Log initialization
 
-export const useSignatures = (username) => {
-  return useQuery(['signatures', username], () => fetchSignatures(username), {
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    cacheTime: 1000 * 60 * 10, // 10 minutes
-    onError: (error) => {
-      console.error('Error fetching signatures:', error);
-    },
-  });
+  const fetchSignatures = async () => {
+    console.log('fetchSignatures called'); // Log when fetchSignatures is called
+
+    setIsLoading(true);
+    setIsError(false);
+
+    try {
+      console.log(`Making API request to ${BASEURL}/api/v1/signature/ with token: ${accessToken}`);
+
+      const response = await axios.get(`${BASEURL}/api/v1/signature/`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Set the access token in the headers
+        },
+      });
+
+      console.log('API response received:', response); // Log the full response
+
+      const signatures = response.data?.data || [];
+      setData(signatures);
+      console.log('Signatures data set in state:', signatures);
+    } catch (error) {
+      console.error('Error fetching signatures:', error); // Log the error if the request fails
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+      console.log('fetchSignatures completed. isLoading set to false');
+    }
+  };
+
+  const deleteSignature = async (id) => {
+    try {
+      console.log(`Deleting signature with ID: ${id}`);
+      await axios.delete(`${BASEURL}/api/v1/signature/${id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      console.log('Signature deleted successfully');
+      fetchSignatures(); // Refresh signatures after deletion
+    } catch (error) {
+      console.error('Error deleting signature:', error);
+      setIsError(true);
+    }
+  };
+
+  useEffect(() => {
+    if (accessToken) {
+      console.log(`useEffect triggered. Fetching signatures using access token.`);
+      fetchSignatures();
+    }
+  }, [accessToken]); // Trigger fetch when accessToken changes
+
+  return { data, isLoading, isError, refetch: fetchSignatures, deleteSignature };
 };
