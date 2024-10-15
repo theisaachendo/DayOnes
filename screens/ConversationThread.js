@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TextInput, Button, Alert } from 'react-native';
 import { useSelector } from 'react-redux'; // Importing Redux's useSelector
 import { useRoute } from '@react-navigation/native'; // To get conversationId from route params
 import useSendMessage from '../assets/hooks/useSendMessage';
@@ -11,10 +11,12 @@ const ConversationThread = () => {
   const route = useRoute();
   const { conversationId } = route.params; // Get conversationId from the route
   const accessToken = useSelector((state) => state.accessToken); // Fetch the access token from Redux
+  const loggedInUser = useSelector((state) => state.user); // Get user from Redux state
+
+  const loggedInUserId = loggedInUser?.id || null; // Safeguard for loggedInUserId
   const { sendMessage, error } = useSendMessage(accessToken); // Pass accessToken to the hook
 
   useEffect(() => {
-    // Fetch conversation messages when the component loads
     fetchMessages();
   }, []);
 
@@ -26,7 +28,7 @@ const ConversationThread = () => {
 
     try {
       const data = await getMessages(conversationId, accessToken);  // Pass accessToken to getMessages
-      setMessages(data.data); // Assuming data.data contains the messages
+      setMessages(data.data.messages); // Assuming data.data.messages contains the messages
     } catch (err) {
       console.error('Error fetching messages:', err.message);
     }
@@ -40,16 +42,16 @@ const ConversationThread = () => {
     await sendMessage(conversationId, newMessage);
 
     if (!error) {
-      // After sending the message successfully, clear the input and fetch updated messages
       setNewMessage('');
-      fetchMessages();
+      fetchMessages(); // Refresh messages after sending
     }
   };
 
   const renderMessage = ({ item }) => {
+    const isSender = item.sender_id === loggedInUserId; // Check if the logged-in user is the sender
+
     return (
-      <View style={styles.messageItem}>
-        <Text style={styles.sender}>{item.sender}</Text>
+      <View style={[styles.messageItem, isSender ? styles.senderMessage : styles.receiverMessage]}>
         <Text style={styles.messageText}>{item.message}</Text>
       </View>
     );
@@ -64,6 +66,7 @@ const ConversationThread = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderMessage}
         style={styles.messageList}
+        inverted // Invert the list to show the latest message at the bottom
       />
 
       <View style={styles.inputContainer}>
@@ -98,12 +101,17 @@ const styles = StyleSheet.create({
   },
   messageItem: {
     padding: 10,
-    borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
+    borderRadius: 10,
+    marginVertical: 5,
+    maxWidth: '75%', // Adjust to fit message bubble width
   },
-  sender: {
-    fontWeight: 'bold',
-    color: '#fff',
+  senderMessage: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#4e9af1', // Light blue for sender's messages
+  },
+  receiverMessage: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#1e1e1e', // Dark grey for receiver's messages
   },
   messageText: {
     color: '#fff',
