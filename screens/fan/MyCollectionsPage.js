@@ -1,6 +1,17 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, TextInput, Modal, Image } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  TextInput,
+  Modal,
+  Image,
+} from 'react-native';
 import { useSelector } from 'react-redux';
+import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import { BASEURL } from '../../assets/constants';
@@ -8,11 +19,11 @@ import ProfilePictureButton from '../../assets/components/ProfilePictureButton';
 
 const MyCollectionsPage = ({ navigation }) => {
   const [posts, setPosts] = useState([]);
-  const [commentText, setCommentText] = useState("");
+  const [commentText, setCommentText] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedPostId, setSelectedPostId] = useState(null);
-  const profile = useSelector(state => state.userProfile) || { username: 'unknown' };
-  const accessToken = useSelector(state => state.accessToken);
+  const profile = useSelector((state) => state.userProfile) || { username: 'unknown' };
+  const accessToken = useSelector((state) => state.accessToken);
 
   const fetchArtistPosts = async () => {
     try {
@@ -21,20 +32,51 @@ const MyCollectionsPage = ({ navigation }) => {
       });
       setPosts(response.data?.data?.posts || []);
     } catch (error) {
-      console.error("Error fetching posts:", error);
+      console.error('Error fetching posts:', error);
       Alert.alert('Error', 'An error occurred while fetching posts.');
     }
   };
 
-  const toggleLike = async (postId) => {
+  // Refetch collection whenever page is focused
+  useFocusEffect(
+    useCallback(() => {
+      fetchArtistPosts();
+    }, [])
+  );
+
+  const toggleLike = async (postId, isLiked) => {
     try {
-      const response = await axios.post(`${BASEURL}/api/v1/post/${postId}/likes`, {}, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
-      Alert.alert("Success", "Post liked!");
+      if (!isLiked) {
+        await axios.post(
+          `${BASEURL}/api/v1/post/${postId}/likes`,
+          {},
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
+      } else {
+        await axios.delete(`${BASEURL}/api/v1/post/${postId}/likes`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+      }
+
+      // Update the post's liked status locally without refetching
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postId ? { ...post, liked: !isLiked } : post
+        )
+      );
     } catch (error) {
-      console.error("Error liking post:", error);
-      Alert.alert("Error", "Unable to like the post due to a network issue.");
+      if (error.response && error.response.status === 409) {
+        await axios.delete(`${BASEURL}/api/v1/post/${postId}/likes`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId ? { ...post, liked: false } : post
+          )
+        );
+      } else {
+        console.error("Error liking post:", error);
+      }
     }
   };
 
@@ -48,40 +90,21 @@ const MyCollectionsPage = ({ navigation }) => {
       const response = await axios.post(
         `${BASEURL}/api/v1/post/${selectedPostId}/comment`,
         { message: commentText },
-        { headers: { Authorization: `Bearer ${accessToken}` } }
-      );
-
-      console.log("Server response:", response); // Log full server response
+        { headers: { Authorization: `Bearer ${accessToken}` }
+      });
 
       if (response.status === 200 || response.status === 201) {
         Alert.alert("Comment added", commentText);
         setCommentText("");
         setIsModalVisible(false);
       } else {
-        console.error("Unexpected response status:", response.status);
         Alert.alert("Error", "Unexpected response from the server.");
       }
     } catch (error) {
       let errorMessage = "Unable to add comment.";
-
-      if (error.response) {
-        console.log("Error response data:", error.response.data);
-
-        if (error.response.data && error.response.data.message) {
-          errorMessage = error.response.data.message;
-        } else if (error.response.status === 401) {
-          errorMessage = "Unauthorized. Please check your credentials.";
-        } else if (error.response.status === 500) {
-          errorMessage = "Server error. Please try again later.";
-        }
-      } else if (error.request) {
-        console.error("No response received from the server.");
-        errorMessage = "No response from the server. Check your internet connection.";
-      } else {
-        console.error("Error", error.message);
-        errorMessage = error.message;
+      if (error.response && error.response.data?.message) {
+        errorMessage = error.response.data.message;
       }
-
       Alert.alert("Error", errorMessage);
     }
   };
@@ -89,41 +112,39 @@ const MyCollectionsPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ProfilePictureButton navigation={navigation} />
-      <Text style={styles.pageTitle}>Posts</Text>
+      <Text style={styles.pageTitle}>My Collection</Text>
       <ScrollView style={styles.scrollView}>
-        {posts.map((post, index) => (
-          <View key={index} style={styles.postContainer}>
-            <Text style={styles.postUser}>{post.locale || 'Unknown Location'}</Text>
-            <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
-              {post.image_url && (
-                <Image source={{ uri: post.image_url }} style={styles.postImage} />
-              )}
-            </TouchableOpacity>
-            <Text style={styles.postText}>{post.message}</Text>
-            <View style={styles.interactionContainer}>
-              <TouchableOpacity onPress={() => toggleLike(post.id)}>
-                <Icon name="heart" size={20} color={post.liked ? "#FF0000" : "#FFFFFF"} />
-                <Text style={styles.interactionText}> Like</Text>
+        {posts.length === 0 ? (
+          <Text style={styles.noPostsText}>Nothing in your collection right now</Text>
+        ) : (
+          posts.map((post, index) => (
+            <View key={index} style={styles.postContainer}>
+              <Text style={styles.postUser}>{post.locale || 'Unknown Location'}</Text>
+              <TouchableOpacity onPress={() => Alert.alert('Post Data', JSON.stringify(post))}>
+                {post.image_url && (
+                  <Image source={{ uri: post.image_url }} style={styles.postImage} />
+                )}
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => {
-                setSelectedPostId(post.id);
-                setIsModalVisible(true);
-              }}>
-                <Icon name="comment" size={20} color="#FFFFFF" style={styles.commentIcon} />
-                <Text style={styles.interactionText}> Comment</Text>
-              </TouchableOpacity>
+              <Text style={styles.postText}>{post.message}</Text>
+              <View style={styles.interactionContainer}>
+                <TouchableOpacity onPress={() => toggleLike(post.id, post.liked)}>
+                  <Icon
+                    name="heart"
+                    size={30}
+                    color={post.liked ? "#FF0000" : "#FFFFFF"} // Change color based on liked status
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  setSelectedPostId(post.id);
+                  setIsModalVisible(true);
+                }}>
+                  <Icon name="comment" size={30} color="#FFFFFF" style={styles.commentIcon} />
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        ))}
+          ))
+        )}
       </ScrollView>
-      {posts.length === 0 && (
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={fetchArtistPosts} style={styles.button}>
-            <Text style={styles.buttonText}>Fetch Posts</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-      {/* Comment Modal */}
       <Modal visible={isModalVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
@@ -154,6 +175,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#0c002b', padding: 16 },
   pageTitle: { fontSize: 28, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', marginBottom: 20 },
   scrollView: { flex: 1, marginBottom: 20 },
+  noPostsText: { fontSize: 18, color: '#ffffff', textAlign: 'center', marginVertical: 20 },
   postContainer: { marginBottom: 20 },
   postUser: { fontSize: 16, color: '#ffffff', marginBottom: 5, fontWeight: 'bold', paddingLeft: 5 },
   postImage: { width: '100%', height: 400 },

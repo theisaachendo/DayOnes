@@ -21,15 +21,15 @@ const PostDetailPage = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
-        const postData = response.data.data.post;
-        const reactionCount = response.data.data.reaction || 0;
-        const comments = response.data.data.comments || [];
+        console.log("Full Response:", response.data); // Log the full response for troubleshooting
 
-        console.log("Fetched Comments:", comments); // Log the comments array to inspect its structure
+        const postData = response.data?.data?.post || {}; // Fallback to empty object if undefined
+        const reactionCount = response.data?.data?.reaction || 0;
+        const comments = response.data?.data?.comments || [];
 
         setPost({ ...postData, reactionCount, comments });
       } catch (error) {
-        console.error("Error fetching post:", error);
+        console.error("Error fetching post:", error.response || error.message);
         Alert.alert("Error", "Could not load post details.");
       } finally {
         setLoading(false);

@@ -26,9 +26,6 @@ const FanStack = () => {
             case 'My Collections':
               iconName = 'star';
               break;
-            case 'Posts':
-              iconName = 'file-text-o';
-              break;
             case 'Notifications':
               iconName = 'bell-o';
               break;
@@ -60,11 +57,6 @@ const FanStack = () => {
         name="My Collections"
         component={MyCollectionsPage}
         options={{ tabBarLabel: 'My Collections' }}
-      />
-      <Tab.Screen
-        name="Posts"
-        component={PostsScreen}
-        options={{ tabBarLabel: 'Posts' }}
       />
       <Tab.Screen
         name="Notifications"
