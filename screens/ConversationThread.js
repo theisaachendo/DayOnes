@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, TextInput, Button, Alert } from 'react-native';
-import { useSelector } from 'react-redux'; // Importing Redux's useSelector
-import { useRoute } from '@react-navigation/native'; // To get conversationId from route params
+import { View, Text, FlatList, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { useRoute } from '@react-navigation/native';
 import useSendMessage from '../assets/hooks/useSendMessage';
-import { getMessages } from '../assets/services/apiService'; // Import the getMessages service
+import { getMessages } from '../assets/services/apiService';
 
 const ConversationThread = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const route = useRoute();
-  const { conversationId } = route.params; // Get conversationId from the route
-  const accessToken = useSelector((state) => state.accessToken); // Fetch the access token from Redux
-  const loggedInUser = useSelector((state) => state.user); // Get user from Redux state
+  const { conversationId } = route.params;
+  const accessToken = useSelector((state) => state.accessToken);
+  const loggedInUser = useSelector((state) => state.user);
 
-  const loggedInUserId = loggedInUser?.id || null; // Safeguard for loggedInUserId
-  const { sendMessage, error } = useSendMessage(accessToken); // Pass accessToken to the hook
+  const loggedInUserId = loggedInUser?.id || null;
+  const { sendMessage, error } = useSendMessage(accessToken);
 
   useEffect(() => {
     fetchMessages();
@@ -27,8 +27,8 @@ const ConversationThread = () => {
     }
 
     try {
-      const data = await getMessages(conversationId, accessToken);  // Pass accessToken to getMessages
-      setMessages(data.data.messages); // Assuming data.data.messages contains the messages
+      const data = await getMessages(conversationId, accessToken);
+      setMessages(data.data.messages.reverse());  // Reverse messages to show the latest at the bottom
     } catch (err) {
       console.error('Error fetching messages:', err.message);
     }
@@ -36,48 +36,50 @@ const ConversationThread = () => {
 
   const handleSendMessage = async () => {
     if (newMessage.trim() === '') {
-      return; // Don't send empty messages
+      return;
     }
 
     await sendMessage(conversationId, newMessage);
 
     if (!error) {
       setNewMessage('');
-      fetchMessages(); // Refresh messages after sending
+      fetchMessages();
     }
   };
 
   const renderMessage = ({ item }) => {
-    const isSender = item.sender_id === loggedInUserId; // Check if the logged-in user is the sender
+    const isSender = item.sender_id === loggedInUserId;
 
     return (
-      <View style={[styles.messageItem, isSender ? styles.senderMessage : styles.receiverMessage]}>
-        <Text style={styles.messageText}>{item.message}</Text>
+      <View style={[styles.messageWrapper, isSender ? styles.senderWrapper : styles.receiverWrapper]}>
+        <View style={[styles.messageBubble, isSender ? styles.senderBubble : styles.receiverBubble]}>
+          <Text style={styles.messageText}>{item.message}</Text>
+          <Text style={styles.messageTimestamp}>{item.timestamp}</Text>
+        </View>
       </View>
     );
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Conversation Thread</Text>
-
       <FlatList
         data={messages}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderMessage}
         style={styles.messageList}
-        inverted // Invert the list to show the latest message at the bottom
       />
 
       <View style={styles.inputContainer}>
         <TextInput
           value={newMessage}
           onChangeText={setNewMessage}
-          placeholder="Type a message..."
+          placeholder="Enter here"
           style={styles.input}
           placeholderTextColor="#ccc"
         />
-        <Button title="Send" onPress={handleSendMessage} />
+        <TouchableOpacity style={styles.sendButton} onPress={handleSendMessage}>
+          <Text style={styles.sendButtonText}>➤</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -87,49 +89,70 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0c002b',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    color: '#fff',
-    textAlign: 'center',
-    marginBottom: 20,
+    padding: 10,
   },
   messageList: {
     flex: 1,
-    marginBottom: 20,
   },
-  messageItem: {
-    padding: 10,
-    borderRadius: 10,
+  messageWrapper: {
+    flexDirection: 'row',
     marginVertical: 5,
-    maxWidth: '75%', // Adjust to fit message bubble width
   },
-  senderMessage: {
+  senderWrapper: {
+    justifyContent: 'flex-end',
     alignSelf: 'flex-end',
-    backgroundColor: '#4e9af1', // Light blue for sender's messages
   },
-  receiverMessage: {
+  receiverWrapper: {
+    justifyContent: 'flex-start',
     alignSelf: 'flex-start',
-    backgroundColor: '#1e1e1e', // Dark grey for receiver's messages
+  },
+  messageBubble: {
+    padding: 12,
+    borderRadius: 20,
+    maxWidth: '75%',
+    position: 'relative',
+  },
+  senderBubble: {
+    backgroundColor: '#4e9af1',
+  },
+  receiverBubble: {
+    backgroundColor: '#1e1e1e',
   },
   messageText: {
     color: '#fff',
+    fontSize: 16,
+  },
+  messageTimestamp: {
+    color: '#aaa',
+    fontSize: 12,
+    textAlign: 'right',
+    marginTop: 5,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderTopColor: '#ccc',
-    borderTopWidth: 1,
-    paddingTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 30,
   },
   input: {
     flex: 1,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
+    backgroundColor: '#333',
     color: '#fff',
+    padding: 10,
+    borderRadius: 30,
+    fontSize: 16,
+  },
+  sendButton: {
+    backgroundColor: '#4e9af1',
+    padding: 10,
+    borderRadius: 50,
+    marginLeft: 10,
+  },
+  sendButtonText: {
+    color: '#fff',
+    fontSize: 18,
   },
 });
 
