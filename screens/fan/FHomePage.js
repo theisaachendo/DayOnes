@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Switch, Alert, FlatList, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Geolocation from '@react-native-community/geolocation';
 import { useSelector, useDispatch } from 'react-redux';
+import { useFocusEffect } from '@react-navigation/native';
 import { setInvitesEnabled } from '../../assets/redux/actions';
 import { BASEURL } from '../../assets/constants';
 
@@ -17,6 +18,15 @@ const FHomePage = () => {
   useEffect(() => {
     setIsInviteEnabled(invitesFromRedux); // Sync local state with Redux state
   }, [invitesFromRedux]);
+
+  // Refetch invites whenever the page is focused
+  useFocusEffect(
+    useCallback(() => {
+      if (isInviteEnabled) {
+        fetchInvites();
+      }
+    }, [isInviteEnabled])
+  );
 
   const toggleInvite = async (value) => {
     setIsInviteEnabled(value); // Update local state
@@ -46,7 +56,12 @@ const FHomePage = () => {
           const responseData = await response.json();
           console.log('Update invite status response:', responseData);
 
-          if (!response.ok) {
+          if (response.ok) {
+            // Automatically fetch invites if enabled
+            if (value) {
+              fetchInvites();
+            }
+          } else {
             console.error(`Failed to update invite status. Status: ${response.status}`);
           }
         } catch (error) {
@@ -93,7 +108,6 @@ const FHomePage = () => {
       Alert.alert('Error', 'Failed to fetch invites.');
     }
   };
-
 
   const handleConfirmInvite = async (inviteId) => {
     try {
@@ -178,21 +192,24 @@ const FHomePage = () => {
         ListEmptyComponent={<Text style={styles.noInviteText}>No Invites Available</Text>}
       />
 
-      <View style={styles.controlsContainer}>
-        <View style={styles.switchContainer}>
-          <Text style={styles.switchText}>{isInviteEnabled ? 'Invites Enabled' : 'Invites Disabled'}</Text>
-          <Switch
-            value={isInviteEnabled}
-            onValueChange={toggleInvite}
-            trackColor={{ false: '#767577', true: '#81b0ff' }}
-            thumbColor={isInviteEnabled ? '#f5dd4b' : '#f4f3f4'}
-          />
-        </View>
+      {/* Controls only visible if invites are disabled */}
+      {!isInviteEnabled && (
+        <View style={styles.controlsContainer}>
+          <View style={styles.switchContainer}>
+            <Text style={styles.switchText}>{isInviteEnabled ? 'Invites Enabled' : 'Invites Disabled'}</Text>
+            <Switch
+              value={isInviteEnabled}
+              onValueChange={toggleInvite}
+              trackColor={{ false: '#767577', true: '#81b0ff' }}
+              thumbColor={isInviteEnabled ? '#f5dd4b' : '#f4f3f4'}
+            />
+          </View>
 
-        <TouchableOpacity style={styles.fetchButton} onPress={fetchInvites}>
-          <Text style={styles.buttonText}>Get Invites</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.fetchButton} onPress={fetchInvites}>
+            <Text style={styles.buttonText}>Get Invites</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };

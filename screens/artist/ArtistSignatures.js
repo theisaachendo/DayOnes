@@ -1,15 +1,15 @@
-// MySignaturesScreen.js
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator, Alert, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useSignatures } from '../../assets/hooks/useSignatures'; // Import the custom hook
+import { useSignatures } from '../../assets/hooks/useSignatures';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ArtistSignatures = () => {
   const navigation = useNavigation();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   // Use the custom hook to fetch signatures
-  const { data: signatures, isLoading, isError, refetch, deleteSignature } = useSignatures();
+  const { data: signatures, isLoading, isError, deleteSignature } = useSignatures();
 
   const handleDelete = (id) => {
     Alert.alert(
@@ -22,8 +22,16 @@ const ArtistSignatures = () => {
     );
   };
 
+  const openZoomView = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeZoomView = () => {
+    setSelectedImage(null);
+  };
+
   const renderSignature = ({ item }) => (
-    <View style={styles.signatureContainer}>
+    <TouchableOpacity onPress={() => openZoomView(item.url)} style={styles.signatureContainer}>
       <Image source={{ uri: item.url }} style={styles.signatureImage} resizeMode="contain" />
       <TouchableOpacity
         style={styles.deleteButton}
@@ -31,22 +39,13 @@ const ArtistSignatures = () => {
       >
         <Icon name="times-circle" size={24} color="#FF3B30" />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </TouchableOpacity>
-        <Text style={styles.title}>My Signatures</Text>
-      </View>
-      {!signatures?.length && !isLoading && (
-        <TouchableOpacity style={styles.button} onPress={refetch}>
-          <Text style={styles.buttonText}>{isLoading ? 'Loading...' : 'Fetch Signatures'}</Text>
-        </TouchableOpacity>
-      )}
+      <Text style={styles.title}>My Signatures</Text>
+
       {isLoading ? (
         <ActivityIndicator size="large" color="#00FFFF" />
       ) : isError ? (
@@ -57,8 +56,33 @@ const ArtistSignatures = () => {
           renderItem={renderSignature}
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.list}
+          numColumns={2}
         />
       )}
+
+      {/* Upload Signature Button */}
+      <TouchableOpacity style={styles.uploadButton} onPress={() => navigation.navigate('SignaturePage')}>
+        <Text style={styles.uploadButtonText}>Upload Signature</Text>
+      </TouchableOpacity>
+
+      {/* Modal for Zoomed View */}
+      <Modal
+        visible={!!selectedImage}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={closeZoomView}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <TouchableOpacity style={styles.modalCloseButton} onPress={closeZoomView}>
+              <Icon name="times" size={30} color="#FFFFFF" />
+            </TouchableOpacity>
+            {selectedImage && (
+              <Image source={{ uri: selectedImage }} style={styles.zoomedImage} resizeMode="contain" />
+            )}
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -66,43 +90,15 @@ const ArtistSignatures = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#0c002b',
     padding: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-    width: '100%',
-    paddingHorizontal: 10,
-  },
-  backButton: {
-    padding: 10,
-    backgroundColor: '#001F3F',
-    borderRadius: 5,
-  },
-  backButtonText: {
-    color: '#00FFFF',
-    fontSize: 16,
   },
   title: {
     fontSize: 24,
-    color: '#fff',
+    color: '#ffffff',
+    fontWeight: 'bold',
     textAlign: 'center',
-    flex: 1,
-  },
-  button: {
-    backgroundColor: '#001F3F',
-    padding: 15,
-    borderRadius: 10,
     marginBottom: 20,
-    alignSelf: 'center',
-  },
-  buttonText: {
-    color: '#00FFFF',
-    fontSize: 16,
-    textAlign: 'center',
   },
   errorText: {
     color: '#FF0000',
@@ -111,24 +107,65 @@ const styles = StyleSheet.create({
   },
   list: {
     alignItems: 'center',
+    paddingBottom: 20,
   },
   signatureContainer: {
+    width: '45%',
     marginBottom: 20,
     alignItems: 'center',
+    marginHorizontal: 10,
     position: 'relative',
+    backgroundColor: '#1b0248',
+    borderRadius: 10,
+    padding: 10,
   },
   signatureImage: {
-    width: 300,
-    height: 300,
-    borderRadius: 10,
+    width: '100%',
+    height: 120,
+    borderRadius: 8,
   },
   deleteButton: {
     position: 'absolute',
+    top: 5,
+    right: 5,
+  },
+  uploadButton: {
+    backgroundColor: '#FF0080',
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  uploadButtonText: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '90%',
+    height: '70%',
+    backgroundColor: '#1b0248',
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalCloseButton: {
+    position: 'absolute',
     top: 10,
     right: 10,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 15,
-    padding: 4,
+    zIndex: 1,
+    padding: 10,
+  },
+  zoomedImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
   },
 });
 

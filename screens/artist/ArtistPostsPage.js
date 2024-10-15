@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Alert } from 'react-native';
 import { useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import axios from 'axios';
 import { BASEURL } from '../../assets/constants';
 
@@ -22,6 +21,13 @@ const ArtistPostsPage = () => {
       Alert.alert('Error', 'An error occurred while fetching posts.');
     }
   };
+
+  // Fetch posts whenever page is focused
+  useFocusEffect(
+    useCallback(() => {
+      fetchArtistPosts();
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
