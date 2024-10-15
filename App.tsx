@@ -21,7 +21,7 @@ import EditScreen from './screens/artist/EditScreen';
 import SplashVideoScreen from './screens/SplashVideoScreen';
 import DMsScreen from './screens/DMsScreen';
 import ConversationThread from './screens/ConversationThread'; // Import ConversationThread
-import PostDetailsPage from './screens/artist/PostDetailsPage';
+import PostDetailPage from './screens/artist/PostDetailsPage';
 import VerifyAccount from './screens/VerifyAccount';
 
 const Stack = createStackNavigator();
@@ -167,8 +167,8 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="PostDetailsPage"
-              component={PostDetailsPage}
+              name="PostDetailPage"
+              component={PostDetailPage}
               options={{ headerShown: false }}
             />
                         <Stack.Screen
