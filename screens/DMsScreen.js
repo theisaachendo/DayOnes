@@ -1,14 +1,16 @@
 // DMsScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getConversations } from '../assets/services/apiService';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const DMsScreen = () => {
   const [conversations, setConversations] = useState([]);
   const [pageNo, setPageNo] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const accessToken = useSelector((state) => state.accessToken); // Fetch accessToken from Redux store
+  const navigation = useNavigation(); // Use the navigation hook
 
   useEffect(() => {
     fetchConversations();
@@ -20,14 +22,17 @@ const DMsScreen = () => {
       console.error('Error: Missing access token.');
       return;
     }
-
+  
     try {
       console.log('Fetching conversations with access token:', accessToken);
-      const data = await getConversations(accessToken, pageNo, pageSize); // Pass pageNo and pageSize
-
-      if (data.conversations && data.conversations.length > 0) {
-        setConversations(data.conversations); // Set conversations if found
-        console.log('Conversations fetched successfully:', data.conversations);
+      const response = await getConversations(accessToken, pageNo, pageSize); // Pass pageNo and pageSize
+  
+      // Correctly access conversations from the response data
+      const { conversations } = response.data;
+  
+      if (conversations && conversations.length > 0) {
+        setConversations(conversations); // Set conversations if found
+        console.log('Conversations fetched successfully:', conversations);
       } else {
         setConversations([]); // Set to empty if no conversations
         console.log('No conversations found.');
@@ -38,6 +43,22 @@ const DMsScreen = () => {
       setConversations([]); // In case of error, set to empty array
     }
   };
+  
+
+  const handleConversationPress = (conversationId) => {
+    // Navigate to the ConversationThread screen with the conversationId as a parameter
+    navigation.navigate('ConversationThread', { conversationId });
+  };
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity onPress={() => handleConversationPress(item.id)}>
+      <View style={styles.item}>
+        <Text style={styles.itemText}>
+          {item.sender.full_name} - Last message: {item.last_message || 'No messages yet'}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
@@ -45,11 +66,7 @@ const DMsScreen = () => {
       <FlatList
         data={conversations}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Text style={styles.itemText}>
-            {item.sender.full_name} - Last message: {item.last_message || 'No messages yet'}
-          </Text>
-        )}
+        renderItem={renderItem}
       />
     </View>
   );
@@ -64,6 +81,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     color: '#fff',
+  },
+  item: {
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#444',
   },
   itemText: {
     color: '#fff',
