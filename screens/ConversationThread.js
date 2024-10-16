@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useFocusEffect } from '@react-navigation/native';
 import useSendMessage from '../assets/hooks/useSendMessage';
 import { getMessages } from '../assets/services/apiService';
 import socket from '../assets/services/socket';
@@ -16,34 +16,24 @@ const ConversationThread = () => {
   const loggedInUserId = loggedInUser?.id || null;
   const { sendMessage, error } = useSendMessage(accessToken);
 
-  useEffect(() => {
-    socket.on('connect', () => {
-      console.info('Connected to WebSocket');
-      socket.emit('join-conversation', conversationId); 
-      fetchMessages();  
-    });
+  // Re-fetch messages every time the screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      // Fetch messages every time the user navigates to this screen
+      fetchMessages();
 
-    socket.on('chat-message', (messageData) => {
-      const remoteMessage = messageData.message;
-      if (remoteMessage) {
-        setMessages((previousMessages) => [
-          ...previousMessages,
-          remoteMessage,
-        ]);
-      }
-    });
+      // Re-establish WebSocket connection every time the screen is focused
+      socket.emit('join-conversation', conversationId);
 
-    socket.on('error', (err) => {
-      console.error('WebSocket error:', err);
-    });
+      // Clean up the WebSocket connection when leaving the screen
+      return () => {
+        socket.off('chat-message');
+        socket.emit('leave-conversation', conversationId);
+      };
+    }, [conversationId])
+  );
 
-    return () => {
-      socket.off('chat-message');
-      socket.off('error');
-      socket.off('connect');
-    };
-  }, [conversationId]);
-
+  // Fetch messages from the server
   const fetchMessages = async () => {
     if (!accessToken) {
       console.error('User is not authenticated');
@@ -52,12 +42,14 @@ const ConversationThread = () => {
 
     try {
       const data = await getMessages(conversationId, accessToken);
+      console.log('Fetched messages:', data.data.messages);
       setMessages(data.data.messages);
     } catch (err) {
       console.error('Error fetching messages:', err.message);
     }
   };
 
+  // Handle sending a new message
   const handleSendMessage = async () => {
     if (newMessage.trim() === '') return;
 
@@ -70,8 +62,9 @@ const ConversationThread = () => {
         senderId: loggedInUserId,
       };
 
-      socket.emit('chat-message', messagePayload); 
+      socket.emit('chat-message', messagePayload); // Emit the message via WebSocket
 
+      // Optimistically add the message to the UI immediately
       setMessages((prevMessages) => [
         ...prevMessages,
         {
@@ -82,11 +75,25 @@ const ConversationThread = () => {
         },
       ]);
 
-      setNewMessage('');
+      setNewMessage(''); // Clear the input
     } catch (error) {
       console.error('Error sending message:', error);
     }
   };
+
+  // Listen for incoming messages via WebSocket
+  useEffect(() => {
+    socket.on('chat-message', (messageData) => {
+      const remoteMessage = messageData.message;
+      if (remoteMessage) {
+        setMessages((previousMessages) => [...previousMessages, remoteMessage]);
+      }
+    });
+
+    return () => {
+      socket.off('chat-message'); // Clean up when unmounting
+    };
+  }, []);
 
   const renderMessage = ({ item }) => {
     const isSender = item.sender_id === loggedInUserId;
@@ -101,19 +108,14 @@ const ConversationThread = () => {
     );
   };
 
-  const slicedMessages = messages.slice(-100);
-
   return (
     <View style={styles.container}>
       <FlatList
-        data={[...slicedMessages].reverse()} 
+        data={messages.reverse()} // Reverse the order of messages so newest ones show at the bottom
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         style={styles.messageList}
         extraData={messages}
-        initialNumToRender={20}
-        maxToRenderPerBatch={20}
-        windowSize={10}
       />
 
       <View style={styles.inputContainer}>
