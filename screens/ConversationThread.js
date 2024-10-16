@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useRoute } from '@react-navigation/native';
 import useSendMessage from '../assets/hooks/useSendMessage';
 import { getMessages } from '../assets/services/apiService';
-import socket from '../assets/services/socket'; // Assuming you have socket service setup
+import socket from '../assets/services/socket';
 
 const ConversationThread = () => {
   const [messages, setMessages] = useState([]);
@@ -20,27 +20,23 @@ const ConversationThread = () => {
     fetchMessages();
 
     // Setup socket listeners
-    socket.on('error', function (err) {
+    socket.on('error', (err) => {
       console.error('Error failed:', err);
     });
 
-    socket.on('connect', function () {
-      console.info('Connected');
-    });
-
-    socket.on('connected', function () {
-      console.info('Successfully connected');
+    socket.on('connect', () => {
+      console.info('Connected to WebSocket');
     });
 
     // Listen to incoming chat messages
     socket.on('chat-message', (composerText) => {
-      console.log('Incoming message:', composerText); // Log incoming message for debugging
-      const remoteMessage = getGiftedChatMessage(composerText?.message);
+      console.log('Incoming message via WebSocket:', composerText);
+      const remoteMessage = composerText.message;
       if (remoteMessage) {
         setMessages((previousMessages) => {
           const updatedMessages = [...previousMessages, remoteMessage];
-          console.log('Updated messages:', updatedMessages); // Log updated messages
-          return updatedMessages; // Force update with new message
+          console.log('Updated messages after WebSocket:', updatedMessages);
+          return updatedMessages;
         });
       }
     });
@@ -50,7 +46,6 @@ const ConversationThread = () => {
       socket.off('chat-message');
       socket.off('error');
       socket.off('connect');
-      socket.off('connected');
     };
   }, []);
 
@@ -62,7 +57,7 @@ const ConversationThread = () => {
 
     try {
       const data = await getMessages(conversationId, accessToken);
-      console.log('Fetched messages:', data.data.messages); // Log fetched messages
+      console.log('Fetched messages:', data.data.messages);
       setMessages(data.data.messages);
     } catch (err) {
       console.error('Error fetching messages:', err.message);
@@ -70,9 +65,7 @@ const ConversationThread = () => {
   };
 
   const handleSendMessage = async () => {
-    if (newMessage.trim() === '') {
-      return;
-    }
+    if (newMessage.trim() === '') return;
 
     try {
       // Send the message via the API
@@ -89,7 +82,7 @@ const ConversationThread = () => {
 
       // Clear the input after sending
       setNewMessage('');
-      fetchMessages(); // Optionally fetch messages again from the API
+      fetchMessages();
     } catch (error) {
       console.error('Error sending message:', error);
     }
@@ -118,8 +111,8 @@ const ConversationThread = () => {
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         style={styles.messageList}
-        extraData={messages} // Force re-render when messages state changes
-        initialNumToRender={20} // Optimizations for large data sets
+        extraData={messages}
+        initialNumToRender={20}
         maxToRenderPerBatch={20}
         windowSize={10}
       />

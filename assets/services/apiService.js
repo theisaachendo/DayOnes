@@ -3,41 +3,19 @@ import { BASEURL } from '../constants';
 
 // Fetch all conversations with pagination
 export const getConversations = async (accessToken, pageNo = 1, pageSize = 10) => {
-  console.log('asdasdasd', { getConversations });
+  console.log('Fetching conversations...');
   try {
     const response = await axios.get(`${BASEURL}/api/v1/conversation`, {
-      params: {
-        pageNo,  // Pass the page number
-        pageSize // Pass the page size
-      },
+      params: { pageNo, pageSize },
       headers: {
-        Authorization: `Bearer ${accessToken}`,  // Pass Bearer token dynamically
+        Authorization: `Bearer ${accessToken}`,
       },
     });
 
     console.log('Conversations fetched:', response.data);
     return response.data;
   } catch (error) {
-    if (error.response) {
-      // If no conversations found, return an empty array
-      if (error.response.status === 404) {
-        console.warn('No conversations found, returning empty array.');
-        return { conversations: [], meta: { count: 0, page: pageNo, size: pageSize, pages: 0 } };
-      }
-
-      // Handle Unauthorized (401) error
-      if (error.response.status === 401) {
-        console.error('Unauthorized request, check access token.');
-        throw new Error('Unauthorized access. Please check your credentials.');
-      }
-
-      // Handle any other specific status codes
-      console.error(`Error fetching conversations: ${error.response.status}`);
-    } else {
-      console.error('Network error or server is unreachable:', error.message);
-    }
-
-    throw error;  // Re-throw the error for further handling if necessary
+    handleApiError(error, pageNo, pageSize);
   }
 };
 
@@ -45,61 +23,49 @@ export const getConversations = async (accessToken, pageNo = 1, pageSize = 10) =
 export const getMessages = async (conversationId, accessToken, pageNo = 1, pageSize = 50) => {
   try {
     const response = await axios.get(`${BASEURL}/api/v1/message`, {
-      params: {
-        conversationId,  // Pass the conversation ID dynamically
-        pageNo,          // Add page number for pagination
-        pageSize         // Add page size to control the number of messages
-      },
+      params: { conversationId, pageNo, pageSize },
       headers: {
-        Authorization: `Bearer ${accessToken}`,  // Pass Bearer token dynamically
+        Authorization: `Bearer ${accessToken}`,
       },
     });
 
     console.log('Messages fetched:', response.data);
     return response.data;
   } catch (error) {
-    if (error.response) {
-      // If no messages found, return an empty array
-      if (error.response.status === 404) {
-        console.warn('No messages found, returning empty array.');
-        return { messages: [], meta: { count: 0, page: 1, size: 10, pages: 0 } };
-      }
-
-      // Handle Unauthorized (401) error
-      if (error.response.status === 401) {
-        console.error('Unauthorized request, check access token.');
-        throw new Error('Unauthorized access. Please check your credentials.');
-      }
-
-      // Handle any other specific status codes
-      console.error(`Error fetching messages: ${error.response.status}`);
-    } else {
-      console.error('Network error or server is unreachable:', error.message);
-    }
-
-    throw error;  // Re-throw the error for further handling if necessary
+    handleApiError(error);
   }
 };
-
 
 // Disconnect the WebSocket
 export const disconnect = async (accessToken) => {
   try {
     const response = await axios.post(`${BASEURL}/api/v1/message/disconnect`, {}, {
       headers: {
-        Authorization: `Bearer ${accessToken}`, // Pass Bearer token dynamically
+        Authorization: `Bearer ${accessToken}`,
       },
     });
 
     console.log('Disconnected:', response.data);
     return response.data;
   } catch (error) {
-    if (error.response && error.response.status === 401) {
+    handleApiError(error);
+  }
+};
+
+// Handle API Errors
+const handleApiError = (error, pageNo = 1, pageSize = 10) => {
+  if (error.response) {
+    if (error.response.status === 404) {
+      console.warn('No data found, returning empty array.');
+      return { data: [], meta: { count: 0, page: pageNo, size: pageSize, pages: 0 } };
+    }
+    if (error.response.status === 401) {
       console.error('Unauthorized request, check access token.');
       throw new Error('Unauthorized access. Please check your credentials.');
     }
-
-    console.error('Error disconnecting:', error);
-    throw error;
+    console.error(`Error fetching data: ${error.response.status}`);
+  } else {
+    console.error('Network error or server is unreachable:', error.message);
   }
+  throw error;
 };

@@ -1,6 +1,6 @@
-// useSendMessage.js
 import { useState } from 'react';
 import axios from 'axios';
+import socket from '../services/socket'; // Import the WebSocket connection
 import { Alert } from 'react-native';
 
 const useSendMessage = (accessToken) => {
@@ -18,27 +18,32 @@ const useSendMessage = (accessToken) => {
     try {
       // Define message payload
       const payload = {
-        conversationId: conversationId, // Pass the conversationId dynamically
+        conversationId: conversationId,
         message: message,
       };
 
-      // Send message using axios
+      // Send message using axios (API call)
       const response = await axios({
         method: 'POST',
-        url: `${baseUrl}/api/v1/message/send`, // The message send endpoint
-        data: payload, // Payload including conversationId and message
+        url: `${baseUrl}/api/v1/message/send`,
+        data: payload,
         headers: {
-          Authorization: `Bearer ${accessToken}`, // Send the access token in the headers
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
       });
 
       // Handle successful response
-      console.log('Message sent successfully:', response.data);
-      return response.data; // You can return the response if you need to
+      console.log('Message sent successfully via API:', response.data);
+
+      // Emit the message via WebSocket for real-time updates
+      console.log('Emitting message via WebSocket:', payload);
+      socket.emit('chat-message', payload); // Emit message via WebSocket
+
+      return response.data;
 
     } catch (err) {
-      // Handle errors (e.g., invalid conversationId, network issues)
+      // Handle errors
       console.error('Error sending message:', err.response ? err.response.data : err.message);
       setError(err.response ? err.response.data : err.message);
       Alert.alert('Error', 'Failed to send the message');
