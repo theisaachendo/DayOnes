@@ -42,11 +42,13 @@ export const getConversations = async (accessToken, pageNo = 1, pageSize = 10) =
 };
 
 // Fetch all messages for a given conversation
-export const getMessages = async (conversationId, accessToken) => {
+export const getMessages = async (conversationId, accessToken, pageNo = 1, pageSize = 50) => {
   try {
     const response = await axios.get(`${BASEURL}/api/v1/message`, {
       params: {
         conversationId,  // Pass the conversation ID dynamically
+        pageNo,          // Add page number for pagination
+        pageSize         // Add page size to control the number of messages
       },
       headers: {
         Authorization: `Bearer ${accessToken}`,  // Pass Bearer token dynamically
@@ -78,6 +80,7 @@ export const getMessages = async (conversationId, accessToken) => {
     throw error;  // Re-throw the error for further handling if necessary
   }
 };
+
 
 // Disconnect the WebSocket
 export const disconnect = async (accessToken) => {

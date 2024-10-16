@@ -23,6 +23,7 @@ import DMsScreen from './screens/DMsScreen';
 import ConversationThread from './screens/ConversationThread'; // Import ConversationThread
 import PostDetailPage from './screens/artist/PostDetailsPage';
 import VerifyAccount from './screens/VerifyAccount';
+import DayOnesScreen from './screens/fan/DayOnesScreen'; // Import the DayOnesScreen
 
 const Stack = createStackNavigator();
 const queryClient = new QueryClient();
@@ -171,12 +172,16 @@ const App = () => {
               component={PostDetailPage}
               options={{ headerShown: false }}
             />
-                        <Stack.Screen
+            <Stack.Screen
               name="VerifyAccount"
               component={VerifyAccount}
               options={{ headerShown: false }}
             />
-
+            <Stack.Screen
+              name="DayOnesScreen" // Add the DayOnesScreen here
+              component={DayOnesScreen}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </QueryClientProvider>

@@ -33,14 +33,16 @@ const ConversationThread = () => {
     });
 
     // Listen to incoming chat messages
-    socket.on('chat-message', composerText => {
-      const remoteMessage = getGiftedChatMessage(composerText?.message); // Assuming getGiftedChatMessage is a utility to format the incoming message
-      setMessages((previousMessages) => {
-        const reducedMessages = previousMessages.filter(
-          message => !(remoteMessage._id === message._id)
-        );
-        return [remoteMessage, ...reducedMessages]; // Add new message to the top of the list
-      });
+    socket.on('chat-message', (composerText) => {
+      console.log('Incoming message:', composerText); // Log incoming message for debugging
+      const remoteMessage = getGiftedChatMessage(composerText?.message);
+      if (remoteMessage) {
+        setMessages((previousMessages) => {
+          const updatedMessages = [...previousMessages, remoteMessage];
+          console.log('Updated messages:', updatedMessages); // Log updated messages
+          return updatedMessages; // Force update with new message
+        });
+      }
     });
 
     // Clean up the socket listeners when component unmounts
@@ -60,7 +62,8 @@ const ConversationThread = () => {
 
     try {
       const data = await getMessages(conversationId, accessToken);
-      setMessages(data.data.messages.reverse());  // Reverse messages to show the latest at the bottom
+      console.log('Fetched messages:', data.data.messages); // Log fetched messages
+      setMessages(data.data.messages);
     } catch (err) {
       console.error('Error fetching messages:', err.message);
     }
@@ -86,19 +89,26 @@ const ConversationThread = () => {
       <View style={[styles.messageWrapper, isSender ? styles.senderWrapper : styles.receiverWrapper]}>
         <View style={[styles.messageBubble, isSender ? styles.senderBubble : styles.receiverBubble]}>
           <Text style={styles.messageText}>{item.message}</Text>
-          <Text style={styles.messageTimestamp}>{item.timestamp}</Text>
+          <Text style={styles.messageTimestamp}>{item.created_at}</Text>
         </View>
       </View>
     );
   };
 
+  // Only show the latest 100 messages
+  const slicedMessages = messages.slice(-100);
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={messages}
-        keyExtractor={(item) => item.id.toString()}
+        data={[...slicedMessages].reverse()} // Reverse the messages here
+        keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         style={styles.messageList}
+        extraData={messages} // Force re-render when messages state changes
+        initialNumToRender={20} // Optimizations for large data sets
+        maxToRenderPerBatch={20}
+        windowSize={10}
       />
 
       <View style={styles.inputContainer}>

@@ -1,4 +1,3 @@
-// assets/services/socket.js
 import io from 'socket.io-client';
 import { BASEURL } from '../constants'; // Import the base URL for the socket
 

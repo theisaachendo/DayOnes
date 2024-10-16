@@ -1,12 +1,9 @@
-// FanStack.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FHomePage from '../screens/fan/FHomePage'; // Fan's Home Page
-import MyCollectionsPage from '../screens/fan/MyCollectionsPage'; // Correct path based on your folder structure
- // "My Collections" page
-import PostsScreen from '../screens/PostsScreen'; // Posts screen
-import NotificationsScreen from '../screens/NotificationsScreen'; // Notifications screen
+import MyCollectionsPage from '../screens/fan/MyCollectionsPage'; // "My Collections" page
+import DayOnesScreen from '../screens/fan/DayOnesScreen'; // DayOnes screen
 import DMsScreen from '../screens/DMsScreen'; // Direct Messages screen
 
 const Tab = createBottomTabNavigator();
@@ -26,11 +23,11 @@ const FanStack = () => {
             case 'My Collections':
               iconName = 'star';
               break;
-            case 'Notifications':
-              iconName = 'bell-o';
+            case 'DayOnes': // DayOnes icon
+              iconName = 'comment'; // Different messaging icon for DayOnes
               break;
             case 'DMs':
-              iconName = 'envelope-o';
+              iconName = 'envelope-o'; // Regular DMs icon
               break;
             default:
               iconName = 'circle';
@@ -59,9 +56,9 @@ const FanStack = () => {
         options={{ tabBarLabel: 'My Collections' }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={NotificationsScreen}
-        options={{ tabBarLabel: 'Notifications' }}
+        name="DayOnes" // Add DayOnes to the tab bar
+        component={DayOnesScreen}
+        options={{ tabBarLabel: 'DayOnes' }}
       />
       <Tab.Screen
         name="DMs"
