@@ -16,32 +16,34 @@ const ConversationThread = () => {
   const loggedInUserId = loggedInUser?.id || null;
   const { sendMessage, error } = useSendMessage(accessToken);
 
-  // Fetch messages once when the component mounts
   useEffect(() => {
-    fetchMessages();
-  }, [conversationId]);
+    socket.on('connect', () => {
+      console.info('Connected to WebSocket');
+      socket.emit('join-conversation', conversationId); 
+      fetchMessages();  
+    });
 
-  useEffect(() => {
-    // Connect to WebSocket and join the conversation room
-    socket.emit('join-conversation', conversationId);
-
-    // Listen for new messages via WebSocket
     socket.on('chat-message', (messageData) => {
-      console.log('Incoming message via WebSocket:', messageData);
-      const incomingMessage = messageData.message;
-      if (incomingMessage) {
-        setMessages((prevMessages) => [...prevMessages, incomingMessage]);
+      const remoteMessage = messageData.message;
+      if (remoteMessage) {
+        setMessages((previousMessages) => [
+          ...previousMessages,
+          remoteMessage,
+        ]);
       }
     });
 
-    // Clean up WebSocket listeners when the component unmounts
+    socket.on('error', (err) => {
+      console.error('WebSocket error:', err);
+    });
+
     return () => {
-      socket.emit('leave-conversation', conversationId); // Leave the conversation when component unmounts
-      socket.off('chat-message'); // Stop listening for new messages
+      socket.off('chat-message');
+      socket.off('error');
+      socket.off('connect');
     };
   }, [conversationId]);
 
-  // Fetch messages via API (in case of refresh or reconnect)
   const fetchMessages = async () => {
     if (!accessToken) {
       console.error('User is not authenticated');
@@ -50,49 +52,42 @@ const ConversationThread = () => {
 
     try {
       const data = await getMessages(conversationId, accessToken);
-      console.log('Fetched messages:', data.data.messages);
       setMessages(data.data.messages);
     } catch (err) {
       console.error('Error fetching messages:', err.message);
     }
   };
 
-  // Send a message and emit it via WebSocket
   const handleSendMessage = async () => {
     if (newMessage.trim() === '') return;
 
     try {
-      // Send the message via the API
       await sendMessage(conversationId, newMessage);
 
-      // Emit the message via WebSocket for real-time updates
       const messagePayload = {
         conversationId,
         message: newMessage,
         senderId: loggedInUserId,
       };
 
-      socket.emit('chat-message', messagePayload); // Emit the message via WebSocket
+      socket.emit('chat-message', messagePayload); 
 
-      // Add the message to the UI immediately
       setMessages((prevMessages) => [
         ...prevMessages,
         {
-          id: Date.now().toString(), // Temporarily generate an ID
+          id: Date.now().toString(),
           message: newMessage,
           sender_id: loggedInUserId,
           created_at: new Date().toISOString(),
         },
       ]);
 
-      // Clear the input after sending
       setNewMessage('');
     } catch (error) {
       console.error('Error sending message:', error);
     }
   };
 
-  // Render each message in the conversation
   const renderMessage = ({ item }) => {
     const isSender = item.sender_id === loggedInUserId;
 
@@ -106,13 +101,12 @@ const ConversationThread = () => {
     );
   };
 
-  // Only show the latest 100 messages
   const slicedMessages = messages.slice(-100);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={[...slicedMessages].reverse()} // Reverse the messages here
+        data={[...slicedMessages].reverse()} 
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         style={styles.messageList}
@@ -139,7 +133,74 @@ const ConversationThread = () => {
 };
 
 const styles = StyleSheet.create({
-  // Styles omitted for brevity
+  container: {
+    flex: 1,
+    backgroundColor: '#0c002b',
+    padding: 10,
+  },
+  messageList: {
+    flex: 1,
+  },
+  messageWrapper: {
+    flexDirection: 'row',
+    marginVertical: 5,
+  },
+  senderWrapper: {
+    justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
+  },
+  receiverWrapper: {
+    justifyContent: 'flex-start',
+    alignSelf: 'flex-start',
+  },
+  messageBubble: {
+    padding: 12,
+    borderRadius: 20,
+    maxWidth: '75%',
+    position: 'relative',
+  },
+  senderBubble: {
+    backgroundColor: '#4e9af1',
+  },
+  receiverBubble: {
+    backgroundColor: '#1e1e1e',
+  },
+  messageText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  messageTimestamp: {
+    color: '#aaa',
+    fontSize: 12,
+    textAlign: 'right',
+    marginTop: 5,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 30,
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#333',
+    color: '#fff',
+    padding: 10,
+    borderRadius: 30,
+    fontSize: 16,
+  },
+  sendButton: {
+    backgroundColor: '#4e9af1',
+    padding: 10,
+    borderRadius: 50,
+    marginLeft: 10,
+  },
+  sendButtonText: {
+    color: '#fff',
+    fontSize: 18,
+  },
 });
 
 export default ConversationThread;
