@@ -74,11 +74,24 @@ const ConversationThread = () => {
       return;
     }
 
-    await sendMessage(conversationId, newMessage);
+    try {
+      // Send the message via the API
+      await sendMessage(conversationId, newMessage);
 
-    if (!error) {
+      // Emit the message via the WebSocket for real-time updates
+      const messagePayload = {
+        conversationId,
+        message: newMessage,
+        senderId: loggedInUserId,
+      };
+
+      socket.emit('chat-message', messagePayload); // Emit the message via WebSocket
+
+      // Clear the input after sending
       setNewMessage('');
-      fetchMessages();
+      fetchMessages(); // Optionally fetch messages again from the API
+    } catch (error) {
+      console.error('Error sending message:', error);
     }
   };
 
