@@ -17,15 +17,14 @@ const ConversationThread = () => {
   const { sendMessage, error } = useSendMessage(accessToken);
 
   useEffect(() => {
-    fetchMessages();
-
     // Setup socket listeners
-    socket.on('error', (err) => {
-      console.error('Error failed:', err);
-    });
-
     socket.on('connect', () => {
       console.info('Connected to WebSocket');
+      fetchMessages(); // Fetch messages after WebSocket connection
+    });
+
+    socket.on('error', (err) => {
+      console.error('Error failed:', err);
     });
 
     // Listen to incoming chat messages
@@ -80,9 +79,19 @@ const ConversationThread = () => {
 
       socket.emit('chat-message', messagePayload); // Emit the message via WebSocket
 
+      // Add the message to the UI immediately
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          id: Date.now().toString(), // Temporarily generate an ID
+          message: newMessage,
+          sender_id: loggedInUserId,
+          created_at: new Date().toISOString(),
+        },
+      ]);
+
       // Clear the input after sending
       setNewMessage('');
-      fetchMessages();
     } catch (error) {
       console.error('Error sending message:', error);
     }
