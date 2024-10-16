@@ -54,7 +54,8 @@
     "react-navigation-bottom-tabs": "^1.0.2",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "socket.io-client": "^4.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

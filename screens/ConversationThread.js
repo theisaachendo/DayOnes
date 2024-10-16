@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useRoute } from '@react-navigation/native';
 import useSendMessage from '../assets/hooks/useSendMessage';
 import { getMessages } from '../assets/services/apiService';
+import socket from '../assets/services/socket'; // Assuming you have socket service setup
 
 const ConversationThread = () => {
   const [messages, setMessages] = useState([]);
@@ -12,12 +13,43 @@ const ConversationThread = () => {
   const { conversationId } = route.params;
   const accessToken = useSelector((state) => state.accessToken);
   const loggedInUser = useSelector((state) => state.user);
-
   const loggedInUserId = loggedInUser?.id || null;
   const { sendMessage, error } = useSendMessage(accessToken);
 
   useEffect(() => {
     fetchMessages();
+
+    // Setup socket listeners
+    socket.on('error', function (err) {
+      console.error('Error failed:', err);
+    });
+
+    socket.on('connect', function () {
+      console.info('Connected');
+    });
+
+    socket.on('connected', function () {
+      console.info('Successfully connected');
+    });
+
+    // Listen to incoming chat messages
+    socket.on('chat-message', composerText => {
+      const remoteMessage = getGiftedChatMessage(composerText?.message); // Assuming getGiftedChatMessage is a utility to format the incoming message
+      setMessages((previousMessages) => {
+        const reducedMessages = previousMessages.filter(
+          message => !(remoteMessage._id === message._id)
+        );
+        return [remoteMessage, ...reducedMessages]; // Add new message to the top of the list
+      });
+    });
+
+    // Clean up the socket listeners when component unmounts
+    return () => {
+      socket.off('chat-message');
+      socket.off('error');
+      socket.off('connect');
+      socket.off('connected');
+    };
   }, []);
 
   const fetchMessages = async () => {
