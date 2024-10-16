@@ -17,20 +17,17 @@ const ConversationThread = () => {
   const { sendMessage, error } = useSendMessage(accessToken);
 
   useEffect(() => {
-    // Setup socket listeners
+    // Join the specific conversation room on WebSocket connect
     socket.on('connect', () => {
       console.info('Connected to WebSocket');
-      fetchMessages(); // Fetch messages after WebSocket connection
+      socket.emit('join-conversation', conversationId);  // Join conversation room
+      fetchMessages();  // Fetch messages after WebSocket connection
     });
 
-    socket.on('error', (err) => {
-      console.error('Error failed:', err);
-    });
-
-    // Listen to incoming chat messages
-    socket.on('chat-message', (composerText) => {
-      console.log('Incoming message via WebSocket:', composerText);
-      const remoteMessage = composerText.message;
+    // Listen for incoming chat messages
+    socket.on('chat-message', (messageData) => {
+      console.log('Incoming message via WebSocket:', messageData);
+      const remoteMessage = messageData.message;
       if (remoteMessage) {
         setMessages((previousMessages) => {
           const updatedMessages = [...previousMessages, remoteMessage];
@@ -40,13 +37,18 @@ const ConversationThread = () => {
       }
     });
 
-    // Clean up the socket listeners when component unmounts
+    // Handle WebSocket errors
+    socket.on('error', (err) => {
+      console.error('WebSocket error:', err);
+    });
+
+    // Clean up WebSocket listeners when component unmounts
     return () => {
       socket.off('chat-message');
       socket.off('error');
       socket.off('connect');
     };
-  }, []);
+  }, [conversationId]);
 
   const fetchMessages = async () => {
     if (!accessToken) {
@@ -67,10 +69,9 @@ const ConversationThread = () => {
     if (newMessage.trim() === '') return;
 
     try {
-      // Send the message via the API
       await sendMessage(conversationId, newMessage);
 
-      // Emit the message via the WebSocket for real-time updates
+      // Emit the message via WebSocket for real-time updates
       const messagePayload = {
         conversationId,
         message: newMessage,
