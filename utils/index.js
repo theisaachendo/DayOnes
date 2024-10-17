@@ -7,39 +7,22 @@ async function getBlob(fileUri) {
 }
 
 export const uploadImageToBucket = async (uri, keyPath, accessToken) => {
-  const fileName = new Date().getTime();
+  const fileName = new Date().getTime() + '.png';
   const imageBody = await getBlob(uri);
-  const imageType = imageBody['type'];
-
-  keyPath = `${keyPath}/${fileName}.jpg`;
-
-  console.log('keyPath', keyPath);
-
-  try {
-    const awsSignedUrl = await getAWSsignedUrl(keyPath, imageType, accessToken);
-
-    console.log('awsSignedUrl::::----', awsSignedUrl);
-  } catch (error) {
-    console.log('error:::--------', error);
-  }
-
-  return '';
-  var myHeaders = new Headers();
-  myHeaders.append('Content-Type', imageType);
-
-  const requestOptions = {
-    method: 'PUT',
-    headers: myHeaders,
-    body: imageBody,
-    redirect: 'follow',
+  const file = {
+    uri: uri,
+    name: fileName,
+    type: imageBody['type'],
   };
 
-  try {
-    const response = await axios.put(s3BucketUrl, file, {
-      headers: myHeaders,
-    });
+  const path = `${keyPath}/${file.name}`;
 
-    return response;
+  try {
+    const awsData = await getAWSsignedUrl(path, file.type, accessToken);
+    const signedUrl = awsData?.data?.signedUrl;
+    const res = await uploadImageToS3(signedUrl, file.uri, file);
+    console.log('res', res);
+    return res;
   } catch (error) {
     console.log(error);
   }
@@ -48,7 +31,7 @@ export const uploadImageToBucket = async (uri, keyPath, accessToken) => {
 const getAWSsignedUrl = async (path, fileMimeType, accessToken) => {
   try {
     const response = await fetch(`${BASE_URL}/api/v1/s3`, {
-      method: 'GET', // Specify the method
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
@@ -60,15 +43,32 @@ const getAWSsignedUrl = async (path, fileMimeType, accessToken) => {
       }),
     });
 
-    console.log('response', response);
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok'); // Handle errors
-    }
-
     const data = await response.json(); // Parse the JSON response
     return data;
   } catch (error) {
     console.error(error); // Handle the error as needed
+  }
+};
+
+const uploadImageToS3 = async (signedUrl, imageType, file) => {
+  try {
+    var myHeaders = new Headers();
+    myHeaders.append('Content-Type', imageType);
+
+    const requestOptions = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: file,
+      redirect: 'follow',
+    };
+
+    const response = await fetch(signedUrl, requestOptions);
+
+    if (response.ok) {
+      const uploadedUrl = signedUrl.split('?X-Amz-Algorithm')[0];
+      return uploadedUrl;
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
